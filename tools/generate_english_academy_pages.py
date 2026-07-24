@@ -211,7 +211,7 @@ def local_page(row: dict[str, str], idx: int, rep_image: str, all_rows: list[dic
     breadcrumb_id = f"{canonical}#breadcrumb"
     faq_id = f"{canonical}#faq"
     rep_root = "/" + rep_image.replace("\\", "/")
-    center_img = "assets/centers/common/seoul6839.jpg" if region == "서울" else "assets/centers/common/local6839.jpg"
+    center_img = "assets/centers/common/seoul6839.webp" if region == "서울" else "assets/centers/common/local6839.webp"
     map_img = find_map(row)
 
     elementary_schools = split_items(row.get("타깃학교\n(초)", ""))

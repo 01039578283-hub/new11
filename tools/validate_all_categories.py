@@ -6,7 +6,7 @@ from collections import Counter
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parents[1]
-CATEGORIES = ["수학학원", "영어학원"]
+CATEGORIES = ["수학학원", "영어학원", "영수학원"]
 
 report_lines: list[str] = []
 

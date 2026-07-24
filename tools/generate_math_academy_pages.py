@@ -22,6 +22,7 @@ PUBLISH_DATE = "2026-07-04"
 ALL_CATEGORIES: list[tuple[str, str]] = [
     ("수학학원", "학년별 연산·개념·서술형 관리 지역별 안내"),
     ("영어학원", "학년별 어휘·문법·독해 관리 지역별 안내"),
+    ("영수학원", "영어와 수학을 함께 점검하는 통합 학습관리 안내"),
 ]
 
 
@@ -194,7 +195,7 @@ def find_map(row: dict[str, str]) -> str:
             p = maps_dir / f"{base}{ext}"
             if p.exists():
                 return f"assets/maps/{p.name}"
-    return "assets/centers/common/local6839.jpg"
+    return "assets/centers/common/local6839.webp"
 
 
 def choose_rep_images(rows: list[dict[str, str]]) -> list[str]:
@@ -469,7 +470,7 @@ def local_page(row: dict[str, str], idx: int, rep_image: str, all_rows: list[dic
     breadcrumb_id = f"{canonical}#breadcrumb"
     faq_id = f"{canonical}#faq"
     rep_root = "/" + rep_image.replace("\\", "/")
-    center_img = "assets/centers/common/seoul6839.jpg" if region == "서울" else "assets/centers/common/local6839.jpg"
+    center_img = "assets/centers/common/seoul6839.webp" if region == "서울" else "assets/centers/common/local6839.webp"
     map_img = find_map(row)
 
     elementary_schools = split_items(row.get("타깃학교\n(초)", ""))
