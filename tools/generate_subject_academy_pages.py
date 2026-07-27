@@ -2072,13 +2072,7 @@ def local_page(
     <section class="section subject-media-section" aria-label="{esc(title)} 이미지 안내">
       <img class="subject-hidden-representative" src="{esc(rep)}" alt="{esc(title)} {SITE_NAME} 대표" style="display:none;">
       <div class="subject-media-stack">
-        <details class="subject-long-media">
-          <summary>
-            <span class="subject-long-media-copy"><span>학습관리 안내</span><strong>{esc(local)} 수업 안내 이미지</strong><small>세부 안내가 긴 이미지입니다. 필요한 경우 펼쳐서 확인해 주세요.</small></span>
-            <span class="subject-long-media-action" aria-hidden="true"></span>
-          </summary>
-          <figure class="frame"><img src="{center_image}" alt="{esc(title)} {SITE_NAME} 본문" width="918" height="16116" loading="lazy"><figcaption>{esc(local)} 학습관리 안내</figcaption></figure>
-        </details>
+        <figure class="subject-long-media frame"><img src="{center_image}" alt="{esc(title)} {SITE_NAME} 본문" width="918" height="16116" loading="lazy"><figcaption>{esc(local)} 학습관리 안내</figcaption></figure>
         <figure class="subject-map-frame frame"><img src="{map_image}" alt="{esc(title)} {SITE_NAME} 지도" width="{map_width}" height="{map_height}" loading="lazy"><figcaption>{esc(center)} 위치 안내</figcaption></figure>
       </div>
     </section>

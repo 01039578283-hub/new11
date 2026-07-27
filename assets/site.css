@@ -1572,6 +1572,7 @@ img {
 }
 
 .subject-long-media {
+  margin: 0;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
@@ -1579,84 +1580,8 @@ img {
   box-shadow: var(--shadow-sm);
 }
 
-.subject-long-media summary {
-  min-height: 96px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  cursor: pointer;
-  list-style: none;
-}
-
-.subject-long-media summary::-webkit-details-marker {
-  display: none;
-}
-
-.subject-long-media summary::marker {
-  content: "";
-}
-
-.subject-long-media-copy {
-  min-width: 0;
-  display: grid;
-  gap: 4px;
-}
-
-.subject-long-media-copy span {
-  color: var(--coral-deep);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
-.subject-long-media-copy strong {
-  color: var(--ink);
-  font-family: var(--serif);
-  font-size: 1rem;
-  line-height: 1.45;
-}
-
-.subject-long-media-copy small {
-  color: var(--ink-soft);
-  font-size: 0.76rem;
-  line-height: 1.55;
-}
-
-.subject-long-media-action {
-  min-width: 76px;
-  min-height: 40px;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: var(--emerald-pale);
-  color: var(--emerald-deep);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 0.74rem;
-  font-weight: 800;
-}
-
-.subject-long-media-action::after {
-  content: "펼쳐보기";
-}
-
-.subject-long-media[open] .subject-long-media-action::after {
-  content: "접기";
-}
-
-.subject-long-media[open] summary {
-  border-bottom: 1px solid var(--line);
-}
-
-.subject-long-media .frame {
-  border: 0;
-  border-radius: 0;
-}
-
-.subject-long-media .frame img {
+.subject-long-media img {
+  display: block;
   width: 100%;
   height: auto;
 }
@@ -1871,22 +1796,6 @@ summary:focus-visible {
     gap: 6px;
   }
 
-  .subject-long-media summary {
-    min-height: 0;
-    padding: 17px 16px;
-    align-items: flex-start;
-  }
-
-  .subject-long-media-copy small {
-    max-width: 230px;
-  }
-
-  .subject-long-media-action {
-    min-width: 66px;
-    min-height: 38px;
-    padding: 0 11px;
-    font-size: 0.7rem;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
