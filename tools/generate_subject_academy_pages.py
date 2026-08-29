@@ -12,6 +12,11 @@ from pathlib import Path
 
 from PIL import Image
 
+try:
+    from add_subject_anchor_tocs import enhance_detail_html
+except ModuleNotFoundError:  # Supports module-style execution from the site root.
+    from tools.add_subject_anchor_tocs import enhance_detail_html
+
 SITE = Path(__file__).resolve().parents[1]
 COMMON = SITE.parent / "참고자료" / "공통자료"
 USED_DRAFTS = SITE.parent / "참고자료" / "사용한 원고" / "온담학습.com 추가 원고"
@@ -2110,7 +2115,9 @@ def local_page(
     </section>
   </main>
 {footer()}'''
-    return shell(head_html(title, description, canonical, rep, graph), body)
+    return enhance_detail_html(
+        shell(head_html(title, description, canonical, rep, graph), body)
+    )
 
 
 def region_directory(rows: list[dict[str, str]], category: str, config: dict[str, str]) -> str:
