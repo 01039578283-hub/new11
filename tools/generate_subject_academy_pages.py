@@ -53,6 +53,18 @@ CONFIGS = {
         "publish_date": "2026-09-03",
         "modified_date": "2026-09-03",
     },
+    "중등수학학원": {
+        "zip": "중등 수학학원.zip",
+        "archive_prefix": "중등 수학학원/",
+        "label": "중등 수학학원",
+        "grade": "중학생",
+        "subject": "수학",
+        "school_field": "타깃학교\n(중)",
+        "grade_field": "가능학년\n(수학)",
+        "national_category": "수학학원",
+        "publish_date": "2026-09-03",
+        "modified_date": "2026-09-03",
+    },
     "초4수학학원": {
         "zip": "초4 수학학원.zip",
         "label": "초4 수학학원",
@@ -228,6 +240,16 @@ LEARNING_PROFILES = {
         "문제를 많이 풀어도 틀린 이유와 재풀이 시점을 기록하지 않는 경우",
         "시험 직전에 학습량을 몰아 평소 개념 복습 간격이 길어지는 경우",
     ),
+    "중등수학학원": (
+        "정수·유리수 계산에서 부호와 연산 순서 실수가 반복되는 경우",
+        "문제의 조건을 문자와 식으로 옮기는 단계에서 자주 멈추는 경우",
+        "개념은 설명하지만 기본 문제와 변형 문제에 적용하는 순서가 흔들리는 경우",
+        "함수와 그래프에서 좌표·변화 관계를 함께 읽기 어려운 경우",
+        "도형 문제에서 주어진 조건과 풀이 근거를 빠뜨리는 경우",
+        "서술형 답은 맞아도 식을 세운 이유와 검산 과정을 설명하지 못하는 경우",
+        "시험 전에는 오래 공부하지만 평소 오답 복습 간격이 불규칙한 경우",
+        "새 단원을 시작하면 앞 단원의 핵심 개념을 연결하지 못하는 경우",
+    ),
     "중1수학학원": (
         "정수와 유리수 계산에서 부호 실수가 반복되는 경우",
         "문자와 식의 뜻은 알지만 식을 세우는 단계에서 멈추는 경우",
@@ -310,13 +332,64 @@ LEARNING_PROFILES = {
     ),
 }
 
+MIDDLE_MATH_PROFILE_VARIANTS = {
+    "정수·유리수 계산에서 부호와 연산 순서 실수가 반복되는 경우": (
+        "정수와 유리수의 혼합 계산에서 음수 부호를 자주 놓치는 경우",
+        "괄호가 포함된 유리수 식에서 계산 순서를 혼동하는 경우",
+        "계산 과정을 줄여 쓰다가 중간 부호가 달라지는 경우",
+        "정수 계산은 이해하지만 여러 연산이 섞이면 정확도가 흔들리는 경우",
+    ),
+    "문제의 조건을 문자와 식으로 옮기는 단계에서 자주 멈추는 경우": (
+        "문장 속 수량 관계를 문자식으로 나타내는 데 시간이 오래 걸리는 경우",
+        "문제에서 주어진 조건을 골라도 식으로 연결하지 못하는 경우",
+        "문자의 뜻은 알지만 등식이나 부등식으로 표현하기 어려운 경우",
+        "풀이를 시작할 때 어떤 값을 미지수로 둘지 결정하지 못하는 경우",
+    ),
+    "개념은 설명하지만 기본 문제와 변형 문제에 적용하는 순서가 흔들리는 경우": (
+        "개념 설명 뒤 기본 유형은 풀어도 조건이 바뀌면 접근이 멈추는 경우",
+        "예제 풀이를 이해한 뒤 비슷한 문제를 혼자 해결하기 어려운 경우",
+        "공식은 기억하지만 문제 상황에 맞는 적용 순서를 정하지 못하는 경우",
+        "기본 문제의 풀이를 변형 문제로 확장하는 과정이 불안정한 경우",
+    ),
+    "함수와 그래프에서 좌표·변화 관계를 함께 읽기 어려운 경우": (
+        "함수식과 좌표를 대응시키지만 그래프의 변화는 해석하기 어려운 경우",
+        "그래프에서 증가·감소 구간과 좌표의 의미를 함께 읽지 못하는 경우",
+        "표·식·그래프 사이의 관계를 옮기는 과정에서 자주 멈추는 경우",
+        "함수 문제에서 주어진 점과 변화량을 연결하기 어려운 경우",
+    ),
+    "도형 문제에서 주어진 조건과 풀이 근거를 빠뜨리는 경우": (
+        "도형의 조건을 표시하지 않아 풀이 근거가 빠지는 경우",
+        "그림에 주어진 길이와 각을 식에 연결하지 못하는 경우",
+        "도형 성질은 외웠지만 어떤 조건을 써야 할지 고르기 어려운 경우",
+        "증명이나 서술형 도형 문제에서 근거 순서를 생략하는 경우",
+    ),
+    "서술형 답은 맞아도 식을 세운 이유와 검산 과정을 설명하지 못하는 경우": (
+        "정답은 맞지만 식을 세운 이유를 말로 설명하지 못하는 경우",
+        "풀이 과정은 적어도 마지막 검산 기준이 일정하지 않은 경우",
+        "서술형 답안에서 계산 과정과 결론의 연결이 빠지는 경우",
+        "답을 구한 뒤 다른 방법으로 확인하는 습관이 부족한 경우",
+    ),
+    "시험 전에는 오래 공부하지만 평소 오답 복습 간격이 불규칙한 경우": (
+        "시험 직전 학습량은 늘지만 평소 재풀이 간격이 긴 경우",
+        "오답을 고친 뒤 며칠 후 다시 확인하는 일정이 없는 경우",
+        "평소 복습 기록이 끊겨 시험 전에 같은 문제를 다시 틀리는 경우",
+        "학습 시간은 확보해도 오답을 되짚는 주기가 일정하지 않은 경우",
+    ),
+    "새 단원을 시작하면 앞 단원의 핵심 개념을 연결하지 못하는 경우": (
+        "새 단원을 배울 때 앞선 개념을 어디에 써야 하는지 연결하지 못하는 경우",
+        "현재 단원의 풀이에 필요한 이전 계산법을 떠올리기 어려운 경우",
+        "진도는 따라가지만 앞 단원의 핵심 정의가 함께 흔들리는 경우",
+        "다음 단원으로 넘어간 뒤 이전 오답이 다시 나타나는 경우",
+    ),
+}
+
 
 LEARNING_ACTIONS = {
     "수학": (
         "풀이 첫 줄과 마지막 검산을 함께 확인합니다",
-        "틀린 문제를 계산·개념·조건 해석으로 나누어 기록합니다",
+        "틀린 원인을 계산·개념·조건 해석으로 구분합니다",
         "같은 유형을 일정 간격 뒤 다시 풀어 이해가 남았는지 봅니다",
-        "학교 진도와 현재 약점의 순서를 나누어 주간 계획을 세웁니다",
+        "학교 진도와 현재 약점의 우선순위를 정해 주간 계획을 세웁니다",
         "정답 수보다 풀이 과정을 말로 설명할 수 있는지 확인합니다",
         "과제량을 늘리기 전에 미완료 원인과 소요 시간을 먼저 봅니다",
         "기본 유형과 서술형을 분리해 보완 순서를 정합니다",
@@ -398,6 +471,12 @@ def normalize_particles(value: str) -> str:
 
 def clean_text(value: str) -> str:
     value = value.replace("\ufeff", "").replace("내신성적와", "내신성적과")
+    value = re.sub(
+        r"직접 점검할 필요가 있고,\s*##\s+",
+        "직접 점검할 필요가 있습니다.\n\n## ",
+        value,
+    )
+    value = re.sub(r"(?<!\n)\s*##\s+", "\n\n## ", value)
     value = (
         value.replace("점를", "점을")
         .replace("학원와", "학원과")
@@ -440,6 +519,10 @@ def clean_text(value: str) -> str:
     # 마지막 음절은 항상 ``관리``이므로 조사는 아래 형태로 확정할 수 있습니다.
     value = value.replace("관리은", "관리는").replace("관리이", "관리가").replace("관리을", "관리를")
     value = value.replace("학원 이 안내에서는", "학원 안내에서는").replace("학원 이 안내에서", "학원 안내에서")
+    value = value.replace("학원 주소의 입력값은", "확인된 센터 주소는")
+    value = value.replace("세부 소재", "추가 확인 항목")
+    value = value.replace("가정에서는 중등 수학에서는", "중등 수학에서는")
+    value = re.sub(r"학부모라면\s+학부모(?:의|가|는)\s+", "학부모라면 ", value)
     # 일부 앞쪽 치환 결과가 뒤쪽의 제작 표현을 만들 수 있어 두 번만 안정적으로 정규화합니다.
     for _ in range(2):
         for before, after in EDITORIAL_REPLACEMENTS:
@@ -466,7 +549,12 @@ def clean_text(value: str) -> str:
     value = re.sub(r"성적 (?:상승|향상|결과)을 보장하지 (?:않습니다|않는 안내입니다)", "학생마다 학습 속도와 결과가 다를 수 있습니다", value)
     value = value.replace("함께 요청하는 것을 함께 고려", "함께 요청하는 방안을 고려")
     value = re.sub(r"\s*;\s*", ". ", value)
-    value = re.sub(r"합니다,\s*(?=[가-힣])", "합니다. ", value)
+    value = re.sub(
+        r"(합니다|습니다|됩니다|입니다),\s*(?=[가-힣])",
+        r"\1. ",
+        value,
+    )
+    value = re.sub(r",(?=[가-힣])", ", ", value)
     value = normalize_particles(value)
     value = value.replace("1공구 학원이.", "1공구 학원가.")
     for repeated in ("관리", "상담", "수업", "학습", "학생", "안내"):
@@ -512,6 +600,621 @@ def clean_text(value: str) -> str:
         value,
     )
     value = re.sub(r"\b충청\s+(?=(?:청주|충주)시\b)", "충북 ", value)
+    value = value.replace("확인할 수 있는지 확인해 보세요", "확인해 보세요")
+    value = value.replace("방법도 있다는 점도", "방법이 있는지도")
+    value = value.replace("다음으로 이때", "이때")
+    value = value.replace("경우라는 상황에는", "상황이라면")
+    value = value.replace("경우라는 고민", "상황")
+    value = value.replace(
+        "흐름이 필요하다는 사실을 기준으로 삼아야 합니다",
+        "흐름이 필요합니다",
+    )
+    value = value.replace(
+        "의미가 달라지는지를 기록해 둘 수 있습니다",
+        "차이를 확인할 수 있습니다",
+    )
+    value = value.replace(
+        "막힌 단계로 돌아갈 수 있는 편이 좋습니다",
+        "필요하면 막힌 단계로 돌아가는 편이 좋습니다",
+    )
+    value = value.replace(
+        "막힌 단계로 돌아갈 수 있을 필요가 있습니다",
+        "필요하면 막힌 단계로 돌아가야 합니다",
+    )
+    value = value.replace(
+        "준비할 수 있도록 준비할 필요가 있습니다",
+        "준비해 두는 편이 좋습니다",
+    )
+    value = value.replace("답변을 기록한 뒤 기록해 두세요", "답변을 기록해 두세요")
+    value = value.replace("상담 전에는 상담 뒤에는", "상담 뒤에는")
+    value = value.replace("흐름이 필요가 있습니다", "흐름이 필요합니다")
+    value = value.replace("질문하면 되는지를 질문해 볼 수 있습니다", "질문해 볼 수 있습니다")
+    value = value.replace("옮겨도 될 수 있습니다", "옮길 수 있습니다")
+    value = value.replace("우선 그다음", "그다음")
+    value = value.replace("질문할 수 있는지 확인해 보세요", "질문해 보세요")
+    value = value.replace("결정 전에는 상담 뒤에는", "상담 뒤에는")
+    value = value.replace("그다음 이 상태", "그다음에는 이 상태")
+    value = value.replace("질문하면 될 수 있습니다", "질문할 수 있습니다")
+    value = value.replace(
+        "질문하면 된다는 점도 함께 보아야 합니다",
+        "질문해 보세요",
+    )
+    question_style_replacements = {
+        "질문하는 편이 구체적이라고 볼 수 있습니다": "구체적인 질문을 준비하는 편이 좋습니다",
+        "질문하는 편이 구체적이라는 사실을 먼저 확인해야 합니다": "질문을 구체적으로 준비해야 합니다",
+        "질문하는 편이 구체적이라는 점을 기억해야 합니다": "질문을 구체적으로 준비하는 것이 좋습니다",
+        "질문하는 편이 구체적입니다": "구체적으로 질문하는 편이 좋습니다",
+        "질문하는 편이 구체적이라는 점도 함께 살펴야 합니다": "질문을 구체적으로 준비하는 편이 좋습니다",
+        "질문하는 편이 구체적이라는 사실을 분명히 구분해야 합니다": "막연한 기대와 구체적인 질문을 구분해야 합니다",
+        "질문하는 편이 구체적이라는 사실을 판단의 출발점으로 삼아야 합니다": "질문을 구체적으로 준비하는 것을 판단의 출발점으로 삼아야 합니다",
+        "질문하는 편이 구체적이라는 점을 기록해 둘 수 있습니다": "구체적으로 물을 항목을 기록해 둘 수 있습니다",
+        "질문하는 편이 구체적이라는 점을 기준으로 삼을 수 있습니다": "질문의 구체성을 비교 기준으로 삼을 수 있습니다",
+        "질문하는 편이 구체적이라는 점을 상담 전에 확인하세요": "질문할 항목을 상담 전에 구체적으로 정리하세요",
+        "질문하는 편이 구체적이며": "질문을 구체적으로 준비하고",
+    }
+    for before, after in question_style_replacements.items():
+        value = value.replace(before, after)
+    value = value.replace(
+        "된다는 사실을 기준으로 삼을 수 있습니다",
+        "되는지 확인할 수 있습니다",
+    )
+    value = value.replace(
+        "확인할 수 있도록 준비할 필요가 있습니다",
+        "확인해 두는 편이 좋습니다",
+    )
+    value = value.replace("질문할 수 있도록 질문을 정리해 보세요", "질문해 보세요")
+    value = value.replace("확인할 수 있도록 질문을 정리해 보세요", "확인해 보세요")
+    value = value.replace("나눌 수 있도록 질문을 정리해 보세요", "나누어 보세요")
+    value = value.replace("나눌 수 있도록 순서를 정해 보세요", "순서대로 나누어 보세요")
+    value = value.replace("나눌 수 있도록 준비할 필요가 있습니다", "나누어 보는 편이 좋습니다")
+    value = value.replace("상담 전에는 현재 상태에는", "현재 상태 칸에는")
+    value = value.replace("상황에 따라 예를 들어", "예를 들어")
+    value = value.replace("구체적으로는 이때", "이때")
+    value = value.replace("다만 필요하다면", "필요하다면")
+    value = value.replace("답변을 기록하며 질문을 정리하세요", "답변을 기록하세요")
+    value = value.replace("방법도 있는지를 질문해 볼 수 있습니다", "방법이 있는지 질문해 볼 수 있습니다")
+    value = value.replace("가정에서는 상담 뒤에는", "상담 뒤에는")
+    value = value.replace("예를 들면 필요하다면", "필요하다면")
+    value = value.replace("필요한 경우 그다음에는", "그다음에는")
+    value = value.replace("현실적으로 그다음에는", "그다음에는")
+    value = value.replace("결국 그다음에는", "그다음에는")
+    value = value.replace("정리하면 이때", "이때")
+    value = value.replace("필요하면 이때", "이때")
+    value = value.replace("구체적으로는 가정에서는", "가정에서는")
+    value = value.replace("이와 함께", "또한")
+    value = value.replace(
+        "학생 상태에 맞게 적용해 보세요",
+        "확인해 보세요",
+    )
+    value = value.replace(
+        "질문할 수 있는 조건을 확인해 보세요",
+        "질문해 보세요",
+    )
+    value = value.replace(
+        "준비할 수 있는 조건을 확인해 보세요",
+        "준비해 보세요",
+    )
+    value = re.sub(
+        r"방법도 있다는 점[^.!?]*[.!?]",
+        "방법도 좋습니다.",
+        value,
+    )
+    value = value.replace(
+        "수 있다는 점을 함께 살펴야 합니다",
+        "수 있는지 살펴보세요",
+    )
+    value = value.replace(
+        "준비할 수 있도록 질문을 정리해 보세요",
+        "준비해 보세요",
+    )
+    value = value.replace(
+        "정할 수 있도록 질문을 정리해 보세요",
+        "정해 보세요",
+    )
+    value = value.replace("실제 계획은", "첫 계획에서는")
+    value = value.replace("설명 뒤 독립 작성한 풀이", "설명 뒤 혼자 푼 풀이")
+    value = value.replace("왜 그 작성한 풀이", "왜 그 풀이")
+    value = value.replace(
+        "상담에서 확인할 우선순위는 점수표 하나가 아니라 최근 과제와 오답에서 반복된 장면을 근거로 살펴봅니다",
+        "상담에서는 점수표 하나보다 최근 과제와 오답에서 반복된 장면을 먼저 살펴봅니다",
+    )
+    value = value.replace("구체적으로는 부족한 부분은", "부족한 부분은")
+    value = value.replace(
+        "눈으로 확인할 수 있는 항목을 정할 수",
+        "눈으로 확인할 항목을 정할 수",
+    )
+    value = value.replace(
+        "상담 자료가 되는 흐름을 확인해 보세요",
+        "상담 자료로 활용해 보세요",
+    )
+    value = value.replace(
+        "상담 자료가 되는지 확인할 수 있습니다",
+        "상담 자료로 활용할 수 있습니다",
+    )
+    value = value.replace(
+        "옮겨도 되는 흐름을 확인해 보세요",
+        "옮겨 보세요",
+    )
+    value = value.replace(
+        "옮겨도 되는 과정을 살펴보는 것이 좋습니다",
+        "옮겨 보는 편이 좋습니다",
+    )
+    value = value.replace(
+        "이해 확인은 어떤 질문으로 이루어지는지도 상담 항목이 되는 과정을 살펴보는 것이 좋습니다",
+        "이해 여부를 어떤 질문으로 확인하는지도 상담에서 살펴보세요",
+    )
+    value = value.replace("확인할 수 있으니 확인해 보세요", "확인해 보세요")
+    value = value.replace("질문할 수 있으니 확인해 보세요", "질문해 보세요")
+    value = value.replace("준비할 수 있으니 확인해 보세요", "준비해 보세요")
+    value = value.replace("나눌 수 있으니 확인해 보세요", "나누어 보세요")
+    value = value.replace("정할 수 있으니 확인해 보세요", "정해 보세요")
+    value = value.replace(
+        "확인할 수 있도록 순서를 정해 보세요",
+        "확인할 순서를 정해 보세요",
+    )
+    value = value.replace(
+        "질문할 수 있도록 순서를 정해 보세요",
+        "질문할 순서를 정해 보세요",
+    )
+    value = value.replace(
+        "준비할 수 있도록 순서를 정해 보세요",
+        "준비해 보세요",
+    )
+    value = value.replace(
+        "정할 수 있도록 순서를 정해 보세요",
+        "정해 보세요",
+    )
+    value = value.replace("구체적으로는 학습 방향은", "학습 방향은")
+    value = value.replace("작성한 풀이를 멈춘 순간", "풀이를 멈춘 순간")
+    value = value.replace("봉담2기본적으로", "기본적으로")
+    value = value.replace(
+        "확인할 질문으로 옮겨도 되는지를 질문해 볼 수 있습니다",
+        "확인할 질문으로 옮겨 보세요",
+    )
+    value = value.replace("기록해 두세요, 기본적으로", "기록해 두세요. 기본적으로")
+    value = value.replace(
+        "의미가 달라지는 과정을 살펴보는 것이 좋습니다",
+        "차이를 살펴보는 편이 좋습니다",
+    )
+    value = value.replace(
+        "의미가 달라지도록 기준을 세워야 합니다",
+        "차이를 판단할 기준을 세워야 합니다",
+    )
+    value = value.replace(
+        "흐름이 필요한지 확인해 보아야 합니다",
+        "흐름이 이어지는지 확인해야 합니다",
+    )
+    value = value.replace(
+        "분리해 적게 하는 방법이 있는지 질문해 볼 수 있습니다",
+        "분리해 적는 것도 좋습니다",
+    )
+    value = value.replace("차이가 무엇인지 확인해야 합니다", "차이를 확인해야 합니다")
+    value = value.replace("구체적으로는 상담에서는", "상담에서는")
+    value = value.replace("구체적으로는 상담할 때에는", "구체적으로 상담할 때는")
+    value = value.replace(
+        "상담 자료가 되는지를 질문해 볼 수 있고,",
+        "상담 자료로 활용할 수 있습니다.",
+    )
+    value = value.replace(
+        "상담 자료가 되는지를 질문해 볼 수 있습니다",
+        "상담 자료로 활용할 수 있습니다",
+    )
+    value = value.replace(
+        "더 중요한 판단 기준이라는 점을 기준으로 삼을 수 있습니다",
+        "더 중요한 판단 기준입니다",
+    )
+    value = value.replace(
+        "상담 항목이 되는지를 질문해 볼 수 있습니다",
+        "상담에서 질문해 보세요",
+    )
+    value = value.replace("비교할 때에는 진단을 요청할 때에는", "진단을 요청할 때에는")
+    value = value.replace(
+        "확인할 질문으로 옮겨도 되는지 확인할 수 있습니다",
+        "확인할 질문으로 옮겨 적어 두세요",
+    )
+    value = value.replace("직접 확인하는 기준을 세워야 합니다", "직접 확인해야 합니다")
+    value = value.replace(
+        "서로 다른 칸에 두고 세울 수 있는 조건을 확인해 보세요",
+        "서로 다른 칸에 나누어 세워 보세요",
+    )
+    value = value.replace(
+        "관리의 범위도 분명해지는지를 기록해 둘 수 있습니다",
+        "관리 범위도 분명해집니다",
+    )
+    value = value.replace(
+        "관찰해 상담 질문으로 옮길 수 있는지 확인해 보세요",
+        "관찰한 내용을 상담 질문으로 옮겨 보세요",
+    )
+    value = value.replace(
+        "관찰해 상담 질문으로 옮길 수 있다는 점도 중요합니다",
+        "관찰한 내용을 상담 질문으로 옮겨 보세요",
+    )
+    value = re.sub(
+        r"관찰해 상담 질문으로 옮길 (?:수도 있습니다|수 있습니다|수 있으니 확인해 보세요|"
+        r"수 있도록 준비할 필요가 있습니다|수 있게 기준을 세워 보세요|"
+        r"수 있는지 살펴보세요|수 있다는 점을 참고하세요)",
+        "관찰한 내용을 상담 질문으로 정리해 보세요",
+        value,
+    )
+    value = value.replace(
+        "관찰한 내용을 상담 질문으로 옮겨 보세요",
+        "관찰한 내용을 상담 질문으로 정리해 보세요",
+    )
+    value = value.replace("차례대로 예를 들어", "예를 들어")
+    value = value.replace("대체로 예를 들어", "예를 들어")
+    value = value.replace(
+        "완료한 분량과 남은 질문을 분리해 적게 하는 방법도 있는지를 기록해 두는 편이 좋습니다",
+        "완료한 분량과 남은 질문을 분리해 적어 두는 편이 좋습니다",
+    )
+    value = value.replace(
+        "기록하는 편이 좋으며, 간단히 말하면",
+        "기록하는 편이 좋습니다.",
+    )
+    value = value.replace(
+        "점검해 보는 편이 좋으며, 다음으로",
+        "점검해 보세요. 다음으로",
+    )
+    value = re.sub(
+        r"준비할 수 있으니 학생 상태에 맞게 적용해 본 뒤, (?:우선 )?질문은",
+        "준비해 보세요. 질문은",
+        value,
+    )
+    value = value.replace(
+        "상담 자료가 되는지 확인해 볼 필요가 있고,",
+        "상담 자료로 활용할 수 있습니다.",
+    )
+    value = value.replace("차례대로 진단을 요청할 때에는", "진단을 요청할 때에는")
+    value = value.replace("상담 전에는 진단을 요청할 때에는", "진단을 요청할 때에는")
+    value = value.replace(
+        "신청 방법, 준비 자료, 상담 중에는 다루는 범위",
+        "신청 방법, 준비 자료, 상담에서 다룰 범위",
+    )
+    value = value.replace(
+        "확인할 항목을 정할 수 있는지 확인해 보세요",
+        "확인할 항목을 정해 보세요",
+    )
+    value = value.replace(
+        "앞선 진도를 당연히 선택해야 하는 것은 아니며 실제 여부를 따로 확인해야 합니다",
+        "앞선 진도를 서둘러 선택하기보다 학생의 현재 이해를 먼저 확인해야 합니다",
+    )
+    value = value.replace(
+        "앞선 진도를 당연히 선택해야 하는 것은 아니며 결과를 가정해서는 안 됩니다",
+        "앞선 진도를 서둘러 선택하기보다 학생의 현재 이해를 먼저 확인해야 합니다",
+    )
+    value = value.replace(
+        "흐름이 필요하다는 점도 함께 살펴야 합니다",
+        "흐름으로 이어가야 합니다",
+    )
+    value = value.replace(
+        "에 따라 의미가 달라진다는 점도 함께 보아야 하며, 예를 들면",
+        "에 따른 차이를 확인해야 합니다. 예를 들면",
+    )
+    confirmation_order = r"[가-힣 ]{1,20}에서 상담을 준비할 때 확인 순서에 넣습니다"
+    for before, after in (
+        ("더 중요한 판단 기준이며", "더 중요한 판단 기준입니다"),
+        ("편이 좋으며", "편이 좋습니다"),
+        ("것이 좋으며", "것이 좋습니다"),
+        ("직접 점검할 필요가 있고", "직접 점검할 필요가 있습니다"),
+        ("살펴야 하며", "살펴야 합니다"),
+        ("확인해야 하며", "확인해야 합니다"),
+        ("적어 보시기 바라며", "적어 보세요"),
+        ("적어 본 뒤", "적어 보세요"),
+    ):
+        value = re.sub(
+            rf"{re.escape(before)},\s*{confirmation_order}",
+            after,
+            value,
+        )
+    value = re.sub(rf",\s*{confirmation_order}", "", value)
+    value = re.sub(
+        r"(?:차례대로 )?답하기 어려워하면 표시만 남기고 "
+        r"상담(?: 자리에서| 중에는| 중에|에서) 확인할 질문으로 옮겨도 되는지 "
+        r"(?:확인해야 합니다|살펴야 합니다|확인해 볼 필요가 있습니다)",
+        "답하기 어려워하면 표시만 남기고 상담에서 확인할 질문으로 옮겨 적어 두세요",
+        value,
+    )
+    value = re.sub(
+        r"(?:차례대로 )?답하기 어려워하면 표시만 남기고 "
+        r"상담(?: 자리에서| 중에는| 중에|에서) 확인할 질문으로 옮겨도 된다는 점"
+        r"(?:을 참고할 수 있습니다|도 함께 보아야 합니다|을 기록해 둘 수 있습니다)",
+        "답하기 어려워하면 표시만 남기고 상담에서 확인할 질문으로 옮겨 적어 두세요",
+        value,
+    )
+    value = value.replace(
+        "완료한 분량과 남은 질문을 분리해 적게 하는",
+        "완료한 분량과 남은 질문을 분리해 적는",
+    )
+    value = re.sub(
+        r"완료한 분량과 남은 질문을 분리해 적는 방법(?:도|이) [^.!?]*[.!?]",
+        "완료한 분량과 남은 질문을 구분해 기록하세요.",
+        value,
+    )
+    value = re.sub(
+        r"완료한 분량과 남은 질문을 분리해 적게 하는 방법도 [^.!?]*[.!?]",
+        "완료한 분량과 남은 질문을 분리해 적어 보세요.",
+        value,
+    )
+    value = re.sub(
+        r"존재 여부, 이용 대상, 이용 시간이나 조건, 별도 비용 여부, 안전과 관리 기준을 "
+        r"상담(?: 중에는| 자리에서|에서) [^.!?]*[.!?]",
+        "상담에서 확인하려는 항목은 제공 여부, 이용 대상, 이용 시간·조건, 별도 비용, 안전·관리 기준입니다.",
+        value,
+    )
+    value = value.replace("그다음 주소만 보고", "주소만 보고")
+    value = value.replace("질문할 수 있는지 살펴보세요", "질문해 보세요")
+    value = value.replace("확인할 수 있는지 살펴보세요", "확인해 보세요")
+    value = value.replace("확인할 수 있다는 점을 참고하세요", "확인해 보세요")
+    value = re.sub(
+        r"각 항목의 현재 기준, 변경 가능성, 안내 방식, 추가 조건을 "
+        r"(상담(?: 중에는| 자리에서|에서)) 직접 점검할 필요가 있는지를 "
+        r"기록해 두는 편이 좋습니다",
+        r"각 항목의 현재 기준, 변경 가능성, 안내 방식, 추가 조건을 \1 직접 점검해 기록해 두세요",
+        value,
+    )
+    value = re.sub(
+        r"관리 방식도 숙제 완료 여부만 보는지, ([^,.]{2,40})의 원인과 재시도까지 "
+        r"확인하는지에 따라 의미가 달라지는지 살펴야 합니다",
+        r"관리 방식이 숙제 완료 여부만 보는지, \1의 원인과 재시도까지 확인하는지에 따른 차이를 살펴야 합니다",
+        value,
+    )
+    value = re.sub(
+        r"관리 방식도 숙제 완료 여부만 보는지, ([^,.]{2,40})의 원인과 재시도까지 "
+        r"확인하는지에 따라 의미가 달라지는지 살펴야 하며",
+        r"관리 방식이 숙제 완료 여부만 보는지, \1의 원인과 재시도까지 확인하는지에 따른 차이를 살펴야 하며",
+        value,
+    )
+    value = value.replace(
+        "완료한 분량과 남은 질문을 분리해 적게 하는 방법도 있음을 기억해 둘 필요가 있습니다",
+        "완료한 분량과 남은 질문을 분리해 적어 보세요",
+    )
+    value = value.replace(
+        "완료한 분량과 남은 질문을 분리해 적게 하는 방법이 있는지도 함께 확인해야 합니다",
+        "완료한 분량과 남은 질문을 분리해 적어 보세요",
+    )
+    value = value.replace("그다음에는 이 상태를", "그다음에는 확인한 내용을")
+    value = value.replace(
+        "눈으로 확인할 수 있는 항목을 구체적인 항목을 정해 보세요",
+        "눈으로 확인할 수 있는 구체적인 항목을 정해 보세요",
+    )
+    value = value.replace(
+        "관리의 범위도 분명해질 수 있으므로 주의 깊게 살펴야 합니다",
+        "관리 범위도 분명해집니다",
+    )
+    value = value.replace(
+        "관리의 범위도 분명해지는 과정을 살펴보는 것이 좋습니다",
+        "관리 범위도 분명해집니다",
+    )
+    value = value.replace("정리해 보며 질문을 정리하세요", "질문을 정리해 보세요")
+    value = value.replace("먼저 과제량을 늘리기 전에", "과제량을 늘리기 전에")
+    value = value.replace(
+        "필요하면 각 단계를 모두 같은 날 끝내려 하기보다 필요하면",
+        "각 단계를 모두 같은 날 끝내려 하기보다, 필요하면",
+    )
+    value = re.sub(
+        r"관리의 범위도 분명해질 수 (?:있는 조건을 확인해야 합니다|있다는 점을 참고하세요|있습니다)",
+        "관리 범위도 분명해집니다",
+        value,
+    )
+    value = value.replace(
+        "에 따라 의미가 달라질 수 있는 조건을 확인해야 하며",
+        "에 따른 차이를 확인해야 하며",
+    )
+    value = value.replace(
+        "에 따라 의미가 달라지는 과정을 살펴보는 것이 좋습니다",
+        "에 따른 차이를 살펴보는 편이 좋습니다",
+    )
+    value = value.replace(
+        "에 따라 의미가 달라지는 과정을 살펴보는 것이 좋으며",
+        "에 따른 차이를 살펴봐야 하며",
+    )
+    value = value.replace(
+        "에 따라 의미가 달라지도록 기준을 세워야 합니다",
+        "에 따른 차이를 판단할 기준을 세워야 합니다",
+    )
+    value = value.replace(
+        "에 따라 의미가 달라지도록 기준을 세워야 하며",
+        "에 따른 차이를 판단할 기준을 세워야 하며",
+    )
+    value = value.replace(
+        "우선순위는 같은 유형을",
+        "먼저 같은 유형을",
+    )
+    value = value.replace(
+        "우선순위는 과제량을",
+        "먼저 과제량을",
+    )
+    value = value.replace(
+        "우선순위는 학교 진도와 현재 약점의 우선순위를",
+        "학교 진도와 현재 약점의 우선순위를",
+    )
+    value = value.replace(
+        "분리해 적게 하는 방법도 좋습니다",
+        "분리해 적는 것도 좋습니다",
+    )
+    value = re.sub(r"\b(CU|cu)(?=맞은편|건물)", r"\1 ", value)
+    value = re.sub(r"건물(?=\d+층)", "건물 ", value)
+    value = value.replace(
+        "점수 변화만 묻기보다 어떤 기록을 바탕으로 상태를 설명하는지 확인하는 편이 구체적이라는 점도 함께 살펴야 합니다",
+        "점수 변화만 묻기보다 어떤 기록을 바탕으로 상태를 설명하는지 구체적으로 확인하세요",
+    )
+    value = value.replace(
+        "점수 변화만 묻기보다 어떤 기록을 바탕으로 상태를 설명하는지 확인하는 편이 구체적이라는 사실을 먼저 확인해야 합니다",
+        "점수 변화만 묻기보다 어떤 기록을 바탕으로 상태를 설명하는지 구체적으로 확인하세요",
+    )
+    value = re.sub(
+        r"점수 변화만 묻기보다 어떤 기록을 바탕으로 상태를 설명하는지 확인하는 편이 구체적[^.!?]*[.!?]",
+        "점수 변화만 묻기보다 어떤 기록을 바탕으로 상태를 설명하는지 구체적으로 확인하세요.",
+        value,
+    )
+    value = value.replace(
+        "상담 답변에서 점검 주기와 기록 방식이 구체적인지 살펴본 뒤 기록해 두세요",
+        "상담 답변의 점검 주기와 기록 방식이 구체적인지 확인해 기록해 두세요",
+    )
+    value = value.replace(
+        "상담에서 확인할 질문으로 옮겨도 되는 흐름을 확인해 보세요",
+        "상담에서 확인할 질문으로 옮겨 보세요",
+    )
+    value = value.replace(
+        "상담 자리에서 확인할 질문으로 옮겨도 되는 흐름을 확인해 보세요",
+        "상담 자리에서 확인할 질문으로 옮겨 보세요",
+    )
+    value = value.replace(
+        "상담 중에 확인할 질문으로 옮겨도 되는 흐름을 확인해 보세요",
+        "상담 중에 확인할 질문으로 옮겨 보세요",
+    )
+    value = value.replace(
+        "상담 자료가 되는 과정을 살펴보는 것이 좋습니다",
+        "상담 자료로 활용하는 편이 좋습니다",
+    )
+    value = value.replace(
+        "의미가 달라질 수 있는 조건을 확인해야 합니다",
+        "차이를 확인해야 합니다",
+    )
+    value = value.replace(
+        "의미가 달라지는지를 기록해 둘 수 있고, 구체적으로는",
+        "차이가 무엇인지 살펴보고,",
+    )
+    value = re.sub(
+        r"상담 자료가 된다는 점[^.!?]*[.!?]",
+        "상담 자료로 활용할 수 있습니다.",
+        value,
+    )
+    value = value.replace(
+        "함께 확인한 뒤 다시 확인하세요",
+        "함께 살펴보세요",
+    )
+    value = value.replace(
+        "물어본 뒤 기록해 두세요",
+        "물어보고 기록해 두세요",
+    )
+    value = value.replace("적어 본 뒤 기록해 두세요", "적어 두세요")
+    value = value.replace(
+        "다음 진도 전에 과제량을 늘리기 전에",
+        "다음 진도 전에",
+    )
+    value = value.replace("상담 전에는 중등 수학에서는", "중등 수학에서는")
+    value = value.replace("비교할 때에는 중등 수학에서는", "중등 수학에서는")
+    value = value.replace("비교할 때에는 상담 뒤에는", "상담 뒤에는")
+    value = value.replace("가정에서는 현재 상태에는", "현재 상태에는")
+    value = value.replace("편이 한 방법입니다", "것도 한 방법입니다")
+    value = value.replace("편이 권할 만합니다", "편이 좋습니다")
+    value = value.replace(
+        "편이 확인 기준으로 쓰기 좋습니다",
+        "편이 좋습니다",
+    )
+    value = value.replace("나누면 한 방법입니다", "나누는 것도 한 방법입니다")
+    value = value.replace("나누면 권할 만합니다", "나누는 편이 좋습니다")
+    value = value.replace(
+        "나누면 확인 기준으로 쓰기 좋습니다",
+        "나누어 확인하는 편이 좋습니다",
+    )
+    value = value.replace("것이 권할 만합니다", "것이 좋습니다")
+    value = value.replace(
+        "것이 확인 기준으로 쓰기 좋습니다",
+        "것이 좋습니다",
+    )
+    value = value.replace("적어 보면서 차이를 확인하세요", "적어 보세요")
+    value = value.replace(
+        "상담에서 확인할 질문으로 옮겨도 될 수 있는 조건을 살펴야 합니다",
+        "상담에서 확인할 질문으로 옮겨 적어 두세요",
+    )
+    value = value.replace(
+        "상담 자리에서 확인할 질문으로 옮겨도 될 수 있는 조건을 살펴야 합니다",
+        "상담 자리에서 확인할 질문으로 옮겨 적어 두세요",
+    )
+    value = value.replace(
+        "상담 중에는 확인할 질문으로 옮겨도 될 수 있는 조건을 살펴야 합니다",
+        "상담 중에 확인할 질문으로 옮겨 적어 두세요",
+    )
+    value = value.replace(
+        "상담 자료가 될 수 있는 조건을 살펴야 합니다",
+        "상담 자료로 활용할 수 있습니다",
+    )
+    value = value.replace(
+        "상담에서 확인할 질문으로 옮겨도 되는 이유를 함께 확인해야 합니다",
+        "상담에서 확인할 질문으로 옮겨 적어 두세요",
+    )
+    value = value.replace(
+        "상담 자리에서 확인할 질문으로 옮겨도 되는 이유를 함께 확인해야 합니다",
+        "상담 자리에서 확인할 질문으로 옮겨 적어 두세요",
+    )
+    value = value.replace(
+        "상담 중에는 확인할 질문으로 옮겨도 되는 이유를 함께 확인해야 합니다",
+        "상담 중에 확인할 질문으로 옮겨 적어 두세요",
+    )
+    value = value.replace(
+        "상담 자료가 되는 이유를 함께 확인해야 합니다",
+        "상담 자료로 활용할 수 있습니다",
+    )
+    value = re.sub(
+        r"혼자 풀 수 있는 범위와 도움을 받아야 하는 범위를 나누는 질문부터 시작[^.!?]*[.!?]",
+        "혼자 풀 수 있는 범위와 도움을 받아야 하는 범위를 나누는 질문부터 시작해 보세요.",
+        value,
+    )
+    value = re.sub(
+        r"그 기록을 바탕으로 기초 확인 범위와 피드백 방법을[^.!?]*[.!?]",
+        "그 기록을 바탕으로 기초 확인 범위와 피드백 방법을 구체적으로 물어보세요.",
+        value,
+    )
+    value = re.sub(
+        r"그다음에는 이 상태를 어떤 방식으로 진단하고 학습 계획에 반영하는지 질문하면[^.!?]*[.!?]",
+        "그다음에는 이 상태를 어떤 방식으로 진단하고 학습 계획에 반영하는지 물어보세요.",
+        value,
+    )
+    value = re.sub(
+        r"그다음에는 확인한 내용을 어떤 방식으로 진단하고 학습 계획에 반영하는지 질문하면[^.!?]*[.!?]",
+        "그다음에는 확인한 내용을 어떤 방식으로 진단하고 학습 계획에 반영하는지 질문해 보세요.",
+        value,
+    )
+    value = value.replace(
+        "의미가 달라지는지를 기록해 둘 수 있고,",
+        "차이를 기록해 두고,",
+    )
+    value = value.replace("비교해 보며 질문을 정리하세요", "질문을 정리해 보세요")
+    value = value.replace(
+        "상담 자료가 된다는 점을 기록해 둘 수 있습니다",
+        "상담 자료로 활용할 수 있습니다",
+    )
+    value = value.replace(
+        "상담 자료가 되는지 확인해 볼 필요가 있습니다",
+        "상담 자료로 활용할 수 있습니다",
+    )
+    value = value.replace(
+        "질문할 수 있으니 학생 상태에 맞게 적용해 보세요",
+        "질문해 보세요",
+    )
+    value = value.replace(
+        "나눌 수 있으니 학생 상태에 맞게 적용해 보세요",
+        "나누어 보세요",
+    )
+    value = re.sub(
+        r"(?:이어\s+)?[가-힣 ]{1,20}\s+상담에서는 이 항목을 별도 질문으로 남깁니다\.\s*",
+        "",
+        value,
+    )
+    value = value.replace(
+        "기초 확인 범위와 피드백 방법을 구체적인 질문을 준비하는 편이 좋습니다",
+        "기초 확인 범위와 피드백 방법을 구체적으로 질문해 보는 편이 좋습니다",
+    )
+    value = re.sub(
+        r"이 안내가 사용하는 지역 범위는 ‘[^’\n]+’이며,\s*"
+        r"핵심 동네 표기는 ‘[^’\n]+’입니다\.\s*"
+        r"확인된 센터 주소는 ‘[^’\n]*’입니다\.?",
+        "",
+        value,
+    )
+    value = value.replace(
+        "중등 수학학원을 찾는 학부모라면 중등 수학학원을 고를 때에는",
+        "중등 수학학원을 찾는 학부모라면",
+    )
+    value = value.replace(
+        "수업을 비교한다면 중등 수학학원을 비교할 때 첫 질문은",
+        "수업을 비교한다면 첫 질문은",
+    )
+    value = value.replace(
+        "중등 수학학원 상담이라면 중등 수학학원을 비교할 때 첫 질문은",
+        "중등 수학학원 상담이라면 첫 질문은",
+    )
     value = re.sub(
         r"(?:[가-힣· ]{2,28}에서는)\s+"
         r"((?:실제 풀이 장면|오답 재풀이 과정|학생의 자기 설명|문제 풀이 과정|"
@@ -524,12 +1227,78 @@ def clean_text(value: str) -> str:
         r"\1",
         value,
     )
+    value = re.sub(
+        r"(?:차례대로 )?답하기 어려워하면 표시만 남기고 "
+        r"상담(?: 자리에서| 중에는| 중에|에서) 확인할 질문으로 옮겨도 "
+        r"(?:되는지 (?:확인해야 합니다|살펴야 합니다|확인해 볼 필요가 있습니다)|"
+        r"된다는 점(?:을 참고할 수 있습니다|도 함께 보아야 합니다|을 기록해 둘 수 있습니다))",
+        "답하기 어려워하면 표시만 남기고 상담에서 확인할 질문으로 옮겨 적어 두세요",
+        value,
+    )
+    value = value.replace(
+        "완료한 분량과 남은 질문을 분리해 적게 하는",
+        "완료한 분량과 남은 질문을 분리해 적는",
+    )
+    # 같은 문단에서 동일한 접속 부사가 기계적으로 되풀이되면 첫 표현만
+    # 남깁니다. 문장 의미와 문단 순서는 바꾸지 않습니다.
+    discourse_markers = (
+        "간단히 말하면",
+        "차례대로",
+        "무엇보다",
+        "현실적으로",
+        "실제로",
+        "다만",
+        "또한",
+        "한편",
+        "기본적으로",
+        "구체적으로",
+        "다음으로",
+        "특히",
+        "이때",
+        "결국",
+        "먼저",
+        "정리하면",
+    )
+    blocks = re.split(r"(\n\s*\n)", value)
+    for block_index in range(0, len(blocks), 2):
+        block = blocks[block_index]
+        if "구체적으로는" in block and "구체적인지" in block:
+            block = block.replace("구체적으로는 ", "", 1)
+        for marker in discourse_markers:
+            if marker == "먼저":
+                pattern = re.compile(r"(?<![가-힣])먼저(?![가-힣])\s*")
+            elif marker == "구체적으로":
+                pattern = re.compile(r"(?<![가-힣])구체적으로(?:는)?(?![가-힣])\s*")
+            else:
+                pattern = re.compile(rf"(^|(?<=[.!?])\s+){re.escape(marker)}\s+")
+            matches = list(pattern.finditer(block))
+            for match in reversed(matches[1:]):
+                prefix = "" if marker in {"먼저", "구체적으로"} else match.group(1)
+                block = block[:match.start()] + prefix + block[match.end():]
+        blocks[block_index] = block
+    value = "".join(blocks)
     value = re.sub(r"\n{3,}", "\n\n", value)
     return value.strip()
 
 
 def normalize_location_description(value: str) -> str:
     """Keep the supplied directions intact while restoring sentence boundaries."""
+    value = re.sub(r"https?://\S+", "", value)
+    value = value.replace("^^~", ". ")
+    location_spacing = {
+        "맞은편또는": "맞은편 또는",
+        "옆에있습니다": "옆에 있습니다",
+        "건물4층": "건물 4층",
+        "첫번째": "첫 번째",
+        "2번출구": "2번 출구",
+        "옆건물": "옆 건물",
+        "CU맞은편": "CU 맞은편",
+        "cu건물3층": "CU 건물 3층",
+        "건물5층": "건물 5층",
+        "1층 용우동,복호두있는 건물": "1층에 용우동과 복호두가 있는 건물",
+    }
+    for before, after in location_spacing.items():
+        value = value.replace(before, after)
     lines = [re.sub(r"\s+", " ", line).strip() for line in value.replace("\r", "").split("\n")]
     lines = [line for line in lines if line]
     for index, line in enumerate(lines):
@@ -544,7 +1313,8 @@ def normalize_location_description(value: str) -> str:
                 lines[index] = line + "."
         elif not re.search(r"[.!?~。]$", line):
             lines[index] = line + "."
-    normalized = " ".join(lines)
+    normalized = " ".join(lines).replace(",.", ".")
+    normalized = re.sub(r",(?=[가-힣])", ", ", normalized)
     normalized = normalized.replace("1공구 학원이.", "")
     normalized = re.sub(r"\s+([,.:;!?])", r"\1", normalized)
     normalized = re.sub(r"\s{2,}", " ", normalized)
@@ -561,6 +1331,94 @@ def stable_index(seed: str, namespace: str, size: int) -> int:
         raise ValueError("size must be positive")
     digest = hashlib.sha256(f"{seed}|{namespace}".encode("utf-8")).digest()
     return int.from_bytes(digest[:8], "big") % size
+
+
+def display_geography(row: dict[str, str]) -> tuple[str, str]:
+    """Return precise visible geography while preserving raw entity fields."""
+    raw_region = row.get("지역", "").strip()
+    raw_district = row.get("시or구", "").strip()
+    local = row.get("근처 수업가능 동네", "").strip()
+    address = row.get("센터 주소", "").strip()
+    if local == "창곡동" and address.startswith(("경기 성남시 ", "경기도 성남시 ")):
+        return "경기", "성남시 수정구"
+    if raw_region not in {"충청", "경상", "전라"}:
+        return raw_region, raw_district
+    address_regions = (
+        (("충북 ", "충청북도 "), "충북"),
+        (("충남 ", "충청남도 "), "충남"),
+        (("세종특별자치시 ",), "세종"),
+        (("경북 ", "경상북도 "), "경북"),
+        (("경남 ", "경상남도 "), "경남"),
+        (("전북 ", "전북특별자치도 ", "전라북도 "), "전북"),
+        (("전남 ", "전라남도 "), "전남"),
+    )
+    for prefixes, display_region in address_regions:
+        if address.startswith(prefixes):
+            return display_region, "" if display_region == "세종" else raw_district
+    return raw_region, raw_district
+
+
+def normalize_page_geography(
+    value: str,
+    raw_region: str,
+    raw_district: str,
+    display_region: str,
+    display_district: str,
+) -> str:
+    """Use precise visible labels without altering addresses or schema identity."""
+    if not value or raw_region == display_region:
+        return value
+    raw_area = " ".join(part for part in (raw_region, raw_district) if part)
+    display_area = " ".join(part for part in (display_region, display_district) if part)
+    if raw_area:
+        value = value.replace(raw_area, display_area)
+    return re.sub(
+        rf"(?<![가-힣]){re.escape(raw_region)}(?![가-힣])",
+        display_region,
+        value,
+    )
+
+
+def diversify_middle_math_profiles(
+    value: str, seed: str, counters: dict[str, int],
+) -> str:
+    """Rotate equivalent learning concerns so one page does not echo a prompt phrase."""
+    for original, variants in MIDDLE_MATH_PROFILE_VARIANTS.items():
+        offset = stable_index(seed, original, len(variants))
+
+        if original in value:
+            def replace(
+                _match: re.Match[str],
+                *,
+                key: str = original,
+                choices: tuple[str, ...] = variants,
+                start: int = offset,
+            ) -> str:
+                count = counters.get(key, 0)
+                counters[key] = count + 1
+                return choices[(start + count) % len(choices)]
+
+            value = re.sub(re.escape(original), replace, value)
+
+        clause = original.removesuffix("경우").strip()
+        if clause in value:
+            clause_variants = tuple(choice.removesuffix("경우").strip() for choice in variants)
+            clause_key = original + "|clause"
+            clause_offset = stable_index(seed, clause_key, len(clause_variants))
+
+            def replace_clause(
+                _match: re.Match[str],
+                *,
+                key: str = clause_key,
+                choices: tuple[str, ...] = clause_variants,
+                start: int = clause_offset,
+            ) -> str:
+                count = counters.get(key, 0)
+                counters[key] = count + 1
+                return choices[(start + count) % len(choices)]
+
+            value = re.sub(re.escape(clause), replace_clause, value)
+    return value
 
 
 def row_school_names(row: dict[str, str]) -> list[str]:
@@ -626,6 +1484,7 @@ def extract_reference_keyword(manuscript: dict[str, str]) -> str:
     )
     patterns = (
         r"세부 소재는\s*[‘'\"]([^’'\"]+)[’'\"]",
+        r"[‘'\"]([^’'\"]+)[’'\"](?:은|는)\s+실제\s+운영\s+사실이\s+아니라",
         r"Q2[.)]?\s*(.+?)(?:은|는)\s+실제로\s+운영",
         r"범위에서만\s+사용하며,\s*(.+?)(?:은|는)\s+실제\s+운영\s+사실",
         r"주소 정보만 사용하며,\s*(.+?)(?:은|는)\s+실제\s+운영\s+사실",
@@ -688,10 +1547,18 @@ def strip_source_production_sentences(value: str) -> str:
         "상담 질문에 넣어야 일반적인 소개에 그치지 않고",
         "CSV",
         "입력 데이터",
+        "입력만으로",
         "데이터에 없",
         "이 글에서 임의",
         "가상 유형",
+        "가상 고민",
         "가상 학생",
+        "설명용 유형",
+        "특정 학교 학생이나 실제 수강생",
+        "실제 수강생",
+        "설명을 위해",
+        "성적이나 개선 결과",
+        "입력만으로",
         "주소는 입력값 그대로",
         "입력값 그대로",
         "관심 소재",
@@ -791,10 +1658,13 @@ def safe_source_faqs(
         "구조화 데이터",
         "CSV",
         "입력 데이터",
+        "입력만으로",
         "데이터에 없",
         "세부 소재",
         "실제로 운영된다고",
         "분량보다 완성도와 재확인이 더 중요합니다",
+        "구체적인 사실을 추정하지 말고",
+        "안내에 없는 정보이므로",
     )
     result: list[tuple[str, str]] = []
     for question, answer in pairs:
@@ -1160,6 +2030,11 @@ def split_school_values(value: str) -> list[str]:
     chunks = [part.strip() for part in re.split(r"[,/\n·.]+", value or "") if part.strip()]
     schools: list[str] = []
     for chunk in chunks:
+        # The centre table has one merged elementary/middle-school token in the
+        # middle-school column.  Keep only the middle-school fact in that list.
+        if chunk == "오현초호매실중":
+            schools.append("호매실중")
+            continue
         if re.fullmatch(r"(?:지역\s*내\s*)?모든\s*고등학교\s*가능", chunk):
             continue
         tokens = chunk.split()
@@ -1209,7 +2084,7 @@ def local_meta_description(
             f"{title}: {location} 지역의 {config['grade']} {config['subject']} 진단·내신·오답 관리 안내입니다.",
         ]
     else:
-        subject_label = f"고등 {config['subject']}"
+        subject_label = config["label"].removesuffix("학원").strip()
         candidates = [
             f"{title}: {location}에서 {subject_label} 수업을 비교할 때 확인할 진단·내신·오답 관리 기준을 안내합니다.",
             f"{title}: {location} {subject_label} 상담 전 확인할 학습 진단·내신·오답 관리 기준을 안내합니다.",
@@ -1242,12 +2117,29 @@ def center_identity_for_row(row: dict[str, str]) -> str:
 def stable_center_areas(rows: list[dict[str, str]], org_id: str) -> list[dict[str, str]]:
     """동일 센터 엔터티에는 어느 페이지에서도 같은 서비스 지역 집합을 제공합니다."""
     names: list[str] = []
+    has_seongnam_address = False
     for candidate in rows:
         if center_identity_for_row(candidate) != org_id:
             continue
+        address = candidate.get("센터 주소", "").strip()
+        local = candidate.get("근처 수업가능 동네", "").strip()
+        if address.startswith("세종특별자치시 "):
+            for value in ("세종특별자치시", local):
+                if value and value not in names:
+                    names.append(value)
+            continue
+        if (
+            local == "창곡동"
+            and address.startswith(("경기 성남시 수정구 ", "경기도 성남시 수정구 "))
+        ):
+            has_seongnam_address = True
         for field in ("지역", "시or구", "근처 수업가능 동네"):
             value = candidate.get(field, "").strip()
             if value and value not in names:
+                names.append(value)
+    if has_seongnam_address:
+        for value in ("경기", "성남시", "수정구"):
+            if value not in names:
                 names.append(value)
     return [{"@type": "AdministrativeArea", "name": value} for value in names]
 
@@ -1390,7 +2282,7 @@ def diversify_faq_answer(
         return pick_copy_variant(seed, "feedback", (
             f"{local} 학부모에게는 진도표만 보내기보다 이번 주에 이해한 부분, 남은 오답, 다음 우선순위를 나누어 공유하는 편이 좋습니다. 피드백 주기와 미완료 과제의 보완 절차도 확인하세요.",
             f"수업 공유에는 교재 진도와 함께 {local} 학생이 스스로 해결한 내용과 다시 볼 문제를 구분해 담는 것이 좋습니다. 다음 수업 전 보완할 항목까지 알 수 있어야 계획을 이어가기 쉽습니다.",
-            f"{local} 가정에서는 몇 쪽을 풀었는지보다 새로 이해한 개념과 반복된 실수를 확인할 필요가 있습니다. 상담할 때 과제가 밀린 경우의 조정 방식도 물어보세요.",
+            f"{local} 학부모에게는 몇 쪽을 풀었는지보다 새로 이해한 개념과 반복된 실수를 구분해 공유하는 편이 좋습니다. 과제가 밀린 경우의 조정 방식도 함께 안내받으세요.",
             f"학부모 안내는 진도, 오답, 다음 계획의 세 부분으로 나누면 이해하기 쉽습니다. {local} 학생의 피드백이 어느 주기로 전달되고 이후 수업에 어떻게 반영되는지 확인하세요.",
             f"{local} {grade} {subject} 수업 뒤에는 배운 범위만이 아니라 남은 질문과 재풀이 날짜도 함께 공유하는 편이 좋습니다. 과제 미완료가 생겼을 때의 보완 기준도 미리 확인합니다.",
             f"수업 결과를 공유할 때는 {local} 학생이 설명할 수 있는 내용과 아직 도움을 받는 내용을 구분해야 합니다. 다음 주 우선순위까지 연결되어야 학부모도 학습 흐름을 이해할 수 있습니다.",
@@ -1419,11 +2311,21 @@ def diversify_faq_answer(
             f"{local} 학생의 오답 기록에는 문제 번호보다 생각이 끊긴 지점을 남기는 편이 유용합니다. 재풀이 날짜를 정하고 같은 이유의 실수가 줄었는지 비교하세요.",
             f"오답을 다시 볼 때는 {local} {grade} 학생이 도움 없이 첫 줄을 시작할 수 있는지 확인합니다. 계산·개념·조건 해석 중 원인을 나누고 일정 뒤 재확인해야 합니다.",
         ))
+    if category == "중등수학학원":
+        if "최근 문제 두세 개를 보며 막힌 단계와 다시 풀어 본 여부" in answer:
+            answer = answer.replace(
+                "최근 문제 두세 개를",
+                f"{local} 학생의 최근 문제 두세 개를",
+                1,
+            )
+        if "수업 가능 학교로 확인되는 곳은" in answer and local not in answer:
+            answer = f"{local} {answer}"
     return answer
 
 
 def diversify_faq_question(
     question: str,
+    answer: str,
     row: dict[str, str],
     config: dict[str, str],
     title: str,
@@ -1441,6 +2343,23 @@ def diversify_faq_question(
     def finalize(namespace: str, variants: tuple[str, ...]) -> str:
         selected = clean_text(pick_copy_variant(seed, namespace, variants))
         return selected.rstrip(".!?") + "?"
+
+    if category == "중등수학학원":
+        # 중등 수학은 원문 Q/A 쌍의 검색 의도를 그대로 보존합니다. 답변
+        # 뒤쪽에 우연히 등장한 학습 프로필 단어로 질문 유형을 다시
+        # 분류하면 질문과 답변이 어긋날 수 있으므로 지역 문맥만 붙입니다.
+        core = clean_text(question)
+        for prefix in sorted(
+            (title, f"{local} {config['grade']} {config['subject']}", center, local),
+            key=len,
+            reverse=True,
+        ):
+            match = re.match(rf"^{re.escape(prefix)}(?:의|은|는|에서|을|를)?\s*", core)
+            if match:
+                core = core[match.end():].lstrip()
+                break
+        core = re.sub(r"^(?:상담에서는|상담에서)\s*", "", core).strip() or clean_text(question)
+        return finalize(f"slot-{slot}-intent-preserved", (f"{local}에서 {core}",))
 
     # 운영 정보 질문에는 학습 문제 조건절을 억지로 붙이지 않고, 확인하려는
     # 사실(위치·시간표·학년·학교 진도)에 맞춘 전용 질문을 사용합니다.
@@ -1507,10 +2426,6 @@ def diversify_faq_question(
             f"{local} 학부모가 최근 학교 자료를 준비하면 {config['subject']} 상담이 어떻게 달라지나요",
         ))
 
-    profile = LEARNING_PROFILES[category][
-        stable_index(f"{category}|{local}|faq-question|{slot}", "profile", len(LEARNING_PROFILES[category]))
-    ]
-    profile_clause = profile.removesuffix("경우").strip()
     core = clean_text(question)
     # 앞에 이미 붙어 있는 지역·페이지명을 덜어 내어 같은 말이 두 번 이어지지 않게 합니다.
     leading = sorted(
@@ -1527,6 +2442,72 @@ def diversify_faq_question(
     if not core:
         core = question
     parent_core = re.sub(r"^학부모(?:는|가)\s*", "", core).strip()
+
+    profiles = LEARNING_PROFILES[category]
+    if category == "중등수학학원":
+        def matched_profile(value: str) -> str:
+            for candidate in profiles:
+                clause = candidate.removesuffix("경우").strip()
+                if candidate in value or clause in value:
+                    return candidate
+            return ""
+
+        answer_profile = matched_profile(answer)
+        question_profile = matched_profile(core)
+        if question_profile:
+            if answer_profile and answer_profile != question_profile:
+                old_clause = question_profile.removesuffix("경우").strip()
+                new_clause = answer_profile.removesuffix("경우").strip()
+                if question_profile in core:
+                    core = core.replace(question_profile, answer_profile, 1)
+                else:
+                    core = core.replace(old_clause, new_clause, 1)
+            return finalize(f"slot-{slot}-paired", (core,))
+        # 중등 수학 질문에는 답변과 무관한 학습 상태를 새로 덧붙이지 않습니다.
+        # 후보 답변 자체에 이미 페이지별 상태와 행동 기준이 들어 있으므로
+        # 질문은 원래 검색 의도를 유지하는 편이 Q/A 의미 대응에 안전합니다.
+        if "혼자 풀 수 있는 범위" in answer:
+            return finalize(f"slot-{slot}-independent-range", (
+                f"{local} 학생이 혼자 해결할 수 있는 범위는 상담에서 어떻게 확인하나요",
+                f"{local} 중학생의 독립 풀이 범위와 도움이 필요한 단계는 어떻게 나누어 보나요",
+                f"{local}에서 {center} 상담을 받을 때 학생이 혼자 풀 수 있는 지점을 어떻게 확인하나요",
+                f"{local} 학생의 설명 뒤 독립 풀이와 재시도 과정은 어떤 순서로 확인하나요",
+                f"중등 수학 상담에서 {local} 학생이 스스로 해결하는 범위를 어떻게 점검하나요",
+                f"{local} 학부모가 도움 전후의 풀이 차이를 상담에 전달하려면 무엇을 준비해야 하나요",
+            ))
+        if "반복되는 막힘" in answer:
+            return finalize(f"slot-{slot}-repeated-block", (
+                f"{local} 학생의 최근 풀이에서 반복되는 막힘을 상담에 어떻게 전달하면 좋을까요",
+                f"{local} 중학생의 계산·개념·조건 해석 중 먼저 확인할 약점은 어떻게 정하나요",
+                f"{local}에서 {center} 상담을 받을 때 반복되는 수학 막힘을 어떻게 설명하나요",
+                f"{local} 학생이 같은 지점에서 멈출 때 첫 상담 질문은 무엇으로 시작하면 좋을까요",
+                f"최근 점수보다 {local} 학생의 반복 오류를 보여 주려면 어떤 기록이 필요한가요",
+                f"{local} 학부모는 반복되는 풀이 어려움을 어떤 항목으로 나누어 질문하면 좋을까요",
+            ))
+        if "최근 문제 두세 개" in answer:
+            return finalize(f"slot-{slot}-recent-work", (
+                f"{local} 상담 전에는 어떤 최근 풀이 기록을 준비하면 좋을까요",
+                f"{local} 학생의 막힌 단계와 재풀이 여부를 보여 주려면 어떤 문제를 가져가야 하나요",
+                f"{local}에서 {center} 첫 상담에 최근 문제 두세 개를 준비하면 무엇을 확인할 수 있나요",
+                f"{local} 중학생의 기초 범위와 피드백 방식을 묻기 전에 어떤 자료를 정리하나요",
+                f"최근 풀이 중 무엇을 골라야 {local} 수학 상담을 구체적으로 진행할 수 있나요",
+                f"{local} 학부모가 첫 상담 전에 기록할 풀이 단계와 재시도 항목은 무엇인가요",
+            ))
+        if "핵심 개념" in answer or "첫 식" in answer:
+            return finalize(f"slot-{slot}-first-diagnosis", (
+                f"{local} 학생의 첫 진단에서는 어떤 풀이 장면부터 확인해야 하나요",
+                f"{local} 중학생이 핵심 개념을 설명하고 첫 식을 세우는 과정은 어떻게 점검하나요",
+                f"{local}에서 {center} 상담을 받을 때 개념 설명·첫 식·오답 재시도 중 무엇부터 확인하나요",
+                f"{local} 학생의 현재 수학 상태를 학습 계획에 반영하려면 어떤 질문이 필요한가요",
+                f"첫 상담에서 {local} 학생의 개념 이해와 풀이 시작 과정을 어떻게 나누어 보나요",
+                f"{local} 학부모는 최근 풀이의 어떤 장면을 보여 줘야 진단 순서를 정하기 쉬울까요",
+            ))
+        return finalize(f"slot-{slot}-plain", (f"{local}에서 {core}",))
+    else:
+        profile = profiles[
+            stable_index(f"{category}|{local}|faq-question|{slot}", "profile", len(profiles))
+        ]
+    profile_clause = profile.removesuffix("경우").strip()
     frames = (
         f"{profile_clause} 학생을 위한 {title} 상담이라면 {core}",
         f"{local}에서 {profile_clause} 학생의 {config['subject']} 학습을 점검한다면 {core}",
@@ -1607,7 +2588,7 @@ def build_page_faqs(
         (
             f"{local} 학생에게 지금 복습이 먼저 필요한지 어떻게 알 수 있나요?",
             f"최근 배운 내용을 교재 없이 설명하고 비슷한 문제를 다시 풀 수 있는지 확인해 보세요. "
-            f"{local} {grade} 학생에게 {profile_clause} 모습이 보이면 다음 진도 전에 {action}",
+            f"{local} {grade} 학생에게 {profile_clause} 모습이 보이면 {action}",
         ),
         (
             f"{title}을 비교할 때 교재 외에 어떤 수업 장면을 봐야 하나요?",
@@ -1622,7 +2603,7 @@ def build_page_faqs(
         (
             f"{local} 학부모는 과제 피드백을 어떤 기준으로 확인하면 좋을까요?",
             f"완료 표시만 보기보다 틀린 이유, 다시 풀 날짜, 다음 수업에서 확인한 결과가 이어지는지 살펴보세요. "
-            f"{local} 학생 중 {profile}에는 피드백 뒤 {action}",
+            f"{local} 학생에게 {profile_clause} 모습이 보인다면 피드백 뒤 {action}",
         ),
         (
             f"{local} {grade} {subject} 수업을 오래 유지하려면 무엇을 조정해야 하나요?",
@@ -1660,8 +2641,22 @@ def build_page_faqs(
     unique: list[tuple[str, str]] = []
     seen: set[str] = set()
     for slot, (question, answer) in enumerate(result):
-        question = diversify_faq_question(question, row, config, title, category, slot)
+        if category == "중등수학학원":
+            # 한 페이지의 네 답변이 동일한 학생 상태와 동일한 후속 행동을
+            # 되풀이하지 않도록 슬롯마다 서로 다른 조합을 사용합니다.
+            profiles = LEARNING_PROFILES[category]
+            actions = LEARNING_ACTIONS[subject]
+            slot_profile = profiles[
+                (stable_index(seed, "profile", len(profiles)) + slot) % len(profiles)
+            ]
+            slot_action = actions[
+                (stable_index(seed, "action", len(actions)) + slot) % len(actions)
+            ]
+            answer = answer.replace(profile, slot_profile)
+            answer = answer.replace(profile_clause, slot_profile.removesuffix("경우").strip())
+            answer = answer.replace(action, slot_action)
         answer = diversify_faq_answer(answer, row, config, category, slot)
+        question = diversify_faq_question(question, answer, row, config, title, category, slot)
         key = re.sub(r"[^가-힣A-Za-z0-9]", "", question)
         if key not in seen:
             unique.append((question, finish_sentence(answer)))
@@ -1700,16 +2695,16 @@ def build_consultation_scenarios(
             f"{local} 학생이 {profile_zero}라면 진도표보다 실제 풀이 한두 장을 먼저 확인하는 편이 좋습니다. 첫 계획에는 {action_zero}",
             f"최근 학습 기록에서 {profile_zero}가 보이는 {local} 학생은 막힌 순간을 먼저 찾을 필요가 있습니다. 상담에서는 {action_zero}",
             f"{local}의 {grade} {subject} 상담에서 {profile_zero}가 확인되면 문제 수를 바로 늘리지 않습니다. 현재 기록을 기준으로 {action_zero}",
-            f"보호자가 {profile_zero}를 고민하고 있다면 {local} 상담에는 최근 사용한 교재와 오답을 준비하면 좋습니다. 점검 뒤에는 {action_zero}",
+            f"보호자가 {profile_zero}를 고민하고 있다면 {local} 상담에는 최근 사용한 교재와 오답을 준비하면 좋습니다. 그다음에는 {action_zero}",
             f"{local} 학생의 첫 학습 순서는 {profile_zero}인지 확인하는 데서 시작합니다. 학생이 혼자 해 본 기록을 살핀 다음 {action_zero}",
             f"{local}에서 {grade} {subject} 수업을 비교할 때 {profile_zero}에 대응하는 방식을 물어보세요. 실제 계획은 {action_zero}",
             f"첫 상담에서 {profile_zero}라는 고민이 나오면 결과보다 풀이 과정을 먼저 나누어 봅니다. {local} 학생의 기록을 토대로 {action_zero}",
-            f"{local} 학생의 최근 풀이에서 {profile_zero}가 확인되면 첫 수업의 범위를 좁혀야 합니다. 보완 계획에는 {action_zero}",
+            f"{local} 학생의 최근 풀이에서 {profile_zero}가 확인되면 첫 수업의 범위를 좁혀야 합니다. 보완할 때는 {action_zero}",
             f"보호자가 느낀 어려움과 실제 풀이가 같은지 확인하려면 {local} 상담에서 {profile_zero}를 살펴봅니다. 그 결과에 따라 {action_zero}",
             f"{local}의 {grade} {subject} 학습을 시작하기 전에 {profile_zero}가 반복되는 장면부터 표시해 보세요. 수업에서는 {action_zero}",
             f"학생이 문제를 풀 때 {profile_zero}가 나타난다면 {local} 상담에서 설명과 적용 단계를 나눠 봅니다. 이후 계획은 {action_zero}",
             f"{local} 학부모가 가져온 최근 과제에서 {profile_zero}가 보이면 해당 단원의 첫 풀이부터 확인합니다. 다음 순서로 {action_zero}",
-            f"현재 진도를 넓히기 전에 {local} 학생이 {profile_zero}인지 확인하는 과정이 필요합니다. 확인 뒤에는 {action_zero}",
+            f"현재 진도를 넓히기 전에 {local} 학생이 {profile_zero}인지 확인하는 과정이 필요합니다. 그다음에는 {action_zero}",
             f"{local} 학생에게 맞는 설명 속도를 찾으려면 {profile_zero}가 언제 나타나는지부터 봅니다. 첫 주에는 {action_zero}",
             f"수업 선택 전에 {local} 학생의 실제 기록과 {profile_zero}라는 고민을 함께 놓아 보세요. 우선순위는 {action_zero}",
         )),
@@ -1824,8 +2819,8 @@ def build_context_section(
             f"{local} 센터의 {subject} 수업 가능 학년은 {grade_text}입니다. 현재 모집 반과 수업 시간은 상담에서 다시 확인합니다.",
             f"{local} 센터에서는 {grade_text} 학년의 {subject} 상담이 가능하다고 안내하고 있으며, 실제 시간표는 학생의 진도와 함께 확인합니다.",
             f"{local}에 안내된 {subject} 수업 가능 학년은 {grade_text}입니다. 반 편성 여부와 등원 가능한 요일은 상담 시점에 확인해야 합니다.",
-            f"{local}에서는 {grade_text} 학생을 대상으로 {subject} 학습 상담이 가능하며, 구체적인 수업 시간과 반 구성은 상담 후 안내합니다.",
-            f"{local} 센터의 {subject} 학년 안내는 {grade_text}입니다. 학생의 현재 수준과 가능한 요일을 확인한 뒤 실제 반을 안내합니다.",
+            f"{local}에서는 {grade_text} 학생을 대상으로 {subject} 학습 상담이 가능하며, 실제 반 편성과 시간표는 상담 시 확인합니다.",
+            f"{local} 센터의 {subject} 학년 안내는 {grade_text}입니다. 실제 반 편성과 시간표는 상담 시 확인합니다.",
         )))
     return headings[stable_index(seed, "heading", len(headings))], [finish_sentence(p) for p in paragraphs]
 
@@ -2342,10 +3337,15 @@ def local_page(
     local = row["근처 수업가능 동네"].strip()
     slug = slug_local(local)
     title = manuscript["페이지타이틀"].strip()
-    region = row.get("지역", "").strip()
+    raw_region = row.get("지역", "").strip()
     district = row.get("시or구", "").strip()
+    display_region, display_district = display_geography(row)
     center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
     address = row.get("센터 주소", "").strip()
+    address_is_gyeonggi_seongnam = (
+        raw_region == "서울"
+        and address.startswith(("경기 성남시 ", "경기도 성남시 "))
+    )
     location = normalize_location_description(row.get("위치안내", ""))
     schools = split_school_values(row.get(config["school_field"], ""))
     grade_range = row.get(config["grade_field"], "").strip()
@@ -2353,9 +3353,69 @@ def local_page(
     reg_office = row.get("교육지원청명칭", "").strip()
     reg_number = row.get("교육지원청 등록번호", "").strip()
     description = local_meta_description(
-        title, region, district, center, config, grade_supported
+        title, display_region, display_district, center, config, grade_supported
     )
+    if address_is_gyeonggi_seongnam:
+        description = (
+            f"{title}: {display_region} {display_district} {local}에서 {center}의 {config['grade']} "
+            f"{config['subject']} 진단·오답 관리와 경기 성남시 센터 위치 안내입니다."
+        )
     page_seed = f"{category}|{local}"
+    profile_counters: dict[str, int] = {}
+
+    def finalize_visible_copy(value: str) -> str:
+        if category == "중등수학학원":
+            value = diversify_middle_math_profiles(value, page_seed, profile_counters)
+        value = normalize_page_geography(
+            value,
+            raw_region,
+            district,
+            display_region,
+            display_district,
+        )
+        value = clean_text(value)
+        if category == "중등수학학원":
+            value = value.replace(
+                "관찰한 내용을 상담 질문으로 정리해 보세요",
+                pick_copy_variant(page_seed, "observation-question", (
+                    "관찰한 내용을 상담에서 확인할 질문으로 정리해 보세요",
+                    "관찰한 사실을 상담 때 물어볼 항목으로 적어 두세요",
+                    "관찰한 내용을 바탕으로 상담 질문을 구체화해 보세요",
+                    "관찰한 장면을 상담에서 확인할 질문으로 바꿔 적어 보세요",
+                    "관찰한 사실을 상담 질문 목록에 나누어 적어 보세요",
+                    "관찰한 내용을 상담에서 물어볼 순서로 정리해 보세요",
+                    "관찰한 장면을 상담 질문으로 옮겨 적어 보세요",
+                    "관찰한 사실을 상담에서 확인할 항목으로 정리해 보세요",
+                )),
+            )
+            value = value.replace(
+                "답하기 어려워하면 표시만 남기고 상담에서 확인할 질문으로 옮겨 적어 두세요",
+                pick_copy_variant(page_seed, "follow-up-question", (
+                    "답하기 어려워하면 표시만 남기고 상담에서 확인할 질문으로 옮겨 적어 두세요",
+                    "바로 답하기 어렵다면 표시해 두었다가 상담에서 물어볼 항목으로 정리하세요",
+                    "학생이 답을 이어가지 못하면 표시만 남긴 뒤 상담 질문으로 적어 두세요",
+                    "설명하기 어려운 부분은 표시해 두고 상담에서 확인할 질문으로 바꿔 적으세요",
+                    "답이 막히는 부분은 짧게 표시한 뒤 상담에서 확인할 항목으로 정리해 두세요",
+                    "학생이 바로 설명하지 못하면 표시해 두었다가 상담 질문 목록에 넣어 보세요",
+                    "답하기 어려운 지점은 표시만 남기고 상담 때 물어볼 질문으로 정리하세요",
+                    "설명이 멈춘 지점은 표시해 두고 상담에서 확인할 질문으로 옮겨 적으세요",
+                )),
+            )
+            value = value.replace(
+                "완료한 분량과 남은 질문을 구분해 기록하세요.",
+                pick_copy_variant(page_seed, "completed-and-questions", (
+                    "완료한 분량과 남은 질문을 분리해 적어 보세요.",
+                    "끝낸 내용과 남은 질문을 서로 다른 칸에 기록하세요.",
+                    "완료한 문제와 다음에 물어볼 내용을 나누어 적어 두세요.",
+                    "끝낸 분량과 해결하지 못한 질문을 구분해 기록하세요.",
+                    "마친 학습과 남은 질문을 따로 적어 다음 순서를 정하세요.",
+                    "완료한 항목과 도움이 필요한 내용을 나누어 표시해 두세요.",
+                    "끝낸 문제와 다시 확인할 질문을 서로 구분해 적어 보세요.",
+                    "완료한 분량과 다음 수업에서 물어볼 내용을 따로 기록하세요.",
+                )),
+            )
+        return value
+
     reference_keyword = extract_reference_keyword(manuscript)
     # The supplied JSON summary contains generator notes on some rows.  The
     # factual, unique meta summary is a safer Article/Service description.
@@ -2367,18 +3427,18 @@ def local_page(
     body_source = normalize_subject_profiles(body_source, category)
     if config["grade"] == "초등학교 4학년" and config["subject"] == "수학":
         awkward_intro = (
-            f"{title}은 {region} {district} {local}에서 초4 자녀의 수학 빈틈을 진단하고 "
+            f"{title}은 {display_region} {display_district} {local}에서 초4 자녀의 수학 빈틈을 진단하고 "
             "수업 방식·과제 피드백·등하원 현실성을 함께 보는 기준으로 선택해야 합니다."
         )
         body_source = body_source.replace(
             awkward_intro,
             pick_copy_variant(page_seed, "grade4-math-intro", (
-                f"{region} {district} {local}에서 초4 수학 과정을 비교할 때는 현재 개념의 빈틈과 수업 방식, 과제 피드백, 등하원 동선을 함께 살펴야 합니다.",
+                f"{display_region} {display_district} {local}에서 초4 수학 과정을 비교할 때는 현재 개념의 빈틈과 수업 방식, 과제 피드백, 등하원 동선을 함께 살펴야 합니다.",
                 f"{local} 초4 학생에게 맞는 수학 수업은 최근 풀이에서 막힌 지점과 과제 확인 방식, 실제로 다닐 수 있는 시간을 함께 확인해 골라야 합니다.",
-                f"{region} {district} {local}의 초4 수학 상담에서는 진도보다 현재 풀이 습관을 먼저 보고, 과제 피드백과 이동 시간을 현실적으로 맞추는 것이 중요합니다.",
+                f"{display_region} {display_district} {local}의 초4 수학 상담에서는 진도보다 현재 풀이 습관을 먼저 보고, 과제 피드백과 이동 시간을 현실적으로 맞추는 것이 중요합니다.",
                 f"{local}에서 초4 수학 수업을 알아볼 때는 계산과 문장제의 빈틈, 수업 중 질문 방식, 과제 회수 절차, 등하원 계획을 한 흐름으로 비교해 보세요.",
                 f"초4 수학 수업을 정하기 전에는 {local} 학생의 최근 오답과 풀이 설명을 확인하고, 과제 보완 방식과 주간 이동 계획이 이어질 수 있는지 살펴야 합니다.",
-                f"{region} {district} {local}에서 수학 학습을 이어가려면 초4 학생의 현재 이해도와 수업 속도, 과제 피드백, 귀가 뒤 복습 시간을 함께 맞추는 편이 좋습니다.",
+                f"{display_region} {display_district} {local}에서 수학 학습을 이어가려면 초4 학생의 현재 이해도와 수업 속도, 과제 피드백, 귀가 뒤 복습 시간을 함께 맞추는 편이 좋습니다.",
                 f"{local} 초4 수학 과정은 선행 진도만으로 판단하지 않고 학생의 풀이 기록, 질문과 피드백 방식, 꾸준히 등원할 수 있는 일정을 함께 확인해야 합니다.",
                 f"{local} 학부모가 초4 수학 수업을 비교할 때는 아이가 혼자 풀 수 있는 범위와 오답 보완 절차, 과제 시간, 등하원 동선을 구체적으로 물어보는 것이 좋습니다.",
             )),
@@ -2398,7 +3458,7 @@ def local_page(
         f"{local}의 {config['grade']} 학생이 ",
         body_source,
     )
-    body_source = clean_text(body_source)
+    body_source = finalize_visible_copy(body_source)
     body_source = re.sub(
         rf"{re.escape(title)}을 찾는 학부모의 (.+?) 고민은",
         lambda match: (
@@ -2462,9 +3522,21 @@ def local_page(
     if local_repair:
         body_sections.append(local_repair)
     context_section = build_context_section(row, config, title, category)
+    context_section = (
+        finalize_visible_copy(context_section[0]),
+        [finalize_visible_copy(paragraph) for paragraph in context_section[1]],
+    )
     insert_at = 1 + stable_index(page_seed, "context-position", max(1, len(body_sections) - 1))
     body_sections.insert(min(insert_at, len(body_sections)), context_section)
     intro, body_sections = soften_repeated_context_leads(intro, body_sections)
+    if category == "중등수학학원":
+        # 보충 문단을 끼운 뒤 생길 수 있는 생성형 어미와 동일 접속부사
+        # 반복까지 최종 문단 단위로 한 번 더 정리합니다.
+        intro = [clean_text(paragraph) for paragraph in intro]
+        body_sections = [
+            (clean_text(heading), [clean_text(paragraph) for paragraph in paragraphs])
+            for heading, paragraphs in body_sections
+        ]
     seen_sentences: set[str] = set()
     intro = dedupe_sentences(intro, seen_sentences)
     body_sections = [
@@ -2488,6 +3560,24 @@ def local_page(
         if not any(name and name in question + " " + answer for name in forbidden_school_names)
     ]
     faqs = build_page_faqs(source_faqs, row, config, title, category)
+    def finalize_faq_copy(value: str) -> str:
+        # FAQ 질문과 답변은 동일한 학습 상태 표현을 유지해야 합니다. 본문용
+        # profile 회전 카운터를 공유하면 같은 상태도 서로 다른 문구로 바뀌므로
+        # 지리 표기와 문장 정리만 적용합니다.
+        if category != "중등수학학원":
+            return finalize_visible_copy(value)
+        return clean_text(normalize_page_geography(
+            value,
+            raw_region,
+            district,
+            display_region,
+            display_district,
+        ))
+
+    faqs = [
+        (finalize_faq_copy(question), finalize_faq_copy(answer))
+        for question, answer in faqs
+    ]
     faqs = [
         (
             question.replace(f"{local}에서 {local}", f"{local}에서"),
@@ -2498,18 +3588,19 @@ def local_page(
     # 입력 후기 구역도 파싱해 파일 형식 오류를 잡되, 화면에는 실제 후기처럼 오해되지 않는 상담 상황을 사용합니다.
     parse_reviews(editorialize(manuscript["학부모후기"], row))
     reviews = build_consultation_scenarios(row, config, title, category)
+    reviews = [finalize_visible_copy(review) for review in reviews]
     path = f"/과목별학원/{category}/{slug}/"
     canonical = absolute(path)
     rep = pick_representative(rep_images, ordered_rows.index(row), category)
-    center_image = "/assets/centers/common/seoul6839.webp" if region == "서울" else "/assets/centers/common/local6839.webp"
+    center_image = "/assets/centers/common/seoul6839.webp" if raw_region == "서울" else "/assets/centers/common/local6839.webp"
     map_image = find_map(row)
     map_width, map_height = image_dimensions(map_image)
     fee = fee_link(row)
 
     nearby: list[str] = []
     pools = [
-        [r for r in ordered_rows if r.get("지역", "").strip() == region and r.get("시or구", "").strip() == district],
-        [r for r in ordered_rows if r.get("지역", "").strip() == region],
+        [r for r in ordered_rows if r.get("지역", "").strip() == raw_region and r.get("시or구", "").strip() == district],
+        [r for r in ordered_rows if r.get("지역", "").strip() == raw_region],
         ordered_rows,
     ]
     for pool in pools:
@@ -2576,10 +3667,25 @@ def local_page(
     postal_address: dict[str, str] = {"@type": "PostalAddress", "addressCountry": "KR"}
     if address:
         postal_address["streetAddress"] = address
-    if region:
-        postal_address["addressRegion"] = region
-    if district:
-        postal_address["addressLocality"] = district
+    address_is_sejong = address.startswith("세종특별자치시 ")
+    address_is_gyeonggi_seongnam = (
+        raw_region == "서울"
+        and address.startswith(("경기 성남시 ", "경기도 성남시 "))
+    )
+    schema_region = (
+        "세종특별자치시"
+        if address_is_sejong
+        else "경기" if address_is_gyeonggi_seongnam else display_region
+    )
+    if schema_region:
+        postal_address["addressRegion"] = schema_region
+    schema_locality = (
+        "세종특별자치시"
+        if address_is_sejong
+        else "성남시" if address_is_gyeonggi_seongnam else district
+    )
+    if schema_locality:
+        postal_address["addressLocality"] = schema_locality
 
     org: dict = {
         "@type": ["EducationalOrganization", "LocalBusiness"],
@@ -2626,7 +3732,7 @@ def local_page(
             "author": {"@id": org_id}, "publisher": {"@id": org_id}, "inLanguage": "ko-KR",
             "articleSection": [heading for heading, _ in body_sections],
             "about": [title, config["grade"], config["subject"], "학습 진단", "오답 관리"],
-            "mentions": [local, district, region, *schools],
+            "mentions": [local, *display_district.split(), display_region, *schools],
         },
         {
             "@type": "Service", "@id": service_id, "name": f"{title} 학습관리",
@@ -2669,12 +3775,12 @@ def local_page(
         )
     grade_availability_notice = ""
     if not grade_supported:
-        subject_label = f"고등 {config['subject']}"
+        subject_label = config["label"].removesuffix("학원").strip()
         grade_availability_notice = (
             f'<p class="subject-grade-availability-notice">센터 안내 자료에 {esc(subject_label)} 가능 학년이 '
             '표시되지 않아 실제 개설 여부와 시간표를 상담에서 확인해야 합니다.</p>'
         )
-    grade_fact = grade_range if grade_supported else f"고등 {config['subject']} 개설 여부 상담 확인"
+    grade_fact = grade_range if grade_supported else f"{subject_label} 개설 여부 상담 확인"
 
     body = f'''{nav("과목별학원")}
   <main>
@@ -2691,7 +3797,7 @@ def local_page(
       <div class="subject-fact-grid">
         <article><span>대상</span><strong>{esc(config['grade'])}</strong><p>{esc(grade_fact)}</p></article>
         <article><span>과목</span><strong>{esc(config['subject'])}</strong><p>개념·내신·오답 흐름 점검</p></article>
-        <article><span>지역</span><strong>{esc(local)}</strong><p>{esc(' · '.join(x for x in (region, district) if x))}</p></article>
+        <article><span>지역</span><strong>{esc(local)}</strong><p>{esc(' · '.join(x for x in (display_region, display_district) if x))}</p></article>
       </div>
     </section>
 
