@@ -7,7 +7,14 @@ from xml.sax.saxutils import escape
 
 SITE = Path(__file__).resolve().parents[1]
 DOMAIN = "https://xn--jk1bu21awrcryv.com"
-TODAY = "2026-07-27"
+DEFAULT_LASTMOD = "2026-07-27"
+NEW_SUBJECT_LASTMOD = "2026-09-03"
+
+
+def lastmod_for(path: str) -> str:
+    if path == "/과목별학원/" or path.startswith("/과목별학원/고등수학학원/"):
+        return NEW_SUBJECT_LASTMOD
+    return DEFAULT_LASTMOD
 
 
 def page_url(index_file: Path) -> str:
@@ -64,7 +71,7 @@ def main() -> None:
             [
                 "  <url>",
                 f"    <loc>{escape(url)}</loc>",
-                f"    <lastmod>{TODAY}</lastmod>",
+                f"    <lastmod>{lastmod_for(raw_path)}</lastmod>",
                 f"    <changefreq>{changefreq_for(raw_path)}</changefreq>",
                 f"    <priority>{priority_for(raw_path)}</priority>",
                 "  </url>",

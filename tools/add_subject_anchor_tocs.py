@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Add page-specific anchor contents to subject academy detail pages.
 
-Only the 1,484 regional detail pages below the four subject academy category
+Only the regional detail pages below the configured subject academy category
 folders are changed. The subject hub and category hubs remain untouched.
 Every link label comes from that page's existing H2 text, so visible copy,
 metadata, JSON-LD, images, and ALT text are not rewritten.
@@ -22,6 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SUBJECT_ROOT = ROOT / "과목별학원"
 SUBJECT_CATEGORIES = (
+    "고등수학학원",
     "초4수학학원",
     "초4영어학원",
     "초5수학학원",
@@ -112,7 +113,7 @@ def detail_pages() -> list[Path]:
     )
     if actual_categories != tuple(sorted(SUBJECT_CATEGORIES)):
         raise ValueError(
-            "Subject category folders differ from the expected four: "
+            "Subject category folders differ from the configured set: "
             f"{actual_categories}"
         )
 

@@ -29,6 +29,18 @@ MODIFIED_DATE = "2026-07-27"
 
 
 CONFIGS = {
+    "고등수학학원": {
+        "zip": "고등 수학학원.zip",
+        "archive_prefix": "학원_원고_371_최종/원고_TXT/",
+        "label": "고등 수학학원",
+        "grade": "고등학생",
+        "subject": "수학",
+        "school_field": "타깃학교\n(고)",
+        "grade_field": "가능학년\n(수학)",
+        "national_category": "수학학원",
+        "publish_date": "2026-09-03",
+        "modified_date": "2026-09-03",
+    },
     "초4수학학원": {
         "zip": "초4 수학학원.zip",
         "label": "초4 수학학원",
@@ -68,7 +80,14 @@ CONFIGS = {
 }
 
 
-SECTION_RE = re.compile(r"^\[(페이지타이틀|메타설명|본문|FAQ|학부모후기|JSON-LD 요약)\]\s*$", re.M)
+SECTION_RE = re.compile(
+    r"^\[(페이지타이틀|메타설명|본문|FAQ|학부모후기|상담 상황 예시|JSON-LD 요약|구조화 데이터용 요약)\]\s*$",
+    re.M,
+)
+SECTION_ALIASES = {
+    "상담 상황 예시": "학부모후기",
+    "구조화 데이터용 요약": "JSON-LD 요약",
+}
 FAQ_RE = re.compile(r"Q\d+[.)]?\s*(.*?)\s*\nA(?:\d+)?[.)]?\s*(.*?)(?=\n\s*Q\d+[.)]?|\Z)", re.S)
 
 
@@ -153,11 +172,28 @@ EDITORIAL_REPLACEMENTS = (
     ("제공 자료", "센터 안내 자료"),
     ("제공된", "확인된"),
     ("임의로", "근거 없이"),
-    ("원고", "안내"),
 )
 
 
+HIGH_MATH_PROFILE_REPLACEMENTS = {
+    "문법 개념은 알지만 문장에 적용하기 어려운 학생": "개념은 이해했지만 여러 단원을 연결하는 문제에서 적용 순서를 잡기 어려운 학생",
+    "읽는 속도가 느려 긴 지문을 부담스러워하는 학생": "문제의 조건이 길어지면 핵심 정보를 식으로 옮기기 어려운 학생",
+    "단어를 외워도 오래 기억하지 못하는 학생": "공식을 외워도 문제 상황에 맞게 적용하기 어려운 학생",
+    "영어에 대한 부담으로 문제 풀이를 미루는 학생": "어려운 문제에 대한 부담으로 풀이 시작을 미루는 학생",
+}
+
+
 LEARNING_PROFILES = {
+    "고등수학학원": (
+        "개념은 이해했지만 여러 단원을 연결하는 문제에서 적용 순서를 잡기 어려운 경우",
+        "내신 서술형에서 식은 맞아도 풀이 근거를 충분히 설명하지 못하는 경우",
+        "모의고사 오답을 난도 탓으로 넘기고 막힌 개념을 다시 확인하지 않는 경우",
+        "함수와 그래프의 조건을 식과 그림으로 옮기는 과정에서 자주 멈추는 경우",
+        "수열이나 확률·통계 문제에서 조건을 빠뜨려 풀이가 흔들리는 경우",
+        "학교 진도와 수능형 복습의 우선순위를 정하지 못하는 경우",
+        "문제를 많이 풀어도 틀린 이유와 재풀이 시점을 기록하지 않는 경우",
+        "시험 직전에 학습량을 몰아 평소 개념 복습 간격이 길어지는 경우",
+    ),
     "중1수학학원": (
         "정수와 유리수 계산에서 부호 실수가 반복되는 경우",
         "문자와 식의 뜻은 알지만 식을 세우는 단계에서 멈추는 경우",
@@ -346,6 +382,24 @@ def clean_text(value: str) -> str:
     for _ in range(2):
         for before, after in EDITORIAL_REPLACEMENTS:
             value = value.replace(before, after)
+    value = value.replace(
+        "이 행의 학교 항목은 비어 있으므로 특정 학교를 추측해 적지 않습니다. "
+        "상담에서도 학교명을 전제로 설명하기보다",
+        "센터 안내에 수업 가능 학교가 별도로 표시되지 않았다면 학교명을 미리 가정하지 말고",
+    )
+    value = re.sub(
+        r"입력 자료의 학교 항목에는\s*‘([^’]+)’가 그대로 기재되어 있습니다\.",
+        r"센터 안내에 수업 가능 학교로 ‘\1’가 표시되어 있습니다.",
+        value,
+    )
+    value = re.sub(
+        r"입력된 학교 항목의\s*‘([^’]+)’ 표기만 참고할 수 있습니다\.\s*"
+        r"제휴나 실제 수강 관계는 확인되지 않았으므로 학생의 교과 범위와 상담 자료를 기준으로 질문하세요\.",
+        r"센터 안내에 수업 가능 학교로 ‘\1’가 표시되어 있습니다. "
+        r"학교명만으로 진도를 예상하지 말고 학생의 최신 교과 범위와 학습 자료를 기준으로 질문하세요.",
+        value,
+    )
+    value = re.sub(r"(?<![가-힣A-Za-z0-9])원고(?![가-힣A-Za-z0-9])", "안내", value)
     value = re.sub(r"확인되지 않은 (?:학교|시설|차량) 정보를 임의로 (?:만들거나 )?추정하지 말고", "확인 가능한 자료를 기준으로 하고", value)
     value = re.sub(r"성적 (?:상승|향상|결과)을 보장하지 (?:않습니다|않는 안내입니다)", "학생마다 학습 속도와 결과가 다를 수 있습니다", value)
     value = value.replace("함께 요청하는 것을 함께 고려", "함께 요청하는 방안을 고려")
@@ -358,8 +412,39 @@ def clean_text(value: str) -> str:
     value = re.sub(r"[ \t]+", " ", value)
     value = re.sub(r"\s+([,.!?])", r"\1", value)
     value = re.sub(r"([.!?]){2,}", r"\1", value)
+    value = re.sub(
+        r"(?m)(^|(?<=[.!?])\s+)(?:가정 기록|주간 점검|수업 비교|비교 상담|진도 상담|질문 준비|첫 상담|현재 단계|학부모 판단|학생 관점|학생 대화|등록 전 확인|설명 과정|복습 계획|학습 점검|다음 상담|과제 확인|오답 검토|상담 메모|선택 과정)에서 [^,\n]{2,32}(?:을|를) 보면,\s*",
+        r"\1",
+        value,
+    )
     value = re.sub(r"\n{3,}", "\n\n", value)
     return value.strip()
+
+
+def normalize_location_description(value: str) -> str:
+    """Keep the supplied directions intact while restoring sentence boundaries."""
+    lines = [re.sub(r"\s+", " ", line).strip() for line in value.replace("\r", "").split("\n")]
+    lines = [line for line in lines if line]
+    for index, line in enumerate(lines):
+        if line.endswith("~"):
+            lines[index] = line.rstrip("~") + "."
+        elif line.endswith(")"):
+            if re.search(r"[.!?~。]\)$", line):
+                continue
+            if re.search(r"(?:니다|요)\)$", line):
+                lines[index] = line[:-1] + ".)"
+            else:
+                lines[index] = line + "."
+        elif not re.search(r"[.!?~。]$", line):
+            lines[index] = line + "."
+    normalized = " ".join(lines)
+    normalized = re.sub(r"\s+([,.:;!?])", r"\1", normalized)
+    normalized = re.sub(r"\(\s+", "(", normalized)
+    return re.sub(
+        r"(입니다|습니다|됩니다|합니다)\s+(?=[가-힣A-Za-z0-9])",
+        r"\1. ",
+        normalized,
+    ).strip()
 
 
 def stable_index(seed: str, namespace: str, size: int) -> int:
@@ -373,7 +458,7 @@ def row_school_names(row: dict[str, str]) -> list[str]:
     names: list[str] = []
     for field, value in row.items():
         if field.startswith("타깃학교"):
-            names.extend(split_values(value))
+            names.extend(split_school_values(value))
     return list(dict.fromkeys(names))
 
 
@@ -407,10 +492,30 @@ def editorialize(value: str, row: dict[str, str]) -> str:
     return clean_text(normalize_school_delimiters(value, row_school_names(row)))
 
 
+def normalize_subject_profiles(value: str, category: str) -> str:
+    if category == "고등수학학원":
+        for before, after in HIGH_MATH_PROFILE_REPLACEMENTS.items():
+            value = value.replace(before, after)
+    value = re.sub(
+        r"설명을 위해 (.+?학생)이라는 학생을 가정해 보겠습니다\.",
+        r"학습 상황을 구체적으로 살펴보기 위해 \1을 가정해 보겠습니다.",
+        value,
+    )
+    value = value.replace("학생이라는 학생", "학생")
+    return value
+
+
 def extract_reference_keyword(manuscript: dict[str, str]) -> str:
     """Find the generator-only prompt token embedded in some source drafts."""
-    candidates = (manuscript.get("JSON-LD 요약", ""), manuscript.get("FAQ", ""))
+    candidates = (
+        manuscript.get("JSON-LD 요약", ""),
+        manuscript.get("FAQ", ""),
+        manuscript.get("본문", ""),
+    )
     patterns = (
+        r"세부 소재는\s*[‘'\"]([^’'\"]+)[’'\"]",
+        r"Q2[.)]?\s*(.+?)(?:은|는)\s+실제로\s+운영",
+        r"주소 정보만 사용하며,\s*(.+?)(?:은|는)\s+실제\s+운영\s+사실",
         r"참고\s*키워드인\s+(.+?)\s+관련\s*상담\s*포인트",
         r"Q3[.)]?\s*(.+?)\s+관련해\s*학부모",
         r"핵심\s*내용은[^.\n]*,\s*([^,.\n]+?)\s+확인\s*포인트",
@@ -468,6 +573,25 @@ def strip_source_production_sentences(value: str) -> str:
         "으로 제공되어",
         "제공 주소는",
         "상담 질문에 넣어야 일반적인 소개에 그치지 않고",
+        "CSV",
+        "입력 데이터",
+        "데이터에 없",
+        "이 글에서 임의",
+        "가상 유형",
+        "가상 학생",
+        "주소는 입력값 그대로",
+        "입력값 그대로",
+        "관심 소재",
+        "확인된 단어만으로",
+        "전달 주기와 매체는",
+        "제공되지 않았으므로",
+        "특정 학원의 프로그램을 뜻하지 않으며",
+        "일반적인 설명을 실제 학생의 성적이나 학교생활 결과로 바꾸어 말해서는 안 됩니다",
+        "가상 상황과 실제 학생",
+        "해당 학교와 학원의 제휴나 실제 재원 관계",
+        "이를 근거로 역세권",
+        "확인되지 않은 내용은 결정 근거",
+        "홍보 표현보다",
     )
     result: list[str] = []
     for block in re.split(r"(\n\s*\n)", value):
@@ -488,7 +612,7 @@ def strip_unverified_school_sentences(
     value: str, row: dict[str, str], allowed_school_field: str,
 ) -> str:
     """Keep school claims at the page's verified level; the centre card rebuilds them."""
-    allowed = set(split_values(row.get(allowed_school_field, "")))
+    allowed = set(split_school_values(row.get(allowed_school_field, "")))
     forbidden = [name for name in row_school_names(row) if name not in allowed]
     school_heading_markers = (
         "제공 학교 정보",
@@ -549,6 +673,11 @@ def safe_source_faqs(
         "참고 확인 항목",
         "검색자가",
         "구조화 데이터",
+        "CSV",
+        "입력 데이터",
+        "데이터에 없",
+        "세부 소재",
+        "실제로 운영된다고",
         "분량보다 완성도와 재확인이 더 중요합니다",
     )
     result: list[tuple[str, str]] = []
@@ -771,9 +900,14 @@ def soften_subject_phrase_repetition(
     """본문에서 지역+학년+과목의 근접 반복만 줄이고 핵심 키워드는 남깁니다."""
     local = row["근처 수업가능 동네"].strip()
     grade_match = re.search(r"(\d+)", config["grade"])
-    if not grade_match:
+    if grade_match:
+        short_grade = f"초{grade_match.group(1)}"
+    elif config["grade"].startswith("고"):
+        short_grade = "고등"
+    elif config["grade"].startswith("중"):
+        short_grade = "중등"
+    else:
         return value
-    short_grade = f"초{grade_match.group(1)}"
     subject = config["subject"]
     pattern = re.compile(
         rf"{re.escape(local)}(?:의|\s+지역)?\s+{re.escape(short_grade)}\s+{re.escape(subject)}"
@@ -868,6 +1002,28 @@ def split_values(value: str) -> list[str]:
     return list(dict.fromkeys(values))
 
 
+def split_school_values(value: str) -> list[str]:
+    chunks = [part.strip() for part in re.split(r"[,/\n·.]+", value or "") if part.strip()]
+    schools: list[str] = []
+    for chunk in chunks:
+        tokens = chunk.split()
+        if len(tokens) > 1 and all(re.search(r"(?:초|중|고|학교)$", token) for token in tokens):
+            schools.extend(tokens)
+        else:
+            schools.append(chunk)
+    return list(dict.fromkeys(schools))
+
+
+def grade_is_listed(grade_range: str, grade: str) -> bool:
+    values = split_values(grade_range)
+    if grade.startswith("고"):
+        return any(value.startswith("고") for value in values)
+    if grade.startswith("중"):
+        return any(value.startswith("중") for value in values)
+    match = re.search(r"(\d+)", grade)
+    return bool(match and any(value.startswith(f"초{match.group(1)}") for value in values))
+
+
 def slug_local(value: str) -> str:
     return re.sub(r"\s+", "", value.strip())
 
@@ -886,14 +1042,21 @@ def trim_description(value: str, fallback: str) -> str:
 
 def local_meta_description(
     title: str, region: str, district: str, center: str, config: dict[str, str],
+    grade_supported: bool = True,
 ) -> str:
     """검증된 센터 정보만 사용해 80자 이하의 검색 요약을 만듭니다."""
     location = " ".join(value for value in (region, district) if value)
-    candidates = [
-        f"{title}: {location} {center}의 {config['grade']} {config['subject']} 진단·학교 진도·오답 관리 기준을 안내합니다.",
-        f"{title}: {center}의 {config['grade']} {config['subject']} 진단·내신·오답 관리 기준을 안내합니다.",
-        f"{title}: {location} 지역의 {config['grade']} {config['subject']} 진단·내신·오답 관리 안내입니다.",
-    ]
+    if grade_supported:
+        candidates = [
+            f"{title}: {location} {center}의 {config['grade']} {config['subject']} 진단·학교 진도·오답 관리 기준을 안내합니다.",
+            f"{title}: {center}의 {config['grade']} {config['subject']} 진단·내신·오답 관리 기준을 안내합니다.",
+            f"{title}: {location} 지역의 {config['grade']} {config['subject']} 진단·내신·오답 관리 안내입니다.",
+        ]
+    else:
+        candidates = [
+            f"{title}: {location}에서 고등 수학 수업을 비교할 때 확인할 진단·내신·오답 관리 기준을 안내합니다.",
+            f"{title}: {location} 고등 수학 상담 전 확인할 학습 진단·내신·오답 관리 기준을 안내합니다.",
+        ]
     for candidate in candidates:
         candidate = re.sub(r"\s+", " ", candidate).strip()
         if len(candidate) <= 80:
@@ -950,7 +1113,10 @@ def parse_sections(raw: str) -> dict[str, str]:
     sections: dict[str, str] = {}
     for index, match in enumerate(matches):
         end = matches[index + 1].start() if index + 1 < len(matches) else len(raw)
-        sections[match.group(1)] = clean_text(raw[match.end():end])
+        name = SECTION_ALIASES.get(match.group(1), match.group(1))
+        if name in sections:
+            raise ValueError(f"원고 구역 중복: {name}")
+        sections[name] = clean_text(raw[match.end():end])
     required = {"페이지타이틀", "메타설명", "본문", "FAQ", "학부모후기", "JSON-LD 요약"}
     missing = required - sections.keys()
     if missing:
@@ -967,11 +1133,16 @@ def decode_zip_text(data: bytes) -> str:
     raise UnicodeDecodeError("unknown", data, 0, 1, "지원하는 인코딩이 아닙니다")
 
 
-def load_manuscripts(zip_path: Path, category_label: str) -> dict[str, dict[str, str]]:
+def load_manuscripts(
+    zip_path: Path, category_label: str, archive_prefix: str = "",
+) -> dict[str, dict[str, str]]:
     result: dict[str, dict[str, str]] = {}
     with zipfile.ZipFile(zip_path) as archive:
         for name in archive.namelist():
             if not name.lower().endswith(".txt") or name.endswith("/"):
+                continue
+            normalized_name = name.replace("\\", "/")
+            if archive_prefix and not normalized_name.startswith(archive_prefix):
                 continue
             sections = parse_sections(decode_zip_text(archive.read(name)))
             title = sections["페이지타이틀"].strip()
@@ -1095,7 +1266,7 @@ def diversify_faq_question(
     local = row["근처 수업가능 동네"].strip()
     center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
     address = row.get("센터 주소", "").strip()
-    schools = split_values(row.get(config["school_field"], ""))
+    schools = split_school_values(row.get(config["school_field"], ""))
     grade_range = row.get(config["grade_field"], "").strip()
     seed = f"{category}|{local}|faq-question"
 
@@ -1187,15 +1358,15 @@ def diversify_faq_question(
     core = re.sub(r"^(?:상담에서는|상담에서)\s*", "", core).strip()
     if not core:
         core = question
+    parent_core = re.sub(r"^학부모(?:는|가)\s*", "", core).strip()
     frames = (
         f"{profile_clause} 학생을 위한 {title} 상담이라면 {core}",
         f"{local}에서 {profile_clause} 학생의 {config['subject']} 학습을 점검한다면 {core}",
-        f"{profile_clause} 아이를 둔 {local} 학부모라면 {core}",
+        f"{profile_clause} 아이를 둔 {local} 학부모라면 {parent_core}",
         f"{center} 상담에서 {profile_clause} 상황을 확인했다면 {core}",
         f"{local} {config['grade']} 학생에게 {profile_clause} 모습이 보인다면 {core}",
         f"{profile_clause} 학생의 {local} 수업을 비교한다면 {core}",
         f"{local}의 {config['grade']} 학생이 {profile_clause} 상황이라면 {core}",
-        f"{local}에서 {config['subject']} 학습을 점검하다 {profile_clause} 상황을 발견했다면 {core}",
     )
     return finalize(f"slot-{slot}", frames)
 
@@ -1207,8 +1378,8 @@ def build_page_faqs(
     local = row["근처 수업가능 동네"].strip()
     center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
     address = row.get("센터 주소", "").strip()
-    location = row.get("위치안내", "").strip()
-    schools = split_values(row.get(config["school_field"], ""))
+    location = normalize_location_description(row.get("위치안내", ""))
+    schools = split_school_values(row.get(config["school_field"], ""))
     grade_range = row.get(config["grade_field"], "").strip()
     subject = config["subject"]
     grade = config["grade"]
@@ -1274,7 +1445,7 @@ def build_page_faqs(
             f"{local} 학생이 {profile}라면 특히 {action}",
         ),
         (
-            f"{local} {grade} {subject} 학습에서 질문 기록은 왜 필요한가요?",
+            "질문 기록은 왜 필요한가요?",
             f"질문 기록은 모르는 문제 수를 세기 위한 것이 아니라 어느 단계에서 설명이 더 필요한지 찾는 자료입니다. "
             f"{profile}인 {local} 학생에게는 질문을 수업 계획에 반영해 {action}",
         ),
@@ -1303,7 +1474,7 @@ def build_page_faqs(
     if location:
         candidates.append((
             f"센터 방문 전에 위치를 어떻게 확인하면 좋을까요?",
-            f"센터 주소는 {address or '상담 시 안내'}이며 위치 안내는 ‘{location}’입니다. {local}에서 처음 방문할 때는 건물명과 층, 이동 시간을 미리 확인하면 상담 시간을 여유 있게 잡을 수 있습니다.",
+            f"센터 주소는 {address or '상담 시 안내'}입니다. 위치 안내 문구는 다음과 같습니다. ‘{location}’ {local}에서 처음 방문할 때는 건물명과 층, 이동 시간을 미리 확인하면 상담 시간을 여유 있게 잡을 수 있습니다.",
         ))
 
     result: list[tuple[str, str]] = []
@@ -1337,7 +1508,7 @@ def build_consultation_scenarios(
 ) -> list[str]:
     """실제 후기처럼 오해되지 않도록 상담에서 다루는 상황을 사실 기반 서술로 만듭니다."""
     local = row["근처 수업가능 동네"].strip()
-    schools = split_values(row.get(config["school_field"], ""))
+    schools = split_school_values(row.get(config["school_field"], ""))
     subject = config["subject"]
     grade = config["grade"]
     seed = f"{category}|{local}|scenario"
@@ -1423,8 +1594,8 @@ def build_context_section(
     local = row["근처 수업가능 동네"].strip()
     center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
     address = row.get("센터 주소", "").strip()
-    location = row.get("위치안내", "").strip()
-    schools = split_values(row.get(config["school_field"], ""))
+    location = normalize_location_description(row.get("위치안내", ""))
+    schools = split_school_values(row.get(config["school_field"], ""))
     grade_range = row.get(config["grade_field"], "").strip()
     subject = config["subject"]
     grade = config["grade"]
@@ -1443,19 +1614,19 @@ def build_context_section(
             f"{title} 상담에서는 최근 풀이, 과제 수행 시간, 다시 해결할 수 있는 문제를 함께 확인합니다. {local} 학생 중 {profile}에는 {action}",
             f"{local}의 {grade} {subject} 계획은 한 번의 점수보다 학생이 남긴 풀이와 복습 기록을 토대로 정합니다. {profile}라면 {action}",
             f"최근 결과만으로 {local} 학생의 수준을 단정하지 않고 풀이 과정과 과제 시간을 나누어 봅니다. 특히 {profile}에는 {action}",
-            f"{title}의 첫 계획을 세울 때는 정답 개수, 풀이 설명, 오답 재확인 여부를 함께 살펴야 합니다. {profile}인 경우 {action}",
+            f"{title}의 첫 계획을 세울 때는 정답 개수, 풀이 설명, 오답 재확인 여부를 함께 살펴야 합니다. {profile}라면 {action}",
             f"{local} 상담에서는 학생이 혼자 시작한 문제와 도움을 받은 문제를 구분해 현재 출발점을 찾습니다. {profile}에는 {action}",
             f"{local} 학생의 최근 교재에서 막힌 위치와 다시 푼 흔적을 확인하면 학습 순서가 구체적이 됩니다. {profile}라면 {action}",
             f"{title} 수업의 우선순위는 점수표 하나가 아니라 최근 과제와 오답에서 반복된 장면을 근거로 정합니다. {profile}에는 {action}",
             f"{local}의 {grade} {subject} 상담은 학생이 아는 부분과 혼자 적용하지 못하는 부분을 나누는 데서 시작합니다. {profile}라면 {action}",
         )),
         pick_copy_variant(seed, "context-location", (
-            f"{'상담 장소는' if direct_area else local + ' 학생의 상담 가능 여부는 인근 센터 기준으로 안내하며, 실제 센터 위치는'} {center}{'(' + address + ')' if address else ''}입니다. {'위치 안내는 ‘' + location + '’입니다. ' if location else ''}{local}에서 등원 요일과 수업 뒤 복습 시간을 함께 정하면 계획을 무리 없이 이어가기 좋습니다.",
-            f"{'직접 상담 위치는' if direct_area else local + ' 수업 상담은 인근 센터의 운영 여부를 확인해야 하며, 안내된 위치는'} {center}{'(' + address + ')' if address else ''}입니다. {'찾아가는 방법은 ‘' + location + '’을 참고할 수 있습니다. ' if location else ''}이동 시간과 귀가 뒤 복습 가능 시간도 함께 계산해 보세요.",
-            f"센터 안내 기준 위치는 {center}{'(' + address + ')' if address else ''}입니다. {'위치 설명은 ‘' + location + '’입니다. ' if location else ''}{local} 학생은 실제 방문 가능 여부와 가능한 요일을 상담 전에 확인하는 편이 좋습니다.",
-            f"{local} 학생의 상담은 {center}{'(' + address + ')' if address else ''} 위치를 기준으로 가능 여부를 확인합니다. {'안내된 동선은 ‘' + location + '’입니다. ' if location else ''}등하원 시간과 주간 복습 계획이 서로 무리 없는지도 살펴야 합니다.",
-            f"안내된 센터는 {center}{'(' + address + ')' if address else ''}입니다. {'센터 위치 참고 문구는 ‘' + location + '’입니다. ' if location else ''}{local}에서 실제로 꾸준히 다닐 수 있는 시간인지 먼저 확인하세요.",
-            f"{center}{'(' + address + ')' if address else ''}에서 {local} 학생의 상담 가능 여부를 확인할 수 있습니다. {'방문 전에는 ‘' + location + '’ 안내를 참고하세요. ' if location else ''}수업 시간뿐 아니라 이동과 복습에 필요한 시간도 함께 고려합니다.",
+            f"{'상담 장소는' if direct_area else local + ' 학생의 상담 가능 여부는 인근 센터 기준으로 안내하며, 실제 센터 위치는'} {center}{'(' + address + ')' if address else ''}입니다. {'위치 안내 문구는 다음과 같습니다. ‘' + location + '’ ' if location else ''}{local}에서 등원 요일과 수업 뒤 복습 시간을 함께 정하면 계획을 무리 없이 이어가기 좋습니다.",
+            f"{'직접 상담 위치는' if direct_area else local + ' 수업 상담은 인근 센터의 운영 여부를 확인해야 하며, 안내된 위치는'} {center}{'(' + address + ')' if address else ''}입니다. {'찾아가는 방법은 다음 안내를 참고하세요. ‘' + location + '’ ' if location else ''}이동 시간과 귀가 뒤 복습 가능 시간도 함께 계산해 보세요.",
+            f"센터 안내 기준 위치는 {center}{'(' + address + ')' if address else ''}입니다. {'위치 설명은 다음과 같습니다. ‘' + location + '’ ' if location else ''}{local} 학생은 실제 방문 가능 여부와 가능한 요일을 상담 전에 확인하는 편이 좋습니다.",
+            f"{local} 학생의 상담은 {center}{'(' + address + ')' if address else ''} 위치를 기준으로 가능 여부를 확인합니다. {'안내된 동선은 다음과 같습니다. ‘' + location + '’ ' if location else ''}등하원 시간과 주간 복습 계획이 서로 무리 없는지도 살펴야 합니다.",
+            f"안내된 센터는 {center}{'(' + address + ')' if address else ''}입니다. {'센터 위치 참고 문구는 다음과 같습니다. ‘' + location + '’ ' if location else ''}{local}에서 실제로 꾸준히 다닐 수 있는 시간인지 먼저 확인하세요.",
+            f"{center}{'(' + address + ')' if address else ''}에서 {local} 학생의 상담 가능 여부를 확인할 수 있습니다. {'방문 전에는 다음 위치 안내를 참고하세요. ‘' + location + '’ ' if location else ''}수업 시간뿐 아니라 이동과 복습에 필요한 시간도 함께 고려합니다.",
         )),
     ]
     if schools:
@@ -1463,8 +1634,8 @@ def build_context_section(
         paragraphs.append(pick_copy_variant(seed, "context-schools", (
             f"{local} 센터 안내에서 수업 가능 학교로 확인되는 곳은 {school_text}입니다. {local} 상담에서는 학생이 가져온 최신 진도표와 과제를 기준으로 실제 학습 범위를 확인합니다.",
             f"{local} 센터 안내에서 수업 가능 학교로 확인되는 곳은 {school_text}입니다. 학교 이름만으로 진도를 가정하지 않고 최근 과제와 평가 안내를 함께 확인합니다.",
-            f"{local} 센터의 수업 가능 학교 안내에는 {school_text}이 포함됩니다. {local} 상담에서는 재학 학교의 현재 진도와 학생의 풀이 기록을 기준으로 순서를 정합니다.",
-            f"{local} 수업 가능 학교 정보는 {school_text}이며, 학생의 구체적인 영어 범위는 최신 학교 자료와 현재 이해도를 함께 보고 조정합니다.",
+            f"{local} 센터의 수업 가능 학교 안내는 {school_text}입니다. {local} 상담에서는 재학 학교의 현재 진도와 학생의 풀이 기록을 기준으로 순서를 정합니다.",
+            f"{local} 수업 가능 학교 정보는 {school_text}이며, 학생의 구체적인 {subject} 범위는 최신 학교 자료와 현재 이해도를 함께 보고 조정합니다.",
             f"{local}의 {school_text} 재학생은 최근 진도표나 과제 자료를 준비하면 상담 내용을 더 구체화할 수 있습니다. 학교별 범위를 미리 단정하지는 않습니다.",
             f"{local} 센터 안내 기준 수업 가능 학교는 {school_text}입니다. {local} 실제 수업 계획은 학교명보다 최근 학습 기록과 현재 진도를 먼저 확인해 구성합니다.",
         )))
@@ -1574,6 +1745,206 @@ def build_grade5_supplement_sections(
         (heading_one, [finish_sentence(first), finish_sentence(second)]),
         (heading_two, [finish_sentence(third), finish_sentence(fourth)]),
     ]
+
+
+def build_high_math_supplement_sections(
+    row: dict[str, str], config: dict[str, str], title: str, category: str,
+) -> list[tuple[str, list[str]]]:
+    if category != "고등수학학원":
+        return []
+    local = row["근처 수업가능 동네"].strip()
+    seed = f"{category}|{local}|high-math-supplement"
+    profile = LEARNING_PROFILES[category][stable_index(seed, "profile", len(LEARNING_PROFILES[category]))]
+    action = LEARNING_ACTIONS["수학"][stable_index(seed, "action", len(LEARNING_ACTIONS["수학"]))]
+    candidates = [
+        (
+            f"{local} 고등 수학 오답을 세 갈래로 나누는 방법",
+            [
+                f"{local} 학생의 최근 시험지와 문제집을 함께 볼 때는 틀린 문제를 개념 부족, 조건 해석, 계산 과정으로 나누어 표시하면 복습 순서를 정하기 쉽습니다. 정답만 고치지 말고 풀이가 멈춘 첫 지점을 남겨야 다음 계획에 활용할 수 있습니다.",
+                f"{profile}에는 {finish_sentence(action)} 그 뒤 조건이나 수치가 달라진 문제를 도움 없이 다시 풀 수 있는지도 확인해야 이해가 남았는지 판단할 수 있습니다.",
+            ],
+        ),
+        (
+            f"{local} 내신 진도와 장기 복습을 함께 놓는 기준",
+            [
+                f"학교 시험 범위와 장기 복습 범위는 목적이 다르므로 한 시간표에 섞어 적기보다 요일과 자료를 나누는 편이 좋습니다. {local} 상담에서는 이번 주 학교 진도, 반복된 오답, 다음 확인일을 구분해 실제로 유지할 수 있는 계획인지 살펴보세요.",
+                "새 단원을 앞당기는 것보다 현재 단원의 핵심 개념을 설명하고 낯선 문제에 적용할 수 있는지 먼저 확인하면 진도와 복습의 균형을 잡기 쉽습니다.",
+            ],
+        ),
+        (
+            f"{local} 고등 수학 상담 전에 준비할 자료",
+            [
+                f"{local} 상담 전에는 최근 시험지 한 부, 풀이가 오래 걸린 문제 두세 개, 다시 풀어 본 흔적, 평일에 실제로 확보할 수 있는 복습 시간을 준비하면 충분합니다. 자료가 많기보다 학생이 어디에서 멈췄는지 확인할 수 있어야 합니다.",
+                "상담 답변은 진도표만 기록하지 말고 진단 자료, 과제 확인 방식, 질문 절차, 재풀이 시점을 같은 항목으로 정리해야 서로 다른 수업을 같은 기준으로 비교할 수 있습니다.",
+            ],
+        ),
+        (
+            "풀이 설명과 재풀이로 이해도를 확인하는 순서",
+            [
+                f"고등 수학에서는 답을 맞힌 문제도 풀이의 첫 단계와 사용한 개념을 설명할 수 있는지 확인할 필요가 있습니다. {local} 학생이 설명하다 멈춘 지점은 다음 수업에서 다시 볼 개념을 고르는 근거가 됩니다.",
+                "설명을 들은 직후의 재풀이와 며칠 뒤 혼자 하는 재풀이를 구분하면 단기 기억과 실제 이해를 나누어 볼 수 있습니다. 같은 실수가 반복되면 문제 수보다 오답 원인과 복습 간격을 먼저 조정하세요.",
+            ],
+        ),
+    ]
+    start = stable_index(seed, "order", len(candidates))
+    return candidates[start:] + candidates[:start]
+
+
+def build_high_math_local_repair_section(
+    row: dict[str, str], config: dict[str, str], category: str,
+) -> tuple[str, list[str]] | None:
+    if category != "고등수학학원":
+        return None
+    local = row["근처 수업가능 동네"].strip()
+    if local not in {
+        "단구동", "서정동", "신정동", "부발읍", "위례신도시", "야탑동", "장항동",
+        "죽백동", "좌동", "덕이동", "복대동", "중화산동", "신창동", "화명동", "영천동",
+        "산월동", "원신흥동",
+    }:
+        return None
+    schools = split_school_values(row.get(config["school_field"], ""))
+    school_text = "·".join(schools) or f"{local} 재학 학교"
+    high_grades = [value for value in split_values(row.get(config["grade_field"], "")) if value.startswith("고")]
+    grade_text = "·".join(high_grades) or "고등 수학 가능 학년"
+    center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
+    address = row.get("센터 주소", "").strip()
+    location = normalize_location_description(row.get("위치안내", ""))
+
+    if local == "단구동":
+        return (
+            "단구동 고등학교 자료를 나누어 준비하는 상담 순서",
+            [
+                f"센터 안내에 수업 가능 학교로 표시된 곳은 {school_text}입니다. 학교별 범위를 미리 같다고 보지 말고 학생이 가져온 최신 진도표, 평가 안내, 오답을 학교 자료별로 구분해 현재 단원을 확인해야 합니다.",
+                f"단구동 상담에서는 {grade_text} 안내와 학생의 실제 학년을 먼저 맞춘 뒤, 내신 오답과 장기 복습 문제를 서로 다른 표시로 정리하면 첫 수업의 우선순위를 구체적으로 질문할 수 있습니다.",
+            ],
+        )
+    if local == "서정동":
+        return (
+            "서정동 고등 수학 가능 학년과 진도를 따로 확인하기",
+            [
+                f"{center} 안내에 표시된 고등 수학 가능 학년은 {grade_text}입니다. 표시되지 않은 학년은 개설을 가정하지 말고 상담 시점의 반 편성과 시간표를 별도로 확인해야 합니다.",
+                f"{school_text} 재학생은 학교 이름만 전달하기보다 최근 과제의 단원, 틀린 문제의 풀이 흔적, 다시 풀 수 있는 날짜를 함께 준비하면 서정동 상담에서 내신 진도와 복습 계획을 구분하기 쉽습니다.",
+            ],
+        )
+    if local == "신정동":
+        return (
+            "신정동 학교별 과제와 평가 범위를 섞지 않는 준비표",
+            [
+                f"신정동 센터의 수업 가능 학교 안내는 {school_text}입니다. 서로 다른 학교의 평가 범위를 하나로 묶지 말고 학생 본인의 최신 과제와 시험 안내를 기준으로 현재 단원을 적어 두세요.",
+                f"{center} 상담에서는 {grade_text} 범위와 실제 모집 반을 확인하고, 개념 복습·내신 유형·서술형 재풀이를 각각 언제 확인할지 나누어 질문하면 답변을 비교하기 쉽습니다.",
+            ],
+        )
+    if local == "부발읍":
+        return (
+            "부발읍 고등 수학 상담에서 학년 범위를 확인하는 법",
+            [
+                f"센터 안내 기준 수업 가능 학교는 {school_text}이며 고등 수학 가능 학년은 {grade_text}입니다. 그 밖의 학년이나 과정은 운영을 단정하지 말고 현재 개설 여부를 직접 확인해야 합니다.",
+                "상담 자료에는 최근 학교 진도, 오래 걸린 문제, 풀이를 다시 시작하지 못한 지점을 구분해 표시하세요. 학교 시험 대비와 다음 단원 준비를 한 계획에 섞기보다 우선순위를 따로 정하면 실행 여부를 확인하기 쉽습니다.",
+            ],
+        )
+    if local == "위례신도시":
+        return (
+            "위례신도시 생활권과 실제 센터 위치를 함께 보는 기준",
+            [
+                f"위례신도시 학생에게 안내되는 센터는 {center}이며 실제 주소는 {address or '상담 시 확인'}입니다. 생활권 이름만으로 가까운 위치라고 단정하지 말고 등원과 귀가에 걸리는 시간을 직접 확인해 주간 복습 시간과 함께 계산해야 합니다.",
+                f"수업 가능 학교 안내는 {school_text}, 고등 수학 가능 학년 표시는 {grade_text}입니다. 최신 학교 자료와 현재 반 편성을 각각 확인해야 학교명이나 학년 표기만으로 수업 범위를 예상하는 일을 피할 수 있습니다.",
+            ],
+        )
+    if local == "야탑동":
+        return (
+            "야탑동 학교 진도 한 곳을 깊게 확인하는 상담 준비",
+            [
+                f"야탑동 센터 안내에 수업 가능 학교로 표시된 곳은 {school_text}입니다. 학교 수를 늘려 비교하기보다 학생이 실제로 배우는 단원과 최근 오답을 한 학교 자료 안에서 깊게 확인하는 편이 학습 순서를 정하는 데 유용합니다.",
+                f"상담 장소는 {center}({address or '주소 상담 확인'})이며, 수업 뒤 귀가와 재풀이 시간을 함께 계산해야 합니다. {'위치 안내 문구는 다음과 같습니다. ‘' + location + '’ 방문 전에 안내가 현재도 같은지 확인하세요.' if location else '구체적인 동선은 상담 시 확인하세요.'}",
+            ],
+        )
+    if local == "죽백동":
+        return (
+            "죽백동 시험지와 문제집에서 같은 단원을 연결하는 법",
+            [
+                f"죽백동 센터 안내에 수업 가능 학교로 표시된 곳은 {school_text}입니다. 학생 본인의 시험지에서 오래 걸린 문항을 고른 뒤 문제집의 같은 개념 문제와 나란히 놓으면 학교 시험 대비와 개념 복습이 어디에서 만나는지 확인할 수 있습니다.",
+                f"{grade_text} 학생은 정답을 고친 기록과 며칠 뒤 새로 푼 기록을 구분해 준비하는 편이 좋습니다. 같은 단원이라도 힌트를 본 직후의 풀이와 혼자 다시 시작한 풀이를 나누면 첫 상담에서 필요한 설명 수준을 구체적으로 정할 수 있습니다.",
+            ],
+        )
+    if local == "좌동":
+        return (
+            "좌동 오답을 당일 수정과 지연 재풀이로 나누기",
+            [
+                f"좌동의 수업 가능 학교 안내는 {school_text}입니다. 학생의 최근 평가 자료에서 당일 해설을 보고 고친 문제와 일정 간격 뒤 도움 없이 다시 푼 문제를 다른 표시로 남기면 단기 기억과 실제 이해를 구분하기 쉽습니다.",
+                "상담에서는 틀린 개수만 전달하기보다 첫 풀이가 멈춘 단계, 사용하지 못한 개념, 재풀이 결과를 순서대로 보여 주세요. 세 기록이 이어지면 새 문제를 더 풀지, 같은 단원을 다시 설명할지 결정할 근거가 생깁니다.",
+            ],
+        )
+    if local == "덕이동":
+        return (
+            "덕이동 학교 정보가 없을 때 상담 자료를 준비하는 순서",
+            [
+                f"덕이동 센터 안내에는 고등학교 목록이 별도로 표시되지 않았으며 수학 가능 학년은 {grade_text}입니다. 특정 학교의 진도나 시험 유형을 미리 가정하지 말고 학생이 실제로 받은 평가 안내와 최근 과제를 준비해야 합니다.",
+                "첫 상담에서는 재학 학교 이름보다 현재 단원, 혼자 시작하지 못한 문제, 풀이에 걸린 시간, 다시 확인할 수 있는 요일을 한 장에 정리해 보세요. 확인 가능한 자료부터 공유하면 학교 정보가 비어 있어도 학습 우선순위를 구체적으로 질문할 수 있습니다.",
+            ],
+        )
+    if local == "복대동":
+        return (
+            "복대동 여러 학교 안내를 학생 한 명의 자료로 좁히기",
+            [
+                f"복대동 센터의 수업 가능 학교 안내는 {school_text}입니다. 이 목록을 공통 시험 범위로 해석하지 말고 상담하는 학생의 최신 진도표와 과제에서 실제 단원을 확인해야 합니다.",
+                "자료를 준비할 때는 학교 시험 대비 문제, 이전 단원에서 반복된 오답, 장기적으로 다시 볼 개념을 세 묶음으로 나누어 보세요. 서로 목적이 다른 문제를 분리하면 제한된 주간 시간 안에서 무엇을 먼저 다룰지 비교하기 쉬워집니다.",
+            ],
+        )
+    if local == "중화산동":
+        return (
+            "중화산동 수학 시간표에 풀이 설명을 넣는 방법",
+            [
+                f"중화산동 센터의 수업 가능 학교 안내는 {school_text}, 수학 가능 학년은 {grade_text}입니다. 상담 전에는 한 문제를 고르고 식을 세운 이유와 검산 방법을 학생이 말로 설명하는 데 걸린 시간을 함께 기록해 보세요.",
+                "주간 계획에는 문제를 푸는 시간만 적지 말고 오답 원인을 한 줄로 정리하는 날과 도움 없이 다시 설명하는 날을 따로 남기는 편이 좋습니다. 설명이 끊긴 지점을 기준으로 복습하면 정답 수만으로는 보이지 않던 개념 빈칸을 확인할 수 있습니다.",
+            ],
+        )
+    if local == "신창동":
+        return (
+            "신창동 고등 수학 가능 학년과 실제 반을 확인하는 질문",
+            [
+                f"신창동 센터 안내에 표시된 수학 가능 학년은 {grade_text}이며 수업 가능 학교 안내는 {school_text}입니다. 학년 표기가 곧바로 현재 반 개설이나 시간표를 뜻하지 않으므로 상담 시점의 운영 여부를 따로 확인해야 합니다.",
+                "학생 자료에서는 학교 진도와 무관하게 반복되는 계산 오류, 조건을 놓친 문항, 개념을 설명하지 못한 문항을 구분해 가져가세요. 실제 반을 확인할 때 이 세 유형을 수업과 과제에서 각각 어떻게 회수하는지 물으면 관리 방식을 비교하기 쉽습니다.",
+            ],
+        )
+    if local == "화명동":
+        return (
+            "화명동 학년 범위를 넘겨 예상하지 않는 상담 기준",
+            [
+                f"화명동 센터 안내의 수학 가능 학년은 {grade_text}이고 수업 가능 학교는 {school_text}입니다. 표시되지 않은 학년이나 과정은 운영을 추정하지 말고 학생의 실제 학년과 가능한 시간표를 상담에서 다시 확인해야 합니다.",
+                "상담 기록에는 이번 시험에서 고쳐야 할 문제와 다음 달에도 다시 볼 개념을 서로 다른 칸에 적어 보세요. 당장의 범위와 누적 복습을 분리하면 짧은 시험 준비 때문에 이전 오답 확인이 계속 밀리는지를 구체적으로 살필 수 있습니다.",
+            ],
+        )
+    if local == "영천동":
+        return (
+            "영천동 내신 문항과 장기 복습 문제를 구분하는 표",
+            [
+                f"영천동 센터 안내에 수업 가능 학교로 표시된 곳은 {school_text}이며 수학 가능 학년은 {grade_text}입니다. 학생의 최신 시험 범위에서 바로 보완할 문항과 범위 밖이지만 다시 필요한 개념을 두 목록으로 나누어 준비하세요.",
+                "두 목록에는 문제 번호보다 막힌 이유와 다음 확인일을 적는 편이 유용합니다. 내신 문항은 학교 일정에 맞춰 회수하고 장기 복습 문제는 일정 간격 뒤 새 풀이로 확인하면 서로 다른 목표가 한 계획에서 충돌하는 일을 줄일 수 있습니다.",
+            ],
+        )
+    if local == "산월동":
+        return (
+            "산월동 한 학교 자료에서 풀이 흐름을 깊게 보는 법",
+            [
+                f"산월동 센터 안내에 수업 가능 학교로 표시된 곳은 {school_text}입니다. 여러 학교의 자료를 넓게 비교하기보다 학생이 실제로 받은 과제와 평가 안내에서 조건 표시, 식 세우기, 계산, 검산이 어디에서 끊겼는지 순서대로 확인해 보세요.",
+                f"상담 위치는 {center}({address or '주소 상담 확인'})이며 위치 안내와 실제 이동 시간을 함께 확인해야 합니다. 상담 뒤 바로 복습할 수 있는 요일까지 정하면 설명을 들은 문제를 언제 혼자 다시 풀지 구체적인 일정으로 남길 수 있습니다.",
+            ],
+        )
+    if local == "원신흥동":
+        return (
+            "원신흥동 상담 답변을 같은 기준으로 기록하기",
+            [
+                f"원신흥동 센터의 수업 가능 학교 안내는 {school_text}입니다. 수학 가능 학년은 {grade_text}이며, 상담 답변은 진단 자료, 수업 중 질문 방식, 과제 미완료 처리, 오답 재확인 날짜의 네 항목으로 나누어 적어 보세요.",
+                "각 답변 옆에는 학생이 가져온 최근 자료와 연결되는 근거를 한 줄씩 남기는 것이 좋습니다. 막연히 관리가 된다는 설명보다 어떤 기록을 누가 언제 확인하는지 비교하면 학생의 생활 일정에 맞는 실행 방식을 판단하기 쉬워집니다.",
+            ],
+        )
+    return (
+        "장항동 학교 자료와 이동 시간을 함께 준비하는 방법",
+        [
+            f"장항동 센터의 수업 가능 학교 안내는 {school_text}입니다. 상담에는 학생 본인의 최신 진도표와 오답을 가져가 학교별 범위를 추정하지 않고 현재 학습 상태부터 확인해야 합니다.",
+            f"{center}의 실제 주소는 {address or '상담 시 확인'}이며 고등 수학 가능 학년 표시는 {grade_text}입니다. 등원 시간과 수업 뒤 복습 가능 시간을 같은 주간표에 표시하고 현재 반 편성은 상담 시점에 다시 확인하세요.",
+        ],
+    )
 
 
 def build_grade5_intro(
@@ -1761,12 +2132,15 @@ def local_page(
     district = row.get("시or구", "").strip()
     center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
     address = row.get("센터 주소", "").strip()
-    location = row.get("위치안내", "").strip()
-    schools = split_values(row.get(config["school_field"], ""))
+    location = normalize_location_description(row.get("위치안내", ""))
+    schools = split_school_values(row.get(config["school_field"], ""))
     grade_range = row.get(config["grade_field"], "").strip()
+    grade_supported = grade_is_listed(grade_range, config["grade"])
     reg_office = row.get("교육지원청명칭", "").strip()
     reg_number = row.get("교육지원청 등록번호", "").strip()
-    description = local_meta_description(title, region, district, center, config)
+    description = local_meta_description(
+        title, region, district, center, config, grade_supported
+    )
     page_seed = f"{category}|{local}"
     reference_keyword = extract_reference_keyword(manuscript)
     # The supplied JSON summary contains generator notes on some rows.  The
@@ -1776,6 +2150,7 @@ def local_page(
     body_source = strip_source_production_sentences(body_source)
     body_source = strip_unverified_school_sentences(body_source, row, config["school_field"])
     body_source = editorialize(body_source, row)
+    body_source = normalize_subject_profiles(body_source, category)
     if config["grade"] == "초등학교 4학년" and config["subject"] == "수학":
         awkward_intro = (
             f"{title}은 {region} {district} {local}에서 초4 자녀의 수학 빈틈을 진단하고 "
@@ -1859,6 +2234,14 @@ def local_page(
             if paragraphs
         ]
     body_sections.extend(build_grade5_supplement_sections(row, config, title, category))
+    if category == "고등수학학원" and len(body_sections) < 6:
+        needed = 6 - len(body_sections)
+        body_sections.extend(
+            build_high_math_supplement_sections(row, config, title, category)[:needed]
+        )
+    local_repair = build_high_math_local_repair_section(row, config, category)
+    if local_repair:
+        body_sections.append(local_repair)
     seen_sentences: set[str] = set()
     intro = dedupe_sentences(intro, seen_sentences)
     body_sections = [
@@ -2012,7 +2395,8 @@ def local_page(
             "@type": "Article", "@id": article_id, "mainEntityOfPage": {"@id": page_id},
             "headline": title, "name": title, "description": summary,
             "image": [absolute(rep), absolute(center_image), absolute(map_image)],
-            "datePublished": PUBLISH_DATE, "dateModified": MODIFIED_DATE,
+            "datePublished": config.get("publish_date", PUBLISH_DATE),
+            "dateModified": config.get("modified_date", MODIFIED_DATE),
             "author": {"@id": org_id}, "publisher": {"@id": org_id}, "inLanguage": "ko-KR",
             "articleSection": [heading for heading, _ in body_sections],
             "about": [title, config["grade"], config["subject"], "학습 진단", "오답 관리"],
@@ -2035,6 +2419,9 @@ def local_page(
             "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": name, "url": absolute(url)} for i, (name, url, _) in enumerate(related)],
         },
     ]
+    if not grade_supported:
+        graph = [node for node in graph if node.get("@id") != service_id]
+        graph[0]["hasPart"] = [{"@id": article_id}, {"@id": faq_id}]
     if school_items:
         graph.insert(-1, {
             "@type": "ItemList", "@id": canonical + "#schools", "name": f"{local} 수업 가능 학교 참고",
@@ -2054,6 +2441,13 @@ def local_page(
             f'<p class="subject-service-area-notice">{esc(local)} 학생의 상담 가능 여부는 인근 센터 기준으로 안내합니다. '
             f'실제 센터 위치는 아래 주소에서 확인해 주세요.</p>'
         )
+    grade_availability_notice = ""
+    if not grade_supported:
+        grade_availability_notice = (
+            '<p class="subject-grade-availability-notice">센터 안내 자료에 고등 수학 가능 학년이 '
+            '표시되지 않아 실제 개설 여부와 시간표를 상담에서 확인해야 합니다.</p>'
+        )
+    grade_fact = grade_range if grade_supported else "고등 수학 개설 여부 상담 확인"
 
     body = f'''{nav("과목별학원")}
   <main>
@@ -2068,7 +2462,7 @@ def local_page(
     <section class="section subject-answer-summary">
       <div class="section-head"><p class="eyebrow">핵심 답변</p><h2>{esc(local)}에서 {esc(config['grade'])} {esc(config['subject'])} 학원을 찾을 때 무엇부터 확인해야 할까요?</h2><p class="lead">{esc(visible_description)}</p></div>
       <div class="subject-fact-grid">
-        <article><span>대상</span><strong>{esc(config['grade'])}</strong><p>{esc(grade_range or '학생별 진도 확인 후 안내')}</p></article>
+        <article><span>대상</span><strong>{esc(config['grade'])}</strong><p>{esc(grade_fact)}</p></article>
         <article><span>과목</span><strong>{esc(config['subject'])}</strong><p>개념·내신·오답 흐름 점검</p></article>
         <article><span>지역</span><strong>{esc(local)}</strong><p>{esc(' · '.join(x for x in (region, district) if x))}</p></article>
       </div>
@@ -2090,6 +2484,7 @@ def local_page(
     <section class="section subject-center-card">
       <div class="section-head"><p class="eyebrow">센터 정보</p><h2>{esc(center)}</h2><p class="lead">센터의 주소·위치·수업 가능 학교를 상담 전에 확인할 수 있도록 정리했습니다.</p></div>
       {service_area_notice}
+      {grade_availability_notice}
       <dl class="subject-center-facts">
         <div><dt>주소</dt><dd>{esc(address or '상담 시 안내')}</dd></div>
         <div><dt>위치 안내</dt><dd>{esc(location or '상담 시 상세 안내')}</dd></div>
@@ -2239,7 +2634,11 @@ def main() -> None:
     if not zip_path.exists():
         raise FileNotFoundError(zip_path)
     rows = load_centers()
-    manuscripts = load_manuscripts(zip_path, config["label"])
+    manuscripts = load_manuscripts(
+        zip_path,
+        config["label"],
+        config.get("archive_prefix", ""),
+    )
     row_keys = {slug_local(row["근처 수업가능 동네"]): row for row in rows}
     missing_drafts = sorted(set(row_keys) - set(manuscripts))
     unknown_drafts = sorted(set(manuscripts) - set(row_keys))

@@ -10,15 +10,15 @@ from pathlib import Path
 
 
 SITE = Path(__file__).resolve().parents[1]
-CATEGORIES = ("초4수학학원", "초4영어학원", "초5수학학원", "초5영어학원")
+CATEGORIES = ("고등수학학원", "초4수학학원", "초4영어학원", "초5수학학원", "초5영어학원")
 CATEGORY_LABELS = {
+    "고등수학학원": "고등 수학학원",
     "초4수학학원": "초4 수학학원",
     "초4영어학원": "초4 영어학원",
     "초5수학학원": "초5 수학학원",
     "초5영어학원": "초5 영어학원",
 }
 BANNED_VISIBLE = (
-    "원고",
     "제공된 자료",
     "제공된 학교",
     "제공된 위치",
@@ -44,6 +44,52 @@ BANNED_VISIBLE = (
     "제공된 수업 학교",
     "자료의 제공된",
     "페이지의 학교 정보",
+    "CSV",
+    "입력 데이터",
+    "입력 자료의 학교 항목",
+    "입력된 학교 항목",
+    "이 행의 학교 항목",
+    "이 행의 세부 소재",
+    "제공된 단어",
+    "가상 학생",
+    "가상 유형",
+    "데이터에 없",
+    "이 글에서 임의",
+)
+HIGH_MATH_BANNED = (
+    "학생의 구체적인 영어 범위",
+    "영어에 대한 부담으로 문제 풀이를 미루는 학생",
+    "단어를 외워도 오래 기억하지 못하는 학생",
+    "읽는 속도가 느려 긴 지문을 부담스러워하는 학생",
+    "문법 개념은 알지만 문장에 적용하기 어려운 학생",
+    "학생이라는 학생",
+    "서안내",
+    "원안내",
+    "주소는 입력값 그대로",
+    "확인된 단어만으로",
+    "전달 주기와 매체는",
+    "제공되지 않았으므로",
+    "특정 학원의 프로그램을 뜻하지 않으며",
+    "일반적인 설명을 실제 학생의 성적이나 학교생활 결과로 바꾸어 말해서는 안 됩니다",
+    "가상 상황과 실제 학생",
+    "해당 학교와 학원의 제휴나 실제 재원 관계",
+    "학습을 점검하다",
+    "제휴나 실제 수강 관계",
+)
+HIGH_MATH_BAD_GRAMMAR = (
+    "경우인 경우",
+    "합니다 같은 유형",
+)
+HIGH_MATH_BAD_PATTERNS = (
+    (re.compile(r"[가-힣]고이\s+(?:포함|수업)"), "학교명 조사 오류"),
+    (re.compile(r"같은 유형[^.!?]{0,180}같은 유형"), "같은 유형 반복"),
+    (re.compile(r"\.’(?:입니다|을 참고|\s*안내)"), "위치 안내 인용 결합 오류"),
+    (re.compile(r"니다\)\."), "괄호 문장부호 위치 오류"),
+    (re.compile(r"(?:층|호|옆|앞)\.\)"), "괄호 안 명사구 문장부호 오류"),
+    (re.compile(r"학부모라면\s+학부모(?:는|가)"), "학부모 표현 반복"),
+    (re.compile(r"학습을 점검한다면\s+학습에서"), "학습 표현 반복"),
+    (re.compile(r"\s+[,;:]"), "문장부호 앞 공백"),
+    (re.compile(r"\(\s+"), "여는 괄호 뒤 공백"),
 )
 BAD_GRAMMAR = (
     "학원를",
@@ -68,6 +114,7 @@ BAD_GRAMMAR = (
     "이 안내에서 기준으로 삼은 학생 유형",
 )
 JSON_RE = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.S)
+STANDALONE_DRAFT_RE = re.compile(r"(?<![가-힣A-Za-z0-9])원고(?![가-힣A-Za-z0-9])")
 
 
 class VisibleText(HTMLParser):
@@ -154,9 +201,21 @@ def main() -> int:
             canonicals.add(canonical)
 
             text = visible_main(source)
+            if STANDALONE_DRAFT_RE.search(text):
+                errors.append(f"{rel}: internal wording remains: 원고")
             for token in BANNED_VISIBLE:
                 if token in text:
                     errors.append(f"{rel}: internal wording remains: {token}")
+            if category == "고등수학학원":
+                for token in HIGH_MATH_BANNED:
+                    if token in text:
+                        errors.append(f"{rel}: subject mismatch remains: {token}")
+                for token in HIGH_MATH_BAD_GRAMMAR:
+                    if token in text:
+                        errors.append(f"{rel}: malformed wording remains: {token}")
+                for pattern, label in HIGH_MATH_BAD_PATTERNS:
+                    if pattern.search(text):
+                        errors.append(f"{rel}: malformed wording remains: {label}")
             for token in BAD_GRAMMAR:
                 if token in text:
                     errors.append(f"{rel}: malformed wording remains: {token}")
@@ -201,6 +260,11 @@ def main() -> int:
             for node in graph:
                 if str(node.get("@id", "")).endswith("#schools") and not node.get("itemListElement"):
                     errors.append(f"{rel}: empty school ItemList")
+            if category == "고등수학학원":
+                has_grade_notice = 'class="subject-grade-availability-notice"' in source
+                has_service = any(str(node.get("@id", "")).endswith("#service") for node in graph)
+                if has_grade_notice == has_service:
+                    errors.append(f"{rel}: grade availability notice/service schema mismatch")
 
             match = re.search(r'<section class="section subject-manuscript">(.*?)</section>\s*<section class="section subject-center-card">', source, re.S)
             if match:
