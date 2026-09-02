@@ -7,7 +7,7 @@ import html
 import json
 import re
 import zipfile
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 from PIL import Image
@@ -62,6 +62,18 @@ CONFIGS = {
         "school_field": "타깃학교\n(중)",
         "grade_field": "가능학년\n(수학)",
         "national_category": "수학학원",
+        "publish_date": "2026-09-03",
+        "modified_date": "2026-09-03",
+    },
+    "중등영어학원": {
+        "zip": "중등 영어학원.zip",
+        "archive_prefix": "원고/",
+        "label": "중등 영어학원",
+        "grade": "중학생",
+        "subject": "영어",
+        "school_field": "타깃학교\n(중)",
+        "grade_field": "가능학년\n(영어)",
+        "national_category": "영어학원",
         "publish_date": "2026-09-03",
         "modified_date": "2026-09-03",
     },
@@ -158,6 +170,19 @@ EDITORIAL_REPLACEMENTS = (
     ("수업 수업", "수업"),
     ("학습 학습", "학습"),
     ("학생 학생", "학생"),
+    ("확인된 확인 주소", "확인된 주소"),
+    (
+        "확인된 추가 확인 항목이지만 실제 운영 사실로 전제해서는 안 됩니다",
+        "실제 운영 여부와 적용 범위는 상담에서 확인해야 합니다",
+    ),
+    (
+        "상담용 확인 소재이며 실제 제공 여부를 뜻하지 않습니다",
+        "실제 운영 여부와 적용 범위는 상담에서 확인해야 합니다",
+    ),
+    (
+        "실제 개설 과목이나 교재, 프로그램, 수업 시간은 이 표현만으로 확인할 수 없습니다",
+        "실제 개설 과목, 교재, 프로그램과 수업 시간은 상담에서 각각 확인해야 합니다",
+    ),
     ("상담에서는 초5 영어 진단은", "상담에서 초5 영어 진단은"),
     ("피드백 예시로", "구체적인 피드백 방식으로"),
     ("지역명만 바꾼 설명이 아니라", "학생의 현재 학습 상황을 중심으로"),
@@ -249,6 +274,16 @@ LEARNING_PROFILES = {
         "서술형 답은 맞아도 식을 세운 이유와 검산 과정을 설명하지 못하는 경우",
         "시험 전에는 오래 공부하지만 평소 오답 복습 간격이 불규칙한 경우",
         "새 단원을 시작하면 앞 단원의 핵심 개념을 연결하지 못하는 경우",
+    ),
+    "중등영어학원": (
+        "단어 뜻은 외우지만 지문 문맥에 맞는 의미를 고르기 어려운 경우",
+        "문법 용어는 기억하지만 서술형 문장에 직접 적용하기 어려운 경우",
+        "교과서 지문은 익숙하지만 처음 보는 글에서 근거를 찾기 어려운 경우",
+        "긴 문장에서 수식 관계와 핵심 구조를 나누어 읽기 어려운 경우",
+        "해석은 가능하지만 핵심 내용을 자기 말로 정리하기 어려운 경우",
+        "듣기 오답을 어휘·연음·집중 구간으로 구분하지 못하는 경우",
+        "오답을 고친 뒤 틀린 문장을 다시 해석하거나 써 보지 않는 경우",
+        "시험 직전에 단어와 본문을 몰아서 외워 복습 간격이 길어지는 경우",
     ),
     "중1수학학원": (
         "정수와 유리수 계산에서 부호 실수가 반복되는 경우",
@@ -465,6 +500,35 @@ def normalize_particles(value: str) -> str:
     value = re.sub(
         r"([가-힣]+)(?:을|를)(\s+(?:(?:먼저|함께|직접)\s+)?(?:확인|비교|선택|준비|점검|참고|활용|검토|결정|사용|반영|정리|살피|질문|요청|기록|설명|구분|조절|연결|나누|바꾸|줄이|늘리|풀|보))",
         lambda match: particle(match, "을", "를"), value,
+    )
+    return value
+
+
+def normalize_quoted_particles(value: str) -> str:
+    """따옴표 안의 동적 명사에도 받침에 맞는 조사를 붙입니다."""
+    def replace(match: re.Match[str], consonant: str, vowel: str) -> str:
+        word = match.group(1)
+        return f"‘{word}’" + (consonant if has_batchim(word.rstrip()) else vowel)
+
+    value = re.sub(
+        r"‘([^’]+)’(?:이지만|지만)",
+        lambda match: replace(match, "이지만", "지만"),
+        value,
+    )
+    value = re.sub(
+        r"‘([^’]+)’(?:은|는)",
+        lambda match: replace(match, "은", "는"),
+        value,
+    )
+    value = re.sub(
+        r"‘([^’]+)’(?:이|가)",
+        lambda match: replace(match, "이", "가"),
+        value,
+    )
+    value = re.sub(
+        r"‘([^’]+)’(?:을|를)",
+        lambda match: replace(match, "을", "를"),
+        value,
     )
     return value
 
@@ -1278,7 +1342,7 @@ def clean_text(value: str) -> str:
         blocks[block_index] = block
     value = "".join(blocks)
     value = re.sub(r"\n{3,}", "\n\n", value)
-    return value.strip()
+    return normalize_quoted_particles(value).strip()
 
 
 def normalize_location_description(value: str) -> str:
@@ -1296,6 +1360,7 @@ def normalize_location_description(value: str) -> str:
         "cu건물3층": "CU 건물 3층",
         "건물5층": "건물 5층",
         "1층 용우동,복호두있는 건물": "1층에 용우동과 복호두가 있는 건물",
+        " (3층 오름수학 절대아님)": "",
     }
     for before, after in location_spacing.items():
         value = value.replace(before, after)
@@ -1463,7 +1528,7 @@ def normalize_subject_profiles(value: str, category: str) -> str:
     if category == "고등수학학원":
         for before, after in HIGH_MATH_PROFILE_REPLACEMENTS.items():
             value = value.replace(before, after)
-    elif category == "고등영어학원":
+    elif category in {"고등영어학원", "중등영어학원"}:
         for before, after in HIGH_ENGLISH_PROFILE_REPLACEMENTS.items():
             value = value.replace(before, after)
     value = re.sub(
@@ -1503,6 +1568,33 @@ def extract_reference_keyword(manuscript: dict[str, str]) -> str:
             keyword = re.sub(r"\s+", " ", match.group(1)).strip(" ,·:;\"'“”")
             if 1 <= len(keyword) <= 40:
                 return keyword
+    body = manuscript.get("본문", "")
+    direct_patterns = (
+        r"(?:^|[.!?]\s+)([가-힣A-Za-z0-9· ]{2,40}?)(?:은|는)\s+실제\s+운영\s+사실이\s+아니라",
+        r"(?:^|[.!?]\s+)([가-힣A-Za-z0-9·]{2,40})(?:와|과)\s+과목\s+범위는\s+이름만\s+보고",
+        r"Q2[.)]?\s*상담에서\s+([가-힣A-Za-z0-9· ]{2,40}?)(?:은|는)\s+어떤\s+순서로",
+    )
+    for value in candidates:
+        for pattern in direct_patterns:
+            match = re.search(pattern, value, re.S | re.M)
+            if match:
+                keyword = re.sub(r"\s+", " ", match.group(1)).strip(" ,·:;\"'“”")
+                if 2 <= len(keyword) <= 40:
+                    return keyword
+    generic_prefixes = {
+        "선택", "상담", "비교", "확인", "판단", "지역", "학습", "학교",
+        "과목", "주소", "학생", "학부모", "가정", "수업", "관리",
+    }
+    frequencies = Counter(
+        token
+        for token in re.findall(
+            r"(?<![가-힣A-Za-z0-9])([가-힣A-Za-z0-9·]{2,30})\s+기준으로는",
+            body,
+        )
+        if token not in generic_prefixes
+    )
+    if frequencies:
+        return frequencies.most_common(1)[0][0]
     return ""
 
 
@@ -2311,7 +2403,7 @@ def diversify_faq_answer(
             f"{local} 학생의 오답 기록에는 문제 번호보다 생각이 끊긴 지점을 남기는 편이 유용합니다. 재풀이 날짜를 정하고 같은 이유의 실수가 줄었는지 비교하세요.",
             f"오답을 다시 볼 때는 {local} {grade} 학생이 도움 없이 첫 줄을 시작할 수 있는지 확인합니다. 계산·개념·조건 해석 중 원인을 나누고 일정 뒤 재확인해야 합니다.",
         ))
-    if category == "중등수학학원":
+    if category in {"중등수학학원", "중등영어학원"}:
         if "최근 문제 두세 개를 보며 막힌 단계와 다시 풀어 본 여부" in answer:
             answer = answer.replace(
                 "최근 문제 두세 개를",
@@ -2344,8 +2436,8 @@ def diversify_faq_question(
         selected = clean_text(pick_copy_variant(seed, namespace, variants))
         return selected.rstrip(".!?") + "?"
 
-    if category == "중등수학학원":
-        # 중등 수학은 원문 Q/A 쌍의 검색 의도를 그대로 보존합니다. 답변
+    if category in {"중등수학학원", "중등영어학원"}:
+        # 중등 과정은 Q/A 쌍의 검색 의도를 그대로 보존합니다. 답변
         # 뒤쪽에 우연히 등장한 학습 프로필 단어로 질문 유형을 다시
         # 분류하면 질문과 답변이 어긋날 수 있으므로 지역 문맥만 붙입니다.
         core = clean_text(question)
@@ -2354,7 +2446,10 @@ def diversify_faq_question(
             key=len,
             reverse=True,
         ):
-            match = re.match(rf"^{re.escape(prefix)}(?:의|은|는|에서|을|를)?\s*", core)
+            match = re.match(
+                rf"^{re.escape(prefix)}(?:의|은|는|에서|을|를)?(?=\s)\s*",
+                core,
+            )
             if match:
                 core = core[match.end():].lstrip()
                 break
@@ -2434,7 +2529,10 @@ def diversify_faq_question(
         reverse=True,
     )
     for prefix in leading:
-        match = re.match(rf"^{re.escape(prefix)}(?:의|은|는|에서|을|를)?\s*", core)
+        match = re.match(
+            rf"^{re.escape(prefix)}(?:의|은|는|에서|을|를)?(?=\s)\s*",
+            core,
+        )
         if match:
             core = core[match.end():].lstrip()
             break
@@ -2537,6 +2635,11 @@ def build_page_faqs(
     profile_clause = profile.removesuffix("경우").strip()
     action = LEARNING_ACTIONS[subject][stable_index(seed, "action", len(LEARNING_ACTIONS[subject]))]
     school_text = "·".join(schools)
+    priority_action = (
+        action.replace("과제량보다", "과제량을 늘리기보다", 1)
+        if action.startswith("과제량보다")
+        else f"진도를 넓히기보다 {action}"
+    )
 
     candidates: list[tuple[str, str]] = [
         (
@@ -2578,7 +2681,7 @@ def build_page_faqs(
         (
             f"{local} {grade} {subject}에서 학습 우선순위는 어떻게 정하나요?",
             f"{local} 학생의 학교 진도와 최근 오답을 함께 놓고 가장 자주 막히는 한두 가지부터 정합니다. "
-            f"{profile}에는 진도를 넓히기보다 {action}",
+            f"{profile}에는 {priority_action}",
         ),
         (
             f"{local} {grade} {subject} 수업의 첫 2~4주에는 무엇을 기록하면 좋을까요?",
@@ -2641,7 +2744,7 @@ def build_page_faqs(
     unique: list[tuple[str, str]] = []
     seen: set[str] = set()
     for slot, (question, answer) in enumerate(result):
-        if category == "중등수학학원":
+        if category in {"중등수학학원", "중등영어학원"}:
             # 한 페이지의 네 답변이 동일한 학생 상태와 동일한 후속 행동을
             # 되풀이하지 않도록 슬롯마다 서로 다른 조합을 사용합니다.
             profiles = LEARNING_PROFILES[category]
@@ -2655,6 +2758,10 @@ def build_page_faqs(
             answer = answer.replace(profile, slot_profile)
             answer = answer.replace(profile_clause, slot_profile.removesuffix("경우").strip())
             answer = answer.replace(action, slot_action)
+            answer = answer.replace(
+                "진도를 넓히기보다 과제량보다",
+                "과제량을 늘리기보다",
+            )
         answer = diversify_faq_answer(answer, row, config, category, slot)
         question = diversify_faq_question(question, answer, row, config, title, category, slot)
         key = re.sub(r"[^가-힣A-Za-z0-9]", "", question)
@@ -3337,6 +3444,7 @@ def local_page(
     local = row["근처 수업가능 동네"].strip()
     slug = slug_local(local)
     title = manuscript["페이지타이틀"].strip()
+    visible_local = title.removesuffix(f" {config['label']}").strip() or local
     raw_region = row.get("지역", "").strip()
     district = row.get("시or구", "").strip()
     display_region, display_district = display_geography(row)
@@ -3374,6 +3482,11 @@ def local_page(
             display_district,
         )
         value = clean_text(value)
+        if category == "중등영어학원":
+            value = value.replace(
+                f"{local}이라는 표기는",
+                f"{attach_particle(local, '이라는', '라는')} 표기는",
+            )
         if category == "중등수학학원":
             value = value.replace(
                 "관찰한 내용을 상담 질문으로 정리해 보세요",
@@ -3468,6 +3581,747 @@ def local_page(
         body_source,
     )
     intro, body_sections = parse_body(body_source)
+    if category == "중등영어학원":
+        production_markers = (
+            "수학",
+            "입력값",
+            "입력된",
+            "입력 표기",
+            "과목 참고어",
+            "참고어인",
+            "세부 소재",
+            "이 행",
+            "보조 문맥",
+        )
+        if len(reference_keyword) >= 3:
+            production_markers += (reference_keyword,)
+        middle_english_action_suggestions = {
+            "어휘·문법·독해를 따로 외우지 않고 한 문장 안에서 연결합니다.": "어휘·문법·독해를 따로 외우지 않고 한 문장 안에서 연결해 볼 수 있습니다.",
+            "틀린 문장의 근거를 지문에서 다시 표시하게 합니다.": "틀린 문장의 근거를 지문에서 다시 표시해 보게 할 수 있습니다.",
+            "단어 뜻과 품사, 예문을 같은 복습 주기 안에서 확인합니다.": "단어 뜻과 품사, 예문을 같은 복습 주기 안에서 확인해 볼 수 있습니다.",
+            "학교 진도와 현재 어휘량을 나누어 주간 계획을 세웁니다.": "학교 진도와 현재 어휘량을 나누어 주간 계획을 세워 볼 수 있습니다.",
+            "해석한 문장을 짧게 요약해 이해 여부를 확인합니다.": "해석한 문장을 짧게 요약해 이해 여부를 확인해 볼 수 있습니다.",
+            "과제량보다 틀린 문장을 다시 읽는 시간을 먼저 확보합니다.": "과제량을 늘리기보다 틀린 문장을 다시 읽는 시간을 먼저 확보할 수 있습니다.",
+            "문법 개념을 교과서 문장과 짧은 영작으로 옮겨 봅니다.": "문법 개념을 교과서 문장과 짧은 영작으로 옮겨 볼 수 있습니다.",
+            "듣기·독해·서술형의 약점을 구분해 우선순위를 정합니다.": "듣기·독해·서술형의 약점을 구분해 우선순위를 정해 볼 수 있습니다.",
+        }
+
+        def public_middle_english_paragraph(paragraph: str) -> str:
+            # 원고의 임의 참고어가 들어간 문장은 뒤 문장과 대명사로 이어지는
+            # 경우가 많습니다. 한 문장만 지우면 "이 항목" 같은 고아 문장이
+            # 남으므로 해당 문단 전체를 공개 본문에서 제외합니다.
+            if len(reference_keyword) >= 3 and reference_keyword in paragraph:
+                return ""
+            # 참고어 문단의 첫 문장만 앞 단계에서 제거된 원고에는 아래와 같은
+            # 후속 문장이 홀로 남습니다. 무엇의 적용 대상·운영 여부를 말하는지
+            # 독자가 알 수 없으므로 문단 단위로 제외합니다.
+            orphan_markers = (
+                "존재 여부나 적용 대상",
+                "이 항목은 학부모",
+                "“있나요”라는 한 질문",
+                '"있나요"라는 한 질문',
+                "적용 대상과 시점",
+                "답변되지 않은 부분",
+                "운영된다고 단정",
+                "미확인 항목",
+            )
+            if any(marker in paragraph for marker in orphan_markers):
+                return ""
+            if paragraph.startswith((
+                "이는 특정 수업이 실제로 운영된다는 뜻이 아니라",
+                "이는 특정 운영 사실이 아니라",
+            )):
+                return ""
+            district_stem = re.sub(r"(?:시|군|구)$", "", display_district)
+            if district_stem and local.startswith(district_stem + " "):
+                concise_local = local[len(district_stem):].strip()
+                paragraph = paragraph.replace(
+                    f"{display_region} {display_district} {local}",
+                    f"{display_region} {display_district} {concise_local}",
+                )
+            if local == "전주 장동":
+                paragraph = paragraph.replace(
+                    f"{display_region} {display_district} {local}",
+                    f"{local} 상담권역",
+                )
+            if schools:
+                school_alternation = "|".join(
+                    re.escape(school) for school in sorted(schools, key=len, reverse=True)
+                )
+                paragraph = re.sub(
+                    rf"(?<![가-힣])(?:(?:{school_alternation})\.(?:\s+|$)){{2,}}",
+                    "",
+                    paragraph,
+                ).strip()
+            # ``반달마을``처럼 지역명 자체가 ``을``로 끝나면 일반 조사
+            # 정규화가 마지막 음절을 목적격 조사로 오인할 수 있습니다.
+            # 이 단계에서는 페이지의 확정 지역명을 알고 있으므로 손상된
+            # 형태만 원래 고유명사로 되돌립니다.
+            if local.endswith("을"):
+                paragraph = paragraph.replace(local[:-1] + "를", local)
+            paragraph = paragraph.replace(
+                f"{local}과 확인된 센터 주소",
+                f"{attach_particle(local, '과', '와')} 확인된 센터 주소",
+            )
+            paragraph = paragraph.replace(f"{local}에서 대신 ", f"{local}에서 ")
+            paragraph = re.sub(r"^대신\s+", "", paragraph)
+            paragraph = paragraph.replace("’가며", "’이며")
+            paragraph = paragraph.replace(
+                f"{local} 중등 영어학원 선택에서는",
+                f"{local} 중등 영어학원을 선택할 때는",
+            )
+            paragraph = paragraph.replace(
+                "현재 수준, 학습 루틴, 피드백, 지역 정보의 역할을 서로 섞지 않는 것이 중요합니다",
+                "현재 수준과 학습 루틴, 피드백, 위치·이동 조건을 나누어 확인하는 것이 좋습니다",
+            ).replace(
+                "지역 정보는 " + f"{display_region} {display_district} {local}" + " 범위에서만 사용하고 수업·시설·결과는 상담 전까지 미확인으로 남깁니다.",
+                "센터 위치와 수업·시설·학습 관리 방법은 상담할 때 항목별로 직접 확인하세요.",
+            )
+            paragraph = paragraph.replace(
+                "중등 영어학원 선택에서는",
+                "중등 영어학원을 선택할 때는",
+            )
+            paragraph = paragraph.replace(
+                "질문을 이 네 갈래로",
+                "질문을 이 세 갈래로",
+            )
+            paragraph = paragraph.replace(
+                f"{local} 선택에서 중등 영어학원 비교에서",
+                f"{local} 중등 영어학원 비교에서",
+            ).replace(
+                f"{local} 선택에서 중등 영어학원을 선택할 때는",
+                f"{local}에서 중등 영어학원을 선택할 때는",
+            ).replace(
+                f"{local} 상담에서 상담 내용을 같은 항목으로",
+                f"{local} 상담 내용을 같은 항목으로",
+            )
+            paragraph = paragraph.replace(
+                f"{local}에서 마지막으로 확인할 점은 다음과 같습니다. ",
+                "",
+            )
+            paragraph = paragraph.replace(
+                "에서는 좋은 질문은",
+                "에서 좋은 질문은",
+            ).replace(
+                "에서는 다음 점검 항목은",
+                "에서 다음 점검 항목은",
+            ).replace(
+                "에서는 이 순서는",
+                "에서 이 순서는",
+            ).replace(
+                "에서는 이 기록은",
+                "에서 이 기록은",
+            ).replace(
+                "에서는 이 안내는",
+                "에서 이 안내는",
+            ).replace(
+                "에서는 계획표는",
+                "에서 계획표는",
+            )
+            double_topic_leads = (
+                "지역 정보는",
+                "주소와 학교 표기는",
+                "복습은",
+                "상담 답변은",
+                "과목 접근은",
+                "학습 과정은",
+                "학습 계획은",
+                "가정 점검은",
+                "현재 상태는",
+                "관리라는 말은",
+                "기초 확인은",
+                "학습 방향은",
+                "현재 어려움은",
+                "피드백은",
+                "질문은",
+                "상담 메모는",
+                "영어의 어려움은",
+                "중등 영어학원 선택은",
+                "대상 학년, 과목 범위, 진단 방식은",
+                "과제를 했는지와 과제 내용을 이해했는지는",
+                "실수와 개념 부족은",
+            )
+            for lead in double_topic_leads:
+                paragraph = paragraph.replace(
+                    f"에서는 {lead}",
+                    f"에서 {lead}",
+                )
+            paragraph = paragraph.replace(
+                "학부모 상담에서는",
+                "학부모가 상담을 준비할 때는",
+            ).replace(
+                "학원 상담에서는",
+                "학원 상담을 준비할 때는",
+            ).replace(
+                "상담에서는",
+                "상담할 때는",
+            )
+            # 공개 원고에서 ``에서는``을 쓰면 뒤의 주제 조사와 겹쳐
+            # ``지역에서는 학습 과정은`` 같은 문장이 반복적으로 생깁니다.
+            # ``에서``은 같은 위치·범위 의미를 유지하면서 뒤 문장 구조와
+            # 자연스럽게 연결됩니다.
+            paragraph = paragraph.replace("에서는", "에서")
+            sentences = re.split(r"(?<=[.!?])\s+", paragraph)
+            kept: list[str] = []
+            for sentence in sentences:
+                sentence = sentence.strip()
+                if not sentence or any(marker in sentence for marker in production_markers):
+                    continue
+                if (
+                    sentence.startswith("대신 ")
+                    and kept
+                    and "현재 사용하는 교재와 구체적인 수업 방식은 상담할 때 직접 확인하세요" in kept[-1]
+                ):
+                    sentence = "그와 함께 " + sentence[len("대신 "):]
+                if "수업료, 시간표, 강사진, 정원, 교재를 만들어 쓰지 않으며" in sentence:
+                    sentence = f"{local}에서 수업료·시간표·강사진·정원·교재는 상담 시 직접 확인해야 합니다."
+                elif "실제 답변을 받아 빈칸을 채워야 합니다" in sentence:
+                    sentence = pick_copy_variant(
+                        page_seed,
+                        "middle-english-consultation-note",
+                        (
+                            f"확인한 결과는 {local} 상담 메모에 남겨 가정의 선택 기준과 비교하는 편이 좋습니다.",
+                            f"{local} 상담에서 들은 답변은 항목별로 기록해 학생의 현재 상황과 맞는지 살펴보세요.",
+                            f"상담에서 확인한 내용은 {local} 학생에게 필요한 조건과 나누어 기록해 두는 것이 좋습니다.",
+                            f"{local}에서 확인한 답변은 사실과 추가 질문으로 구분해 상담 메모에 남겨 보세요.",
+                        ),
+                    )
+                sentence = re.sub(
+                    rf"^{re.escape(local)}(?:\s+선택(?:\s+기준)?|\s+관점|\s+관련\s+(?:판단|선택|상담)|\s+상담\s+범위)(?:에서는|에서도)\s+",
+                    "",
+                    sentence,
+                )
+                sentence = re.sub(
+                    rf"^{re.escape(local)}\s+선택\s+기준으로는\s+",
+                    "",
+                    sentence,
+                )
+                sentence = sentence.replace(
+                    "상담 뒤에는 답변을 판단할 때에는",
+                    "상담 뒤 답변을 판단할 때는",
+                )
+                sentence = re.sub(
+                    rf"^{re.escape(local)}\s+상담에서는\s+(?=[^.!?]{{0,100}}(?:에서는|에는)\s+)",
+                    "",
+                    sentence,
+                )
+                sentence = re.sub(
+                    r"^[가-힣 ]{2,32}에서는\s+(?=[^.!?]{0,100}(?:에서는|때에는|전에는|뒤에는)\s+)",
+                    "",
+                    sentence,
+                )
+                sentence = sentence.replace("에서 대신 ", "에서 ")
+                sentence = sentence.replace(
+                    "선택에서 중등 영어학원 비교에서",
+                    "중등 영어학원 비교에서",
+                ).replace(
+                    "선택에서 중등 영어학원을 선택할 때는",
+                    "에서 중등 영어학원을 선택할 때는",
+                ).replace(
+                    "상담에서 상담 내용을 같은 항목으로",
+                    "상담 내용을 같은 항목으로",
+                )
+                sentence = sentence.replace(
+                    f"{local} 선택에서",
+                    f"{local} 중등 영어학원을 비교할 때",
+                ).replace(
+                    f"{local} 관련 판단에서",
+                    f"{local} 중등 영어학원을 비교할 때",
+                ).replace(
+                    f"{local} 관점에서",
+                    f"{local} 학생의 영어 학습을 살펴볼 때",
+                ).replace(
+                    "상담 범위에서",
+                    "상담에서",
+                ).replace(
+                    "중등 영어학원 비교에서",
+                    "중등 영어학원을 비교할 때",
+                ).replace(
+                    "에서 중등 영어학원 안내에서",
+                    "에서 중등 영어학원을 알아볼 때",
+                )
+                sentence = sentence.replace(
+                    " 중등 영어 학습 과정 선택에서",
+                    " 중등 영어 학습 과정을 비교할 때",
+                ).replace(
+                    " 중등 영어 수업 선택에서",
+                    " 중등 영어 수업을 비교할 때",
+                ).replace(
+                    " 중등 영어 상담 선택에서",
+                    " 중등 영어 상담을 비교할 때",
+                ).replace(
+                    " 관련 선택에서도",
+                    "에서 중등 영어학원을 선택할 때도",
+                ).replace(
+                    " 관련 선택에서",
+                    "에서 중등 영어학원을 선택할 때",
+                )
+                sentence = sentence.replace(
+                    f"{local} 관련 상담 답변",
+                    f"{local} 중등 영어학원 상담 답변",
+                ).replace(
+                    f"{local} 관련 결정은",
+                    f"{local}에서 학원을 결정할 때는",
+                ).replace(
+                    f"{local} 관련 상담",
+                    f"{local} 중등 영어학원 상담",
+                ).replace(
+                    f"{local} 관련 답변",
+                    f"{local} 상담 답변",
+                )
+                sentence = sentence.replace(
+                    "학부모 상담에서",
+                    "학부모가 상담을 준비할 때",
+                ).replace(
+                    "학원 상담에서",
+                    "학원 상담을 준비할 때",
+                ).replace(
+                    "상담에서",
+                    "상담할 때",
+                )
+                for action, suggestion in middle_english_action_suggestions.items():
+                    sentence = sentence.replace(
+                        f"수업에서 {action}",
+                        f"이 경우에는 {suggestion}",
+                    ).replace(
+                        f"상담할 때 {action}",
+                        f"상담할 때는 {suggestion}",
+                    ).replace(
+                        f"상담할 때는 {action}",
+                        f"상담할 때는 {suggestion}",
+                    ).replace(
+                        action,
+                        suggestion,
+                    )
+                sentence = sentence.replace(
+                    "최근 풀이, 과제 수행 시간, 다시 해결할 수 있는 문제를 함께 확인합니다.",
+                    "최근 풀이, 과제 수행 시간, 다시 해결할 수 있는 문제를 함께 정리해 보세요.",
+                ).replace(
+                    "점수표 하나보다 최근 과제와 오답에서 반복된 장면을 먼저 살펴봅니다.",
+                    "점수표 하나보다 최근 과제와 오답에서 반복된 장면을 먼저 살펴보세요.",
+                ).replace(
+                    "학생이 혼자 시작한 문제와 도움을 받은 문제를 구분해 현재 출발점을 찾습니다.",
+                    "학생이 혼자 시작한 문제와 도움을 받은 문제를 구분해 현재 출발점을 찾아보세요.",
+                )
+                if "특정 운영 사실이 아니라" in sentence:
+                    sentence = f"이 학습 장면은 {local} 상담을 준비할 때 복습 방법을 질문하는 참고 자료로 활용할 수 있습니다."
+                elif "실제 운영을 단정하는 말이 아니라" in sentence:
+                    sentence = f"이 학습 장면은 {local} 상담을 준비할 때 피드백 기준을 묻는 참고 자료로 활용할 수 있습니다."
+                sentence = sentence.replace(
+                    "가정에서 짧게 시도할 관찰 예시이며 특정 학원의 관리 방식이 존재한다는 뜻이 아닙니다.",
+                    "가정에서 짧게 시도해 볼 수 있는 학습 점검 방법입니다.",
+                )
+                if "페이지의 지역성은" in sentence:
+                    continue
+                elif "확인용 주소는" in sentence and "주소 표현을 바꾸거나" in sentence:
+                    if address:
+                        sentence = f"{local} 상담 장소로 안내된 주소는 ‘{address}’입니다."
+                    else:
+                        continue
+                elif "지역 표기는 검색 범위를 이해하는 데만 사용해야 하며" in sentence:
+                    if address:
+                        sentence = f"{local} 상담 장소로 안내된 주소는 ‘{address}’입니다."
+                    else:
+                        continue
+                elif "이 주소만 보고 역세권, 도보 거리, 통학 편의나 인근 시설을 덧붙이지 않고" in sentence:
+                    sentence = f"{local}에서 방문할 때는 출발지에 따른 실제 이동 시간과 교통편을 미리 확인해 보세요."
+                elif "주소만으로 이동 시간, 교통이나 주변 환경을 예상하지 않습니다" in sentence:
+                    sentence = f"{local}에서 방문하기 전에는 출발지에서 센터까지 실제 이동 시간과 교통편을 확인해 보세요."
+                elif "지역 정보는 학습 기준을 대신하지 않으므로" in sentence:
+                    sentence = f"{local}에서는 센터 위치와 학생의 학습 상태, 상담 답변을 서로 다른 기준으로 살펴보세요."
+                elif "범위에서만 사용하고 수업·시설·결과는 상담 전까지 미확인으로 남깁니다" in sentence:
+                    sentence = "센터 위치와 수업·시설·학습 관리 방법은 상담할 때 항목별로 직접 확인하세요."
+                elif "확인된 정보의 역할을 나누면 과도한 해석을 피할 수 있습니다" in sentence:
+                    sentence = f"{local}에서는 주소·이동 조건과 학생의 학습 상태, 상담 답변을 각각 나누어 기록해 보세요."
+                elif "결과를 예측하기 위한 자료가 아니라 현재 질문을 구체화하기 위한 메모로 사용합니다" in sentence:
+                    sentence = sentence.replace(
+                        "결과를 예측하기 위한 자료가 아니라 현재 질문을 구체화하기 위한 메모로 사용합니다",
+                        pick_copy_variant(
+                            page_seed,
+                            "middle-english-observation-note",
+                            (
+                                "성적을 미리 판단하는 근거로 삼기보다 상담에서 현재 어려움을 설명하는 메모로 활용하세요",
+                                "결과를 단정하는 자료가 아니라 학생이 막힌 지점을 상담에서 설명하는 기록으로 활용하세요",
+                                "앞으로의 성적을 예상하기보다 다음 학습 순서를 정할 때 참고할 관찰 메모로 남겨 보세요",
+                                "학생을 평가하는 근거로 쓰기보다 상담에서 확인할 질문을 구체화하는 기록으로 활용하세요",
+                                "결과를 미리 단정하지 말고 학생에게 필요한 도움을 설명하는 상담 자료로 정리해 보세요",
+                                "점수를 예상하는 자료가 아니라 반복되는 어려움과 다음 질문을 정리하는 메모로 활용하세요",
+                                "학생의 수준을 단정하기보다 학습 과정에서 확인할 지점을 적는 기록으로 남겨 보세요",
+                                "결과 판단보다 상담에서 어떤 지원이 필요한지 설명하는 관찰 기록으로 활용하세요",
+                                "성적을 예측하기보다 학생의 현재 습관과 막힌 부분을 전달하는 메모로 사용해 보세요",
+                                "결론을 먼저 내리지 말고 다음 복습과 상담 질문을 정하는 자료로 활용하세요",
+                                "학생의 능력을 단정하지 말고 현재 어려움과 다시 확인할 내용을 나누어 적어 보세요",
+                                "결과를 평가하기보다 상담에서 확인할 학습 장면을 구체적으로 남기는 데 활용하세요",
+                            ),
+                        ),
+                    )
+                sentence = sentence.replace(
+                    "현재 사용하는 교재나 구체적 수업을 이 안내에서 추정할 수는 없으므로 상담할 때 직접 확인해야 합니다.",
+                    "현재 사용하는 교재와 구체적인 수업 방식은 상담할 때 직접 확인하세요.",
+                ).replace(
+                    "관련 정보에는 확인된 지역·학교·주소만 옮기고, 시간표나 비용처럼 없는 내용은 빈칸으로 두었다가 직접 확인하세요.",
+                    "상담할 때에는 센터 위치·수업 가능 학교·주소를 먼저 확인하고, 시간표와 비용은 직접 질문해 메모해 두세요.",
+                ).replace(
+                    "지역 표기나 주소와 학습 과정에 대한 답변을 별도 항목으로 두면 해석이 섞이지 않습니다.",
+                    "상담 메모에는 주소·이동 조건과 학생의 학습 상태에 대한 답변을 서로 다른 항목으로 나누어 적어 보세요.",
+                ).replace(
+                    "학교 표기가 비어 있으므로 주변 학교명을 추측해 넣지 않습니다.",
+                    "수업 가능 학교가 따로 안내되지 않은 경우에는 상담할 때 재학 학교와 현재 진도를 직접 알려 주세요.",
+                ).replace(
+                    "학교 정보가 없다는 이유로 특정 학교와의 관계나 학생 구성을 예상해서도 안 됩니다.",
+                    "재학 학교와 현재 단원에 맞춘 학습 범위는 상담에서 직접 확인해야 합니다.",
+                ).replace(
+                    "이 순서는 실제 교재나 프로그램의 존재를 말하는 것이 아니라 학습 과정을 비교하기 위한 기준입니다.",
+                    "이 순서를 기준으로 학생이 어느 단계에서 막히는지 살펴볼 수 있습니다.",
+                ).replace(
+                    "이 순서는 특정 프로그램을 소개하는 내용이 아니라 상담 답변을 비교하기 위한 틀입니다.",
+                    "이 순서를 기준으로 학생의 현재 상태와 상담 답변을 비교해 보세요.",
+                ).replace(
+                    "선택 과정에서 확인하지 못한 정보를 사실처럼 채우지 않는 태도가 중요합니다.",
+                    "상담 뒤에도 확인하지 못한 항목은 다음 질문으로 남겨 두세요.",
+                )
+                if "지역 정보와 주소는 별도 칸에 두어 학습 기준과 섞이지 않게 하세요" in sentence:
+                    sentence = f"{local} 상담 메모에는 센터 위치·이동 조건과 학생의 학습 상태를 별도 항목으로 나누어 적어 보세요."
+                if "관련 확인에서 학교 표기가 비어" in sentence:
+                    sentence = "센터 안내 자료에 수업 가능 학교가 따로 표시되지 않아, 상담 시 재학 학교와 최근 진도를 확인해야 합니다."
+                elif "관련 확인에서 수업 가능 학교가 따로 안내되지 않은 경우" in sentence:
+                    sentence = "센터 안내 자료에 수업 가능 학교가 따로 표시되지 않아, 상담 시 재학 학교와 최근 진도를 확인해야 합니다."
+                elif "학교 표기가 비어 있으므로 주변 학교를 추측하지 않고" in sentence:
+                    sentence = "센터 안내 자료에 수업 가능 학교가 따로 표시되지 않아, 상담 시 재학 학교와 최근 진도를 확인해야 합니다."
+                if "확인된 학교 관련 표기는" in sentence:
+                    if schools:
+                        sentence = f"센터 안내 기준 수업 가능 학교는 {'·'.join(schools)}입니다."
+                    else:
+                        continue
+                drop_sentence_markers = (
+                    "확인된 사실, 일반적인 학습 점검법, 상담에서 확인할 내용을 서로 구분해 읽어야 합니다",
+                    "확인된 사실, 일반적인 학습 점검법, 상담할 때 확인할 내용을 서로 구분해 읽어야 합니다",
+                    "이라는 표기는 지역 범위를 나타낼 뿐 학습 결과나 특정 수업 구성을 의미하지 않습니다",
+                    "라는 표기는 지역 범위를 나타낼 뿐 학습 결과나 특정 수업 구성을 의미하지 않습니다",
+                    "여러 이름이 있어도 나누거나 확장하지 않으며",
+                    "여러 이름이나 설명이 함께 적힌 형태라면 이를 근거 없이 나누거나 정식 명칭으로 바꾸지 않고 그대로 확인해야 합니다",
+                    "페이지의 이 표기는 학교와 학원의 제휴, 해당 학교 학생의 수강 사실, 특정 학교만을 위한 수업을 뜻하지 않습니다",
+                    "이 표기는 학교와 학원의 제휴나 실제 수강 관계를 뜻하지 않습니다",
+                    "특정 수업이 실제로 운영된다는 뜻이 아니라",
+                )
+                if any(marker in sentence for marker in drop_sentence_markers):
+                    continue
+                explanation_check = "정답이나 진도 하나만 보지 말고 학생이 설명할 수 있는 범위와 다시 확인할 내용을 함께 살펴야 합니다."
+                if explanation_check in sentence:
+                    sentence = pick_copy_variant(
+                        page_seed,
+                        "middle-english-explanation-check",
+                        (
+                            f"{local} 상담에서는 정답과 진도만으로 판단하지 않고 학생이 설명할 수 있는 부분과 다시 점검할 내용을 함께 확인해야 합니다.",
+                            f"{local} 학생의 현재 상태는 맞힌 개수보다 혼자 설명한 범위와 다시 확인할 문장을 함께 보아야 구체적으로 파악할 수 있습니다.",
+                            f"{local}에서 영어 학습을 비교할 때는 진도표와 함께 학생이 설명할 수 있는 내용, 재확인이 필요한 부분을 나누어 살펴보세요.",
+                            f"정답 수만 확인하기보다 {local} 학생이 근거를 말할 수 있는 범위와 복습 뒤 다시 볼 내용을 함께 정리하는 편이 좋습니다.",
+                            f"{local} 중학생의 영어 흐름을 보려면 진도보다 자기 설명이 가능한 부분과 도움이 필요한 부분을 구분해 확인해야 합니다.",
+                            f"{local} 상담 전에는 학생이 혼자 설명한 문장과 다시 질문할 내용을 나누어 적으면 현재 학습 상태를 더 정확히 전달할 수 있습니다.",
+                            f"시험 결과 하나보다 {local} 학생이 스스로 설명하는 범위와 일정 뒤 재확인할 내용을 함께 살펴보는 것이 중요합니다.",
+                            f"{local} 학부모는 학생이 이해한 내용을 말로 풀어내는지와 다시 확인해야 할 문장이 무엇인지 함께 기록해 보세요.",
+                            f"{local} 영어 학습에서는 진도를 얼마나 나갔는지뿐 아니라 학생이 설명할 수 있는 지점과 재확인할 항목을 함께 보아야 합니다.",
+                            f"학생의 현재 이해도를 확인할 때는 {local}에서도 정답과 진도보다 자기 설명과 복습할 내용을 나누어 보는 편이 좋습니다.",
+                            f"{local} 학생에게 필요한 다음 순서는 혼자 설명할 수 있는 범위와 다시 확인해야 할 내용을 함께 놓고 정하는 것이 좋습니다.",
+                            f"{local} 상담에서는 학생이 아는 내용을 직접 설명하는지, 복습 뒤 무엇을 다시 확인해야 하는지를 별도로 살펴보세요.",
+                        ),
+                    )
+                place_names = (
+                    visible_local,
+                    local,
+                    visible_local.split()[-1],
+                    local.split()[-1],
+                )
+                for place_name in dict.fromkeys(place_names):
+                    sentence = sentence.replace(
+                        f"{place_name} 에서",
+                        f"{place_name}에서",
+                    ).replace(
+                        f"{place_name} 지역 중등 영어",
+                        f"{place_name} 중등 영어",
+                    ).replace(
+                        f"{place_name} 중등 영어학원 상담할 때",
+                        f"{place_name} 중등 영어학원 상담에서",
+                    ).replace(
+                        f"{place_name} 상담할 때",
+                        f"{place_name}에서 상담할 때",
+                    )
+                sentence = sentence.replace(
+                    "상담할 때는 상담 내용을",
+                    "상담 내용을",
+                ).replace(
+                    "상담할 때 상담할 때",
+                    "상담할 때",
+                ).replace(
+                    "중등 영어 학습 과정 FAQ",
+                    "중등 영어학원 FAQ",
+                ).replace(
+                    "중등 영어 학습 과정 결정",
+                    "중등 영어학원 결정",
+                ).replace(
+                    "중등 영어 학습 과정 선택",
+                    "중등 영어학원 선택",
+                ).replace(
+                    "중등 영어학원 선택은 체크가 많다는 이유보다 중요한 질문에 답이 있는지를 보고 판단하는 편이 좋습니다.",
+                    "중등 영어학원을 선택할 때는 체크 항목의 수보다 중요한 질문에 구체적인 답이 있는지를 살펴보는 편이 좋습니다.",
+                ).replace(
+                    "과제 수행 여부와 이해 정도를 별도로 살피는지와 피드백의 연결을 구체적으로 들어보는 편이 좋습니다.",
+                    "과제 수행 여부와 이해 정도를 별도로 살피는지, 그 결과를 피드백과 어떻게 연결하는지 구체적으로 들어보는 편이 좋습니다.",
+                ).replace(
+                    "는지와 피드백의 연결을 구체적으로 들어보는 편이 좋습니다.",
+                    "는지, 그 결과를 피드백과 어떻게 연결하는지 구체적으로 들어보는 편이 좋습니다.",
+                ).replace(
+                    "짧게 확인하는 방식으로 짧게 기록한 뒤",
+                    "확인하는 방식으로 짧게 기록한 뒤",
+                ).replace(
+                    "그 질문에 구체적인 확인 방법이 제시되는지 확인할 수 있습니다.",
+                    "그 질문에 구체적인 확인 방법이 제시되는지를 살펴보세요.",
+                ).replace(
+                    "중등 영어 상담할 때는",
+                    "중등 영어 상담에서는",
+                ).replace(
+                    "비교할 때 선택 전에는",
+                    "비교할 때는",
+                ).replace(
+                    "상담할 때 선택 전에는",
+                    "학원을 선택하기 전에는",
+                ).replace(
+                    "학생이라면 학생이",
+                    "학생이라면",
+                ).replace(
+                    "학생이라면 학생 상태를",
+                    "학생이라면 현재 상태를",
+                ).replace(
+                    "는지라는 질문에 과정과 기준이 함께 설명되는지 확인하는 것이 좋습니다.",
+                    "는지 물었을 때, 과정과 기준이 함께 설명되는지 살펴보는 것이 좋습니다.",
+                ).replace(
+                    "중등 영어 상담을 비교할 때",
+                    "중등 영어 상담 답변을 비교할 때",
+                ).replace(
+                    "학습 행동을 작은 단위로 살펴보고 상담 질문을 만드는 데만 사용합니다.",
+                    "학습 행동을 작은 단위로 살펴본 뒤, 그 내용을 상담 질문을 만드는 데 활용해 보세요.",
+                ).replace(
+                    "중등 영어학원 상담 답변이 이 전환 과정을 어떻게 살피는지 구체적으로 들을 수 있어야 합니다.",
+                    "중등 영어학원 상담에서는 설명을 실제 문장에 적용하는 과정을 어떻게 확인하는지 구체적으로 물어보세요.",
+                ).replace(
+                    "학교별 범위를 미리 가정하지 않고 학생이 가져온 최근 과제와 진도표를 토대로 학습 순서를 안내합니다.",
+                    "학교별 범위를 미리 정하지 말고 학생이 가져온 최근 과제와 진도표를 토대로 학습 순서를 상담에서 확인해 보세요.",
+                ).replace(
+                    "복습은 같은 내용을 오래 보는 것보다 다시 확인할 시점과 방법을 정하는 데 의미가 있습니다.",
+                    "같은 내용을 오래 보기보다 다시 확인할 시점과 방법을 정하는 것이 중요합니다.",
+                ).replace(
+                    "이 차이를 확인하는 절차가 있는지 질문하면",
+                    "학생이 혼자 해결한 범위와 도움이 필요한 범위를 확인하는 절차가 있는지 질문하면",
+                ).replace(
+                    "이 순서를 기준으로 학생이 어느 단계에서 막히는지 살펴볼 수 있습니다.",
+                    "어휘 확인, 문장 구조 설명, 내용 요약을 차례로 살피면 학생이 어느 단계에서 막히는지 알 수 있습니다.",
+                ).replace(
+                    "이 순서를 기준으로 학생의 현재 상태와 상담 답변을 비교해 보세요.",
+                    "어휘 확인, 문장 구조 설명, 내용 요약 순서로 학생의 현재 상태와 상담 답변을 비교해 보세요.",
+                ).replace(
+                    "상담 답변에는 이 차이를 좁히는 연습과 복습 확인 방법이 구체적으로 담기는지 살펴보세요.",
+                    "상담 답변에는 이해한 내용을 혼자 적용하도록 돕는 연습과 복습 확인 방법이 구체적으로 담기는지 살펴보세요.",
+                ).replace(
+                    "중등 영어학원을 비교할 때 중등 영어학원 안내에서",
+                    "중등 영어학원을 비교할 때",
+                ).replace(
+                    "중등 영어학원을 비교할 때 상담할 때",
+                    "중등 영어학원을 비교할 때",
+                ).replace(
+                    "중등 영어 학습 상담할 때",
+                    "중등 영어 학습 상담에서",
+                ).replace(
+                    "학습 계획이 예상 진도보다 재확인 기준이 있어야 비교하기 쉽습니다.",
+                    "학습 계획에는 예상 진도뿐 아니라 다시 확인할 시점과 기준이 있어야 합니다.",
+                ).replace(
+                    "학습 계획은 예상 진도보다 재확인 기준이 있어야 비교하기 쉽습니다.",
+                    "학습 계획에는 예상 진도뿐 아니라 다시 확인할 시점과 기준이 있어야 합니다.",
+                ).replace(
+                    "관찰 기록은 결과 판단보다 상담할 때 어떤 지원이 필요한지 설명하는 관찰 기록으로 활용하세요",
+                    "관찰 기록은 결과를 판단하는 근거보다 상담에서 필요한 도움을 설명하는 자료로 활용하세요",
+                ).replace(
+                    "틀린 문제를 바로 고친 경우와 며칠 뒤에도 설명한 경우를 같은 기록으로",
+                    "틀린 문제를 바로 고친 경우와 며칠 뒤에도 풀이 이유를 설명할 수 있었던 경우를 같은 기록으로",
+                ).replace(
+                    "현재 사용하는 교재와 구체적인 수업 방식은 상담할 때 직접 확인하세요. 대신",
+                    "현재 사용하는 교재와 구체적인 수업 방식은 상담할 때 직접 확인하세요. 그와 함께",
+                ).replace(
+                    "방식을 방식은",
+                    "방식은",
+                ).replace(
+                    "구분해 기록하는 방식으로 기록하고",
+                    "구분해 기록하고",
+                ).replace(
+                    "구분해 기록하는 방식으로 기록하면",
+                    "구분해 기록하면",
+                ).replace(
+                    "상담할 때 상담 답변",
+                    "상담 답변",
+                ).replace(
+                    "상담할 때 중등 영어학원을 선택할 때는",
+                    "중등 영어학원을 선택할 때는",
+                ).replace(
+                    "두 기록을 함께 설명하면",
+                    "보호자가 관찰한 장면과 학생이 말한 어려움을 함께 설명하면",
+                ).replace(
+                    "상담할 때는 결정 전에는",
+                    "학원을 결정하기 전에는",
+                ).replace(
+                    "중등 영어 수업 상담할 때",
+                    "중등 영어 수업 상담에서",
+                ).replace(
+                    "중등 영어 학습 과정 상담할 때",
+                    "중등 영어 학습 과정 상담에서",
+                ).replace(
+                    "지역 중등 영어 학습 상담할 때",
+                    "중등 영어 학습 상담에서",
+                ).replace(
+                    "상담할 때 학습 계획은 예상 진도보다",
+                    "상담할 때는 학습 계획이 예상 진도보다",
+                ).replace(
+                    "상담할 때 중등 영어학원을 알아볼 때",
+                    "중등 영어학원을 알아볼 때",
+                ).replace(
+                    "영어 학습 판단에 필요한 어휘·문법·독해의 연결만 보조적으로 설명합니다.",
+                    "어휘·문법·독해가 어떻게 연결되는지 학생의 최근 과제와 오답을 기준으로 살펴보세요.",
+                ).replace(
+                    "빈칸을 추측으로 채우지 않는 것이 신뢰성 있는 선택의 기본입니다.",
+                    "상담에서 답을 듣지 못한 항목은 추가 질문으로 남겨 두세요.",
+                ).replace(
+                    "답을 듣지 못한 항목은 추측하지 말고 미확인으로 남겨야 합니다.",
+                    "상담에서 답을 듣지 못한 항목은 추가 질문으로 남겨 두세요.",
+                ).replace(
+                    "주소와 학교 표기는 위치를 확인하기 위한 정보이며 학습 적합성을 대신 판단하지 않습니다.",
+                    "센터 주소와 수업 가능 학교는 위치와 학습 범위를 확인하는 참고 정보입니다.",
+                ).replace(
+                    "중등 영어학원을 선택할 때도 이동이나 주변 환경을 추정하지 말고, 학생 상태와 복습·피드백 답변을 별도 기준으로 살펴보세요.",
+                    "방문 전에는 실제 이동 조건을 확인하고, 학습 적합성은 학생 상태와 복습·피드백 답변을 기준으로 살펴보세요.",
+                )
+                sentence = sentence.replace(
+                    "학생을 가정하면,",
+                    "학생이라면",
+                ).replace(
+                    "학생을 가정하면",
+                    "학생이라면",
+                )
+                diagnosis_flow = "진단, 연습, 복습, 피드백이 이어지는지를 질문할 수 있습니다."
+                if diagnosis_flow in sentence:
+                    sentence = sentence.replace(
+                        diagnosis_flow,
+                        pick_copy_variant(
+                            page_seed,
+                            "middle-english-diagnosis-flow",
+                            (
+                                "진단 뒤 연습과 복습, 피드백이 어떤 순서로 이어지는지 상담에서 확인해 보세요.",
+                                "현재 상태를 확인한 뒤 연습·복습·피드백이 어떻게 연결되는지 물어보세요.",
+                                "진단 결과가 연습과 오답 복습, 다음 피드백에 반영되는지 확인해 보세요.",
+                                "어려움을 찾은 뒤 연습 범위와 복습 시점, 피드백 기준을 어떻게 정하는지 질문해 보세요.",
+                                "진단에서 끝나지 않고 연습과 재확인으로 이어지는 절차가 있는지 살펴보세요.",
+                                "학생이 막힌 지점을 확인한 뒤 어떤 연습과 복습을 제안하는지 들어보세요.",
+                                "현재 어려움이 다음 연습과 오답 재확인 계획에 어떻게 반영되는지 물어보세요.",
+                                "진단 내용과 실제 연습, 복습 결과를 어떤 기준으로 연결하는지 확인해 보세요.",
+                                "학생 상태를 확인한 뒤 연습 순서와 피드백 시점을 어떻게 정하는지 질문해 보세요.",
+                                "진단 결과가 주간 연습과 복습 계획으로 구체화되는지 살펴보세요.",
+                                "어려움의 원인을 나눈 뒤 연습과 재확인 순서를 어떻게 세우는지 물어보세요.",
+                                "현재 기록을 바탕으로 연습·복습·피드백의 다음 단계를 설명하는지 확인해 보세요.",
+                            ),
+                        ),
+                    )
+                decision_order = "학원을 결정할 때는 확인 순서를 지키는 것만으로도 더 차분해질 수 있습니다."
+                if decision_order in sentence:
+                    sentence = sentence.replace(
+                        decision_order,
+                        pick_copy_variant(
+                            page_seed,
+                            "middle-english-decision-order",
+                            (
+                                "학원을 결정하기 전 상담 답변을 확인된 내용과 추가 질문으로 나누어 적어 보세요.",
+                                "상담 답변을 학생의 우선순위와 비교한 뒤 결정해도 늦지 않습니다.",
+                                "학원을 정하기 전 학생이 혼자 할 수 있는 범위와 필요한 도움을 다시 확인해 보세요.",
+                                "결정 전에는 답변의 구체성과 학생의 현재 상황이 맞는지 한 번 더 살펴보세요.",
+                                "상담에서 확인한 사실과 아직 물어볼 내용을 나누어 적은 뒤 선택해 보세요.",
+                                "학생의 일정, 현재 진도, 복습 방식에 대한 답을 각각 확인한 뒤 결정하세요.",
+                                "학원을 선택하기 전 가장 중요한 질문 세 가지에 답이 있는지 다시 확인해 보세요.",
+                                "상담 답변이 학생의 실제 학습 장면과 연결되는지 살핀 뒤 결정하는 편이 좋습니다.",
+                                "확인한 내용 가운데 학생에게 필요한 다음 단계가 분명한지 보고 선택하세요.",
+                                "학원을 정하기 전 학생과 상담 내용을 함께 검토하고 남은 질문을 정리해 보세요.",
+                                "센터 위치와 시간표, 학생의 학습 우선순위를 각각 확인한 뒤 판단해 보세요.",
+                                "상담 뒤 메모를 다시 읽고 학생에게 필요한 지원이 구체적인지 확인해 보세요.",
+                            ),
+                        ),
+                    )
+                if (
+                    address
+                    and "확인된 주소는" in sentence
+                    and any(address in prior_sentence for prior_sentence in kept)
+                ):
+                    continue
+                if sentence.count("상담할 때") > 1:
+                    before, after = sentence.split("상담할 때", 1)
+                    sentence = before + "상담할 때" + after.replace("상담할 때", "상담에서")
+                if (
+                    "현재 사용하는 교재와 구체적인 수업 방식은" in sentence
+                    and ". 대신 " in sentence
+                ):
+                    sentence = sentence.replace(". 대신 ", ". 그와 함께 ")
+                if (
+                    sentence.startswith("대신 ")
+                    and kept
+                    and "현재 사용하는 교재와 구체적인 수업 방식은" in kept[-1]
+                ):
+                    sentence = "그와 함께 " + sentence[len("대신 "):]
+                kept.append(sentence)
+            return " ".join(kept).strip()
+
+        intro = [
+            cleaned
+            for paragraph in intro
+            if (cleaned := public_middle_english_paragraph(paragraph))
+        ]
+        cleaned_sections: list[tuple[str, list[str]]] = []
+        for heading, paragraphs in body_sections:
+            heading = heading.replace(
+                "새 범위보다 먼저 볼 이전 학습",
+                "새 범위보다 먼저 확인할 이전 내용",
+            )
+            if (
+                heading == "결정 전에 남길 세 가지 질문"
+                and any(
+                    "진단 기준, 연습 방식, 오답 복습, 피드백 범위" in paragraph
+                    for paragraph in paragraphs
+                )
+            ):
+                heading = "결정 전에 확인할 네 가지 기준"
+            district_stem = re.sub(r"(?:시|군|구)$", "", display_district)
+            if district_stem and local.startswith(district_stem + " "):
+                concise_local = local[len(district_stem):].strip()
+                heading = heading.replace(
+                    f"{display_region} {display_district} {local}",
+                    f"{display_region} {display_district} {concise_local}",
+                )
+            if local == "전주 장동":
+                heading = heading.replace(
+                    f"{display_region} {display_district} {local}",
+                    f"{local} 상담권역",
+                )
+            if "지역 정보를 쓰는 법" in heading:
+                heading = f"{local} 상담 위치와 이동 조건 확인하기"
+            elif heading == "확인된 지역 정보만 구분해 보기":
+                heading = "방문 전 주소와 이동 조건 확인하기"
+            elif "지역 정보는 어디까지 볼까요" in heading:
+                heading = f"{local} 상담 위치를 어떻게 확인할까요?"
+            elif "표기를 읽는 기준" in heading:
+                heading = "상담 전 주소와 이동 조건 확인하기"
+            if any(marker in heading for marker in production_markers):
+                continue
+            cleaned_paragraphs = [
+                cleaned
+                for paragraph in paragraphs
+                if (cleaned := public_middle_english_paragraph(paragraph))
+            ]
+            if cleaned_paragraphs:
+                cleaned_sections.append((heading, cleaned_paragraphs))
+        body_sections = cleaned_sections
     # 일부 초4 수학 원고의 임의 보조 키워드 문단은 검색 의도와 거리가 멀고
     # 동일한 설명 틀을 반복하므로, 핵심 학습 안내만 남깁니다.
     body_sections = [
@@ -3529,6 +4383,87 @@ def local_page(
     insert_at = 1 + stable_index(page_seed, "context-position", max(1, len(body_sections) - 1))
     body_sections.insert(min(insert_at, len(body_sections)), context_section)
     intro, body_sections = soften_repeated_context_leads(intro, body_sections)
+    if category == "중등영어학원":
+        # 검증된 CSV 문단 뒤에 삽입되는 보충 섹션에도 동일한 사실성·문장
+        # 정리 규칙을 적용합니다. 이 단계가 없으면 보충 템플릿의 현재형이
+        # 실제 센터 운영 방식처럼 읽힐 수 있습니다.
+        def final_middle_english_heading(
+            heading: str, paragraphs: list[str]
+        ) -> str:
+            if heading == "상담 뒤 확인할 여섯 가지":
+                return "상담 뒤 확인할 항목"
+            if (
+                heading == "결정 전에 남길 세 가지 질문"
+                and any(
+                    "진단 기준, 연습 방식, 오답 복습, 피드백 범위" in paragraph
+                    for paragraph in paragraphs
+                )
+            ):
+                return "결정 전에 확인할 네 가지 기준"
+            if "지역 정보를 쓰는 법" in heading:
+                return f"{local} 상담 위치와 이동 조건 확인하기"
+            if heading == "확인된 지역 정보만 구분해 보기":
+                return "방문 전 주소와 이동 조건 확인하기"
+            if "지역 정보는 어디까지 볼까요" in heading:
+                return f"{local} 상담 위치를 어떻게 확인할까요?"
+            if "표기를 읽는 기준" in heading:
+                return "상담 전 주소와 이동 조건 확인하기"
+            body_text = " ".join(paragraphs)
+            if "학교와 주소 정보" in heading and "학교" not in body_text:
+                return "센터 위치와 이동 조건은 어떻게 확인할까요?"
+            has_word = any(token in body_text for token in ("단어", "어휘"))
+            has_grammar = "문법" in body_text
+            has_reading = any(
+                token in body_text for token in ("독해", "읽기", "지문", "문단")
+            )
+            if "단어 문제인지 문법 문제인지" in heading and not (
+                has_word and has_grammar
+            ):
+                return "학생의 현재 학습 상태를 어떻게 확인할까요?"
+            if "단어·문법·독해의 우선순위" in heading and not (
+                has_word and has_grammar and has_reading
+            ):
+                return "학생에게 필요한 영어 학습 순서를 정하기"
+            if "단어·문법·독해를 연결하려면" in heading and not (
+                has_word and has_grammar and has_reading
+            ):
+                if any(token in body_text for token in ("문장", "예문", "설명", "적용")):
+                    return "설명을 실제 문장 적용으로 연결하려면?"
+                return "영어 학습 단계를 어떻게 연결할까요?"
+            if (
+                "오답" in heading
+                and not any(
+                    token in body_text
+                    for token in ("오답", "틀린", "재풀이", "복습", "다시")
+                )
+            ):
+                return "학생의 현재 학습 흐름을 어떻게 확인할까요?"
+            return heading
+
+        intro = [
+            cleaned
+            for paragraph in intro
+            if (cleaned := public_middle_english_paragraph(paragraph))
+        ]
+        final_middle_sections: list[tuple[str, list[str]]] = []
+        for heading, paragraphs in body_sections:
+            cleaned_paragraphs = [
+                cleaned
+                for paragraph in paragraphs
+                if (cleaned := public_middle_english_paragraph(paragraph))
+            ]
+            if not cleaned_paragraphs:
+                continue
+            final_middle_sections.append((
+                final_middle_english_heading(heading, cleaned_paragraphs),
+                cleaned_paragraphs,
+            ))
+        body_sections = final_middle_sections
+        body_sections = [
+            (heading, paragraphs)
+            for heading, paragraphs in body_sections
+            if paragraphs
+        ]
     if category == "중등수학학원":
         # 보충 문단을 끼운 뒤 생길 수 있는 생성형 어미와 동일 접속부사
         # 반복까지 최종 문단 단위로 한 번 더 정리합니다.
@@ -3546,7 +4481,11 @@ def local_page(
     body_sections = [(heading, paragraphs) for heading, paragraphs in body_sections if paragraphs]
     parsed_source_faqs = parse_faq(manuscript["FAQ"])
     source_faqs = safe_source_faqs(parsed_source_faqs, reference_keyword)
-    if category == "고등영어학원":
+    # 중등 영어 원고의 FAQ에는 생성 과정 설명과 입력 학교 표기가 섞인
+    # 문장이 있어, 공개 페이지에는 검증된 센터 데이터 기반 FAQ만 씁니다.
+    if category == "중등영어학원":
+        source_faqs = []
+    if config["subject"] == "영어":
         source_faqs = [
             (question, answer)
             for question, answer in source_faqs
@@ -3580,8 +4519,16 @@ def local_page(
     ]
     faqs = [
         (
-            question.replace(f"{local}에서 {local}", f"{local}에서"),
-            answer.replace(f"{local}에서 {local}", f"{local}에서"),
+            re.sub(
+                rf"{re.escape(local)}에서\s+{re.escape(local)}(?=\s)",
+                f"{local}에서",
+                question,
+            ),
+            re.sub(
+                rf"{re.escape(local)}에서\s+{re.escape(local)}(?=\s)",
+                f"{local}에서",
+                answer,
+            ),
         )
         for question, answer in faqs
     ]
@@ -3589,6 +4536,12 @@ def local_page(
     parse_reviews(editorialize(manuscript["학부모후기"], row))
     reviews = build_consultation_scenarios(row, config, title, category)
     reviews = [finalize_visible_copy(review) for review in reviews]
+    if category == "중등영어학원":
+        reviews = [
+            cleaned
+            for review in reviews
+            if (cleaned := public_middle_english_paragraph(review))
+        ]
     path = f"/과목별학원/{category}/{slug}/"
     canonical = absolute(path)
     rep = pick_representative(rep_images, ordered_rows.index(row), category)

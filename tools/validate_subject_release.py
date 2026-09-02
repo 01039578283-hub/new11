@@ -10,11 +10,12 @@ from pathlib import Path
 
 
 SITE = Path(__file__).resolve().parents[1]
-CATEGORIES = ("고등영어학원", "고등수학학원", "중등수학학원", "초4수학학원", "초4영어학원", "초5수학학원", "초5영어학원")
+CATEGORIES = ("고등영어학원", "고등수학학원", "중등수학학원", "중등영어학원", "초4수학학원", "초4영어학원", "초5수학학원", "초5영어학원")
 CATEGORY_LABELS = {
     "고등영어학원": "고등 영어학원",
     "고등수학학원": "고등 수학학원",
     "중등수학학원": "중등 수학학원",
+    "중등영어학원": "중등 영어학원",
     "초4수학학원": "초4 수학학원",
     "초4영어학원": "초4 영어학원",
     "초5수학학원": "초5 수학학원",
@@ -250,6 +251,165 @@ HIGH_ENGLISH_BANNED = (
     "정답 수보다 풀이 과정을 말로 설명",
     "기본 유형과 서술형을 분리",
 )
+MIDDLE_ENGLISH_BANNED = (
+    "입시수학학원",
+    "영어 수학",
+    "과목 참고어",
+    "입력된 소재",
+    "입력 표기",
+    "보조 문맥",
+    "확인된 확인 주소",
+    "확인된 추가 확인 항목",
+    "상담용 확인 소재이며 실제 제공 여부를 뜻하지 않습니다",
+    "표현만으로 확인할 수 없습니다",
+    "존재 여부나 적용 대상",
+    "이 항목은 학부모",
+    "“있나요”라는 한 질문",
+    '"있나요"라는 한 질문',
+    "적용 대상과 시점",
+    "답변되지 않은 부분",
+    "운영된다고 단정",
+    "미확인 항목",
+    "마지막으로 확인할 점은 다음과 같습니다",
+    "에서는 좋은 질문은",
+    "에서는 다음 점검 항목은",
+    "에서는 이 순서는",
+    "에서는 이 기록은",
+    "에서는 이 안내는",
+    "에서는 계획표는",
+    "에서는 지역 정보는",
+    "에서는 주소와 학교 표기는",
+    "에서는 복습은",
+    "에서는 상담 답변은",
+    "에서는 과목 접근은",
+    "에서는 학습 과정은",
+    "에서는 학습 계획은",
+    "에서는 가정 점검은",
+    "에서는 현재 상태는",
+    "에서는 관리라는 말은",
+    "에서는 기초 확인은",
+    "에서는 학습 방향은",
+    "에서는 현재 어려움은",
+    "에서는 피드백은",
+    "에서는 질문은",
+    "에서는 상담 메모는",
+    "에서는 영어의 어려움은",
+    "에서는 중등 영어학원 선택은",
+    "에서는 대상 학년, 과목 범위, 진단 방식은",
+    "에서는 과제를 했는지와 과제 내용을 이해했는지는",
+    "에서는 실수와 개념 부족은",
+    "만들어 쓰지 않으며",
+    "실제 답변을 받아 빈칸을 채워야 합니다",
+    "’가며",
+    "중등 영어학원 선택에서는",
+    "에서 대신 ",
+    "진도를 넓히기보다 과제량보다",
+    "질문을 이 네 갈래로",
+    "선택에서 중등 영어학원 비교에서",
+    "선택에서 중등 영어학원을 선택할 때는",
+    "상담에서 상담 내용을 같은 항목으로",
+    "상담 범위에서",
+    "중등 영어학원 비교에서",
+    "에서 중등 영어학원 안내에서",
+    "관련 선택에서",
+    "중등 영어 상담 선택에서",
+    "중등 영어 수업 선택에서",
+    "중등 영어 학습 과정 선택에서",
+    "확인된 사실, 일반적인 학습 점검법, 상담에서 확인할 내용을 서로 구분해 읽어야 합니다",
+    "이라는 표기는 지역 범위를 나타낼 뿐 학습 결과나 특정 수업 구성을 의미하지 않습니다",
+    "라는 표기는 지역 범위를 나타낼 뿐 학습 결과나 특정 수업 구성을 의미하지 않습니다",
+    "여러 이름이 있어도 나누거나 확장하지 않으며",
+    "여러 이름이나 설명이 함께 적힌 형태라면 이를 근거 없이 나누거나 정식 명칭으로 바꾸지 않고 그대로 확인해야 합니다",
+    "페이지의 이 표기는 학교와 학원의 제휴, 해당 학교 학생의 수강 사실, 특정 학교만을 위한 수업을 뜻하지 않습니다",
+    "이 표기는 학교와 학원의 제휴나 실제 수강 관계를 뜻하지 않습니다",
+    "특정 학원의 관리 방식이 존재한다는 뜻이 아닙니다",
+    "특정 운영 사실이 아니라",
+    "실제 운영을 단정하는 말이 아니라",
+    "수업에서는",
+    "상담에서는 학생이",
+    "상담에서는 최근",
+    "상담에서는 점수",
+    " 관련 결정은",
+    " 관련 상담할 때",
+    " 관련 답변",
+    "지역 표기는 검색 범위를 이해하는 데만 사용해야 하며",
+    "확인된 정보의 역할을 나누면 과도한 해석을 피할 수 있습니다",
+    "결과를 예측하기 위한 자료가 아니라 현재 질문을 구체화하기 위한 메모로 사용합니다",
+    "확인된 사실, 일반적인 학습 점검법, 상담할 때 확인할 내용을 서로 구분해 읽어야 합니다",
+    "특정 수업이 실제로 운영된다는 뜻이 아니라",
+    "페이지의 지역성은",
+    "확인용 주소는",
+    "주소 표현을 바꾸거나 주변 상권과 교통을 예상해서는 안 됩니다",
+    "주소만으로 이동 시간, 교통이나 주변 환경을 예상하지 않습니다",
+    "지역 정보는 학습 기준을 대신하지 않으므로",
+    "확인된 학교 관련 표기는",
+    "이 순서는 실제 교재나 프로그램의 존재를 말하는 것이 아니라",
+    "표기를 읽는 기준",
+    "결정 전에 남길 세 가지 질문</h2><p>진단 기준, 연습 방식, 오답 복습, 피드백 범위",
+    "범위에서만 사용하고 수업·시설·결과는 상담 전까지 미확인으로 남깁니다",
+    "선택 과정에서 확인하지 못한 정보를 사실처럼 채우지 않는 태도가 중요합니다",
+    "관련 확인에서 학교 표기가 비어",
+    "관련 확인에서 수업 가능 학교가 따로 안내되지 않은 경우",
+    "상담할 때는 상담 내용을",
+    "상담할 때 상담 답변",
+    "상담할 때 중등 영어학원을 선택할 때는",
+    "두 기록을 함께 설명하면",
+    "상담할 때는 결정 전에는",
+    "중등 영어 수업 상담할 때",
+    "중등 영어 학습 과정 상담할 때",
+    "지역 중등 영어 학습 상담할 때",
+    "상담할 때 학습 계획은 예상 진도보다",
+    "관련 정보에는 확인된 지역·학교·주소만 옮기고, 시간표나 비용처럼 없는 내용은 빈칸으로 두었다가 직접 확인하세요",
+    "이 순서는 특정 프로그램을 소개하는 내용이 아니라 상담 답변을 비교하기 위한 틀입니다",
+    "지역 정보와 주소는 별도 칸에 두어 학습 기준과 섞이지 않게 하세요",
+    "학교 표기가 비어 있으므로 주변 학교를 추측하지 않고",
+    "상담할 때 중등 영어학원을 알아볼 때",
+    "영어 학습 판단에 필요한 어휘·문법·독해의 연결만 보조적으로 설명합니다",
+    "빈칸을 추측으로 채우지 않는 것이 신뢰성 있는 선택의 기본입니다",
+    "답을 듣지 못한 항목은 추측하지 말고 미확인으로 남겨야 합니다",
+    "주소와 학교 표기는 위치를 확인하기 위한 정보이며 학습 적합성을 대신 판단하지 않습니다",
+    "중등 영어학원을 선택할 때도 이동이나 주변 환경을 추정하지 말고",
+    "방식을 방식은",
+    "구분해 기록하는 방식으로 기록하고",
+    "구분해 기록하는 방식으로 기록하면",
+    "학생을 가정하면",
+    "진단, 연습, 복습, 피드백이 이어지는지를 질문할 수 있습니다",
+    "상담할 때 상담할 때",
+    "중등 영어학원을 비교할 때 중등 영어학원 안내에서",
+    "중등 영어학원을 비교할 때 상담할 때",
+    "중등 영어 학습 상담할 때",
+    "학습 계획이 예상 진도보다 재확인 기준이 있어야 비교하기 쉽습니다",
+    "학습 계획은 예상 진도보다 재확인 기준이 있어야 비교하기 쉽습니다",
+    "틀린 문제를 바로 고친 경우와 며칠 뒤에도 설명한 경우를 같은 기록으로",
+    "현재 사용하는 교재와 구체적인 수업 방식은 상담할 때 직접 확인하세요. 대신",
+    "현재 사용하는 교재와 구체적인 수업 방식은 상담에서 직접 확인하세요. 대신",
+    "이 순서를 기준으로 학생이 어느 단계에서 막히는지 살펴볼 수 있습니다",
+    "관찰 기록은 결과 판단보다 상담할 때 어떤 지원이 필요한지 설명하는 관찰 기록으로 활용하세요",
+    "상담 뒤 확인할 여섯 가지",
+    "이 순서를 기준으로 학생의 현재 상태와 상담 답변을 비교해 보세요",
+    "상담 답변에는 이 차이를 좁히는 연습과 복습 확인 방법이 구체적으로 담기는지 살펴보세요",
+    "지역 중등 영어 학습",
+    "중등 영어 학습 과정 FAQ",
+    "중등 영어 학습 과정 결정",
+    "중등 영어 학습 과정 선택",
+    "중등 영어학원 선택은 체크가 많다는 이유보다 중요한 질문에 답이 있는지를 보고 판단하는 편이 좋습니다",
+    "과제 수행 여부와 이해 정도를 별도로 살피는지와 피드백의 연결을 구체적으로 들어보는 편이 좋습니다",
+    "는지와 피드백의 연결을 구체적으로 들어보는 편이 좋습니다",
+    "짧게 확인하는 방식으로 짧게 기록한 뒤",
+    "그 질문에 구체적인 확인 방법이 제시되는지 확인할 수 있습니다",
+    "중등 영어 상담할 때는",
+    "비교할 때 선택 전에는",
+    "상담할 때 선택 전에는",
+    "중등 영어학원 상담 답변이 이 전환 과정을 어떻게 살피는지 구체적으로 들을 수 있어야 합니다",
+    "학교별 범위를 미리 가정하지 않고 학생이 가져온 최근 과제와 진도표를 토대로 학습 순서를 안내합니다",
+    "복습은 같은 내용을 오래 보는 것보다 다시 확인할 시점과 방법을 정하는 데 의미가 있습니다",
+    "학원을 결정할 때는 확인 순서를 지키는 것만으로도 더 차분해질 수 있습니다",
+    "학생이라면 학생이",
+    "학생이라면 학생 상태를",
+    "는지라는 질문에 과정과 기준이 함께 설명되는지 확인하는 것이 좋습니다",
+    "중등 영어 상담을 비교할 때",
+    "학습 행동을 작은 단위로 살펴보고 상담 질문을 만드는 데만 사용합니다",
+)
 HIGH_SCHOOL_BAD_GRAMMAR = (
     "경우인 경우",
     "합니다 같은 유형",
@@ -391,11 +551,38 @@ def main() -> int:
                 for token in MIDDLE_MATH_BANNED:
                     if token in text:
                         errors.append(f"{rel}: middle-math wording remains: {token}")
-            if category == "고등영어학원":
+            if category in {"고등영어학원", "중등영어학원"}:
                 for token in HIGH_ENGLISH_BANNED:
                     if token in text:
                         errors.append(f"{rel}: subject mismatch remains: {token}")
-            if category in {"고등수학학원", "고등영어학원", "중등수학학원"}:
+            if category == "중등영어학원":
+                local = title.removesuffix(" " + CATEGORY_LABELS[category]).strip()
+                for token in MIDDLE_ENGLISH_BANNED:
+                    if token in text:
+                        errors.append(f"{rel}: middle-English wording remains: {token}")
+                if re.search(r"상담할 때[^.!?]{0,240}상담할 때", text):
+                    errors.append(f"{rel}: repeated consultation phrase in one sentence")
+                if re.search(r"<p>\s*대신\s+", source):
+                    errors.append(f"{rel}: orphan paragraph-leading contrast marker")
+                if re.search(
+                    r"<p>\s*이는\s+특정\s+(?:수업이 실제로 운영된다는 뜻|운영 사실)이 아니라",
+                    source,
+                ):
+                    errors.append(f"{rel}: orphan paragraph-leading pronoun")
+                if re.search(r"(?:경기|서울|인천|부산|대구|대전|광주|울산|세종|강원|충북|충남|전북|전남|경북|경남|제주)\s+([가-힣]+?)(?:시|군|구)\s+\1\s+", text):
+                    errors.append(f"{rel}: duplicated administrative locality")
+                if "전북 완주군 전주 장동" in text:
+                    errors.append(f"{rel}: mixed administrative and search locality")
+                if re.search(r"(?:[가-힣0-9]+(?:중|고|초)\.\s*){2,}", text):
+                    errors.append(f"{rel}: orphan school-name sentence fragments")
+                for marker in (
+                    f"{local} 선택에서",
+                    f"{local} 관련 판단에서",
+                    f"{local} 관점에서",
+                ):
+                    if marker in text:
+                        errors.append(f"{rel}: mechanical locality lead remains: {marker}")
+            if category in {"고등수학학원", "고등영어학원", "중등수학학원", "중등영어학원"}:
                 for token in HIGH_SCHOOL_BAD_GRAMMAR:
                     if token in text:
                         errors.append(f"{rel}: malformed wording remains: {token}")
@@ -406,7 +593,24 @@ def main() -> int:
                 if token in text:
                     errors.append(f"{rel}: malformed wording remains: {token}")
             local = title.removesuffix(" " + CATEGORY_LABELS[category]).strip()
-            if f"{local}에서 {local}" in text:
+            if category == "중등영어학원" and local.endswith("을"):
+                damaged_local = local[:-1] + "를"
+                if damaged_local in text:
+                    errors.append(f"{rel}: damaged locality remains: {damaged_local}")
+            if category == "중등영어학원" and local:
+                last_code = ord(local[-1])
+                local_has_batchim = (
+                    0xAC00 <= last_code <= 0xD7A3
+                    and (last_code - 0xAC00) % 28 != 0
+                )
+                if not local_has_batchim and f"{local}과 확인된 센터 주소" in text:
+                    errors.append(f"{rel}: malformed locality conjunction")
+                if f"{local}에서 대신 " in text:
+                    errors.append(f"{rel}: orphan contrast marker")
+            if re.search(
+                rf"{re.escape(local)}에서\s+{re.escape(local)}(?=\s|은|는|이|가|을|를|의|에|에서|으로|와|과|도|만|[,.;!?]|$)",
+                text,
+            ):
                 errors.append(f"{rel}: duplicated locality phrase")
             if text.count(title) > 12:
                 warnings.append(f"{rel}: exact target phrase repeated {text.count(title)} times")
@@ -446,7 +650,7 @@ def main() -> int:
             for node in graph:
                 if str(node.get("@id", "")).endswith("#schools") and not node.get("itemListElement"):
                     errors.append(f"{rel}: empty school ItemList")
-            if category in {"고등수학학원", "고등영어학원", "중등수학학원"}:
+            if category in {"고등수학학원", "고등영어학원", "중등수학학원", "중등영어학원"}:
                 has_grade_notice = 'class="subject-grade-availability-notice"' in source
                 has_service = any(str(node.get("@id", "")).endswith("#service") for node in graph)
                 if has_grade_notice == has_service:
