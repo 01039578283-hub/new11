@@ -10,8 +10,9 @@ from pathlib import Path
 
 
 SITE = Path(__file__).resolve().parents[1]
-CATEGORIES = ("고등수학학원", "초4수학학원", "초4영어학원", "초5수학학원", "초5영어학원")
+CATEGORIES = ("고등영어학원", "고등수학학원", "초4수학학원", "초4영어학원", "초5수학학원", "초5영어학원")
 CATEGORY_LABELS = {
+    "고등영어학원": "고등 영어학원",
     "고등수학학원": "고등 수학학원",
     "초4수학학원": "초4 수학학원",
     "초4영어학원": "초4 영어학원",
@@ -46,6 +47,7 @@ BANNED_VISIBLE = (
     "페이지의 학교 정보",
     "CSV",
     "입력 데이터",
+    "입력값",
     "입력 자료의 학교 항목",
     "입력된 학교 항목",
     "이 행의 학교 항목",
@@ -76,11 +78,26 @@ HIGH_MATH_BANNED = (
     "학습을 점검하다",
     "제휴나 실제 수강 관계",
 )
-HIGH_MATH_BAD_GRAMMAR = (
+HIGH_ENGLISH_BANNED = (
+    "학생의 구체적인 수학 범위",
+    "참고어인 영어 수학",
+    "수학 수업이나 과목 연계",
+    "고등 수학 수업을 비교",
+    "고등 수학 상담 전",
+    "풀이 첫 줄과 마지막 검산",
+    "계산·개념·조건 해석",
+    "함수와 그래프의 조건을 식과 그림",
+    "수열이나 확률·통계 문제",
+    "정답 수보다 풀이 과정을 말로 설명",
+    "기본 유형과 서술형을 분리",
+)
+HIGH_SCHOOL_BAD_GRAMMAR = (
     "경우인 경우",
     "합니다 같은 유형",
+    "고려합니다고",
+    "과정별 과정에서는",
 )
-HIGH_MATH_BAD_PATTERNS = (
+HIGH_SCHOOL_BAD_PATTERNS = (
     (re.compile(r"[가-힣]고이\s+(?:포함|수업)"), "학교명 조사 오류"),
     (re.compile(r"같은 유형[^.!?]{0,180}같은 유형"), "같은 유형 반복"),
     (re.compile(r"\.’(?:입니다|을 참고|\s*안내)"), "위치 안내 인용 결합 오류"),
@@ -90,6 +107,7 @@ HIGH_MATH_BAD_PATTERNS = (
     (re.compile(r"학습을 점검한다면\s+학습에서"), "학습 표현 반복"),
     (re.compile(r"\s+[,;:]"), "문장부호 앞 공백"),
     (re.compile(r"\(\s+"), "여는 괄호 뒤 공백"),
+    (re.compile(r"에서는\s+(?:실제 풀이 장면|오답 재풀이 과정|학생의 자기 설명)에서는"), "이중 주제 표현"),
 )
 BAD_GRAMMAR = (
     "학원를",
@@ -210,10 +228,15 @@ def main() -> int:
                 for token in HIGH_MATH_BANNED:
                     if token in text:
                         errors.append(f"{rel}: subject mismatch remains: {token}")
-                for token in HIGH_MATH_BAD_GRAMMAR:
+            if category == "고등영어학원":
+                for token in HIGH_ENGLISH_BANNED:
+                    if token in text:
+                        errors.append(f"{rel}: subject mismatch remains: {token}")
+            if category in {"고등수학학원", "고등영어학원"}:
+                for token in HIGH_SCHOOL_BAD_GRAMMAR:
                     if token in text:
                         errors.append(f"{rel}: malformed wording remains: {token}")
-                for pattern, label in HIGH_MATH_BAD_PATTERNS:
+                for pattern, label in HIGH_SCHOOL_BAD_PATTERNS:
                     if pattern.search(text):
                         errors.append(f"{rel}: malformed wording remains: {label}")
             for token in BAD_GRAMMAR:
@@ -260,7 +283,7 @@ def main() -> int:
             for node in graph:
                 if str(node.get("@id", "")).endswith("#schools") and not node.get("itemListElement"):
                     errors.append(f"{rel}: empty school ItemList")
-            if category == "고등수학학원":
+            if category in {"고등수학학원", "고등영어학원"}:
                 has_grade_notice = 'class="subject-grade-availability-notice"' in source
                 has_service = any(str(node.get("@id", "")).endswith("#service") for node in graph)
                 if has_grade_notice == has_service:

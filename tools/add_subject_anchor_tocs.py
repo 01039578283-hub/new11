@@ -22,6 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SUBJECT_ROOT = ROOT / "과목별학원"
 SUBJECT_CATEGORIES = (
+    "고등영어학원",
     "고등수학학원",
     "초4수학학원",
     "초4영어학원",

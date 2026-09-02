@@ -12,7 +12,11 @@ NEW_SUBJECT_LASTMOD = "2026-09-03"
 
 
 def lastmod_for(path: str) -> str:
-    if path == "/과목별학원/" or path.startswith("/과목별학원/고등수학학원/"):
+    if (
+        path == "/과목별학원/"
+        or path.startswith("/과목별학원/고등수학학원/")
+        or path.startswith("/과목별학원/고등영어학원/")
+    ):
         return NEW_SUBJECT_LASTMOD
     return DEFAULT_LASTMOD
 
