@@ -10,13 +10,14 @@ from pathlib import Path
 
 
 SITE = Path(__file__).resolve().parents[1]
-CATEGORIES = ("고등영어학원", "고등수학학원", "중등수학학원", "중등영어학원", "초등수학학원", "초4수학학원", "초4영어학원", "초5수학학원", "초5영어학원")
+CATEGORIES = ("고등영어학원", "고등수학학원", "중등수학학원", "중등영어학원", "초등수학학원", "초등영어학원", "초4수학학원", "초4영어학원", "초5수학학원", "초5영어학원")
 CATEGORY_LABELS = {
     "고등영어학원": "고등 영어학원",
     "고등수학학원": "고등 수학학원",
     "중등수학학원": "중등 수학학원",
     "중등영어학원": "중등 영어학원",
     "초등수학학원": "초등 수학학원",
+    "초등영어학원": "초등 영어학원",
     "초4수학학원": "초4 수학학원",
     "초4영어학원": "초4 영어학원",
     "초5수학학원": "초5 수학학원",
@@ -558,7 +559,7 @@ def main() -> int:
                 for token in MIDDLE_MATH_BANNED:
                     if token in text:
                         errors.append(f"{rel}: middle-math wording remains: {token}")
-            if category in {"고등영어학원", "중등영어학원"}:
+            if category in {"고등영어학원", "중등영어학원", "초등영어학원"}:
                 for token in HIGH_ENGLISH_BANNED:
                     if token in text:
                         errors.append(f"{rel}: subject mismatch remains: {token}")
@@ -589,7 +590,7 @@ def main() -> int:
                 ):
                     if marker in text:
                         errors.append(f"{rel}: mechanical locality lead remains: {marker}")
-            if category in {"고등수학학원", "고등영어학원", "중등수학학원", "중등영어학원", "초등수학학원"}:
+            if category in {"고등수학학원", "고등영어학원", "중등수학학원", "중등영어학원", "초등수학학원", "초등영어학원"}:
                 for token in HIGH_SCHOOL_BAD_GRAMMAR:
                     if token in text:
                         errors.append(f"{rel}: malformed wording remains: {token}")
@@ -768,6 +769,100 @@ def main() -> int:
                         and paragraph_profiles != paragraph_actions
                     ):
                         errors.append(f"{rel}: elementary-math paragraph profile/action mismatch")
+            if category == "초등영어학원":
+                for marker in (
+                    "영어 수학",
+                    "입시수학학원",
+                    "실제 운영 사실",
+                    "운영 사실이 아니라",
+                    "수업학교 칸",
+                    "원문 그대로",
+                    "입력된 지역",
+                    "세부 소재",
+                    "구조화 데이터",
+                    "입시성공사례",
+                    "입시실적",
+                    "입시합격",
+                    "성적향상",
+                ):
+                    if marker in text:
+                        errors.append(f"{rel}: elementary-English source wording remains: {marker}")
+                page_faq_pairs = [
+                    (
+                        html.unescape(re.sub(r"<[^>]+>", "", question)).strip(),
+                        html.unescape(re.sub(r"<[^>]+>", "", answer)).strip(),
+                    )
+                    for question, answer in re.findall(
+                        r'<details class="faq-item"><summary>(.*?)</summary><p>(.*?)</p></details>',
+                        source,
+                        re.S,
+                    )
+                ]
+                if len(page_faq_pairs) != 4:
+                    errors.append(f"{rel}: expected 4 visible elementary-English FAQs, got {len(page_faq_pairs)}")
+                profile_signatures = (
+                    ("파닉스 규칙", "낯선 단어", "이어 읽"),
+                    ("어휘 뜻", "짧은 문장", "의미를 연결"),
+                    ("주어와 동사", "기본 어순"),
+                    ("기초 문법 규칙", "말하기", "짧은 쓰기"),
+                    ("짧은 글", "중심 내용", "근거 문장"),
+                    ("듣기", "핵심 단어", "놓치"),
+                    ("틀린 단어나 문장", "다시 읽거나 써"),
+                    ("영어 부담", "낯선 문장이나 지문", "시도하기 전에"),
+                )
+                action_signatures = (
+                    ("파닉스 소리값", "소리 단위", "이어 읽"),
+                    ("품사", "짧은 예문", "새 문장"),
+                    ("주어와 동사", "낱말 카드", "기본 어순"),
+                    ("기초 문법 규칙", "말하기 한 문장", "쓰기 한 문장"),
+                    ("문단별", "중심 내용", "근거 문장"),
+                    ("짧은 듣기 음원", "핵심 단어", "놓친 표현"),
+                    ("오답을 고친 날짜", "다시 읽거나 써 본 날짜", "답을 가린"),
+                    ("낯선 문장", "아는 단어", "첫 문장부터 끝까지"),
+                )
+                for question, answer in page_faq_pairs:
+                    answer_profiles = {
+                        index
+                        for index, signature in enumerate(profile_signatures)
+                        if all(token in answer for token in signature)
+                    }
+                    answer_actions = {
+                        index
+                        for index, signature in enumerate(action_signatures)
+                        if all(token in answer for token in signature)
+                    }
+                    if (
+                        len(answer_profiles) == 1
+                        and len(answer_actions) == 1
+                        and answer_profiles != answer_actions
+                    ):
+                        errors.append(f"{rel}: elementary-English FAQ profile/action mismatch")
+                    if question in category_faq_questions:
+                        errors.append(f"{rel}: duplicate elementary-English FAQ question")
+                    if answer in category_faq_answers:
+                        errors.append(f"{rel}: duplicate elementary-English FAQ answer")
+                    category_faq_questions.add(question)
+                    category_faq_answers.add(answer)
+                for paragraph in (
+                    html.unescape(re.sub(r"<[^>]+>", "", value)).strip()
+                    for value in re.findall(r"<p(?:\s[^>]*)?>(.*?)</p>", source, re.S)
+                ):
+                    paragraph_profiles = {
+                        index
+                        for index, signature in enumerate(profile_signatures)
+                        if all(token in paragraph for token in signature)
+                    }
+                    paragraph_actions = {
+                        index
+                        for index, signature in enumerate(action_signatures)
+                        if all(token in paragraph for token in signature)
+                    }
+                    if (
+                        len(paragraph_profiles) == 1
+                        and len(paragraph_actions) == 1
+                        and paragraph_profiles != paragraph_actions
+                    ):
+                        errors.append(f"{rel}: elementary-English paragraph profile/action mismatch")
             if category == "중등영어학원" and local.endswith("을"):
                 damaged_local = local[:-1] + "를"
                 if damaged_local in text:
@@ -825,7 +920,7 @@ def main() -> int:
             for node in graph:
                 if str(node.get("@id", "")).endswith("#schools") and not node.get("itemListElement"):
                     errors.append(f"{rel}: empty school ItemList")
-            if category == "초등수학학원":
+            if category in {"초등수학학원", "초등영어학원"}:
                 faq_node = next(
                     (node for node in graph if node.get("@type") == "FAQPage"),
                     None,
@@ -847,9 +942,14 @@ def main() -> int:
                     ),
                     None,
                 )
-                if service_node and service_node.get("about") != ["수학", "학교 진도", "개념 점검"]:
-                    errors.append(f"{rel}: elementary-math Service about mismatch")
-            if category in {"고등수학학원", "고등영어학원", "중등수학학원", "중등영어학원", "초등수학학원"}:
+                expected_service_about = (
+                    ["수학", "학교 진도", "개념 점검"]
+                    if category == "초등수학학원"
+                    else ["영어", "읽기", "어휘", "문장 구조", "듣기", "쓰기"]
+                )
+                if service_node and service_node.get("about") != expected_service_about:
+                    errors.append(f"{rel}: elementary Service about mismatch")
+            if category in {"고등수학학원", "고등영어학원", "중등수학학원", "중등영어학원", "초등수학학원", "초등영어학원"}:
                 has_grade_notice = 'class="subject-grade-availability-notice"' in source
                 has_service = any(str(node.get("@id", "")).endswith("#service") for node in graph)
                 if has_grade_notice == has_service:
@@ -858,7 +958,7 @@ def main() -> int:
             match = re.search(r'<section class="section subject-manuscript">(.*?)</section>\s*<section class="section subject-center-card">', source, re.S)
             if match:
                 body_text = visible_main("<main>" + match.group(1) + "</main>")
-                if category == "초등수학학원" and re.search(
+                if category in {"초등수학학원", "초등영어학원"} and re.search(
                     r"(?<![가-힣0-9])(?:중[1-3]|고[1-3])(?![가-힣0-9])",
                     body_text,
                 ):

@@ -89,6 +89,18 @@ CONFIGS = {
         "publish_date": "2026-09-03",
         "modified_date": "2026-09-03",
     },
+    "초등영어학원": {
+        "zip": "초등 영어학원.zip",
+        "archive_prefix": "초등 영어학원/",
+        "label": "초등 영어학원",
+        "grade": "초등학생",
+        "subject": "영어",
+        "school_field": "타깃학교\n(초)",
+        "grade_field": "가능학년\n(영어)",
+        "national_category": "영어학원",
+        "publish_date": "2026-09-03",
+        "modified_date": "2026-09-03",
+    },
     "초4수학학원": {
         "zip": "초4 수학학원.zip",
         "label": "초4 수학학원",
@@ -307,6 +319,16 @@ LEARNING_PROFILES = {
         "낯선 문제가 나오면 시도하기 전에 답이나 도움부터 찾는 경우",
         "선행 진도와 현재 학년 핵심 개념 복습의 순서를 정하기 어려운 경우",
     ),
+    "초등영어학원": (
+        "파닉스 규칙은 알지만 낯선 단어를 소리 내어 이어 읽기 어려운 경우",
+        "어휘 뜻은 외우지만 짧은 문장 안에서 의미를 연결하기 어려운 경우",
+        "짧은 문장에서 주어와 동사를 찾아 기본 어순을 설명하기 어려운 경우",
+        "기초 문법 규칙은 알지만 말하기와 짧은 쓰기에 적용하지 못하는 경우",
+        "짧은 글은 읽지만 중심 내용과 답의 근거 문장을 찾기 어려운 경우",
+        "듣기에서 아는 표현도 소리로 들으면 핵심 단어를 놓치는 경우",
+        "틀린 단어나 문장을 고친 뒤 다시 읽거나 써 보지 않는 경우",
+        "영어 부담이 커지면 낯선 문장이나 지문을 시도하기 전에 멈추는 경우",
+    ),
     "중1수학학원": (
         "정수와 유리수 계산에서 부호 실수가 반복되는 경우",
         "문자와 식의 뜻은 알지만 식을 세우는 단계에서 멈추는 경우",
@@ -490,6 +512,53 @@ ELEMENTARY_MATH_OBSERVATION_CLAUSES = (
     "학생이 낯선 문제를 보면 시도하기 전에 답이나 도움부터 찾는지",
     "학생이 선행 진도와 현재 학년 핵심 개념 복습의 순서를 정하기 어려워하는지",
 )
+
+
+# 초등 영어도 학습 상태와 후속 행동을 동일 인덱스로 고정합니다. 각 쌍의
+# 핵심어를 의도적으로 유지해 FAQ·본문·상담 상황을 독립적으로 만들더라도
+# 파닉스 문제에 문법 행동을 붙이는 식의 의미 불일치가 생기지 않게 합니다.
+ELEMENTARY_ENGLISH_ALIGNED_ACTIONS = (
+    "파닉스 소리값을 확인한 뒤 낯선 단어를 음절이나 소리 단위로 나누고, 다시 붙여 소리 내어 이어 읽는지 확인해 보세요.",
+    "어휘를 뜻만 외우지 말고 품사와 짧은 예문을 함께 적은 뒤, 새 문장에서도 같은 단어의 의미를 연결하는지 확인해 보세요.",
+    "문장의 주어와 동사를 서로 다른 표시로 찾고, 낱말 카드를 기본 어순으로 다시 배열하며 문장 구조를 설명하는지 확인해 보세요.",
+    "기초 문법 규칙 하나를 고른 뒤 같은 표현으로 말하기 한 문장과 짧은 쓰기 한 문장을 만들어 적용하는지 확인해 보세요.",
+    "짧은 글을 문단별로 읽고 중심 내용을 한 문장으로 말한 뒤, 답을 고른 근거 문장을 직접 표시하는지 확인해 보세요.",
+    "짧은 듣기 음원에서 핵심 단어를 먼저 표시하고 다시 들은 뒤, 놓친 표현을 따라 읽으며 소리와 뜻을 연결하는지 확인해 보세요.",
+    "오답을 고친 날짜와 다시 읽거나 써 본 날짜를 나누어 기록하고, 답을 가린 상태에서도 틀린 단어나 문장을 바로잡는지 확인해 보세요.",
+    "낯선 문장에서 아는 단어와 주어·동사를 먼저 표시하고, 첫 문장부터 끝까지 혼자 시도한 범위를 짧게 기록해 보세요.",
+)
+
+
+ELEMENTARY_ENGLISH_OBSERVATION_CLAUSES = (
+    "학생이 파닉스 규칙은 알지만 낯선 단어를 소리 내어 이어 읽는 데 어려움을 보이는지",
+    "학생이 어휘 뜻은 외우지만 짧은 문장 안에서 의미를 연결하는 데 어려움을 보이는지",
+    "학생이 짧은 문장에서 주어와 동사를 찾아 기본 어순을 설명하는 데 어려움을 보이는지",
+    "학생이 기초 문법 규칙은 알지만 말하기와 짧은 쓰기에 적용하지 못하는지",
+    "학생이 짧은 글은 읽지만 중심 내용과 답의 근거 문장을 찾는 데 어려움을 보이는지",
+    "학생이 듣기에서 아는 표현도 소리로 들으면 핵심 단어를 놓치는지",
+    "학생이 틀린 단어나 문장을 고친 뒤 다시 읽거나 써 보지 않는지",
+    "학생이 영어 부담이 커지면 낯선 문장이나 지문을 시도하기 전에 멈추는지",
+)
+
+
+def polish_elementary_english_copy(value: str) -> str:
+    """Keep elementary-English guidance natural after template composition."""
+    replacements = (
+        ("경우가 관찰된다면", "모습이 보인다면"),
+        ("경우에 대해서는", "상황이라면"),
+        ("경우인지", "모습인지"),
+        ("경우라면", "상황이라면"),
+        ("경우에는", "상황이라면"),
+        ("이 행동이 맞닿아 있습니다", "이 확인 방법이 직접 연결됩니다"),
+        ("다음 행동", "다음 점검"),
+        ("아래 행동", "아래 방법"),
+        ("이 행동", "이 확인 방법"),
+        ("맞닿아 있습니다", "직접 연결됩니다"),
+        ("점검이 어울립니다", "점검을 활용할 수 있습니다"),
+    )
+    for before, after in replacements:
+        value = value.replace(before, after)
+    return value
 
 
 def esc(value: object) -> str:
@@ -1966,6 +2035,290 @@ def build_elementary_math_check_section(
     return heading, [finish_sentence(first), finish_sentence(second), finish_sentence(third)]
 
 
+def elementary_english_profile_indexes(seed: str, count: int, start: int = 0) -> list[int]:
+    """Return distinct, page-stable profile indexes for elementary English."""
+    profiles = LEARNING_PROFILES["초등영어학원"]
+    base = stable_index(seed, "profile-base", len(profiles))
+    steps = (1, 3, 5, 7)
+    step = steps[stable_index(seed, "profile-step", len(steps))]
+    return [(base + step * slot) % len(profiles) for slot in range(start, start + count)]
+
+
+def build_elementary_english_core_copy(
+    row: dict[str, str], title: str, sections: list[tuple[str, list[str]]], category: str,
+) -> tuple[list[str], list[tuple[str, list[str]]]]:
+    """Build visitor-facing elementary-English copy without reusing draft prose.
+
+    The archive is used only to match a draft title to a locality.  All visible
+    learning guidance below is generated from observable student work and does
+    not infer a centre programme, timetable, result, school curriculum or fee.
+    """
+    if category != "초등영어학원":
+        return [], sections
+
+    local = row["근처 수업가능 동네"].strip()
+    seed = f"{category}|{local}|core-copy"
+    profiles = LEARNING_PROFILES[category]
+    body_profile_seed = f"{category}|{local}|body-profiles"
+    indexes = elementary_english_profile_indexes(body_profile_seed, 6)
+
+    def profile(slot: int) -> str:
+        return profiles[indexes[slot]]
+
+    def action(slot: int) -> str:
+        return ELEMENTARY_ENGLISH_ALIGNED_ACTIONS[indexes[slot]]
+
+    intro = [pick_copy_variant(seed, "intro", (
+        f"{title}을 비교할 때는 교재 이름이나 선행 단계보다 최근 영어 자료에서 아이가 혼자 읽고 이해한 범위를 먼저 확인해 보세요. {profile(0)}라면 첫 학습 계획에 다음 행동을 넣을 수 있습니다. {action(0)}",
+        f"{local} 초등 영어 학습의 출발점은 단어 시험 점수 하나보다 읽기·어휘·문장·듣기·쓰기 중 흐름이 끊긴 장면에서 찾기 쉽습니다. {profile(0)}인지 최근 자료로 살핀 뒤 이렇게 점검해 보세요. {action(0)}",
+        f"{title} 상담에는 아이가 최근 읽은 짧은 글, 단어 확인 기록, 직접 쓴 문장 가운데 두세 가지를 준비하면 충분합니다. {profile(0)}라면 정답보다 학습 행동을 먼저 확인해야 합니다. {action(0)}",
+        f"{local}에서 초등 영어 수업을 알아본다면 몇 학년 교재를 푸는지보다 낯선 문장을 어떻게 읽고 뜻을 확인하는지 살펴야 합니다. {profile(0)}에는 다음과 같은 짧은 확인이 도움이 됩니다. {action(0)}",
+        f"초등 영어는 읽기와 쓰기 중 한쪽 결과만으로 현재 수준을 단정하기 어렵습니다. {title}을 찾는 과정에서 {profile(0)}인지 확인하고 대응 행동을 한 가지로 좁혀 보세요. {action(0)}",
+        f"{local} 초등학생의 영어 계획을 세울 때는 잘하는 영역과 도움이 필요한 영역을 따로 적는 편이 좋습니다. {profile(0)}가 관찰된다면 다음 기록부터 시작해 보세요. {action(0)}",
+        f"{title} 선택 전에는 아이가 아는 단어를 실제 문장과 소리 속에서도 활용하는지 확인해 보세요. {profile(0)}라면 문제 수를 늘리기 전에 아래 행동을 반복할 수 있는지 살펴야 합니다. {action(0)}",
+        f"{local}의 초등 영어 수업을 비교할 때는 최근 학습 흔적과 가정에서 가능한 복습 시간을 함께 보아야 합니다. {profile(0)}에는 실행 가능한 작은 점검부터 정하는 편이 좋습니다. {action(0)}",
+    ))]
+
+    diagnosis_section = (
+        pick_copy_variant(seed, "diagnosis-heading", (
+            "최근 영어 자료로 읽기 출발점 확인하기",
+            f"{local} 학생의 읽기·어휘 상태를 나누어 보기",
+            "정답 수보다 먼저 살펴볼 영어 학습 행동",
+            "혼자 읽은 부분과 도움받은 부분 구분하기",
+            "짧은 글 한 편으로 현재 영어 흐름 살피기",
+            "읽기·어휘·문장 진단을 한 장에 기록하기",
+            "최근 과제에서 반복되는 막힘 찾기",
+            "레벨 이름 전에 확인할 실제 학습 흔적",
+        )),
+        [
+            pick_copy_variant(seed, "diagnosis-one", (
+                f"최근 사용한 자료에서 혼자 읽은 문장, 뜻을 물어본 단어, 해석이 멈춘 부분을 서로 다른 표시로 남겨 보세요. {profile(1)}라면 첫 보완 순서를 이렇게 확인할 수 있습니다. {action(1)}",
+                f"짧은 글을 처음 읽게 한 뒤 소리 내어 읽기, 단어 뜻 연결, 문장 이해 중 어디에서 도움이 필요했는지 적어 보세요. {profile(1)}에는 다음 행동이 구체적인 진단 자료가 됩니다. {action(1)}",
+                f"{local} 학생의 영어 상태는 맞힌 문제 수만으로 보기보다 읽는 동안 멈춘 위치와 다시 시도한 결과를 함께 기록해야 합니다. {profile(1)}라면 다음과 같이 확인해 보세요. {action(1)}",
+                f"익숙한 문장과 처음 보는 문장을 각각 하나씩 읽어 보고 아이가 사용한 단서가 무엇인지 물어보세요. {profile(1)}에는 아래 행동을 적용해 볼 수 있습니다. {action(1)}",
+                f"최근 단어장과 읽기 자료를 함께 놓고 외운 내용이 문장 이해로 이어지는지 살펴보세요. {profile(1)}가 보인다면 첫 점검을 다음처럼 구체화할 수 있습니다. {action(1)}",
+                f"영어 자료 한 장을 읽을 때 아이가 소리, 단어, 어순, 내용 중 어느 단계부터 설명하기 어려워하는지 표시해 보세요. {profile(1)}에는 다음 행동이 맞닿아 있습니다. {action(1)}",
+                f"최근 과제에서 바로 답한 항목과 오래 고민한 항목을 나눈 뒤 그 이유를 아이의 말로 들어 보세요. {profile(1)}라면 다음 재확인이 필요합니다. {action(1)}",
+                f"{title} 상담 전에는 어려운 자료를 많이 모으기보다 생각 과정이 남은 영어 자료 두세 장을 준비하세요. {profile(1)}에는 이 행동을 확인하면 좋습니다. {action(1)}",
+            )),
+            pick_copy_variant(seed, "diagnosis-two", (
+                "진단 결과는 ‘영어가 약하다’처럼 넓게 적지 말고 읽기 시작, 단어 확인, 문장 구조, 내용 근거, 표현의 다섯 칸으로 나누어 보세요. 빈칸은 추정하지 않고 다음 상담에서 확인할 질문으로 남깁니다.",
+                "한 번의 점수는 익숙한 문제에 대한 결과일 수 있습니다. 처음 보는 짧은 글에서도 같은 읽기 방법을 사용할 수 있는지 확인해야 현재 이해와 암기를 구분하기 쉽습니다.",
+                "아이에게 틀린 이유를 바로 설명하기보다 어느 단어까지 알았고 어느 문장에서 흐름이 끊겼는지 먼저 말하게 해 보세요. 그 기록이 다음 학습 순서를 정하는 근거가 됩니다.",
+                "읽기 속도만 재촉하면 실제로 이해한 범위를 놓칠 수 있습니다. 정확히 읽은 문장, 뜻을 추론한 단어, 근거를 찾은 문장을 따로 확인하는 편이 좋습니다.",
+                "최근 자료에는 날짜와 소요 시간, 혼자 해결한 범위만 간단히 적어 두세요. 같은 기준으로 다음 자료를 보면 아이의 행동이 달라졌는지 비교하기 쉽습니다.",
+                "레벨이나 교재 단계는 참고 자료일 뿐입니다. 아이가 소리 내어 읽고 뜻을 연결하고 자기 말로 설명하는 과정을 함께 봐야 실제 출발점을 정할 수 있습니다.",
+                "진단할 때는 정답을 알려 준 뒤의 반응도 살펴보세요. 설명을 듣고 이해하는 것과 새 문장에서 혼자 적용하는 것은 서로 다른 학습 단계입니다.",
+                "보호자의 기억만으로 상담하기보다 최근 자료에 남은 표시를 활용하세요. 관찰한 사실과 추가로 확인할 질문을 나누면 과장 없이 현재 상태를 설명할 수 있습니다.",
+            )),
+        ],
+    )
+
+    connection_section = (
+        pick_copy_variant(seed, "connection-heading", (
+            "어휘를 문장 구조와 읽기로 연결하기",
+            "외운 단어가 실제 문장 이해로 이어지는지 보기",
+            "주어·동사·어순으로 짧은 문장 해석하기",
+            "단어 암기 뒤에 남길 문장 적용 기록",
+            "소리·뜻·문장 구조를 한 흐름으로 확인하기",
+            "짧은 예문으로 어휘와 문법 함께 점검하기",
+            "읽은 문장을 자기 말로 다시 설명하기",
+            "영어 기본기를 따로 외우지 않는 복습 순서",
+        )),
+        [
+            pick_copy_variant(seed, "connection-one", (
+                f"단어를 아는지 물은 뒤에는 그 단어가 들어간 짧은 문장을 읽고 누가 무엇을 하는지 설명하게 해 보세요. {profile(2)}라면 뜻 암기와 문장 이해 사이를 다음 행동으로 연결할 수 있습니다. {action(2)}",
+                f"어휘·문법·읽기를 각각 다른 숙제로 끝내지 말고 같은 문장 안에서 확인해 보세요. {profile(2)}에는 다음 행동이 학습 단계를 구분하는 데 도움이 됩니다. {action(2)}",
+                f"{local} 학생이 외운 단어를 새 문장에서 바로 떠올리는지, 문장의 핵심 구조를 찾는지 차례로 확인하세요. {profile(2)}라면 이 행동부터 적용해 보세요. {action(2)}",
+                f"짧은 예문 하나를 소리 내어 읽고 단어 뜻, 주어와 동사, 전체 의미를 순서대로 말하게 해 보세요. {profile(2)}에는 아래 점검이 맞습니다. {action(2)}",
+                f"문장을 모두 번역하기 전에 알고 있는 단어와 문장의 뼈대를 먼저 표시하게 해 보세요. {profile(2)}가 보이면 다음 행동으로 이해 여부를 확인할 수 있습니다. {action(2)}",
+                f"최근 외운 어휘 가운데 세 개를 골라 각각 다른 짧은 문장에 넣어 보게 하세요. {profile(2)}라면 단순 암기 뒤에 다음 확인이 필요합니다. {action(2)}",
+                f"읽기 자료를 볼 때 단어 뜻을 하나씩 묻는 데서 끝내지 말고 문장 안의 역할과 전체 의미까지 연결해 보세요. {profile(2)}에는 이 행동이 적합합니다. {action(2)}",
+                f"{title} 상담에서는 어휘량만 묻기보다 외운 단어를 문장 속에서 어떻게 알아보는지 확인할 자료를 준비하세요. {profile(2)}에는 다음 점검을 활용할 수 있습니다. {action(2)}",
+            )),
+            pick_copy_variant(seed, "connection-two", (
+                "모르는 단어가 나올 때마다 바로 뜻을 알려 주기보다 앞뒤 단어와 그림, 문장 구조에서 추론한 내용을 먼저 들어 보세요. 맞고 틀림보다 사용한 단서를 기록하는 것이 중요합니다.",
+                "문법 용어를 말할 수 있어도 실제 문장에서 구조를 찾지 못할 수 있습니다. 설명한 규칙을 다른 문장에 적용하는 장면까지 확인해야 이해가 남았는지 알 수 있습니다.",
+                "한 문장을 읽고 그대로 번역하는 것과 핵심 내용을 짧게 말하는 활동을 나누어 보세요. 두 결과의 차이가 다음 읽기 연습의 우선순위를 보여 줍니다.",
+                "어휘 복습에는 뜻 확인, 소리 내어 읽기, 예문 속 의미 찾기를 서로 다른 날에 배치할 수 있습니다. 기억과 적용을 나누어 보면 과도한 반복을 줄일 수 있습니다.",
+                "문장 구조를 표시할 때 기호를 많이 늘리기보다 주어와 동사부터 일관되게 찾게 하세요. 기본 어순이 보이면 수식어는 그다음 단계로 확장하면 됩니다.",
+                "읽기 자료의 난도를 높이기 전에 짧은 문장을 정확히 읽고 설명할 수 있는지 살펴보세요. 진도보다 혼자 적용하는 범위를 기준으로 다음 자료를 고르는 편이 좋습니다.",
+                "단어 시험 결과와 지문 읽기 결과가 다르다면 실패로 묶지 말고 각각 기록하세요. 어떤 단어를 문장 속에서 놓쳤는지 확인하면 복습 범위를 좁힐 수 있습니다.",
+                "초등 영어 기본기는 소리, 뜻, 어순, 내용이 서로 이어질 때 안정됩니다. 한 영역의 문제 수를 늘리기보다 끊긴 연결을 짧게 반복해 확인해 보세요.",
+            )),
+        ],
+    )
+
+    listening_writing_section = (
+        pick_copy_variant(seed, "listening-writing-heading", (
+            "듣고 이해한 표현을 짧은 쓰기로 옮기기",
+            "듣기·말하기·쓰기의 연결 지점 확인하기",
+            "아는 표현을 소리와 문장으로 다시 사용하기",
+            "짧은 음원과 한 문장 쓰기로 이해 점검하기",
+            "들리는 단어와 놓친 표현을 구분해 기록하기",
+            "영어 소리를 자기 문장으로 바꾸는 연습",
+            "듣기 오답을 어휘와 문장 복습으로 연결하기",
+            "말한 문장을 직접 써 보며 적용 범위 확인하기",
+        )),
+        [
+            pick_copy_variant(seed, "listening-writing-one", (
+                f"짧은 음원을 한 번 들은 뒤 들린 단어와 추측한 내용을 나누어 말하게 하고, 다시 들은 뒤 한 문장으로 정리해 보세요. {profile(3)}라면 다음 행동으로 듣기와 표현을 연결할 수 있습니다. {action(3)}",
+                f"듣기 문제를 채점한 뒤 정답만 확인하지 말고 놓친 소리와 알고 있던 표현을 구분해 보세요. {profile(3)}에는 이 행동이 구체적인 재확인 기준이 됩니다. {action(3)}",
+                f"아이에게 들은 문장을 그대로 받아쓰게 하기 전에 핵심 단어를 말하고 짧은 문장으로 바꾸어 보게 하세요. {profile(3)}라면 아래 행동을 적용해 보세요. {action(3)}",
+                f"소리 내어 따라 읽은 표현을 같은 날 또는 다음 날 짧게 써 보게 하면 기억과 적용을 나누어 볼 수 있습니다. {profile(3)}에는 다음 점검이 필요합니다. {action(3)}",
+                f"{local} 학생의 듣기 기록에는 틀린 번호보다 들린 단어, 놓친 연결음, 다시 이해한 문장을 남겨 보세요. {profile(3)}라면 이 행동을 이어가면 좋습니다. {action(3)}",
+                f"말하기와 쓰기를 별도 시험처럼 부담스럽게 만들지 말고 배운 표현 하나를 바꾸어 사용하는 장면으로 확인해 보세요. {profile(3)}에는 다음 행동이 맞습니다. {action(3)}",
+                f"짧은 대화를 듣고 누가 무엇을 말했는지 설명한 뒤 그중 한 표현으로 자기 문장을 만들어 보게 하세요. {profile(3)}라면 다음처럼 확인할 수 있습니다. {action(3)}",
+                f"듣기에서 놓친 표현을 지문으로 본 뒤 다시 소리만 들려주어 이해가 달라졌는지 살펴보세요. {profile(3)}에는 아래 행동을 활용해 보세요. {action(3)}",
+            )),
+            pick_copy_variant(seed, "listening-writing-two", (
+                "듣기를 반복할 때는 같은 음원을 무작정 여러 번 재생하기보다 첫 시도와 두 번째 시도에서 새로 들린 표현을 구분해 적어 보세요.",
+                "쓰기 결과는 철자 오류, 어순, 문법 적용, 내용 표현으로 나누어 확인할 수 있습니다. 한 번에 모두 고치기보다 우선순위 한 가지를 정하는 편이 부담을 줄입니다.",
+                "아는 문장을 따라 말하는 것과 단어 하나를 바꾸어 새 문장을 만드는 것은 다른 단계입니다. 두 활동을 나누어 기록하면 실제 적용 범위를 확인하기 쉽습니다.",
+                "듣기 자료는 길이보다 확인 목적을 먼저 정하세요. 핵심 단어 찾기, 내용 설명, 표현 재사용 가운데 한 가지에 집중하면 결과를 비교하기 수월합니다.",
+                "짧은 쓰기를 교정한 뒤에는 아이가 바뀐 이유를 설명하도록 해 보세요. 설명하기 어려운 부분은 다음 상담에서 확인할 질문으로 남기면 됩니다.",
+                "소리와 철자가 다르게 느껴지는 단어는 듣기 기록과 어휘 기록에 함께 표시해 보세요. 다음 읽기에서 같은 단어를 알아보는지도 살펴볼 수 있습니다.",
+                "표현 활동은 길게 말하거나 많이 쓰는 것이 목표가 아닙니다. 배운 구조를 이해하고 한 문장에 정확히 적용하는지부터 확인하는 편이 좋습니다.",
+                "듣기와 쓰기 결과를 한 점수로 합치지 말고 각각 어떤 도움이 필요했는지 적어 보세요. 영역별 행동 기록이 다음 학습량을 정하는 근거가 됩니다.",
+            )),
+        ],
+    )
+
+    home_section = (
+        pick_copy_variant(seed, "home-heading", (
+            "가정에서는 짧고 반복 가능한 영어 기록 남기기",
+            "긴 추가 학습보다 다시 읽을 날짜 정하기",
+            "학부모가 답을 알려 주기 전 물어볼 질문",
+            f"{local} 가정 학습에서 확인할 작은 행동",
+            "단어·문장·듣기 복습을 무리 없이 이어가기",
+            "완료한 과제보다 다시 시도한 흔적 보기",
+            "영어 부담을 줄이는 한 문장 복습",
+            "보호자 도움과 학생의 시도를 구분해 기록하기",
+        )),
+        [
+            pick_copy_variant(seed, "home-one", (
+                f"가정에서는 긴 추가 학습보다 최근 자료 한 부분을 골라 혼자 읽거나 써 본 범위를 확인해 보세요. {profile(4)}라면 다음 행동을 짧게 반복하는 편이 좋습니다. {action(4)}",
+                f"숙제를 끝냈는지만 묻기보다 어려웠던 단어와 문장 한 개를 다시 설명하게 해 보세요. {profile(4)}에는 아래 행동이 구체적인 복습 기준이 됩니다. {action(4)}",
+                f"{local} 학부모가 매일 영어를 오래 지도할 필요는 없습니다. {profile(4)}인지 최근 자료로 확인하고 다음 행동 한 가지만 기록해 보세요. {action(4)}",
+                f"정답을 먼저 알려 주기보다 아이가 어디까지 이해했고 무엇을 다시 시도할지 말하게 해 보세요. {profile(4)}라면 이 행동부터 시작할 수 있습니다. {action(4)}",
+                f"가정 복습은 성공과 실패로 나누지 말고 시작한 시간, 혼자 한 부분, 도움받은 부분을 간단히 남겨 보세요. {profile(4)}에는 다음 점검을 활용해 보세요. {action(4)}",
+                f"하루 분량을 늘리기 전에 이전에 틀린 단어나 문장을 다시 확인할 수 있는지 살펴보세요. {profile(4)}라면 아래 행동이 복습의 출발점이 됩니다. {action(4)}",
+                f"아이가 영어 자료를 피하려 한다면 긴 지문을 바로 요구하지 말고 시작할 수 있는 작은 단위를 함께 정하세요. {profile(4)}에는 다음 행동이 맞습니다. {action(4)}",
+                f"{local} 학생의 가정 기록은 평가표가 아니라 상담에서 실제 어려움을 설명하기 위한 메모입니다. {profile(4)}라면 다음 행동의 결과만 짧게 남기세요. {action(4)}",
+            )),
+            pick_copy_variant(seed, "home-two", (
+                "기록에는 완료 여부, 어려웠던 지점, 다음에 다시 볼 날짜를 한 줄씩 남기면 충분합니다. 보호자가 대신 답을 쓰지 않고 아이가 시도한 범위를 구분하는 것이 중요합니다.",
+                "복습 시간은 학교 일정과 귀가 시간을 고려해 실제로 유지할 수 있는 길이로 정하세요. 계획이 밀리면 분량보다 우선순위를 먼저 조정하는 편이 좋습니다.",
+                "틀린 표현을 여러 번 베끼게 하기보다 다시 읽고, 뜻을 말하고, 한 문장에 적용하는 단계를 나누어 보세요. 어느 단계에서 막혔는지가 다음 질문이 됩니다.",
+                "보호자가 영어 설명을 직접 하기 어렵다면 아이가 읽은 문장과 질문한 부분만 표시해 두어도 됩니다. 정확한 설명은 상담에서 자료와 함께 확인하세요.",
+                "같은 자료를 다시 볼 때는 답을 기억했는지보다 혼자 사용한 읽기 방법이 달라졌는지 살펴보세요. 짧은 기록이 쌓이면 계획 조정의 근거가 됩니다.",
+                "매일 모든 영역을 확인하기보다 읽기, 어휘, 듣기, 쓰기 중 한 가지를 정해 짧게 살펴보세요. 한 주 안에서 영역이 고르게 이어지는지가 더 중요합니다.",
+                "아이의 반응이 좋지 않은 날에는 완료량을 채우려 하지 말고 어느 부분부터 부담을 느꼈는지 남겨 보세요. 다음 학습을 시작할 크기를 정하는 데 도움이 됩니다.",
+                "가정에서 관찰한 사실과 보호자의 해석을 구분해 적어 보세요. ‘두 번째 문장에서 읽기를 멈춤’처럼 구체적인 장면이 상담에 더 유용합니다.",
+            )),
+        ],
+    )
+
+    consultation_section = (
+        pick_copy_variant(seed, "consult-heading", (
+            "최근 영어 기록을 상담 질문으로 바꾸기",
+            f"{local} 상담 전에 준비할 영어 자료와 질문",
+            "수업·과제·복습 답변을 같은 기준으로 비교하기",
+            "첫 계획에 넣을 관찰 가능한 영어 행동",
+            "교재보다 먼저 물어볼 진단과 피드백 절차",
+            "상담 메모에서 확인된 사실과 질문 나누기",
+            "등록 전에 확인할 영어 학습 우선순위",
+            "학생에게 필요한 도움을 구체적으로 묻는 방법",
+        )),
+        [
+            pick_copy_variant(seed, "consult-one", (
+                f"{local} 상담에는 최근 읽기 자료, 단어 기록, 아이가 직접 쓴 문장을 한두 개씩 준비해 보세요. {profile(5)}라면 다음 행동을 수업과 가정에서 어떻게 이어 갈지 물어볼 수 있습니다. {action(5)}",
+                f"‘영어를 어려워해요’라고만 설명하기보다 읽기·어휘·문장·듣기·쓰기 중 관찰한 장면을 적어 가세요. {profile(5)}에는 다음 행동을 어떤 자료로 확인하는지 질문해 보세요. {action(5)}",
+                f"{title} 상담 전에는 혼자 해결한 자료와 도움받은 자료를 구분해 준비하는 편이 좋습니다. {profile(5)}라면 아래 행동이 첫 계획에 반영되는지 살펴보세요. {action(5)}",
+                f"교재 단계만 묻지 말고 진단 결과가 읽기, 어휘, 문장 적용의 순서로 어떻게 이어지는지 확인하세요. {profile(5)}에는 다음 행동을 점검할 기준이 필요합니다. {action(5)}",
+                f"상담 메모를 현재 상태, 수업 중 확인, 과제 피드백, 다음 복습의 네 칸으로 나누어 보세요. {profile(5)}라면 이 행동이 언제 다시 확인되는지 물어보세요. {action(5)}",
+                f"{local}에서 수업을 비교할 때는 한 번의 설명보다 학생 자료를 어떤 기준으로 보고 계획을 조정하는지 확인해야 합니다. {profile(5)}에는 다음 행동이 연결되는지 살펴보세요. {action(5)}",
+                f"최근 점수보다 아이가 읽기를 멈추거나 표현을 고친 구체적인 장면을 설명해 보세요. {profile(5)}라면 상담에서 다음 행동을 제안하는지 비교할 수 있습니다. {action(5)}",
+                f"{title} 상담 전에 아이와 함께 어려운 영어 자료 두 개를 골라 이유를 적어 보세요. {profile(5)}에는 다음 행동을 혼자 적용할 기회가 있는지 물어보세요. {action(5)}",
+            )),
+            pick_copy_variant(seed, "consult-two", (
+                "수업료·시간표·강사진·정원·교재·반 편성은 미리 추정하지 말고 상담에서 최신 정보를 확인하세요. 답변은 확인된 사실과 추가 질문으로 나누어 기록하는 편이 안전합니다.",
+                "진단 자료, 학생이 직접 활동하는 시간, 과제 확인, 오답 재확인의 순서를 물어보세요. 설명이 최근 학습 기록과 어떻게 연결되는지가 비교 기준이 됩니다.",
+                "첫 목표는 큰 결과보다 2~4주 동안 관찰할 행동 한두 가지로 정하는 편이 좋습니다. 이후 같은 자료 유형에서 달라진 점을 보고 계획을 조정할 수 있습니다.",
+                "센터마다 실제 운영 방식은 다를 수 있으므로 특정 프로그램이 있다고 전제하지 마세요. 상담에서 확인한 방식이 학생의 일정과 현재 상태에 맞는지 별도로 판단해야 합니다.",
+                "과제 분량보다 미완료한 부분과 틀린 문장이 다음 수업에서 어떻게 다시 다뤄지는지 질문해 보세요. 피드백 주기와 범위도 최신 안내로 확인해야 합니다.",
+                "상담 답변은 같은 질문표로 기록하면 막연한 분위기보다 실행 절차를 비교하기 쉽습니다. 확인되지 않은 내용은 빈칸으로 남겨 다음 문의에서 확인하세요.",
+                "학생에게 필요한 도움과 스스로 시도할 부분이 구분되는지 살펴보세요. 보호자에게 공유되는 내용과 시점도 실제 상담에서 직접 확인해야 합니다.",
+                "성적 향상이나 진도 결과를 미리 약속으로 받아들이지 말고 어떤 자료로 상태를 확인하는지 물어보세요. 계획 조정 시점과 근거가 구체적인지도 중요합니다.",
+            )),
+        ],
+    )
+
+    return intro, [
+        diagnosis_section,
+        connection_section,
+        listening_writing_section,
+        home_section,
+        consultation_section,
+    ]
+
+
+def build_elementary_english_check_section(
+    row: dict[str, str], title: str, category: str,
+) -> tuple[str, list[str]] | None:
+    """Add a page-stable, aligned comparison section for elementary English."""
+    if category != "초등영어학원":
+        return None
+    local = row["근처 수업가능 동네"].strip()
+    seed = f"{category}|{local}|check-section"
+    index = elementary_english_profile_indexes(
+        f"{category}|{local}|body-profiles", 1, start=6
+    )[0]
+    profile = LEARNING_PROFILES[category][index]
+    action = ELEMENTARY_ENGLISH_ALIGNED_ACTIONS[index]
+    heading = pick_copy_variant(seed, "heading", (
+        f"{local} 초등 영어 상담에서 비교할 학습 흐름",
+        "진단 결과가 영어 학습 계획으로 이어지는지 확인하기",
+        "읽기·어휘·문장·듣기·쓰기 점검을 한 흐름으로 보기",
+        "첫 영어 계획에 넣을 관찰 가능한 기준",
+        f"{local} 학부모가 상담에서 물어볼 영어 관리 절차",
+        "최근 영어 기록과 수업 방식을 연결하는 질문",
+        "등록 전에 확인할 진단·복습·피드백 순서",
+        "초등 영어 계획을 비교하는 실용 체크리스트",
+    ))
+    first = pick_copy_variant(seed, "first", (
+        f"최근 영어 자료에서 혼자 읽은 문장, 뜻을 물어본 단어, 직접 쓴 표현을 하나씩 표시해 보세요. {profile}라면 현재 기록을 다음 행동과 연결해 볼 수 있습니다. {action}",
+        f"{local} 학생의 영어 상태는 점수보다 처음 보는 짧은 글을 읽고 설명하는 장면으로 확인하는 편이 좋습니다. {profile}에는 이 행동이 구체적인 비교 기준이 됩니다. {action}",
+        f"상담 자료에는 최근 단어장과 읽기·쓰기 흔적을 함께 준비해 보세요. {profile}라면 정답을 고친 결과보다 다음 행동을 혼자 적용하는지 살펴야 합니다. {action}",
+        f"익숙한 문장과 처음 보는 문장을 각각 어떻게 읽고 이해하는지 비교해 보세요. {profile}에는 아래 확인이 복습 순서를 정하는 근거가 됩니다. {action}",
+        f"{title} 상담 전에는 어려운 자료를 많이 모으기보다 반복된 막힘이 남은 자료 두세 개를 고르세요. {profile}라면 이 행동부터 점검해 보세요. {action}",
+        f"학생의 영어 기록을 읽기, 어휘, 문장 구조, 듣기, 쓰기의 다섯 칸으로 나누어 보세요. {profile}에는 다음 행동이 첫 우선순위가 될 수 있습니다. {action}",
+        f"{local} 가정에서 관찰한 내용을 구체적인 장면으로 적어 보세요. {profile}라면 아래 행동의 결과가 상담 질문을 선명하게 만듭니다. {action}",
+        f"최근 과제에서 혼자 한 범위와 확인이 필요했던 범위를 다른 표시로 구분해 보세요. {profile}에는 다음 재확인이 유용합니다. {action}",
+    ))
+    second = pick_copy_variant(seed, "second", (
+        "상담에서는 진단에 사용한 자료, 설명 뒤 학생이 직접 읽거나 쓰는 시간, 틀린 표현을 다시 확인하는 시점을 차례로 물어보세요.",
+        "수업을 비교할 때는 설명에서 끝나는지, 학생의 읽기·문장 적용과 재확인까지 이어지는지를 확인해야 합니다.",
+        "과제는 분량만 묻지 말고 미완료한 부분과 반복되는 오류가 다음 수업에서 어떻게 다뤄지는지 질문해 보세요.",
+        "학부모 피드백에 진도뿐 아니라 이해한 표현, 남은 질문, 다음 확인일이 구분되는지 살펴보세요.",
+        "학생이 답을 맞힌 경우에도 근거 문장을 설명하고 배운 표현을 새 문장에 적용하는 시간이 있는지 물어보세요.",
+        "진단 결과가 첫 학습 순서와 읽기·어휘·문장 과제 조절에 어떻게 반영되는지 확인해 보세요.",
+        "도움이 필요한 순간에 바로 답을 주는지, 단서를 준 뒤 학생이 다시 읽고 표현할 시간을 두는지 구체적으로 확인하세요.",
+        "수업과 과제에서 생긴 질문을 어떤 기록으로 남기고 언제 되짚는지 상담에서 물어보세요.",
+    ))
+    third = pick_copy_variant(seed, "third", (
+        "첫 계획은 큰 결과보다 2~4주 동안 확인할 행동으로 정하는 편이 좋습니다. 읽기 시작, 단어 복습, 짧은 문장 쓰기 가운데 한두 가지를 고르고 기록을 바탕으로 조정하세요.",
+        "상담 답변은 확인된 사실과 추가로 물어볼 내용으로 나누어 적어 보세요. 수업료·시간표·교재·반 편성은 최신 정보를 직접 확인해야 합니다.",
+        "비교 메모에는 진단 자료, 수업 중 학생 행동, 과제 확인, 다시 읽거나 쓸 날짜를 같은 순서로 적어 보세요.",
+        "학생이 지킬 수 있는 계획인지 보려면 학교 일정, 이동 시간, 과제와 짧은 영어 복습 시간을 한 주에 함께 표시해 보세요.",
+        "성적 변화나 진도 결과를 미리 단정하지 말고 어떤 기록으로 학생 상태를 설명하며 언제 계획을 조정하는지 확인하세요.",
+        "처음부터 모든 영역을 바꾸려 하기보다 가장 자주 흐름이 끊기는 단계 하나와 다시 확인할 날짜를 정해 보세요.",
+        "학생은 다음에 시도할 행동을 말하고 학부모는 확인할 날짜만 기록하면 과도한 통제 없이 진행 상황을 살필 수 있습니다.",
+        "상담 뒤에는 반드시 필요한 조건, 있으면 도움이 되는 조건, 아직 확인하지 못한 조건을 나누고 빈칸을 추정으로 채우지 마세요.",
+    ))
+    return heading, [finish_sentence(first), finish_sentence(second), finish_sentence(third)]
+
+
 def extract_reference_keyword(manuscript: dict[str, str]) -> str:
     """Find the generator-only prompt token embedded in some source drafts."""
     candidates = (
@@ -2617,7 +2970,18 @@ def local_meta_description(
 ) -> str:
     """검증된 센터 정보만 사용해 80자 이하의 검색 요약을 만듭니다."""
     location = " ".join(value for value in (region, district) if value)
-    if grade_supported:
+    if config["grade"] == "초등학생" and config["subject"] == "영어":
+        if grade_supported:
+            candidates = [
+                f"{title}: {location} {center}의 초등 영어 읽기·어휘·문장 적용과 학교 진도·복습 기준을 안내합니다.",
+                f"{title}: {center}의 초등 영어 읽기·어휘·문장 적용과 복습 점검 기준을 안내합니다.",
+            ]
+        else:
+            candidates = [
+                f"{title}: {location}에서 초등 영어 수업을 비교할 때 확인할 읽기·어휘·문장·복습 기준을 안내합니다.",
+                f"{title}: {location} 초등 영어 상담 전 확인할 읽기·어휘·문장·복습 기준을 안내합니다.",
+            ]
+    elif grade_supported:
         candidates = [
             f"{title}: {location} {center}의 {config['grade']} {config['subject']} 진단·학교 진도·오답 관리 기준을 안내합니다.",
             f"{title}: {center}의 {config['grade']} {config['subject']} 진단·내신·오답 관리 기준을 안내합니다.",
@@ -3084,10 +3448,83 @@ def diversify_faq_question(
     return finalize(f"slot-{slot}", frames)
 
 
+def build_elementary_english_faqs(
+    row: dict[str, str], config: dict[str, str], title: str, category: str,
+) -> list[tuple[str, str]]:
+    """Create four locality-unique Q/A pairs with aligned English actions."""
+    local = row["근처 수업가능 동네"].strip()
+    seed = f"{category}|{local}|faq"
+    profiles = LEARNING_PROFILES[category]
+    indexes = elementary_english_profile_indexes(seed, 4)
+    question_variants = (
+        (
+            f"{title} 상담에는 어떤 영어 자료를 준비하면 좋을까요?",
+            f"{local} 초등 영어의 현재 읽기·어휘 상태는 무엇으로 확인하나요?",
+            f"{local} 학생의 영어 출발점을 확인할 때 어떤 기록이 필요한가요?",
+            f"{title}을 비교하기 전 최근 영어 자료에서 무엇을 살펴야 하나요?",
+        ),
+        (
+            f"{local} 초등 영어의 첫 학습 우선순위는 어떻게 정하나요?",
+            f"{local} 학생에게 읽기·어휘·문장 중 무엇이 먼저 필요한지 어떻게 알 수 있나요?",
+            f"{title}의 첫 2~4주 계획에는 어떤 영어 행동을 넣으면 좋을까요?",
+            f"{local} 초등 영어에서 복습과 다음 단계의 순서는 어떻게 나누나요?",
+        ),
+        (
+            f"{local} 가정에서는 초등 영어를 어떻게 짧게 복습하면 좋을까요?",
+            f"{local} 학부모가 영어 과제 뒤에 확인할 한 가지는 무엇인가요?",
+            f"{local} 학생의 영어 부담을 늘리지 않고 다시 확인하는 방법은 무엇인가요?",
+            f"{title} 학습 기록을 가정에서는 어떻게 남기면 좋을까요?",
+        ),
+        (
+            f"{title} 상담에서 수업과 피드백을 어떤 질문으로 비교하나요?",
+            f"{local} 초등 영어 상담에서 진단 뒤의 관리 절차는 어떻게 확인하나요?",
+            f"{local} 학부모가 등록 전에 확인할 영어 학습 기준은 무엇인가요?",
+            f"{title} 상담 답변이 구체적인지는 어떻게 판단할 수 있나요?",
+        ),
+    )
+    answer_frames = (
+        (
+            f"{local} 상담에는 최근 읽기 자료, 단어 확인 기록, 학생이 직접 쓴 짧은 문장 가운데 두세 가지를 준비하면 충분합니다. {{profile}}라면 정답 수보다 학습 행동을 살펴야 합니다. {{action}}",
+            f"{local} 학생이 혼자 읽은 부분과 도움을 받은 부분이 남은 자료를 준비하세요. {{profile}}인지 확인하고 첫 보완 행동을 구체적으로 정할 수 있습니다. {{action}}",
+            f"단어장 하나만 보기보다 {local} 학생의 읽기·듣기·쓰기 흔적을 함께 준비하는 편이 좋습니다. {{profile}}에는 다음 확인이 필요합니다. {{action}}",
+            f"{local} 학생의 최근 영어 자료에는 날짜, 소요 시간, 혼자 해결한 범위를 표시해 보세요. {{profile}}라면 아래 행동이 출발점을 보여 줍니다. {{action}}",
+        ),
+        (
+            f"{local} 학생의 최근 자료에서 가장 자주 흐름이 끊기는 단계를 먼저 정합니다. {{profile}}라면 진도를 넓히기 전에 다음 행동을 확인해 보세요. {{action}}",
+            f"한 번의 점수보다 {local} 학생이 처음 보는 문장에 사용한 읽기 방법을 살펴야 합니다. {{profile}}에는 아래 행동을 첫 계획에 넣을 수 있습니다. {{action}}",
+            f"읽기·어휘·문장·듣기·쓰기를 한꺼번에 늘리지 말고 {local} 학생의 반복된 막힘부터 좁혀 보세요. {{profile}}라면 다음 행동을 우선할 수 있습니다. {{action}}",
+            f"{local} 초등 영어 계획은 혼자 할 수 있는 부분과 설명이 필요한 부분을 나누어 정합니다. {{profile}}에는 이 행동이 맞닿아 있습니다. {{action}}",
+        ),
+        (
+            f"{local} 가정에서는 긴 추가 학습보다 어려웠던 자료 한 부분을 다시 확인하면 충분합니다. {{profile}}라면 짧은 기록과 함께 다음 행동을 반복해 보세요. {{action}}",
+            f"과제를 끝냈는지만 묻지 말고 {local} 학생이 어느 단어나 문장에서 멈췄는지 들어 보세요. {{profile}}에는 아래 재확인이 도움이 됩니다. {{action}}",
+            f"{local} 학생의 가정 기록에는 시작 시간, 혼자 한 범위, 다음 확인일만 간단히 남기세요. {{profile}}라면 이 행동의 결과를 적어 볼 수 있습니다. {{action}}",
+            f"보호자가 답을 대신 설명하기보다 {local} 학생이 어디까지 시도했는지 표시해 두는 편이 좋습니다. {{profile}}에는 다음 행동을 적용해 보세요. {{action}}",
+        ),
+        (
+            f"{local} 상담에서는 진단 자료, 학생이 직접 활동하는 시간, 과제 확인, 다시 읽거나 쓰는 시점을 차례로 물어보세요. {{profile}}라면 다음 행동이 계획에 어떻게 연결되는지 확인해야 합니다. {{action}}",
+            f"교재 단계만 묻지 말고 {local} 학생의 실제 기록이 첫 계획과 피드백에 어떻게 반영되는지 확인하세요. {{profile}}에는 아래 행동을 언제 다시 보는지 물어보세요. {{action}}",
+            f"{local} 상담 답변은 현재 상태, 수업 중 확인, 가정 복습, 다음 점검의 네 칸으로 나누어 적어 보세요. {{profile}}라면 이 행동의 확인 기준이 필요합니다. {{action}}",
+            f"센터의 실제 시간표·교재·반 편성은 {local} 상담 시 최신 정보를 확인해야 합니다. {{profile}}에 대해서는 다음 행동을 어떤 자료로 살피는지 질문해 보세요. {{action}}",
+        ),
+    )
+    result: list[tuple[str, str]] = []
+    for slot, index in enumerate(indexes):
+        question = pick_copy_variant(seed, f"question-{slot}", question_variants[slot])
+        answer = pick_copy_variant(seed, f"answer-{slot}", answer_frames[slot]).format(
+            profile=profiles[index],
+            action=ELEMENTARY_ENGLISH_ALIGNED_ACTIONS[index],
+        )
+        result.append((question.rstrip(".!?") + "?", finish_sentence(answer)))
+    return result
+
+
 def build_page_faqs(
     source: list[tuple[str, str]], row: dict[str, str], config: dict[str, str], title: str, category: str,
 ) -> list[tuple[str, str]]:
     """원문 FAQ 한 항목과 검증된 센터 정보 기반 항목을 조합해 페이지별 구성을 달리합니다."""
+    if category == "초등영어학원":
+        return build_elementary_english_faqs(row, config, title, category)
     local = row["근처 수업가능 동네"].strip()
     center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
     address = row.get("센터 주소", "").strip()
@@ -3290,26 +3727,47 @@ def build_consultation_scenarios(
         while index in profile_indexes:
             index = (index + 1) % len(profiles)
         profile_indexes.append(index)
-    if category == "초등수학학원":
-        # 초등 수학은 고민과 후속 행동을 독립적으로 섞지 않습니다. 각 고민에
+    if category in {"초등수학학원", "초등영어학원"}:
+        # 초등 과정은 고민과 후속 행동을 독립적으로 섞지 않습니다. 각 고민에
         # 맞는 관찰·재시도 행동을 고정해 상담 상황 카드의 의미를 일관되게
         # 유지하고, 페이지별로는 서로 다른 세 고민과 문장 틀을 선택합니다.
+        aligned_actions = (
+            ELEMENTARY_ENGLISH_ALIGNED_ACTIONS
+            if category == "초등영어학원"
+            else ELEMENTARY_MATH_ALIGNED_ACTIONS
+        )
+        observation_clauses = (
+            ELEMENTARY_ENGLISH_OBSERVATION_CLAUSES
+            if category == "초등영어학원"
+            else ELEMENTARY_MATH_OBSERVATION_CLAUSES
+        )
         elementary_scenarios: list[str] = []
         for slot, index in enumerate(profile_indexes):
             clause = profiles[index].removesuffix("경우").strip()
-            action = ELEMENTARY_MATH_ALIGNED_ACTIONS[index]
-            observation = ELEMENTARY_MATH_OBSERVATION_CLAUSES[index]
-            elementary_scenarios.append(pick_copy_variant(
-                seed,
-                f"elementary-scenario-{slot}",
-                (
+            action = aligned_actions[index]
+            observation = observation_clauses[index]
+            if category == "초등영어학원":
+                variants = (
+                    f"{local} 상담에는 {clause} 상황이 드러난 최근 영어 자료 한두 개를 준비해 보세요. {action}",
+                    f"{local} 학부모가 {clause} 모습을 관찰했다면 점수만 기록하지 말고 읽기나 표현이 멈춘 지점을 함께 적어 보세요. {action}",
+                    f"{local} 초등 영어 계획을 세울 때는 {clause} 상황을 첫 점검 항목으로 삼아 보세요. {action}",
+                    f"최근 읽기·어휘·문장 자료를 보며 {observation} 확인해 보세요. {local} 상담에는 관찰한 장면을 구체적으로 설명하면 좋습니다. {action}",
+                    f"{local} 상담 전에 최근 영어 기록을 보며 {observation} 확인해 보세요. 해당 장면이 나타난 자료와 아이의 시도를 함께 적어 보세요. {action}",
+                    f"{local}에서 초등 영어 수업을 비교할 때는 최근 학습 흔적을 보며 {observation} 살펴보세요. {action}",
+                )
+            else:
+                variants = (
                     f"{local} 상담에는 {clause} 상황이 드러난 최근 문제 한두 개를 준비해 보세요. {action}",
                     f"{local} 학부모가 {clause} 모습을 관찰했다면 정답 수만 기록하지 말고 학생이 멈춘 지점을 함께 적어 보세요. {action}",
                     f"{local} 초등 수학 계획을 세울 때는 {clause} 상황을 첫 점검 항목으로 삼아 보세요. {action}",
                     f"최근 교재의 풀이를 보며 {observation} 확인해 보세요. {local} 상담에서는 관찰한 장면을 구체적으로 설명해 보세요. {action}",
                     f"{local} 상담 전에 최근 풀이를 보며 {observation} 확인해 보세요. 해당 장면이 나타난 문제와 풀이 과정을 함께 적어 보세요. {action}",
                     f"{local}에서 초등 수학 수업을 비교할 때는 최근 풀이를 보며 {observation} 살펴보세요. {action}",
-                ),
+                )
+            elementary_scenarios.append(pick_copy_variant(
+                seed,
+                f"elementary-scenario-{slot}",
+                variants,
             ))
         if schools:
             index = stable_index(seed, "school-slot", len(elementary_scenarios))
@@ -3388,9 +3846,85 @@ def build_consultation_scenarios(
     return [finish_sentence(scenario) for scenario in scenarios]
 
 
+def build_elementary_english_context_section(
+    row: dict[str, str], config: dict[str, str], title: str, category: str,
+) -> tuple[str, list[str]]:
+    """Combine one aligned learning pair with CSV-verified locality facts."""
+    local = row["근처 수업가능 동네"].strip()
+    center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
+    address = row.get("센터 주소", "").strip()
+    location = normalize_location_description(row.get("위치안내", ""))
+    if location_conflicts_with_address(address, location) or "수학" in location:
+        location = ""
+    schools = split_school_values(row.get(config["school_field"], ""))
+    grade_range = row.get(config["grade_field"], "").strip()
+    relevant_grade_values = page_grade_values(grade_range, config["grade"])
+    seed = f"{category}|{local}|context"
+    index = elementary_english_profile_indexes(
+        f"{category}|{local}|body-profiles", 1, start=7
+    )[0]
+    profile = LEARNING_PROFILES[category][index]
+    action = ELEMENTARY_ENGLISH_ALIGNED_ACTIONS[index]
+    direct_area = direct_center_area(local, center, address)
+    headings = (
+        f"{local} 상담에서 확인할 초등 영어 우선순위",
+        f"{local} 학생의 최근 영어 기록으로 시작하는 계획",
+        "초등 영어 상담을 구체화하는 확인 자료",
+        f"{local} 생활 일정과 함께 보는 영어 학습 흐름",
+        "읽기·어휘·문장 기록을 상담 질문으로 바꾸기",
+        f"{local} 초등 영어 상담 전에 확인할 사실",
+    )
+    paragraphs = [
+        pick_copy_variant(seed, "context-learning", (
+            f"{title} 상담에는 최근 읽기 자료, 단어 확인 기록, 직접 쓴 문장을 함께 준비해 보세요. {profile}라면 다음 행동을 첫 확인 기준으로 삼을 수 있습니다. {action}",
+            f"{local} 초등 영어 계획은 점수 하나보다 아이가 읽고 듣고 표현한 흔적을 함께 보고 정하는 편이 좋습니다. {profile}에는 이 행동이 맞닿아 있습니다. {action}",
+            f"최근 결과만으로 {local} 학생의 영어 수준을 단정하지 말고 혼자 읽은 부분과 도움받은 부분을 나누어 보세요. {profile}라면 다음 행동을 확인해 보세요. {action}",
+            f"{title}의 첫 계획을 세울 때는 어휘 기억, 문장 이해, 듣기 반응, 짧은 표현을 함께 살펴야 합니다. {profile}에는 아래 행동이 필요합니다. {action}",
+            f"{local} 상담에서는 아이가 익숙한 문장과 처음 보는 문장을 각각 어떻게 읽는지 확인할 자료를 준비하세요. {profile}라면 이 행동을 적용해 보세요. {action}",
+            f"{local} 학생의 최근 영어 자료에서 멈춘 위치와 다시 시도한 흔적을 확인하면 학습 순서가 구체적이 됩니다. {profile}에는 다음 점검이 어울립니다. {action}",
+            f"{title} 상담에서 확인할 우선순위는 최근 자료에서 반복된 읽기·어휘·문장 행동을 근거로 정하는 편이 좋습니다. {profile}라면 다음 행동을 살펴보세요. {action}",
+            f"{local} 초등 영어 상담은 아이가 아는 표현과 혼자 적용하지 못하는 표현을 나누는 데서 시작할 수 있습니다. {profile}에는 이 행동이 연결됩니다. {action}",
+        )),
+        pick_copy_variant(seed, "context-location", (
+            f"{'상담 장소는' if direct_area else local + ' 학생의 상담 가능 여부는 인근 센터 기준으로 확인해야 하며, 실제 센터 위치는'} {center}{'(' + address + ')' if address else ''}입니다. {'위치 안내는 다음과 같습니다. ‘' + location + '’ ' if location else ''}등원과 귀가 뒤 짧은 영어 복습 시간을 함께 계산해 보세요.",
+            f"{'직접 상담 위치는' if direct_area else local + ' 수업 상담은 인근 센터의 실제 가능 여부를 확인해야 하며, 안내된 위치는'} {center}{'(' + address + ')' if address else ''}입니다. {'찾아가는 방법은 다음 안내를 참고하세요. ‘' + location + '’ ' if location else ''}이동 시간과 가능한 요일은 상담 전에 확인하는 편이 좋습니다.",
+            f"센터 안내 기준 위치는 {center}{'(' + address + ')' if address else ''}입니다. {'위치 설명은 다음과 같습니다. ‘' + location + '’ ' if location else ''}{local} 학생의 실제 방문 가능 여부와 수업 뒤 복습 시간을 함께 살펴보세요.",
+            f"안내된 상담 위치는 {center}{'(' + address + ')' if address else ''}입니다. {local} 학생의 상담 가능 여부는 방문 전에 따로 확인하세요. {'안내된 동선은 다음과 같습니다. ‘' + location + '’ ' if location else ''}등하원 시간이 주간 계획에 무리가 없는지도 확인해야 합니다.",
+        )),
+    ]
+    if schools:
+        school_text = "·".join(schools)
+        paragraphs.append(pick_copy_variant(seed, "context-schools", (
+            f"{local} 센터 안내에서 초등 수업 가능 학교로 확인되는 곳은 {school_text}입니다. 학교 이름만으로 영어 진도나 교재를 가정하지 말고 학생이 가져온 최신 학교 자료로 확인하세요.",
+            f"{local} 센터의 초등 수업 가능 학교 안내에는 {school_text}이 포함됩니다. 상담에서는 재학 학교의 최신 영어 활동과 학생의 실제 읽기·어휘 기록을 함께 살펴보세요.",
+            f"{local} 수업 가능 학교 정보는 {school_text}입니다. 학교별 영어 범위를 미리 단정하지 않고 최근 과제와 학생의 현재 이해도를 기준으로 상담해야 합니다.",
+            f"{school_text} 재학생은 최신 학교 영어 자료와 최근 학습 기록을 준비하면 {local} 상담 질문을 구체화할 수 있습니다.",
+        )))
+    else:
+        paragraphs.append(pick_copy_variant(seed, "context-no-schools", (
+            f"{local} 수업 가능 학교 정보가 따로 표시되지 않았다면 상담에서 재학 학교와 최신 영어 자료를 직접 확인해야 합니다.",
+            f"{local} 학교 정보가 별도로 확인되지 않는 경우에는 학교 이름을 추정하지 말고 학생이 가져온 최근 자료로 학습 범위를 살펴보세요.",
+            f"{local} 학생의 재학 학교와 현재 영어 활동은 상담 때 직접 확인하며, 학교명보다 실제 읽기·어휘 기록을 기준으로 질문을 준비하세요.",
+            f"{local} 상담에서는 학교별 범위를 미리 가정하지 말고 최신 과제와 학생의 영어 자료를 토대로 확인할 항목을 정하는 편이 좋습니다.",
+        )))
+    if relevant_grade_values:
+        grade_text = "·".join(relevant_grade_values)
+        paragraphs.append(pick_copy_variant(seed, "context-grades", (
+            f"{local} 센터 안내에 표시된 영어 수업 가능 학년은 {grade_text}이며, 실제 반 편성과 시간표는 상담 시 확인해야 합니다.",
+            f"{local} 센터의 영어 수업 가능 학년은 {grade_text}입니다. 현재 모집 반과 수업 시간은 상담에서 다시 확인하세요.",
+            f"{local}에 안내된 영어 수업 가능 학년은 {grade_text}입니다. 학생의 현재 진도와 실제 가능 시간을 함께 확인해야 합니다.",
+            f"{local} 센터의 영어 학년 안내는 {grade_text}이며, 실제 반 편성 여부와 등원 가능한 요일은 상담 시점에 확인하세요.",
+        )))
+    return headings[stable_index(seed, "heading", len(headings))], [
+        finish_sentence(paragraph) for paragraph in paragraphs
+    ]
+
+
 def build_context_section(
     row: dict[str, str], config: dict[str, str], title: str, category: str,
 ) -> tuple[str, list[str]]:
+    if category == "초등영어학원":
+        return build_elementary_english_context_section(row, config, title, category)
     local = row["근처 수업가능 동네"].strip()
     center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
     address = row.get("센터 주소", "").strip()
@@ -4024,6 +4558,8 @@ def local_page(
         value = clean_text(value)
         if category == "초등수학학원":
             value = polish_elementary_math_copy(value, local)
+        if category == "초등영어학원":
+            value = polish_elementary_english_copy(value)
         if category == "중등영어학원":
             value = value.replace(
                 f"{local}이라는 표기는",
@@ -4125,6 +4661,10 @@ def local_page(
     intro, body_sections = parse_body(body_source)
     if category == "초등수학학원":
         intro, body_sections = build_elementary_math_core_copy(
+            row, title, body_sections, category
+        )
+    if category == "초등영어학원":
+        intro, body_sections = build_elementary_english_core_copy(
             row, title, body_sections, category
         )
     if category == "중등영어학원":
@@ -4902,6 +5442,15 @@ def local_page(
             (heading, [paragraph for paragraph in paragraphs if len(paragraph) >= 70])
             for heading, paragraphs in body_sections
         ]
+    if category == "초등영어학원":
+        intro = [polish_elementary_english_copy(paragraph) for paragraph in intro]
+        body_sections = [
+            (
+                polish_elementary_english_copy(heading),
+                [polish_elementary_english_copy(paragraph) for paragraph in paragraphs],
+            )
+            for heading, paragraphs in body_sections
+        ]
         body_sections = [
             (heading, paragraphs)
             for heading, paragraphs in body_sections
@@ -4926,6 +5475,11 @@ def local_page(
     )
     if elementary_math_check:
         body_sections.append(elementary_math_check)
+    elementary_english_check = build_elementary_english_check_section(
+        row, title, category
+    )
+    if elementary_english_check:
+        body_sections.append(elementary_english_check)
     context_section = build_context_section(row, config, title, category)
     context_section = (
         finalize_visible_copy(context_section[0]),
@@ -4934,6 +5488,17 @@ def local_page(
     insert_at = 1 + stable_index(page_seed, "context-position", max(1, len(body_sections) - 1))
     body_sections.insert(min(insert_at, len(body_sections)), context_section)
     intro, body_sections = soften_repeated_context_leads(intro, body_sections)
+    if category == "초등영어학원":
+        # 지역 맥락·상담 점검 섹션은 위의 1차 보정 뒤에 추가되므로, 최종
+        # 조합을 한 번 더 다듬어 템플릿 연결어가 공개 본문에 남지 않게 합니다.
+        intro = [polish_elementary_english_copy(paragraph) for paragraph in intro]
+        body_sections = [
+            (
+                polish_elementary_english_copy(heading),
+                [polish_elementary_english_copy(paragraph) for paragraph in paragraphs],
+            )
+            for heading, paragraphs in body_sections
+        ]
     if category == "중등영어학원":
         # 검증된 CSV 문단 뒤에 삽입되는 보충 섹션에도 동일한 사실성·문장
         # 정리 규칙을 적용합니다. 이 단계가 없으면 보충 템플릿의 현재형이
@@ -5044,9 +5609,9 @@ def local_page(
     parsed_source_faqs = parse_faq(manuscript["FAQ"])
     source_faqs = safe_source_faqs(parsed_source_faqs, reference_keyword)
     # 중등 영어 원고에는 생성 과정 설명과 입력 학교 표기가 섞여 있고,
-    # 초등 수학 원고의 일부 문답에는 서로 다른 학습 고민이 결합돼 있어
-    # 두 카테고리는 검증된 센터 데이터 기반 FAQ만 씁니다.
-    if category in {"중등영어학원", "초등수학학원"}:
+    # 초등 원고의 일부 문답에는 제작 지시·미확인 운영 정보 또는 서로 다른
+    # 학습 고민이 결합돼 있어 검증된 센터 데이터 기반 FAQ만 씁니다.
+    if category in {"중등영어학원", "초등수학학원", "초등영어학원"}:
         source_faqs = []
     if config["subject"] == "영어":
         source_faqs = [
@@ -5104,7 +5669,7 @@ def local_page(
         )
         for question, answer in faqs
     ]
-    if category == "초등수학학원":
+    if category in {"초등수학학원", "초등영어학원"}:
         # Shared centres and school lists can otherwise produce a handful of
         # byte-identical FAQ entries across neighbouring locality pages.  Add
         # the page locality only when it is not already present, preserving the
@@ -5249,11 +5814,12 @@ def local_page(
     if reg_office or reg_number:
         org["identifier"] = " · ".join(x for x in (reg_office, reg_number) if x)
 
-    service_about = (
-        [config["subject"], "학교 진도", "개념 점검"]
-        if category == "초등수학학원"
-        else [config["subject"], "내신 대비", "개념 점검"]
-    )
+    if category == "초등수학학원":
+        service_about = [config["subject"], "학교 진도", "개념 점검"]
+    elif category == "초등영어학원":
+        service_about = [config["subject"], "읽기", "어휘", "문장 구조", "듣기", "쓰기"]
+    else:
+        service_about = [config["subject"], "내신 대비", "개념 점검"]
     graph = [
         {
             "@type": "WebPage", "@id": page_id, "url": canonical, "name": title,
@@ -5337,11 +5903,12 @@ def local_page(
         if grade_supported
         else f"{subject_label} 개설 여부 상담 확인"
     )
-    subject_fact = (
-        "개념·교과·오답 흐름 점검"
-        if category == "초등수학학원"
-        else "개념·내신·오답 흐름 점검"
-    )
+    if category == "초등수학학원":
+        subject_fact = "개념·교과·오답 흐름 점검"
+    elif category == "초등영어학원":
+        subject_fact = "읽기·어휘·문장·복습 흐름 점검"
+    else:
+        subject_fact = "개념·내신·오답 흐름 점검"
 
     body = f'''{nav("과목별학원")}
   <main>
@@ -5431,7 +5998,13 @@ def category_page(rows: list[dict[str, str]], category: str, config: dict[str, s
     path = f"/과목별학원/{category}/"
     canonical = absolute(path)
     title = config["label"]
-    description = f"전국 371개 동네의 {title} 학습 안내를 지역별로 정리했습니다. {config['grade']} {config['subject']} 진단, 내신 관리, 오답 재학습 기준을 확인할 수 있습니다."
+    if category == "초등영어학원":
+        description = (
+            f"전국 371개 동네의 {title} 학습 안내를 지역별로 정리했습니다. "
+            "초등 영어 읽기·어휘·문장 적용과 복습 계획을 세울 때 확인할 기준을 안내합니다."
+        )
+    else:
+        description = f"전국 371개 동네의 {title} 학습 안내를 지역별로 정리했습니다. {config['grade']} {config['subject']} 진단, 내신 관리, 오답 재학습 기준을 확인할 수 있습니다."
     item_list = [
         {"@type": "ListItem", "position": i + 1, "name": f"{r['근처 수업가능 동네']} {title}", "url": absolute(f"{path}{slug_local(r['근처 수업가능 동네'])}/")}
         for i, r in enumerate(rows)
