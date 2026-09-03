@@ -10,12 +10,13 @@ from pathlib import Path
 
 
 SITE = Path(__file__).resolve().parents[1]
-CATEGORIES = ("고등영어학원", "고등수학학원", "중등수학학원", "중등영어학원", "초4수학학원", "초4영어학원", "초5수학학원", "초5영어학원")
+CATEGORIES = ("고등영어학원", "고등수학학원", "중등수학학원", "중등영어학원", "초등수학학원", "초4수학학원", "초4영어학원", "초5수학학원", "초5영어학원")
 CATEGORY_LABELS = {
     "고등영어학원": "고등 영어학원",
     "고등수학학원": "고등 수학학원",
     "중등수학학원": "중등 수학학원",
     "중등영어학원": "중등 영어학원",
+    "초등수학학원": "초등 수학학원",
     "초4수학학원": "초4 수학학원",
     "초4영어학원": "초4 영어학원",
     "초5수학학원": "초5 수학학원",
@@ -69,6 +70,9 @@ BANNED_VISIBLE = (
     "수업을 비교한다면 중등 수학학원을 비교할 때",
     "상담이라면 중등 수학학원을 비교할 때",
     "오현초호매실중",
+    "입력된 보조 참고어",
+    "보조 참고어",
+    "핵심 검색어",
 )
 MIDDLE_MATH_BANNED = (
     "경우라는 상황에는",
@@ -430,6 +434,7 @@ HIGH_SCHOOL_BAD_PATTERNS = (
 )
 BAD_GRAMMAR = (
     "학원를",
+    "비슷한 문제을",
     "준비이 필요",
     "대비이 필요",
     "시간표이 필요",
@@ -511,6 +516,8 @@ def main() -> int:
         if len(pages) != 371:
             errors.append(f"{category}: expected 371 local pages, got {len(pages)}")
         category_descriptions: set[str] = set()
+        category_faq_questions: set[str] = set()
+        category_faq_answers: set[str] = set()
         for page in pages:
             page_count += 1
             source = page.read_text(encoding="utf-8")
@@ -543,7 +550,7 @@ def main() -> int:
             for token in BANNED_VISIBLE:
                 if token in text:
                     errors.append(f"{rel}: internal wording remains: {token}")
-            if category in {"고등수학학원", "중등수학학원"}:
+            if category in {"고등수학학원", "중등수학학원", "초등수학학원"}:
                 for token in HIGH_MATH_BANNED:
                     if token in text:
                         errors.append(f"{rel}: subject mismatch remains: {token}")
@@ -582,7 +589,7 @@ def main() -> int:
                 ):
                     if marker in text:
                         errors.append(f"{rel}: mechanical locality lead remains: {marker}")
-            if category in {"고등수학학원", "고등영어학원", "중등수학학원", "중등영어학원"}:
+            if category in {"고등수학학원", "고등영어학원", "중등수학학원", "중등영어학원", "초등수학학원"}:
                 for token in HIGH_SCHOOL_BAD_GRAMMAR:
                     if token in text:
                         errors.append(f"{rel}: malformed wording remains: {token}")
@@ -593,6 +600,174 @@ def main() -> int:
                 if token in text:
                     errors.append(f"{rel}: malformed wording remains: {token}")
             local = title.removesuffix(" " + CATEGORY_LABELS[category]).strip()
+            page_faq_pairs: list[tuple[str, str]] = []
+            if category == "초등수학학원":
+                for marker in (
+                    f"{local} 관점에서",
+                    f"{local} 관찰에서는",
+                    f"또 하나의 {local} 점검 기준",
+                    f"실제 {local} 상담",
+                    f"{local} 초등 수학학원 선택에서는",
+                    "단어와 공식을 외운 뒤",
+                    "초등학생 수학 상담을 구체화하는 세 가지 자료",
+                    "핵심 상담 주제 ‘초등 수학학원’",
+                    "기는 결과 확인에서 행동 수정으로 넘어가는",
+                    "기도 복습 기록에 포함하면",
+                    f"{local} 학생의 상담은",
+                    f"학습 과정이 {local} 학생에게 이해 가능한지",
+                    "학습 과정이 학생에게 이해 가능한지",
+                    "풀이 과정을 확인하는 순서를 확인하고",
+                    "그것이 학생의 현재 행동과 맞는지 살피는 편이 구체적입니다",
+                    "진도를 넓히기보다 정답 수보다",
+                    "문제 뜻을 서두른 경우",
+                    "복습 내용을 되돌려 받는 방법",
+                    "수학 보완 순서를 상담합니다",
+                    "다시 시도할 기회를 두는 방식이 이해하기 쉽습니다",
+                    "학생이 이해한 말로 다시 설명하게 하는지를 질문하는 편이 낫습니다",
+                    "풀이 과정을 점검하는 순서를 확인하고",
+                    "일정 뒤 재풀이",
+                    "순서대로 보면 낯선 문제가 나오면",
+                    "복습 결과를 다시 확인하는 방법을 확인하고",
+                    "제공되지 않은 운영 정보는 가정하지 않고",
+                    "일정 간격 뒤 유사 문제에 다시 적용할 수 있는지",
+                    "재풀이 과정에서는",
+                    f"{local}에서는 학교별 범위를 미리 가정하지 않고 학생이 가져온 최근 과제와 진도표를 토대로 학습 순서를 안내합니다",
+                    "한 번 해결한 문제는 답을 기억하기 전에 시간을 두고 다시 시도해야 합니다",
+                    "그 기준이 학생의 현재 학습 상황과 맞는지 구체적으로 살펴보세요",
+                    "같은 유형을 다시 확인하지 않는 경우가 확인되면",
+                    "정답 수보다 풀이 과정을 말로 설명할 수 있는지 확인합니다",
+                    "상담에서는 관찰한 장면을 설명한 뒤 다음 행동으로",
+                    "상담에서는 관찰한 장면과 학생이 멈춘 지점을 구체적으로 설명해 보세요",
+                    "최근 교재를 살펴보며 학생에게",
+                    "최근 교재에서 학생이",
+                    "초등 수학 수업을 비교할 때는 학생에게",
+                    "남는 장면에서",
+                    "하는지를 질문하는 편이 낫습니다",
+                ):
+                    if marker in text:
+                        errors.append(f"{rel}: elementary-math mechanical wording remains: {marker}")
+                if re.search(
+                    rf"{re.escape(local)} 학생이 [^?]{{0,100}}점에서는",
+                    text,
+                ):
+                    errors.append(f"{rel}: malformed locality/centre FAQ subject")
+                if re.search(
+                    r"(?:최근 교재|최근 풀이|과제 기록)에서\s+(?:문장제|도형 문제)에서",
+                    text,
+                ):
+                    errors.append(f"{rel}: duplicated locative in elementary-math observation")
+                address_match = re.search(
+                    r"<dt>주소</dt><dd>(.*?)</dd>", source, re.S
+                )
+                location_match = re.search(
+                    r"<dt>위치 안내</dt><dd>(.*?)</dd>", source, re.S
+                )
+                if address_match and location_match:
+                    visible_address = html.unescape(
+                        re.sub(r"<[^>]+>", "", address_match.group(1))
+                    ).strip()
+                    visible_location = html.unescape(
+                        re.sub(r"<[^>]+>", "", location_match.group(1))
+                    ).strip()
+                    address_floors = set(
+                        re.findall(r"(?<!\d)(\d{1,2})\s*층", visible_address)
+                    )
+                    location_floors = set(
+                        re.findall(r"(?<!\d)(\d{1,2})\s*층", visible_location)
+                    )
+                    if (
+                        len(address_floors) == 1
+                        and len(location_floors) == 1
+                        and address_floors != location_floors
+                    ):
+                        errors.append(f"{rel}: address/location floor conflict")
+                page_faq_pairs = [
+                    (
+                        html.unescape(re.sub(r"<[^>]+>", "", question)).strip(),
+                        html.unescape(re.sub(r"<[^>]+>", "", answer)).strip(),
+                    )
+                    for question, answer in re.findall(
+                        r'<details class="faq-item"><summary>(.*?)</summary><p>(.*?)</p></details>',
+                        source,
+                        re.S,
+                    )
+                ]
+                if len(page_faq_pairs) != 4:
+                    errors.append(f"{rel}: expected 4 visible FAQs, got {len(page_faq_pairs)}")
+                profile_signatures = (
+                    ("기초 계산", "검산 과정"),
+                    ("문장제", "필요한 조건", "물어보는 내용"),
+                    ("분수와 소수", "적용"),
+                    ("도형 문제", "길이", "단위"),
+                    ("답은 맞혀도", "식", "풀이 과정", "설명"),
+                    ("틀린 문제의 답만 고치", "같은 유형"),
+                    ("낯선 문제", "답이나 도움"),
+                    ("선행 진도", "현재 학년 핵심 개념"),
+                )
+                action_signatures = (
+                    ("첫 식의 근거", "마지막 검산"),
+                    ("주어진 조건", "물어보는 내용", "첫 식을 왜"),
+                    ("분수·소수의 뜻", "숫자와 상황"),
+                    ("도형의 길이", "각", "단위", "확인 목록"),
+                    ("답만 보지 말고", "모양이 바뀐 문제", "풀이 이유"),
+                    ("정답을 고친 날짜", "다시 푼 날짜", "답을 가린 상태"),
+                    ("도움을 요청하기 전", "혼자 시작할 첫 행동"),
+                    ("현재 학년의 기본 문제", "선행 문제", "개념 복습"),
+                )
+                for question, answer in page_faq_pairs:
+                    question_profiles = {
+                        index
+                        for index, signature in enumerate(profile_signatures)
+                        if all(token in question for token in signature)
+                    }
+                    answer_profiles = {
+                        index
+                        for index, signature in enumerate(profile_signatures)
+                        if all(token in answer for token in signature)
+                    }
+                    if (
+                        len(question_profiles) == 1
+                        and len(answer_profiles) == 1
+                        and question_profiles != answer_profiles
+                    ):
+                        errors.append(f"{rel}: elementary-math FAQ learning-profile mismatch")
+                    answer_actions = {
+                        index
+                        for index, signature in enumerate(action_signatures)
+                        if all(token in answer for token in signature)
+                    }
+                    if (
+                        len(answer_profiles) == 1
+                        and len(answer_actions) == 1
+                        and answer_profiles != answer_actions
+                    ):
+                        errors.append(f"{rel}: elementary-math FAQ profile/action mismatch")
+                    if question in category_faq_questions:
+                        errors.append(f"{rel}: duplicate elementary-math FAQ question")
+                    if answer in category_faq_answers:
+                        errors.append(f"{rel}: duplicate elementary-math FAQ answer")
+                    category_faq_questions.add(question)
+                    category_faq_answers.add(answer)
+                for paragraph in (
+                    html.unescape(re.sub(r"<[^>]+>", "", value)).strip()
+                    for value in re.findall(r"<p(?:\s[^>]*)?>(.*?)</p>", source, re.S)
+                ):
+                    paragraph_profiles = {
+                        index
+                        for index, signature in enumerate(profile_signatures)
+                        if all(token in paragraph for token in signature)
+                    }
+                    paragraph_actions = {
+                        index
+                        for index, signature in enumerate(action_signatures)
+                        if all(token in paragraph for token in signature)
+                    }
+                    if (
+                        len(paragraph_profiles) == 1
+                        and len(paragraph_actions) == 1
+                        and paragraph_profiles != paragraph_actions
+                    ):
+                        errors.append(f"{rel}: elementary-math paragraph profile/action mismatch")
             if category == "중등영어학원" and local.endswith("을"):
                 damaged_local = local[:-1] + "를"
                 if damaged_local in text:
@@ -650,7 +825,31 @@ def main() -> int:
             for node in graph:
                 if str(node.get("@id", "")).endswith("#schools") and not node.get("itemListElement"):
                     errors.append(f"{rel}: empty school ItemList")
-            if category in {"고등수학학원", "고등영어학원", "중등수학학원", "중등영어학원"}:
+            if category == "초등수학학원":
+                faq_node = next(
+                    (node for node in graph if node.get("@type") == "FAQPage"),
+                    None,
+                )
+                schema_faq_pairs = [
+                    (
+                        item.get("name", ""),
+                        item.get("acceptedAnswer", {}).get("text", ""),
+                    )
+                    for item in (faq_node or {}).get("mainEntity", [])
+                ]
+                if schema_faq_pairs != page_faq_pairs:
+                    errors.append(f"{rel}: visible/schema FAQ mismatch")
+                service_node = next(
+                    (
+                        node
+                        for node in graph
+                        if str(node.get("@id", "")).endswith("#service")
+                    ),
+                    None,
+                )
+                if service_node and service_node.get("about") != ["수학", "학교 진도", "개념 점검"]:
+                    errors.append(f"{rel}: elementary-math Service about mismatch")
+            if category in {"고등수학학원", "고등영어학원", "중등수학학원", "중등영어학원", "초등수학학원"}:
                 has_grade_notice = 'class="subject-grade-availability-notice"' in source
                 has_service = any(str(node.get("@id", "")).endswith("#service") for node in graph)
                 if has_grade_notice == has_service:
@@ -659,6 +858,11 @@ def main() -> int:
             match = re.search(r'<section class="section subject-manuscript">(.*?)</section>\s*<section class="section subject-center-card">', source, re.S)
             if match:
                 body_text = visible_main("<main>" + match.group(1) + "</main>")
+                if category == "초등수학학원" and re.search(
+                    r"(?<![가-힣0-9])(?:중[1-3]|고[1-3])(?![가-힣0-9])",
+                    body_text,
+                ):
+                    errors.append(f"{rel}: non-elementary grade token in manuscript")
                 normalized = body_text.replace(title, " ").replace(local, " ")
                 category_bodies[category].append((rel, ngrams(normalized)))
 

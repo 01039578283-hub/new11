@@ -77,6 +77,18 @@ CONFIGS = {
         "publish_date": "2026-09-03",
         "modified_date": "2026-09-03",
     },
+    "초등수학학원": {
+        "zip": "초등 수학학원.zip",
+        "archive_prefix": "원고/",
+        "label": "초등 수학학원",
+        "grade": "초등학생",
+        "subject": "수학",
+        "school_field": "타깃학교\n(초)",
+        "grade_field": "가능학년\n(수학)",
+        "national_category": "수학학원",
+        "publish_date": "2026-09-03",
+        "modified_date": "2026-09-03",
+    },
     "초4수학학원": {
         "zip": "초4 수학학원.zip",
         "label": "초4 수학학원",
@@ -285,6 +297,16 @@ LEARNING_PROFILES = {
         "오답을 고친 뒤 틀린 문장을 다시 해석하거나 써 보지 않는 경우",
         "시험 직전에 단어와 본문을 몰아서 외워 복습 간격이 길어지는 경우",
     ),
+    "초등수학학원": (
+        "기초 계산은 가능하지만 풀이 순서와 검산 과정을 설명하기 어려운 경우",
+        "문장제에서 필요한 조건과 물어보는 내용을 구분하기 어려운 경우",
+        "분수와 소수의 의미는 알지만 새로운 문제에 적용하기 어려운 경우",
+        "도형 문제에서 길이·각·단위 조건을 빠뜨리는 경우",
+        "답은 맞혀도 식을 세운 이유와 풀이 과정을 말로 설명하지 못하는 경우",
+        "틀린 문제의 답만 고치고 같은 유형을 다시 확인하지 않는 경우",
+        "낯선 문제가 나오면 시도하기 전에 답이나 도움부터 찾는 경우",
+        "선행 진도와 현재 학년 핵심 개념 복습의 순서를 정하기 어려운 경우",
+    ),
     "중1수학학원": (
         "정수와 유리수 계산에서 부호 실수가 반복되는 경우",
         "문자와 식의 뜻은 알지만 식을 세우는 단계에서 멈추는 경우",
@@ -425,7 +447,7 @@ LEARNING_ACTIONS = {
         "틀린 원인을 계산·개념·조건 해석으로 구분합니다",
         "같은 유형을 일정 간격 뒤 다시 풀어 이해가 남았는지 봅니다",
         "학교 진도와 현재 약점의 우선순위를 정해 주간 계획을 세웁니다",
-        "정답 수보다 풀이 과정을 말로 설명할 수 있는지 확인합니다",
+        "첫 식의 근거를 표시하고 모양이 바뀐 문제에서도 풀이 이유를 설명하는지 확인합니다",
         "과제량을 늘리기 전에 미완료 원인과 소요 시간을 먼저 봅니다",
         "기본 유형과 서술형을 분리해 보완 순서를 정합니다",
         "한 단원의 오답이 다음 단원에 미치는 영향을 함께 점검합니다",
@@ -441,6 +463,33 @@ LEARNING_ACTIONS = {
         "듣기·독해·서술형의 약점을 구분해 우선순위를 정합니다",
     ),
 }
+
+
+# 초등 수학의 학습 상태와 후속 행동은 인덱스별로 반드시 함께 사용합니다.
+# 무작위로 두 목록을 따로 고르면 문장 자체는 자연스러워도 문제와 해결책이
+# 어긋날 수 있으므로 FAQ·본문·상담 상황이 이 단일 매핑을 공유합니다.
+ELEMENTARY_MATH_ALIGNED_ACTIONS = (
+    "첫 식의 근거와 마지막 검산을 따로 표시하고, 며칠 뒤 같은 문제의 풀이 순서를 다시 설명할 수 있는지 확인해 보세요.",
+    "문제에서 주어진 조건과 물어보는 내용을 다른 표시로 구분한 뒤, 첫 식을 왜 세웠는지 말하게 해 보세요.",
+    "분수·소수의 뜻을 그림이나 수직선으로 설명한 다음, 숫자와 상황이 달라진 문제에도 같은 원리를 적용하는지 확인해 보세요.",
+    "도형의 길이·각·단위를 확인 목록에 적고, 풀이 전에 빠뜨린 조건이 없는지 학생이 직접 점검하게 해 보세요.",
+    "답만 보지 말고 첫 식의 근거를 표시한 뒤, 모양이 바뀐 문제에서도 풀이 이유를 설명하는지 확인해 보세요.",
+    "정답을 고친 날짜와 다시 푼 날짜를 나누어 기록하고, 답을 가린 상태에서 같은 유형을 다시 해결하는지 확인해 보세요.",
+    "도움을 요청하기 전 아는 조건과 구할 내용을 먼저 표시하고, 혼자 시작할 첫 행동을 한 가지 정해 보세요.",
+    "현재 학년의 기본 문제와 선행 문제를 나누어 풀어 보고, 개념 복습과 다음 진도 중 무엇이 먼저인지 근거를 정리해 보세요.",
+)
+
+
+ELEMENTARY_MATH_OBSERVATION_CLAUSES = (
+    "학생이 기초 계산은 할 수 있지만 풀이 순서와 검산 과정을 설명하는 데 어려움을 보이는지",
+    "학생이 문장제에서 필요한 조건과 물어보는 내용을 구분하는 데 어려움을 보이는지",
+    "학생이 분수와 소수의 의미는 알지만 새로운 문제에 적용하는 데 어려움을 보이는지",
+    "학생이 도형 문제에서 길이·각·단위 조건을 빠뜨리는지",
+    "학생이 답은 맞혀도 식을 세운 이유와 풀이 과정을 말로 설명하지 못하는지",
+    "학생이 틀린 문제의 답만 고치고 같은 유형을 다시 확인하지 않는지",
+    "학생이 낯선 문제를 보면 시도하기 전에 답이나 도움부터 찾는지",
+    "학생이 선행 진도와 현재 학년 핵심 개념 복습의 순서를 정하기 어려워하는지",
+)
 
 
 def esc(value: object) -> str:
@@ -1391,6 +1440,17 @@ def normalize_location_description(value: str) -> str:
     ).strip()
 
 
+def location_conflicts_with_address(address: str, location: str) -> bool:
+    """Detect directions that state a different single floor from the address."""
+    address_floors = set(re.findall(r"(?<!\d)(\d{1,2})\s*층", address or ""))
+    location_floors = set(re.findall(r"(?<!\d)(\d{1,2})\s*층", location or ""))
+    return (
+        len(address_floors) == 1
+        and len(location_floors) == 1
+        and address_floors != location_floors
+    )
+
+
 def stable_index(seed: str, namespace: str, size: int) -> int:
     if size <= 0:
         raise ValueError("size must be positive")
@@ -1540,6 +1600,372 @@ def normalize_subject_profiles(value: str, category: str) -> str:
     return value
 
 
+def polish_elementary_math_copy(value: str, local: str) -> str:
+    """Remove mechanical repetition from elementary-math visitor copy."""
+    sentences = re.split(r"(?<=[.!?])\s+", value)
+    polished: list[str] = []
+    for sentence in sentences:
+        if sentence.count("같은 유형") > 1:
+            before, after = sentence.split("같은 유형", 1)
+            after = after.replace("같은 유형을", "비슷한 문제를")
+            after = after.replace("같은 유형", "비슷한 문제")
+            sentence = before + "같은 유형" + after
+        polished.append(sentence)
+    value = " ".join(polished).strip()
+    value = value.replace(f"{local} 관점에서", "예를 들어")
+    value = value.replace(f"{local} 관찰에서는", "학습 과정을 관찰할 때는")
+    value = value.replace(f"또 하나의 {local} 점검 기준은", "또 하나의 점검 기준은")
+    value = value.replace(f"실제 {local} 상담", "실제 상담")
+    value = value.replace(
+        f"{local} 초등 수학학원 선택에서는",
+        "초등 수학학원을 선택할 때는",
+    )
+    value = value.replace(f"{local} 질문 한 가지", "다음에 확인할 질문 한 가지")
+    value = value.replace(f"{local} 질문을", "문제의 질문을")
+    value = value.replace(f"{local} 질문과", "문제의 질문과")
+    value = value.replace(
+        "조건과 문제의 질문을 같은 방식으로 밑줄 친",
+        "주어진 조건과 물어보는 내용을 같은 방식으로 밑줄 친",
+    )
+    value = value.replace("단어와 공식을 외운 뒤", "개념과 공식을 익힌 뒤")
+    value = value.replace(
+        "핵심 상담 주제 ‘초등 수학학원’에 맞춰",
+        "학생의 현재 수학 학습을 기준으로",
+    )
+    value = value.replace(
+        "학생의 현재 수학 학습을 기준으로 현재 수학 학습의 우선순위를",
+        "학생의 풀이 기록을 기준으로 학습의 우선순위를",
+    )
+    value = re.sub(
+        r"초등 수학학원을 선택할 때는 기준을 (.+?)에 두고, 그 기준이",
+        lambda match: (
+            "초등 수학학원을 선택할 때는 "
+            + attach_particle(match.group(1), "을", "를")
+            + " 확인하고, 그것이"
+        ),
+        value,
+    )
+    value = value.replace(f"{local} 답변이 모호하면", "상담 답변이 모호하면")
+    value = value.replace(f"이렇게 만든 {local} 메모는", "이렇게 만든 상담 메모는")
+    value = value.replace(f"{local}에서 이 기준을 적용할 때에는", "이 기준을 적용할 때는")
+    value = value.replace(
+        f"학습 과정이 {local} 학생에게 이해 가능한지",
+        "학생이 학습 과정을 이해하고 따라갈 수 있는지",
+    )
+    value = value.replace(
+        "학습 과정이 학생에게 이해 가능한지",
+        "학생이 학습 과정을 이해하고 따라갈 수 있는지",
+    )
+    value = value.replace(
+        "풀이 과정을 확인하는 순서를 확인하고",
+        "풀이 과정을 점검하는 순서를 살펴보고",
+    )
+    value = value.replace(
+        "풀이 과정을 점검하는 순서를 확인하고",
+        "풀이 과정을 점검하는 순서를 살펴보고",
+    )
+    value = value.replace(
+        "그것이 학생의 현재 행동과 맞는지 살피는 편이 구체적입니다",
+        "그 기준이 학생의 현재 학습 상황과 맞는지 판단해 보세요",
+    )
+    value = value.replace(
+        "그 기준이 학생의 현재 학습 상황과 맞는지 구체적으로 살펴보세요",
+        "그 기준이 학생의 현재 학습 상황과 맞는지 판단해 보세요",
+    )
+    value = value.replace(
+        "틀린 문제의 답만 고치고 같은 유형을 다시 확인하지 않는 경우가 확인되면",
+        "틀린 문제의 답만 고치고 같은 유형을 다시 확인하지 않는 모습이 보이면",
+    )
+    value = value.replace(
+        "문제 뜻을 서두른 경우",
+        "문제를 서둘러 읽어 조건을 놓친 경우",
+    )
+    value = value.replace(
+        "복습 내용을 되돌려 받는 방법을 확인하고",
+        "복습 결과가 어떻게 다시 점검되는지 살펴보고",
+    )
+    value = value.replace(
+        "수학 보완 순서를 상담합니다",
+        "수학 보완 순서를 함께 정합니다",
+    )
+    value = value.replace(
+        "다시 시도할 기회를 두는 방식이 이해하기 쉽습니다",
+        "다시 시도할 기회를 두면 학생이 다음 행동을 이해하기 쉽습니다",
+    )
+    value = value.replace(
+        "학생이 이해한 말로 다시 설명하게 하는지를 질문하는 편이 낫습니다",
+        "학생이 자기 말로 다시 설명하도록 하는지 묻는 편이 낫습니다",
+    )
+    value = value.replace(
+        "설명을 들은 뒤 학생이 직접 푸는 시간, 막힌 이유를 말하는 과정, 일정 뒤 재풀이하는 절차",
+        "설명을 들은 뒤 학생이 직접 푸는 시간, 막힌 이유를 말하는 과정, 시간을 두고 다시 푸는 절차",
+    )
+    value = value.replace(
+        "기본 문제, 모양이 바뀐 문제, 일정 뒤 재풀이를 차례로 확인해",
+        "기본 문제와 모양이 바뀐 문제를 풀고, 일정 시간이 지난 뒤 다시 푸는 과정까지 확인해",
+    )
+    value = value.replace(
+        "비슷한 문제를 고르기 전에 원래 문제의 조건을 설명하기는 결과 확인에서 행동 수정으로 넘어가는 간단한 방법입니다",
+        "비슷한 문제를 고르기 전에 원래 문제의 조건을 설명하는 활동은 결과 확인에서 행동 수정으로 넘어가는 간단한 방법입니다",
+    )
+    value = value.replace(
+        "정답을 가린 채 풀이 순서를 말하고 마지막에 식을 비교하기는 결과 확인에서 행동 수정으로 넘어가는 간단한 방법입니다",
+        "정답을 가린 채 풀이 순서를 말하고 마지막에 식을 비교하는 활동은 결과 확인에서 행동 수정으로 넘어가는 간단한 방법입니다",
+    )
+    value = value.replace(
+        "계산 실수와 개념 혼동을 다른 색으로 표시하고 한 가지만 고치기는 결과 확인에서 행동 수정으로 넘어가는 간단한 방법입니다",
+        "계산 실수와 개념 혼동을 다른 색으로 표시하고 한 가지만 고치는 활동은 결과 확인에서 행동 수정으로 넘어가는 간단한 방법입니다",
+    )
+    value = value.replace(
+        "틀린 이유를 한 문장으로 적고 다음 날 답 없이 다시 풀기는 결과 확인에서 행동 수정으로 넘어가는 간단한 방법입니다",
+        "틀린 이유를 한 문장으로 적고 다음 날 답 없이 다시 푸는 활동은 결과 확인에서 행동 수정으로 넘어가는 간단한 방법입니다",
+    )
+    value = value.replace(
+        "조건을 표나 간단한 그림으로 옮겨 보기도 복습 기록에 포함하면",
+        "조건을 표나 간단한 그림으로 옮겨 보는 과정도 복습 기록에 포함하면",
+    )
+    value = value.replace(
+        "문장을 한 줄씩 나누고 알 수 있는 조건부터 찾기도 복습 기록에 포함하면",
+        "문장을 한 줄씩 나누고 알 수 있는 조건부터 찾는 과정도 복습 기록에 포함하면",
+    )
+    value = value.replace(
+        "문제에서 주어진 수와 묻는 말을 서로 다른 표시로 구분하기도 복습 기록에 포함하면",
+        "문제에서 주어진 수와 묻는 말을 서로 다른 표시로 구분하는 과정도 복습 기록에 포함하면",
+    )
+    value = value.replace("남는 장면에서", "남는 상황에서")
+    value = value.replace(
+        "하는지를 질문하는 편이 낫습니다",
+        "하는지 물어보는 편이 낫습니다",
+    )
+    return value
+
+
+def build_elementary_math_core_copy(
+    row: dict[str, str], title: str, sections: list[tuple[str, list[str]]], category: str,
+) -> tuple[list[str], list[tuple[str, list[str]]]]:
+    """Rewrite the archive's repeated elementary-math core as useful local guidance.
+
+    The supplied drafts share four almost identical sections.  This keeps their
+    diagnostic, home-review and consultation intent, but combines independent
+    page-stable variants with elementary-math learning states.  No centre
+    programme, result or timetable is inferred here.
+    """
+    if category != "초등수학학원":
+        return [], sections
+
+    local = row["근처 수업가능 동네"].strip()
+    seed = f"{category}|{local}|core-copy"
+    profiles = LEARNING_PROFILES[category]
+
+    def profile_index(slot: int) -> int:
+        return stable_index(seed, f"profile-{slot}", len(profiles))
+
+    def profile(slot: int) -> str:
+        return profiles[profile_index(slot)]
+
+    def suggestion(slot: int) -> str:
+        return ELEMENTARY_MATH_ALIGNED_ACTIONS[profile_index(slot)]
+
+    intro = [
+        pick_copy_variant(seed, "intro", (
+            f"{title}을 비교할 때는 선행 범위나 문제 수보다 최근 풀이에서 학생이 혼자 해결한 단계와 도움이 필요했던 단계를 먼저 나누어 보세요. {profile(0)}에는 상담에서 확인할 우선순위가 달라질 수 있습니다.",
+            f"{local} 초등 수학 학습의 출발점은 점수표 한 장보다 최근 문제를 어떻게 읽고, 식을 세우고, 다시 확인하는지에서 찾을 수 있습니다. {profile(0)}인지 살핀 뒤 복습과 다음 진도의 순서를 정하는 편이 좋습니다.",
+            f"{title} 상담에는 최근 교재와 오답 중 학생의 생각이 남은 문제를 준비하는 것이 좋습니다. {profile(0)}라면 정답을 바로 알려 주기보다 어느 단계에서 설명이 멈추는지부터 확인해 보세요.",
+            f"{local}에서 초등 수학 수업을 알아본다면 교재 단계보다 학생이 문제의 조건을 찾고 풀이 이유를 설명하는 과정을 먼저 살펴야 합니다. {profile(0)}에는 짧은 재확인 계획을 함께 세워 보세요.",
+            f"{title} 선택 전에는 학생이 현재 단원을 혼자 설명할 수 있는지, 틀린 문제를 며칠 뒤 다시 해결할 수 있는지 확인해 보세요. {profile(0)}라면 진도를 넓히기 전에 막힌 단계를 구분하는 과정이 필요합니다.",
+            f"{local} 초등학생의 수학 계획은 한 번의 평가 결과보다 문제를 시작하는 방법, 계산 기록, 검산 습관을 함께 보고 정하는 편이 좋습니다. {profile(0)}에는 최근 풀이 두세 개가 구체적인 상담 자료가 됩니다.",
+            f"{title}을 찾는 학부모라면 아이가 맞힌 문제보다 설명하기 어려워한 문제를 먼저 골라 보세요. {profile(0)}인지 확인하면 복습해야 할 부분과 새로 배울 부분을 구분하기 쉬워집니다.",
+            f"{local}의 초등 수학 수업을 비교할 때는 학생의 현재 진도, 오답 이유, 가정에서 가능한 복습 시간을 한 흐름으로 살펴야 합니다. {profile(0)}라면 실행 가능한 작은 목표부터 정해 보세요.",
+        ))
+    ]
+
+    start_section = (
+        pick_copy_variant(seed, "start-heading", (
+            f"{local} 학생의 풀이 흔적으로 출발점 찾기",
+            "정답 수보다 먼저 확인할 풀이 과정",
+            "최근 문제 두 개로 현재 학습 상태 나누기",
+            f"{local} 초등 수학에서 막힌 단계 구분하기",
+            "설명·계산·검산을 나누어 진단하기",
+            "혼자 푼 부분과 도움받은 부분 구분하기",
+            "오답의 위치로 첫 학습 순서 정하기",
+            "채점 결과 뒤에 남은 풀이 흔적 읽기",
+        )),
+        [
+            pick_copy_variant(seed, "start-one", (
+                f"최근 교재에서 혼자 푼 문제와 도움을 받은 문제를 하나씩 고른 뒤 문제 뜻 말하기, 식 세우기, 계산, 검산 중 어디에서 멈추는지 표시해 보세요. {profile(1)}라면 막힌 위치가 반복되는지도 함께 살펴야 합니다.",
+                f"{local} 학생의 맞은 개수와 틀린 개수가 비슷해도 풀이 과정은 다를 수 있습니다. 문제를 읽은 뒤 첫 식을 쓰는지, 계산 근거를 남기는지, 답을 다시 확인하는지를 순서대로 기록해 보세요. 특히 {profile(1)}인지도 구체적으로 확인할 수 있습니다.",
+                f"채점하기 전 학생이 문제의 조건에 표시한 흔적과 첫 계산을 살펴보세요. {profile(1)}에는 정답을 바로 고치기보다 이해, 적용, 계산 중 어느 단계가 먼저 필요한지 나누는 편이 좋습니다.",
+                f"{local} 초등학생의 현재 상태는 최근 문제 두세 개를 다시 설명하게 하면 더 구체적으로 드러납니다. {profile(1)}인지 확인하고 학생이 혼자 이어 갈 수 있는 지점부터 첫 목표를 정해 보세요.",
+                f"같은 점수라도 개념을 몰라 멈춘 문제와 조건을 놓쳐 틀린 문제는 보완 순서가 다릅니다. {profile(1)}라면 풀이의 어느 줄부터 도움이 필요했는지 표시해 상담 자료로 준비하세요.",
+                f"학생에게 정답을 묻기 전에 문제에서 무엇을 구하는지, 어떤 정보를 먼저 사용했는지 설명하게 해 보세요. {profile(1)}에는 설명이 끊긴 지점을 기준으로 복습 범위를 좁힐 수 있습니다.",
+                f"{local} 학부모는 최근 오답 한 개를 바로 다시 풀게 하기보다 풀이 순서를 말로 정리하게 해 볼 수 있습니다. {profile(1)}라면 다음 날에도 같은 단계에서 멈추는지 기록해 보세요.",
+                f"현재 수준을 확인할 때는 어려운 문제의 정답보다 기본 문제를 혼자 끝까지 처리하는 과정을 먼저 봐야 합니다. {profile(1)}인지 확인하면 필요한 설명과 연습의 순서를 나누기 쉽습니다.",
+            )),
+            f"이 기록은 학생을 평가하는 표가 아니라 {title} 상담에서 현재 이해와 필요한 도움을 구체적으로 설명하는 자료입니다. {suggestion(1)}",
+        ],
+    )
+
+    flow_section = (
+        pick_copy_variant(seed, "flow-heading", (
+            "개념 이해를 혼자 푸는 과정으로 연결하기",
+            "설명 뒤 적용과 재풀이까지 확인하기",
+            f"{local} 학생에게 맞는 수학 학습 순서",
+            "문제 읽기부터 검산까지 작은 단계로 나누기",
+            "새 문제에서도 이어지는 이해인지 확인하기",
+            "도움을 받은 뒤 혼자 다시 푸는 과정 만들기",
+            "풀이가 멈춘 앞뒤 단계를 연결하는 방법",
+            "진도보다 먼저 세울 짧은 실행 목표",
+        )),
+        [
+            pick_copy_variant(seed, "flow-one", (
+                f"한 단원을 문제 뜻 말하기, 필요한 개념 고르기, 식 쓰기, 계산, 검산의 작은 단계로 나누어 보세요. {profile(2)}라면 모든 단계를 한꺼번에 요구하지 말고 멈춘 앞뒤 두 단계부터 연결하는 편이 좋습니다.",
+                f"설명을 들은 직후의 정답만으로 이해를 판단하기는 어렵습니다. {profile(2)}에는 기본 문제와 모양이 바뀐 문제를 풀고, 일정 시간이 지난 뒤 다시 푸는 과정까지 확인해 배운 내용이 혼자 풀기로 이어지는지 살펴보세요.",
+                f"{local} 학생이 풀이를 시작하지 못한다면 정답을 제시하기 전에 문제에서 아는 조건과 구할 내용을 각각 표시하게 해 보세요. {profile(2)}에는 첫 행동을 작게 정하는 것이 도움이 됩니다.",
+                f"개념 설명, 대표 문제 적용, 오답 이유 말하기, 다시 풀기의 순서가 끊기지 않는지 확인해 보세요. {profile(2)}라면 어느 단계에 시간을 더 배분할지 상담에서 구체적으로 물을 수 있습니다.",
+                f"학생이 도움을 받아 해결한 문제에는 도움받은 위치를 표시해 두는 편이 좋습니다. {profile(2)}인지 살핀 뒤 같은 도움 없이 다시 시도할 날짜를 정하면 이해와 기억을 구분할 수 있습니다.",
+                f"{local} 초등 수학 계획에는 새로 배울 내용과 다시 확인할 내용을 서로 다른 칸에 적어 보세요. {profile(2)}라면 두 목록의 분량보다 먼저 실행할 순서를 정해야 합니다.",
+                f"문제를 많이 푸는 것보다 한 문제의 조건, 식, 계산, 답을 학생이 스스로 이어 가는지가 중요합니다. {profile(2)}에는 설명을 줄이고 혼자 푸는 시간을 조금씩 늘리는 방식을 확인해 보세요.",
+                f"풀이가 막혔을 때 힌트를 준 위치와 학생이 다시 시작한 위치를 함께 기록해 보세요. {profile(2)}라면 이 간격을 줄이는 것을 짧은 학습 목표로 삼을 수 있습니다.",
+            )),
+            pick_copy_variant(seed, "flow-two", (
+                f"다음 수업을 비교할 때는 학생이 설명을 듣는 시간과 직접 푸는 시간이 어떻게 나뉘는지, 오답을 언제 다시 확인하는지 물어보세요. {suggestion(2)}",
+                f"학습 순서는 고정된 진도표보다 최근 기록에 따라 조정할 수 있어야 합니다. {suggestion(2)}",
+                f"학생이 한 단계를 해냈다면 바로 문제 수를 늘리기보다 다른 모양의 문제에서도 같은 방법을 사용할 수 있는지 살펴보세요. {suggestion(2)}",
+                f"가정 기록에는 완료한 문제 수보다 혼자 시작한 문제와 질문이 필요했던 문제를 나누어 적는 편이 유용합니다. {suggestion(2)}",
+                f"상담에서는 개념 확인 뒤 어떤 문제로 적용하고, 틀린 이유를 언제 다시 확인하는지 순서대로 질문해 보세요. {suggestion(2)}",
+                f"학생이 풀이 과정을 설명하기 어렵다면 그림, 식, 짧은 말 중 편한 방식부터 사용하게 해 보세요. {suggestion(2)}",
+                f"답만 기억해 푸는지 구분하려면, 한 번 해결한 문제도 시간을 두고 다시 시도해야 합니다. {suggestion(2)}",
+                f"새 단원을 시작할지는 앞 단원의 대표 문제를 도움 없이 해결하고 이유를 설명할 수 있는지 확인한 뒤 정하는 편이 좋습니다. {suggestion(2)}",
+            )),
+        ],
+    )
+
+    home_section = (
+        pick_copy_variant(seed, "home-heading", (
+            "가정에서는 짧고 반복 가능한 점검 남기기",
+            "정답을 알려 주기 전 생각을 듣는 질문",
+            f"{local} 가정 학습에서 기록할 세 가지",
+            "긴 추가 학습보다 재시도 날짜 정하기",
+            "부담을 늘리지 않는 오답 확인 방법",
+            "학부모가 도울 부분과 학생이 할 부분 나누기",
+            "매일의 분량보다 꾸준한 확인 흐름 만들기",
+            "질문 한 개로 풀이 과정을 되짚는 방법",
+        )),
+        [
+            pick_copy_variant(seed, "home-one", (
+                f"가정에서는 긴 추가 문제보다 학생이 막힌 문제 한 개를 골라 어디까지 이해했는지 말하게 해 보세요. {profile(3)}라면 바로 답을 설명하기보다 첫 시도와 도움이 필요했던 위치를 구분해 기록하는 편이 좋습니다.",
+                f"{local} 학부모가 매일 긴 시간 동안 수학을 지도할 필요는 없습니다. 최근 오답에서 조건 하나를 찾고 풀이 첫 줄을 말하게 하는 짧은 확인만으로도 {profile(3)}인지 살필 수 있습니다.",
+                f"정답을 먼저 보여 주기보다 ‘무엇을 구해야 하는지’, ‘어느 계산부터 시작할지’처럼 한 번에 한 가지를 물어보세요. {profile(3)}라면 학생의 대답이 멈춘 지점만 표시해 두면 됩니다.",
+                f"가정 점검은 성공과 실패로 나누기보다 시작한 시간, 막힌 위치, 다음에 물어볼 질문을 짧게 남기는 방식이 좋습니다. {profile(3)}에는 기록이 길어지지 않도록 한 문제만 고르세요.",
+                f"{local} 학생이 숙제를 끝냈더라도 틀린 이유를 설명하지 못하면 복습이 끝난 것은 아닐 수 있습니다. {profile(3)}인지 확인하고 다음 날 다시 볼 문제를 한 개 정해 보세요.",
+                f"문제를 틀렸을 때는 ‘왜 또 틀렸니’보다 ‘어디까지는 혼자 했니’라고 물어보는 편이 풀이 과정을 듣기 쉽습니다. {profile(3)}라면 도움받은 부분을 표시해 다음 재시도와 연결하세요.",
+                f"가정 학습에서는 문제 수를 늘리기 전에 지난 오답을 혼자 다시 시작할 수 있는지 확인해 보세요. {profile(3)}에는 짧은 설명과 한 번의 재풀이를 서로 다른 날에 배치하는 편이 좋습니다.",
+                f"{local} 학부모의 기록은 학생을 평가하기 위한 것이 아니라 상담에서 실제 어려움을 설명하기 위한 메모입니다. {profile(3)}라면 관찰한 행동과 다음 질문을 한 줄씩만 남겨 보세요.",
+            )),
+            f"기록에는 완료 여부, 막힌 단계, 다음에 확인할 질문 한 가지를 남기고 며칠 뒤 같은 문제를 혼자 다시 풀 수 있는지 살펴보세요. {suggestion(3)}",
+        ],
+    )
+
+    consultation_section = (
+        pick_copy_variant(seed, "consult-heading", (
+            "상담 답변을 같은 기준으로 비교하는 방법",
+            f"{local} 상담 전에 준비할 질문과 자료",
+            "학원 선택 전에 확인할 수업·과제·피드백 기준",
+            "최근 풀이를 상담 질문으로 바꾸기",
+            "상담 메모에서 사실과 추가 질문 나누기",
+            "학생에게 필요한 도움을 구체적으로 묻는 순서",
+            "한 번의 설명보다 이어지는 관리 절차 확인하기",
+            "등록 전에 남길 학습 우선순위와 확인 항목",
+        )),
+        [
+            pick_copy_variant(seed, "consult-one", (
+                f"{local} 상담에는 최근 어려웠던 단원, 학생이 멈춘 단계, 가정에서 시도한 방법을 각각 한 줄로 적어 가세요. {profile(4)}라면 진도보다 어떤 자료로 상태를 확인하고 첫 계획을 정하는지부터 물어보는 편이 좋습니다.",
+                f"상담 전 최근 문제집 한 권에서 혼자 푼 문제, 도움받은 문제, 다시 볼 문제를 표시해 보세요. {profile(4)}인지 설명하면 {title}의 진단과 보완 순서를 더 구체적으로 비교할 수 있습니다.",
+                f"{local} 학부모는 학생의 최근 풀이와 주간 가능 시간을 함께 준비하는 것이 좋습니다. {profile(4)}라면 수업에서 확인할 부분과 가정에서 다시 볼 부분을 어떻게 나누는지 질문해 보세요.",
+                f"학원을 비교할 때는 ‘관리가 잘되나요’보다 과제 미완료, 반복 오답, 질문이 생겼을 때 어떤 절차로 다시 확인하는지 물어보세요. {profile(4)}에는 {suggestion(4)}",
+                f"상담 메모를 현재 상태, 수업 중 확인, 과제 피드백, 재풀이의 네 칸으로 나누어 보세요. {profile(4)}라면 각 답변이 최근 풀이와 어떻게 연결되는지를 적는 편이 좋습니다.",
+                f"{local}에서 수업을 알아볼 때는 한 번의 설명보다 진단 결과가 학습 순서와 과제 조정으로 이어지는지 확인해야 합니다. {profile(4)}에는 구체적인 재확인 시점을 물어보세요.",
+                f"최근 점수만 전달하기보다 학생이 문제를 읽고 식을 세우는 과정에서 멈춘 장면을 설명해 보세요. {profile(4)}라면 상담 답변도 필요한 도움과 학생이 스스로 할 부분으로 나누어 들을 수 있습니다.",
+                f"{title} 상담 전에 학생과 함께 어려운 문제 두 개를 골라 막힌 이유를 적어 보세요. {profile(4)}에는 답을 고치는 방법뿐 아니라 이후 비슷한 문제를 어떻게 확인할지도 물어봐야 합니다.",
+            )),
+            pick_copy_variant(seed, "consult-two", (
+                "수업료·시간표·강사진·정원·교재는 미리 추정하지 말고 상담에서 확인한 내용을 항목별로 기록하세요. 같은 질문지를 사용하면 여러 답변을 분위기보다 구체적인 기준으로 비교하기 쉽습니다.",
+                "센터마다 실제 반 편성과 수업 시간은 다를 수 있으므로 상담 시점에 직접 확인해야 합니다. 답변 옆에는 학생의 현재 자료와 맞는 점, 추가로 확인할 점을 구분해 적어 보세요.",
+                "등록 여부를 정하기 전 과제 확인, 오답 재점검, 결석 뒤 보완, 학부모 피드백의 범위를 각각 물어보세요. 아직 확인하지 못한 항목은 빈칸으로 두고 상담에서 확인한 내용만 기록하세요.",
+                "상담에서 들은 설명은 진단 자료, 수업 중 질문, 과제 회수, 오답 재확인의 순서로 나누어 적어 보세요. 학생의 생활 일정 안에서 실행 가능한지도 별도 기준으로 확인해야 합니다.",
+                "수업 내용이 학생에게 맞는지와 실제로 꾸준히 다닐 수 있는지는 따로 확인하는 편이 좋습니다. 교재와 시간표, 비용, 반 편성은 상담에서 최신 정보를 확인하세요.",
+                "비교표에는 확인된 사실만 적고 성적 향상이나 결과를 미리 단정하지 마세요. 대신 학생의 최근 어려움을 어떤 기록으로 확인하고 언제 계획을 조정하는지 질문해 보세요.",
+                "상담 답변이 구체적인지는 담당자 이름보다 확인 자료와 다음 행동이 분명한지로 살펴볼 수 있습니다. 수업 운영 정보는 방문 또는 전화 상담에서 최신 내용을 확인해야 합니다.",
+                "한 번의 답변으로 결정하기보다 학생의 현재 진도, 가능한 요일, 가정 복습 시간을 함께 놓고 비교하세요. 아직 확인하지 못한 항목은 빈칸으로 남겨 다음 상담 질문으로 이어가는 편이 좋습니다.",
+            )),
+        ],
+    )
+
+    replacements = {
+        "학생의 출발점 확인하기": start_section,
+        "작은 단계로 공부를 이어가기": flow_section,
+        "부담을 줄이는 가정 점검": home_section,
+        "비교 가능한 상담 메모 만들기": consultation_section,
+    }
+    rewritten = [replacements.get(heading, (heading, paragraphs)) for heading, paragraphs in sections]
+    return intro, rewritten
+
+
+def build_elementary_math_check_section(
+    row: dict[str, str], title: str, category: str,
+) -> tuple[str, list[str]] | None:
+    """Add one evidence-based comparison section to every elementary-math page."""
+    if category != "초등수학학원":
+        return None
+    local = row["근처 수업가능 동네"].strip()
+    seed = f"{category}|{local}|check-section"
+    profiles = LEARNING_PROFILES[category]
+    profile_index = stable_index(seed, "profile", len(profiles))
+    profile = profiles[profile_index]
+    suggestion = ELEMENTARY_MATH_ALIGNED_ACTIONS[profile_index]
+    heading = pick_copy_variant(seed, "heading", (
+        f"{local} 초등 수학 상담에서 비교할 수업 흐름",
+        "진단 결과가 학습 계획으로 이어지는지 확인하기",
+        "수업·과제·오답 재확인을 한 흐름으로 보기",
+        "첫 학습 계획에 넣을 관찰 가능한 기준",
+        f"{local} 학부모가 상담에서 물어볼 관리 절차",
+        "학생의 현재 기록과 수업 방식을 연결하는 질문",
+        "등록 전에 확인할 진단·복습·피드백 순서",
+        "초등 수학 계획을 비교하는 실용 체크리스트",
+    ))
+    first = pick_copy_variant(seed, "first", (
+        f"최근 교재 한 단원에서 맞힌 문제, 틀린 문제, 도움을 받아 푼 문제를 하나씩 표시해 보세요. {profile}라면 세 문제의 풀이를 비교해 학생이 혼자 이어 가는 단계와 설명이 필요한 단계를 나눌 수 있습니다.",
+        f"{local} 학생의 현재 수학 상태를 설명할 때는 점수보다 문제를 읽고 첫 식을 쓰는 장면을 준비하는 편이 좋습니다. {profile}인지 살핀 뒤 가장 먼저 바꿀 행동을 한 가지로 좁혀 보세요.",
+        f"상담 자료에는 최근 진도표와 함께 학생이 풀이를 지우거나 멈춘 흔적이 남은 문제를 포함해 보세요. {profile}라면 정답을 고친 결과보다 다시 시작한 위치가 더 구체적인 확인 기준이 됩니다.",
+        f"학생이 익숙한 문제와 처음 보는 문제를 각각 어떻게 시작하는지 비교해 보세요. {profile}에는 개념 이해와 문제 적용을 따로 확인해야 복습과 다음 진도의 순서를 정하기 쉽습니다.",
+        f"{title} 상담 전에는 어려운 문제를 많이 모으기보다 최근 반복된 오답 두세 개를 원인별로 나누는 편이 좋습니다. {profile}라면 도움받은 내용과 혼자 다시 해 볼 내용을 구분해 준비하세요.",
+        f"학생의 수학 기록을 계산, 문제 해석, 식 세우기, 검산의 네 칸으로 나누어 보세요. {profile}인지 확인하면 문제 수를 늘리기 전에 어느 칸을 먼저 보완할지 정할 수 있습니다.",
+        f"{local} 가정에서 관찰한 내용은 ‘오래 공부했다’보다 ‘어느 문제에서 어떤 질문을 했다’처럼 장면으로 적는 편이 좋습니다. {profile}라면 짧은 기록 한두 개만으로도 상담 질문을 구체화할 수 있습니다.",
+        f"최근 과제에서 학생이 혼자 푼 범위와 확인이 필요했던 범위를 다른 표시로 구분해 보세요. {profile}에는 한 번의 채점 결과보다 며칠 뒤 재풀이한 기록을 함께 보는 것이 유용합니다.",
+    ))
+    second = pick_copy_variant(seed, "second", (
+        f"상담에서는 진단에 사용한 자료, 설명 뒤 학생이 직접 푸는 시간, 과제 오답을 다시 확인하는 시점을 차례로 물어보세요. {suggestion}",
+        f"수업을 비교할 때는 개념 설명에서 끝나는지, 학생의 적용과 재풀이까지 이어지는지를 확인해야 합니다. {suggestion}",
+        f"과제는 분량만 묻지 말고 미완료한 문제와 반복 오답이 다음 수업에서 어떻게 다뤄지는지 질문해 보세요. {suggestion}",
+        f"학부모 피드백에는 진도뿐 아니라 이해한 내용, 남은 질문, 다음 확인일이 구분되는지 살펴보세요. {suggestion}",
+        f"학생이 답을 맞힌 경우에도 풀이 이유를 설명하고 다른 문제에 적용하는 시간이 있는지 물어보세요. {suggestion}",
+        f"진단 결과가 첫 학습 순서와 과제 조절에 어떻게 반영되는지 확인해 보세요. {suggestion}",
+        f"도움이 필요한 순간에 바로 답을 주는지, 힌트 뒤 학생이 다시 시작할 시간을 두는지 상담에서 구체적으로 확인하세요. {suggestion}",
+        f"수업 중 질문과 과제에서 생긴 질문을 어떤 기록으로 남기고 언제 되짚는지 물어보세요. {suggestion}",
+    ))
+    third = pick_copy_variant(seed, "third", (
+        "첫 계획은 큰 결과보다 2~4주 동안 확인할 행동으로 정하는 편이 좋습니다. 과제 시작, 풀이 설명, 오답 재시도 가운데 한두 가지를 고르고 다음 상담에서 기록을 바탕으로 조정하세요.",
+        "상담 답변은 확인된 사실과 추가로 물어볼 내용으로 나누어 적어 보세요. 수업료·시간표·교재·반 편성은 최신 정보를 직접 확인하고 학생의 학습 적합성과 별도로 판단해야 합니다.",
+        "비교 메모에는 진단 자료, 수업 중 학생 행동, 과제 확인, 재풀이 날짜를 같은 순서로 적어 보세요. 여러 답변을 같은 항목으로 기록하면 막연한 인상보다 실행 절차를 살피기 쉽습니다.",
+        "학생이 지킬 수 있는 계획인지 보려면 학교 일정, 이동 시간, 과제와 복습 시간을 한 주에 함께 표시해 보세요. 무리한 부분이 있다면 문제 수보다 우선순위를 먼저 조정하는 편이 좋습니다.",
+        "성적 변화나 진도 결과를 미리 약속으로 받아들이지 말고 어떤 기록을 기준으로 상태를 설명하는지 확인하세요. 이후 계획을 언제, 어떤 자료로 조정하는지도 함께 물어보는 것이 좋습니다.",
+        "처음부터 모든 약점을 고치려 하기보다 가장 자주 막히는 단계 하나와 다시 확인할 날짜를 정해 보세요. 관찰한 내용이 달라지면 다음 우선순위도 기록을 근거로 바꿀 수 있습니다.",
+        "학부모와 학생이 같은 목표를 이해하는지도 중요합니다. 학생은 다음에 시도할 행동을 말하고 학부모는 확인할 날짜만 기록하면 과도한 통제 없이 진행 상황을 살필 수 있습니다.",
+        "상담을 마친 뒤에는 반드시 필요한 조건, 있으면 도움이 되는 조건, 아직 확인하지 못한 조건을 나누어 보세요. 빈칸은 추정으로 채우지 말고 다음 문의에서 확인하는 것이 안전합니다.",
+    ))
+    return heading, [finish_sentence(first), finish_sentence(second), finish_sentence(third)]
+
+
 def extract_reference_keyword(manuscript: dict[str, str]) -> str:
     """Find the generator-only prompt token embedded in some source drafts."""
     candidates = (
@@ -1549,6 +1975,8 @@ def extract_reference_keyword(manuscript: dict[str, str]) -> str:
     )
     patterns = (
         r"세부 소재는\s*[‘'\"]([^’'\"]+)[’'\"]",
+        r"[‘'\"]([^’'\"]+)[’'\"]\s*항목(?:은|는)\s+실제\s+운영\s+사실",
+        r"입력값\s*[‘'\"]([^’'\"]+)[’'\"]",
         r"[‘'\"]([^’'\"]+)[’'\"](?:은|는)\s+실제\s+운영\s+사실이\s+아니라",
         r"Q2[.)]?\s*(.+?)(?:은|는)\s+실제로\s+운영",
         r"범위에서만\s+사용하며,\s*(.+?)(?:은|는)\s+실제\s+운영\s+사실",
@@ -1667,6 +2095,10 @@ def strip_source_production_sentences(value: str) -> str:
         "이를 근거로 역세권",
         "확인되지 않은 내용은 결정 근거",
         "홍보 표현보다",
+        "입력된 보조 참고어",
+        "보조 참고어",
+        "핵심 검색어",
+        "입력값",
     )
     result: list[str] = []
     for block in re.split(r"(\n\s*\n)", value):
@@ -1980,6 +2412,8 @@ def soften_subject_phrase_repetition(
     grade_match = re.search(r"(\d+)", config["grade"])
     if grade_match:
         short_grade = f"초{grade_match.group(1)}"
+    elif config["grade"] == "초등학생":
+        short_grade = "초등학생"
     elif config["grade"].startswith("고"):
         short_grade = "고등"
     elif config["grade"].startswith("중"):
@@ -2143,8 +2577,22 @@ def grade_is_listed(grade_range: str, grade: str) -> bool:
         return any(value.startswith("고") for value in values)
     if grade.startswith("중"):
         return any(value.startswith("중") for value in values)
+    if grade == "초등학생":
+        return any(value.startswith("초") for value in values)
     match = re.search(r"(\d+)", grade)
     return bool(match and any(value.startswith(f"초{match.group(1)}") for value in values))
+
+
+def page_grade_values(grade_range: str, grade: str) -> list[str]:
+    """Return only grade facts relevant to the page's stated audience."""
+    values = split_values(grade_range)
+    if grade == "초등학생":
+        return [value for value in values if value.startswith("초")]
+    if grade.startswith("중"):
+        return [value for value in values if value.startswith("중")]
+    if grade.startswith("고"):
+        return [value for value in values if value.startswith("고")]
+    return values
 
 
 def slug_local(value: str) -> str:
@@ -2320,6 +2768,17 @@ def parse_body(body: str) -> tuple[list[str], list[tuple[str, list[str]]]]:
 def parse_faq(value: str) -> list[tuple[str, str]]:
     pairs = [(clean_text(q), clean_text(a)) for q, a in FAQ_RE.findall(value)]
     if len(pairs) < 3:
+        # Some supplied manuscript archives place the answer directly below
+        # each Q line without an ``A`` marker.  Treat that layout as data too.
+        pairs = [
+            (clean_text(question), clean_text(re.sub(r"^A(?:\d+)?[.)]?\s*", "", answer)))
+            for question, answer in re.findall(
+                r"(?:^|\n)\s*Q\d+[.)]?\s*(.*?)\s*\n(.*?)(?=\n\s*Q\d+[.)]?|\Z)",
+                value,
+                re.S,
+            )
+        ]
+    if len(pairs) < 3:
         raise ValueError(f"FAQ를 3개 이상 해석하지 못했습니다: {value[:120]}")
     return pairs
 
@@ -2395,9 +2854,9 @@ def diversify_faq_answer(
             ))
         return pick_copy_variant(seed, "wrong-answer", (
             f"{local} {grade} 학생은 재풀이 뒤에도 틀린 원인을 계산, 개념, 조건 해석으로 나누어 기록해야 합니다. 비슷한 문제를 며칠 뒤 다시 해결해 같은 실수가 줄었는지 확인하세요.",
-            f"오답을 한 번 고치는 것만으로는 충분하지 않습니다. {local} 학생이 어느 단계에서 멈췄는지 표시하고 일정 간격 뒤 유사 문제에 다시 적용할 수 있는지 살펴야 합니다.",
+            f"오답을 한 번 고치는 것만으로는 충분하지 않습니다. {local} 학생이 어느 단계에서 멈췄는지 표시하고 일정한 간격을 둔 뒤 유사 문제를 다시 풀 수 있는지 살펴야 합니다.",
             f"{local} {subject} 오답은 정답을 옮겨 적기보다 막힌 이유를 구분하는 자료로 사용합니다. 이후 비슷한 문제를 새 풀이로 해결하는지까지 확인하면 복습 효과를 알 수 있습니다.",
-            f"재풀이 과정에서는 {local} 학생이 계산 실수인지 개념 혼동인지 스스로 설명하도록 합니다. 같은 유형을 시간을 두고 다시 풀어 오류가 반복되는지도 점검하세요.",
+            f"재풀이할 때는 {local} 학생이 계산 실수인지 개념 혼동인지 스스로 설명할 수 있는지 확인해 보세요. 같은 유형을 시간을 두고 다시 풀어 오류가 반복되는지도 점검하세요.",
             f"{local} {grade} 오답 관리는 틀린 날짜, 원인, 다시 푼 결과를 이어서 보는 방식이 좋습니다. 답을 기억한 것이 아니라 새 문제에 적용할 수 있는지를 확인해야 합니다.",
             f"틀린 문제는 풀이를 고친 뒤 끝내지 말고 {local} 학생이 비슷한 문제에서 같은 근거를 사용할 수 있는지 다시 봅니다. 오류 원인을 분류하면 다음 수업의 보완 순서도 선명해집니다.",
             f"{local} 학생의 오답 기록에는 문제 번호보다 생각이 끊긴 지점을 남기는 편이 유용합니다. 재풀이 날짜를 정하고 같은 이유의 실수가 줄었는지 비교하세요.",
@@ -2430,6 +2889,7 @@ def diversify_faq_question(
     address = row.get("센터 주소", "").strip()
     schools = split_school_values(row.get(config["school_field"], ""))
     grade_range = row.get(config["grade_field"], "").strip()
+    relevant_grade_values = page_grade_values(grade_range, config["grade"])
     seed = f"{category}|{local}|faq-question"
 
     def finalize(namespace: str, variants: tuple[str, ...]) -> str:
@@ -2455,6 +2915,12 @@ def diversify_faq_question(
                 break
         core = re.sub(r"^(?:상담에서는|상담에서)\s*", "", core).strip() or clean_text(question)
         return finalize(f"slot-{slot}-intent-preserved", (f"{local}에서 {core}",))
+
+    if category == "초등수학학원":
+        # 이 카테고리의 후보 Q/A는 이미 같은 상담 의도로 한 쌍씩 작성되어
+        # 있습니다. 답변과 무관한 학습 고민을 질문 앞에 새로 붙이면 서로
+        # 다른 어려움이 한 문답에 섞이므로 원래 질문 의도를 보존합니다.
+        return finalize(f"slot-{slot}-intent-preserved", (clean_text(question),))
 
     # 운영 정보 질문에는 학습 문제 조건절을 억지로 붙이지 않고, 확인하려는
     # 사실(위치·시간표·학년·학교 진도)에 맞춘 전용 질문을 사용합니다.
@@ -2489,7 +2955,7 @@ def diversify_faq_question(
             f"{center} 상담에서 결석·과제 미완료 뒤의 보완 시간은 어떻게 확인하나요",
         ))
     if "수업 가능 학년" in question or "반 편성" in question:
-        grade_hint = "·".join(split_values(grade_range)) or config["grade"]
+        grade_hint = "·".join(relevant_grade_values) or config["grade"]
         return finalize(f"grade-{slot}", (
             f"{center}의 {config['subject']} 수업 가능 학년과 현재 반 편성은 어떻게 확인하나요",
             f"{local}에서 {grade_hint} {config['subject']} 상담이 가능한지는 무엇을 확인해야 하나요",
@@ -2626,18 +3092,34 @@ def build_page_faqs(
     center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
     address = row.get("센터 주소", "").strip()
     location = normalize_location_description(row.get("위치안내", ""))
+    if location_conflicts_with_address(address, location):
+        location = ""
     schools = split_school_values(row.get(config["school_field"], ""))
     grade_range = row.get(config["grade_field"], "").strip()
     subject = config["subject"]
     grade = config["grade"]
+    relevant_grade_values = page_grade_values(grade_range, grade)
     seed = f"{category}|{local}|faq"
-    profile = LEARNING_PROFILES[category][stable_index(seed, "profile", len(LEARNING_PROFILES[category]))]
+    profile_index = stable_index(seed, "profile", len(LEARNING_PROFILES[category]))
+    profile = LEARNING_PROFILES[category][profile_index]
     profile_clause = profile.removesuffix("경우").strip()
-    action = LEARNING_ACTIONS[subject][stable_index(seed, "action", len(LEARNING_ACTIONS[subject]))]
+    profile_observation = (
+        ELEMENTARY_MATH_OBSERVATION_CLAUSES[profile_index]
+        if category == "초등수학학원"
+        else ""
+    )
+    profile_observation_body = profile_observation.removeprefix("학생이 ")
+    action = (
+        ELEMENTARY_MATH_ALIGNED_ACTIONS[profile_index]
+        if category == "초등수학학원"
+        else LEARNING_ACTIONS[subject][stable_index(seed, "action", len(LEARNING_ACTIONS[subject]))]
+    )
     school_text = "·".join(schools)
     priority_action = (
         action.replace("과제량보다", "과제량을 늘리기보다", 1)
         if action.startswith("과제량보다")
+        else action.replace("정답 수보다", "정답 수만 보기보다", 1)
+        if action.startswith("정답 수보다")
         else f"진도를 넓히기보다 {action}"
     )
 
@@ -2650,7 +3132,7 @@ def build_page_faqs(
         (
             f"{local} {grade} {subject} 수업은 선행과 복습 중 무엇을 먼저 보나요?",
             f"{local} 학생이 현재 단원을 혼자 설명하고 다시 풀 수 있는지를 먼저 확인합니다. 기초가 안정적이면 다음 단원으로 이어가고, "
-            f"오답 이유가 반복되면 {action}",
+            "오답 이유가 반복되면 현재 학년의 기본 문제를 다시 확인한 뒤 다음 단원 문제와 나누어 학습 순서를 정합니다.",
         ),
         (
             f"{local} {grade} {subject} 과제량은 어떤 기준으로 정하는 것이 좋을까요?",
@@ -2691,27 +3173,27 @@ def build_page_faqs(
         (
             f"{local} 학생에게 지금 복습이 먼저 필요한지 어떻게 알 수 있나요?",
             f"최근 배운 내용을 교재 없이 설명하고 비슷한 문제를 다시 풀 수 있는지 확인해 보세요. "
-            f"{local} {grade} 학생에게 {profile_clause} 모습이 보이면 {action}",
+            f"{local} {grade} 학생의 최근 풀이를 보며 {profile_observation_body} 살펴보세요. {action}",
         ),
         (
             f"{title}을 비교할 때 교재 외에 어떤 수업 장면을 봐야 하나요?",
-            f"설명을 들은 뒤 학생이 직접 푸는 시간, 막힌 이유를 말하는 과정, 일정 뒤 재풀이하는 절차를 확인해야 합니다. "
+            f"설명을 들은 뒤 학생이 직접 푸는 시간, 막힌 이유를 말하는 과정, 시간을 두고 다시 푸는 절차를 확인해야 합니다. "
             f"{local} 학생이 {profile}라면 특히 {action}",
         ),
         (
             "질문 기록은 왜 필요한가요?",
             f"질문 기록은 모르는 문제 수를 세기 위한 것이 아니라 어느 단계에서 설명이 더 필요한지 찾는 자료입니다. "
-            f"{profile_clause} {local} 학생에게는 질문을 수업 계획에 반영해 {action}",
+            f"{profile_clause} {local} 학생에게는 질문이 생긴 문제와 혼자 다시 시도한 결과를 함께 기록하는 편이 좋습니다. {action}",
         ),
         (
             f"{local} 학부모는 과제 피드백을 어떤 기준으로 확인하면 좋을까요?",
             f"완료 표시만 보기보다 틀린 이유, 다시 풀 날짜, 다음 수업에서 확인한 결과가 이어지는지 살펴보세요. "
-            f"{local} 학생에게 {profile_clause} 모습이 보인다면 피드백 뒤 {action}",
+            f"{local} 학생의 과제 기록을 보며 {profile_observation_body} 살펴보세요. 피드백 뒤에는 {action}",
         ),
         (
             f"{local} {grade} {subject} 수업을 오래 유지하려면 무엇을 조정해야 하나요?",
             f"학교 일정과 이동 시간, 과제에 실제로 사용할 수 있는 시간을 함께 놓고 무리한 부분을 줄여야 합니다. "
-            f"{profile}라면 {local}의 주간 계획 안에서 {action}",
+            f"{local} 학생이 수업 복습, 오답 재확인, 다음 회차 준비를 한 주 안에서 반복할 수 있는지 확인하고 필요하면 분량부터 조정하세요.",
         ),
     ]
     if schools:
@@ -2720,10 +3202,10 @@ def build_page_faqs(
             f"센터 자료에서 수업 가능 학교로 확인되는 곳은 {school_text}입니다. 학교 이름만으로 범위를 단정하지 않고, "
             f"학생이 가져온 최근 진도표·과제·평가 안내를 기준으로 {subject} 보완 순서를 상담합니다.",
         ))
-    if grade_range:
+    if relevant_grade_values:
         candidates.append((
             f"{center}의 {subject} 수업 가능 학년은 어떻게 확인하나요?",
-            f"센터 자료에 표시된 {subject} 수업 가능 학년은 {'·'.join(split_values(grade_range))}입니다. {local}의 실제 반 편성, 시간표와 학생의 현재 진도는 달라질 수 있으므로 상담 시 함께 확인해야 합니다.",
+            f"센터 자료에 표시된 {subject} 수업 가능 학년은 {'·'.join(relevant_grade_values)}입니다. {local}의 실제 반 편성, 시간표와 학생의 현재 진도는 달라질 수 있으므로 상담 시 함께 확인해야 합니다.",
         ))
     if location:
         candidates.append((
@@ -2762,6 +3244,22 @@ def build_page_faqs(
                 "진도를 넓히기보다 과제량보다",
                 "과제량을 늘리기보다",
             )
+        elif category == "초등수학학원":
+            # 한 페이지의 FAQ도 같은 고민과 행동을 네 번 되풀이하지 않도록
+            # 슬롯마다 다른 상태를 쓰되, 행동은 반드시 동일 인덱스로 맞춥니다.
+            profiles = LEARNING_PROFILES[category]
+            slot_profile_index = (profile_index + slot) % len(profiles)
+            slot_profile = profiles[slot_profile_index]
+            slot_action = ELEMENTARY_MATH_ALIGNED_ACTIONS[slot_profile_index]
+            slot_observation = ELEMENTARY_MATH_OBSERVATION_CLAUSES[slot_profile_index]
+            slot_observation_body = slot_observation.removeprefix("학생이 ")
+            answer = answer.replace(profile_observation_body, slot_observation_body)
+            answer = answer.replace(profile, slot_profile)
+            answer = answer.replace(
+                profile_clause,
+                slot_profile.removesuffix("경우").strip(),
+            )
+            answer = answer.replace(action, slot_action)
         answer = diversify_faq_answer(answer, row, config, category, slot)
         question = diversify_faq_question(question, answer, row, config, title, category, slot)
         key = re.sub(r"[^가-힣A-Za-z0-9]", "", question)
@@ -2792,6 +3290,36 @@ def build_consultation_scenarios(
         while index in profile_indexes:
             index = (index + 1) % len(profiles)
         profile_indexes.append(index)
+    if category == "초등수학학원":
+        # 초등 수학은 고민과 후속 행동을 독립적으로 섞지 않습니다. 각 고민에
+        # 맞는 관찰·재시도 행동을 고정해 상담 상황 카드의 의미를 일관되게
+        # 유지하고, 페이지별로는 서로 다른 세 고민과 문장 틀을 선택합니다.
+        elementary_scenarios: list[str] = []
+        for slot, index in enumerate(profile_indexes):
+            clause = profiles[index].removesuffix("경우").strip()
+            action = ELEMENTARY_MATH_ALIGNED_ACTIONS[index]
+            observation = ELEMENTARY_MATH_OBSERVATION_CLAUSES[index]
+            elementary_scenarios.append(pick_copy_variant(
+                seed,
+                f"elementary-scenario-{slot}",
+                (
+                    f"{local} 상담에는 {clause} 상황이 드러난 최근 문제 한두 개를 준비해 보세요. {action}",
+                    f"{local} 학부모가 {clause} 모습을 관찰했다면 정답 수만 기록하지 말고 학생이 멈춘 지점을 함께 적어 보세요. {action}",
+                    f"{local} 초등 수학 계획을 세울 때는 {clause} 상황을 첫 점검 항목으로 삼아 보세요. {action}",
+                    f"최근 교재의 풀이를 보며 {observation} 확인해 보세요. {local} 상담에서는 관찰한 장면을 구체적으로 설명해 보세요. {action}",
+                    f"{local} 상담 전에 최근 풀이를 보며 {observation} 확인해 보세요. 해당 장면이 나타난 문제와 풀이 과정을 함께 적어 보세요. {action}",
+                    f"{local}에서 초등 수학 수업을 비교할 때는 최근 풀이를 보며 {observation} 살펴보세요. {action}",
+                ),
+            ))
+        if schools:
+            index = stable_index(seed, "school-slot", len(elementary_scenarios))
+            school_text = "·".join(schools)
+            elementary_scenarios[index] = finish_sentence(elementary_scenarios[index])
+            elementary_scenarios[index] += (
+                f" {school_text} 재학생은 최신 학교 진도와 과제 자료를 준비하면 "
+                "상담 질문을 더 구체화할 수 있습니다."
+            )
+        return [finish_sentence(scenario) for scenario in elementary_scenarios]
     profile_zero, profile_one, profile_two = (profiles[index] for index in profile_indexes)
     action_zero = actions[stable_index(seed, "action-0", len(actions))]
     action_one = actions[stable_index(seed, "action-1", len(actions))]
@@ -2867,19 +3395,27 @@ def build_context_section(
     center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
     address = row.get("센터 주소", "").strip()
     location = normalize_location_description(row.get("위치안내", ""))
+    if location_conflicts_with_address(address, location):
+        location = ""
     context_location = "" if category == "고등영어학원" and "수학" in location else location
     schools = split_school_values(row.get(config["school_field"], ""))
     grade_range = row.get(config["grade_field"], "").strip()
     subject = config["subject"]
     grade = config["grade"]
+    relevant_grade_values = page_grade_values(grade_range, grade)
     seed = f"{category}|{local}|context"
-    profile = LEARNING_PROFILES[category][stable_index(seed, "profile", len(LEARNING_PROFILES[category]))]
-    action = LEARNING_ACTIONS[subject][stable_index(seed, "action", len(LEARNING_ACTIONS[subject]))]
+    profile_index = stable_index(seed, "profile", len(LEARNING_PROFILES[category]))
+    profile = LEARNING_PROFILES[category][profile_index]
+    action = (
+        ELEMENTARY_MATH_ALIGNED_ACTIONS[profile_index]
+        if category == "초등수학학원"
+        else LEARNING_ACTIONS[subject][stable_index(seed, "action", len(LEARNING_ACTIONS[subject]))]
+    )
     direct_area = direct_center_area(local, center, address)
     headings = (
         f"{local} 상담에서 확인할 {grade} {subject} 우선순위",
         f"{local} 학생의 현재 기록으로 시작하는 {subject} 계획",
-        f"{grade} {subject} 상담을 구체화하는 세 가지 자료",
+        f"{grade} {subject} 상담을 구체화하는 확인 자료",
         f"{local} 생활 일정과 함께 보는 {subject} 학습 흐름",
     )
     paragraphs = [
@@ -2897,7 +3433,7 @@ def build_context_section(
             f"{'상담 장소는' if direct_area else local + ' 학생의 상담 가능 여부는 인근 센터 기준으로 안내하며, 실제 센터 위치는'} {center}{'(' + address + ')' if address else ''}입니다. {'위치 안내 문구는 다음과 같습니다. ‘' + context_location + '’ ' if context_location else ''}{local}에서 등원 요일과 수업 뒤 복습 시간을 함께 정하면 계획을 무리 없이 이어가기 좋습니다.",
             f"{'직접 상담 위치는' if direct_area else local + ' 수업 상담은 인근 센터의 운영 여부를 확인해야 하며, 안내된 위치는'} {center}{'(' + address + ')' if address else ''}입니다. {'찾아가는 방법은 다음 안내를 참고하세요. ‘' + context_location + '’ ' if context_location else ''}이동 시간과 귀가 뒤 복습 가능 시간도 함께 계산해 보세요.",
             f"센터 안내 기준 위치는 {center}{'(' + address + ')' if address else ''}입니다. {'위치 설명은 다음과 같습니다. ‘' + context_location + '’ ' if context_location else ''}{local} 학생은 실제 방문 가능 여부와 가능한 요일을 상담 전에 확인하는 편이 좋습니다.",
-            f"{local} 학생의 상담은 {center}{'(' + address + ')' if address else ''} 위치를 기준으로 가능 여부를 확인합니다. {'안내된 동선은 다음과 같습니다. ‘' + context_location + '’ ' if context_location else ''}등하원 시간과 주간 복습 계획이 서로 무리 없는지도 살펴야 합니다.",
+            f"안내된 상담 위치는 {center}{'(' + address + ')' if address else ''}입니다. {local} 학생의 상담 가능 여부는 방문 전에 따로 확인하세요. {'안내된 동선은 다음과 같습니다. ‘' + context_location + '’ ' if context_location else ''}등하원 시간과 주간 복습 계획이 서로 무리 없는지도 살펴야 합니다.",
             f"안내된 센터는 {center}{'(' + address + ')' if address else ''}입니다. {'센터 위치 참고 문구는 다음과 같습니다. ‘' + context_location + '’ ' if context_location else ''}{local}에서 실제로 꾸준히 다닐 수 있는 시간인지 먼저 확인하세요.",
             f"{center}{'(' + address + ')' if address else ''}에서 {local} 학생의 상담 가능 여부를 확인할 수 있습니다. {'방문 전에는 다음 위치 안내를 참고하세요. ‘' + context_location + '’ ' if context_location else ''}수업 시간뿐 아니라 이동과 복습에 필요한 시간도 함께 고려합니다.",
         )),
@@ -2917,10 +3453,10 @@ def build_context_section(
             f"{local} 수업 가능 학교 정보가 따로 표시되지 않은 경우에는 재학 학교와 최근 진도 자료를 상담 때 직접 확인해 학습 순서를 정합니다.",
             f"{local} 학교 정보가 별도로 표시되지 않았다면 상담에서 재학 학교, 현재 단원, 최근 과제를 확인한 뒤 보완 순서를 정합니다.",
             f"{local} 학생의 재학 학교 자료는 상담 때 직접 확인하며, 학교 이름보다 현재 진도와 풀이 기록을 기준으로 계획을 세웁니다.",
-            f"{local}에서는 학교별 범위를 미리 가정하지 않고 학생이 가져온 최근 과제와 진도표를 토대로 학습 순서를 안내합니다.",
+            f"{local} 상담에서는 학교별 범위를 미리 가정하지 말고 학생의 최근 과제와 진도표를 토대로 학습 순서를 확인해 보세요.",
         )))
-    if grade_range:
-        grade_text = "·".join(split_values(grade_range))
+    if relevant_grade_values:
+        grade_text = "·".join(relevant_grade_values)
         paragraphs.append(pick_copy_variant(seed, "context-grades", (
             f"{local} 센터 안내에 표시된 {subject} 수업 가능 학년은 {grade_text}이며, 실제 반 편성과 시간표는 상담 시 확인합니다.",
             f"{local} 센터의 {subject} 수업 가능 학년은 {grade_text}입니다. 현재 모집 반과 수업 시간은 상담에서 다시 확인합니다.",
@@ -3125,6 +3661,8 @@ def build_high_math_local_repair_section(
     center = row.get("센터명", "").strip() or f"{local} 학습코칭센터"
     address = row.get("센터 주소", "").strip()
     location = normalize_location_description(row.get("위치안내", ""))
+    if location_conflicts_with_address(address, location):
+        location = ""
 
     if local == "단구동":
         return (
@@ -3454,7 +3992,9 @@ def local_page(
         raw_region == "서울"
         and address.startswith(("경기 성남시 ", "경기도 성남시 "))
     )
-    location = normalize_location_description(row.get("위치안내", ""))
+    raw_location = normalize_location_description(row.get("위치안내", ""))
+    location_conflict = location_conflicts_with_address(address, raw_location)
+    location = "" if location_conflict else raw_location
     schools = split_school_values(row.get(config["school_field"], ""))
     grade_range = row.get(config["grade_field"], "").strip()
     grade_supported = grade_is_listed(grade_range, config["grade"])
@@ -3465,8 +4005,8 @@ def local_page(
     )
     if address_is_gyeonggi_seongnam:
         description = (
-            f"{title}: {display_region} {display_district} {local}에서 {center}의 {config['grade']} "
-            f"{config['subject']} 진단·오답 관리와 경기 성남시 센터 위치 안내입니다."
+            f"{title}: {center}의 {config['grade']} {config['subject']} 진단·오답 관리와 "
+            "경기 성남시 센터 위치 안내입니다."
         )
     page_seed = f"{category}|{local}"
     profile_counters: dict[str, int] = {}
@@ -3482,6 +4022,8 @@ def local_page(
             display_district,
         )
         value = clean_text(value)
+        if category == "초등수학학원":
+            value = polish_elementary_math_copy(value, local)
         if category == "중등영어학원":
             value = value.replace(
                 f"{local}이라는 표기는",
@@ -3581,6 +4123,10 @@ def local_page(
         body_source,
     )
     intro, body_sections = parse_body(body_source)
+    if category == "초등수학학원":
+        intro, body_sections = build_elementary_math_core_copy(
+            row, title, body_sections, category
+        )
     if category == "중등영어학원":
         production_markers = (
             "수학",
@@ -4375,6 +4921,11 @@ def local_page(
     local_repair = build_high_math_local_repair_section(row, config, category)
     if local_repair:
         body_sections.append(local_repair)
+    elementary_math_check = build_elementary_math_check_section(
+        row, title, category
+    )
+    if elementary_math_check:
+        body_sections.append(elementary_math_check)
     context_section = build_context_section(row, config, title, category)
     context_section = (
         finalize_visible_copy(context_section[0]),
@@ -4472,6 +5023,17 @@ def local_page(
             (clean_text(heading), [clean_text(paragraph) for paragraph in paragraphs])
             for heading, paragraphs in body_sections
         ]
+    if category == "초등수학학원":
+        # 원문을 정리한 뒤 삽입되는 지역·점검 섹션까지 동일한 문장 보정을
+        # 마지막에 적용해, 재생성 시 어색한 조합이 다시 나타나지 않게 합니다.
+        intro = [polish_elementary_math_copy(paragraph, local) for paragraph in intro]
+        body_sections = [
+            (
+                polish_elementary_math_copy(heading, local),
+                [polish_elementary_math_copy(paragraph, local) for paragraph in paragraphs],
+            )
+            for heading, paragraphs in body_sections
+        ]
     seen_sentences: set[str] = set()
     intro = dedupe_sentences(intro, seen_sentences)
     body_sections = [
@@ -4481,9 +5043,10 @@ def local_page(
     body_sections = [(heading, paragraphs) for heading, paragraphs in body_sections if paragraphs]
     parsed_source_faqs = parse_faq(manuscript["FAQ"])
     source_faqs = safe_source_faqs(parsed_source_faqs, reference_keyword)
-    # 중등 영어 원고의 FAQ에는 생성 과정 설명과 입력 학교 표기가 섞인
-    # 문장이 있어, 공개 페이지에는 검증된 센터 데이터 기반 FAQ만 씁니다.
-    if category == "중등영어학원":
+    # 중등 영어 원고에는 생성 과정 설명과 입력 학교 표기가 섞여 있고,
+    # 초등 수학 원고의 일부 문답에는 서로 다른 학습 고민이 결합돼 있어
+    # 두 카테고리는 검증된 센터 데이터 기반 FAQ만 씁니다.
+    if category in {"중등영어학원", "초등수학학원"}:
         source_faqs = []
     if config["subject"] == "영어":
         source_faqs = [
@@ -4498,6 +5061,15 @@ def local_page(
         for question, answer in source_faqs
         if not any(name and name in question + " " + answer for name in forbidden_school_names)
     ]
+    if location_conflict:
+        source_faqs = [
+            (question, answer)
+            for question, answer in source_faqs
+            if not any(
+                token in question + " " + answer
+                for token in ("위치", "주소", "방문", "건물", "층")
+            )
+        ]
     faqs = build_page_faqs(source_faqs, row, config, title, category)
     def finalize_faq_copy(value: str) -> str:
         # FAQ 질문과 답변은 동일한 학습 상태 표현을 유지해야 합니다. 본문용
@@ -4532,6 +5104,28 @@ def local_page(
         )
         for question, answer in faqs
     ]
+    if category == "초등수학학원":
+        # Shared centres and school lists can otherwise produce a handful of
+        # byte-identical FAQ entries across neighbouring locality pages.  Add
+        # the page locality only when it is not already present, preserving the
+        # question/answer meaning and keeping the visible and JSON-LD copies in
+        # lockstep.
+        localized_faqs: list[tuple[str, str]] = []
+        for question, answer in faqs:
+            if local not in question:
+                if question == "질문 기록은 왜 필요한가요?":
+                    question = f"{local} 학생의 질문 기록은 왜 필요한가요?"
+                elif question.startswith(center):
+                    question = f"{local}에서 {question}"
+                else:
+                    question = f"{local}에서 {question}"
+            if local not in answer:
+                answer = (
+                    finish_sentence(answer)
+                    + f" {local} 상담에서는 학생 본인의 최신 자료와 함께 확인하세요."
+                )
+            localized_faqs.append((question, answer))
+        faqs = localized_faqs
     # 입력 후기 구역도 파싱해 파일 형식 오류를 잡되, 화면에는 실제 후기처럼 오해되지 않는 상담 상황을 사용합니다.
     parse_reviews(editorialize(manuscript["학부모후기"], row))
     reviews = build_consultation_scenarios(row, config, title, category)
@@ -4655,6 +5249,11 @@ def local_page(
     if reg_office or reg_number:
         org["identifier"] = " · ".join(x for x in (reg_office, reg_number) if x)
 
+    service_about = (
+        [config["subject"], "학교 진도", "개념 점검"]
+        if category == "초등수학학원"
+        else [config["subject"], "내신 대비", "개념 점검"]
+    )
     graph = [
         {
             "@type": "WebPage", "@id": page_id, "url": canonical, "name": title,
@@ -4692,7 +5291,7 @@ def local_page(
             "serviceType": "TutoringService", "provider": {"@id": org_id},
             "description": summary, "areaServed": {"@type": "Place", "name": local},
             "audience": {"@type": "EducationalAudience", "educationalRole": "student", "audienceType": config["grade"]},
-            "about": [config["subject"], "내신 대비", "개념 점검"],
+            "about": service_about,
             "mentions": ["학습 플래너", "오답 재학습", *schools], "offers": [offer],
         },
         {
@@ -4733,7 +5332,16 @@ def local_page(
             f'<p class="subject-grade-availability-notice">센터 안내 자료에 {esc(subject_label)} 가능 학년이 '
             '표시되지 않아 실제 개설 여부와 시간표를 상담에서 확인해야 합니다.</p>'
         )
-    grade_fact = grade_range if grade_supported else f"{subject_label} 개설 여부 상담 확인"
+    grade_fact = (
+        "·".join(page_grade_values(grade_range, config["grade"]))
+        if grade_supported
+        else f"{subject_label} 개설 여부 상담 확인"
+    )
+    subject_fact = (
+        "개념·교과·오답 흐름 점검"
+        if category == "초등수학학원"
+        else "개념·내신·오답 흐름 점검"
+    )
 
     body = f'''{nav("과목별학원")}
   <main>
@@ -4749,7 +5357,7 @@ def local_page(
       <div class="section-head"><p class="eyebrow">핵심 답변</p><h2>{esc(local)}에서 {esc(config['grade'])} {esc(config['subject'])} 학원을 찾을 때 무엇부터 확인해야 할까요?</h2><p class="lead">{esc(visible_description)}</p></div>
       <div class="subject-fact-grid">
         <article><span>대상</span><strong>{esc(config['grade'])}</strong><p>{esc(grade_fact)}</p></article>
-        <article><span>과목</span><strong>{esc(config['subject'])}</strong><p>개념·내신·오답 흐름 점검</p></article>
+        <article><span>과목</span><strong>{esc(config['subject'])}</strong><p>{esc(subject_fact)}</p></article>
         <article><span>지역</span><strong>{esc(local)}</strong><p>{esc(' · '.join(x for x in (display_region, display_district) if x))}</p></article>
       </div>
     </section>
