@@ -42,4 +42,4 @@
 - bs4 필요. 현장QA 라이브러리는 CodexData/tmp/site15-branches-2026-09-09/qa-libs.
 - 독립근거: CodexData/tmp/site11-hub-enrichment-2026-09-10/qa 및 provenance.json, notes.md.
 - 브라우저/생성기/공개검증과 최종커밋·배포기록: tools/reports/hub-enrichment/ (gitignore, vercelignore 적용).
-- 기존 GitHub→Vercel 연결로만 배포. 최종원격상태/정식도메인HTML·리소스 동일성을 확인하고 RELEASE.md에 기록.
+- GitHub new11/main에 먼저 반영. Vercel 프로젝트조회 결과 git link=null이므로 자동배포연결을 추가하지 않고, 기존 new11에 CLI production 배포. 최종원격상태/정식도메인HTML·리소스 동일성을 확인하고 RELEASE.md에 기록.
