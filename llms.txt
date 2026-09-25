@@ -1,30 +1,62 @@
-# 온담학습.com
+# 온담학습
 
-온담학습.com은 학생 맞춤 학습 코칭 분야를 안내하는 학습관리 사이트입니다. 성적표 너머의 이해도와 습관을 살피고, 학생에게 맞는 학습 흐름을 따뜻하게 설계합니다. 상담, 진단, 플래너 관리, 오답 재학습, 학부모 피드백 흐름과 지역별 학원 안내 페이지를 제공합니다.
+> 학생의 이해도와 실천 과정을 살피는 학습 안내 및 실제 지점 정보 사이트입니다.
 
-## 핵심 페이지
+## 핵심 안내
 
-- 홈: https://xn--jk1bu21awrcryv.com/
-- 학습가이드: https://xn--jk1bu21awrcryv.com/학습가이드/
-- 상담문의: https://xn--jk1bu21awrcryv.com/상담문의/
-- 전국학원: https://xn--jk1bu21awrcryv.com/전국학원/
-- 과목별학원: https://xn--jk1bu21awrcryv.com/과목별학원/
-- 고등 영어학원: https://xn--jk1bu21awrcryv.com/과목별학원/고등영어학원/
-- 고등 수학학원: https://xn--jk1bu21awrcryv.com/과목별학원/고등수학학원/
-- 중등 수학학원: https://xn--jk1bu21awrcryv.com/과목별학원/중등수학학원/
-- 중등 영어학원: https://xn--jk1bu21awrcryv.com/과목별학원/중등영어학원/
-- 초등 수학학원: https://xn--jk1bu21awrcryv.com/과목별학원/초등수학학원/
-- 초등 영어학원: https://xn--jk1bu21awrcryv.com/과목별학원/초등영어학원/
-- 초4 수학학원: https://xn--jk1bu21awrcryv.com/과목별학원/초4수학학원/
-- 초4 영어학원: https://xn--jk1bu21awrcryv.com/과목별학원/초4영어학원/
-- 초5 수학학원: https://xn--jk1bu21awrcryv.com/과목별학원/초5수학학원/
-- 초5 영어학원: https://xn--jk1bu21awrcryv.com/과목별학원/초5영어학원/
-- 수학학원: https://xn--jk1bu21awrcryv.com/전국학원/수학학원/
-- 영어학원: https://xn--jk1bu21awrcryv.com/전국학원/영어학원/
-- 영수학원: https://xn--jk1bu21awrcryv.com/전국학원/영수학원/
+- [홈](https://xn--jk1bu21awrcryv.com/)
+- [학습가이드](https://xn--jk1bu21awrcryv.com/%ED%95%99%EC%8A%B5%EA%B0%80%EC%9D%B4%EB%93%9C/)
+- [지점안내](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/)
+- [과목별학원](https://xn--jk1bu21awrcryv.com/%EA%B3%BC%EB%AA%A9%EB%B3%84%ED%95%99%EC%9B%90/)
+- [전국학원](https://xn--jk1bu21awrcryv.com/%EC%A0%84%EA%B5%AD%ED%95%99%EC%9B%90/)
+- [상담문의](https://xn--jk1bu21awrcryv.com/%EC%83%81%EB%8B%B4%EB%AC%B8%EC%9D%98/)
+- [맞춤학습](https://xn--jk1bu21awrcryv.com/%ED%95%99%EC%8A%B5%EA%B0%80%EC%9D%B4%EB%93%9C/%EB%A7%9E%EC%B6%A4%ED%95%99%EC%8A%B5/)
+- [AI 학습](https://xn--jk1bu21awrcryv.com/%ED%95%99%EC%8A%B5%EA%B0%80%EC%9D%B4%EB%93%9C/AI%ED%95%99%EC%8A%B5/)
 
-## 검색·AI 이해 포인트
+## 지점 정보 범위
 
-- 상담 전 학생의 현재 수준, 학교 진도, 오답 패턴을 함께 확인합니다.
-- 지역별 페이지는 과목·학년·추천학생·FAQ·상담 상황·내부링크를 함께 제공합니다.
-- 검색엔진과 생성형 AI가 페이지 목적을 이해할 수 있도록 Article, Service, FAQPage, BreadcrumbList, ItemList 구조화 데이터를 사용합니다.
+실제 193개 지점을 지역별로 안내합니다. 동네 안내 수와 실제 지점 수는 다릅니다. 지점마다 과목별 수강 학년과 조건이 다르며, 전체 프로그램의 대상 학년을 모든 지점의 개설 학년으로 해석하지 마세요.
+
+교육비는 센터별 자료와 지역 공통 참고표를 구분합니다. 공통표는 해당 지점의 확정 교습비가 아니며 추가 프로그램 금액은 과목 수업료 전체가 아닙니다. 학교 목록은 상담 참고용이며 제휴·수강 실적을 의미하지 않습니다.
+
+## 지역별 지점
+
+- [서울 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EC%84%9C%EC%9A%B8/)
+- [경기 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EA%B2%BD%EA%B8%B0/)
+- [인천 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EC%9D%B8%EC%B2%9C/)
+- [강원 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EA%B0%95%EC%9B%90/)
+- [대전 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EB%8C%80%EC%A0%84/)
+- [세종 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EC%84%B8%EC%A2%85/)
+- [충북 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EC%B6%A9%EB%B6%81/)
+- [충남 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EC%B6%A9%EB%82%A8/)
+- [대구 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EB%8C%80%EA%B5%AC/)
+- [경북 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EA%B2%BD%EB%B6%81/)
+- [울산 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EC%9A%B8%EC%82%B0/)
+- [부산 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EB%B6%80%EC%82%B0/)
+- [경남 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EA%B2%BD%EB%82%A8/)
+- [광주 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EA%B4%91%EC%A3%BC/)
+- [전북 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EC%A0%84%EB%B6%81/)
+- [제주 지점](https://xn--jk1bu21awrcryv.com/%EC%A7%80%EC%A0%90%EC%95%88%EB%82%B4/%EC%A0%9C%EC%A3%BC/)
+
+## 프로그램 참고
+
+- https://www.wawacenter.com/brand/wawacenter
+- https://www.wawacenter.com/intro/coachingSystem
+- https://www.wawacenter.com/intro/AISystem
+
+자료 대조 및 내용 수정: 2026-09-23
+
+## 동네별 과목 안내
+
+371개 동네에 영어·수학 각 1개씩 총 742개의 안내가 있습니다. URL 구조는 `/지점안내/지역/지점명/동네명과목학원/`입니다. 학습 제안은 지점의 실제 수업 사례나 결과를 뜻하지 않습니다. 실제 수강 학년과 별도 제한은 각 페이지의 지점 자료를 우선 확인하세요.
+
+전체 목록은 사이트맵을 확인하고, 지점의 동네별 바로가기에서 찾아가세요. 같은 지점으로 연결되는 동네는 새로운 별도 사업장이 아닙니다.
+
+## 학년군별 과목 안내
+
+영어·수학 안내 아래에 초등·중등·고등 학습 안내 2,226개가 있습니다. 경로는 `/지점안내/지역/지점명/동네명과목학원/학년군/`이며 학년군은 초등, 중등, 고등입니다. 과목 페이지 FAQ 아래에서 찾아갈 수 있습니다.
+
+학습 방법은 상담 준비를 위한 제안이며 실제 지점의 수업 사례나 성과를 의미하지 않습니다. 수강 학년이 자료상 확인되지 않는 과정은 개설 안내로 해석하지 마세요. 주소·등록명·학년·교육비는 페이지의 지점 확인 자료를 우선합니다. 전체 경로는 사이트맵에 포함됩니다.
+
+## 페이지 안에서 찾기
+지점안내, 과목별학원, 전국학원 안내는 이미지 아래의 상세 목차로 학습 점검, 연습, 실제 지점 수강 조건, 학교 자료, 교육비, FAQ에 바로 이동할 수 있습니다. 학습 제안과 실제 운영 조건을 구분해 확인하세요.
