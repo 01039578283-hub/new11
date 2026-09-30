@@ -6,7 +6,8 @@ const site = process.argv[2];
 if(!/^wawa-\d{2}$/.test(site || '')) throw Error('A registered public site ID is required');
 const root=path.resolve(process.argv[3] || '.');
 const check=process.argv.includes('--check');
-const tag=`<script defer src="https://wawa-visit-collector.clean-peach-8202.chatgpt.site/tracker.js" data-site="${site}" crossorigin="anonymous" referrerpolicy="no-referrer"></script>`;
+const legacyTag=`<script defer src="https://wawa-visit-collector.clean-peach-8202.chatgpt.site/tracker.js" data-site="${site}" crossorigin="anonymous" referrerpolicy="no-referrer"></script>`;
+const tag=site==='wawa-12'?legacyTag.replace(' data-site="wawa-12"',' data-site="wawa-12" data-actions="contact"'):legacyTag;
 const skip=new Set(['node_modules','tools','scripts','tmp','temp','audit','audit-output','reports','backups','backup','source','src','drizzle','test','tests']);
 let documents=0, changed=0, present=0, skipped=0;
 const errors=[];
@@ -42,6 +43,13 @@ async function update(file) {
     documents++;
     const tags=html.match(/<script\b[^>]*wawa-visit-collector[^>]*>[\s\S]*?<\/script>/gi)||[];
     if(tags.length) {
+      if(tags.length===1 && tags[0]===legacyTag && legacyTag!==tag) {
+        const next=html.replace(legacyTag,tag);
+        if(next.replace(tag,'')!==html.replace(legacyTag,'')) throw Error('Content preservation failed');
+        if(!check) await fs.promises.writeFile(file,next,'utf8');
+        changed++;
+        return;
+      }
       if(tags.length!==1 || tags[0]!==tag) errors.push(`Unexpected tracker: ${path.relative(root,file)}`);
       else present++;
       return;

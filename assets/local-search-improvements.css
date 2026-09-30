@@ -1,0 +1,17 @@
+/* Local facts stay readable with or without JavaScript. */
+.rg-grade-table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #d5dfd0;border-radius:10px}
+.rg-grade-table{margin:0!important;min-width:280px}.rg-grade-table caption{text-align:left;padding:14px;font-weight:650;background:#f3f6ef}
+.rg-main .rg-grade-table th,.rg-main .rg-grade-table td{vertical-align:top}.rg-main .rg-grade-table th:first-child{width:68px}
+.rg-status{font-size:14px;font-weight:650;color:#1d5c43}.rg-status-pending{color:#775c2e}
+.rg-guide-link{padding:16px 20px;background:#f4f6ef;border-radius:10px;margin:24px 0}
+.rg-memo{padding:22px;background:#f1f6f0;border:1px solid #cbd8cf;border-radius:14px;margin-top:20px}
+.rg-memo label{display:block;font-weight:650;margin:10px 0}.rg-memo textarea{display:block;width:100%;box-sizing:border-box;resize:vertical;min-height:230px;padding:14px;border:1px solid #9eafa0;border-radius:8px;background:#fff;color:#243d2d;font:inherit;font-size:15px;line-height:1.8}
+.rg-memo button{font:inherit;cursor:pointer}.rg-memo [role=status]{min-height:24px;font-size:14px;margin:8px 0 0}
+.rg-stage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.rg-stage-card{padding:16px 20px;border:1px solid #d5dfd0;border-radius:10px;background:#fbfcf8}.rg-stage-card h3{margin-top:0}
+.od-operator-note{font-size:14px;line-height:1.9;max-width:840px}.od-operator-note a{font-weight:650}
+.od-local-finder{padding:26px;border:1px solid #cbd8cf;border-radius:16px;background:#f1f6f0;margin:28px 0}.od-local-finder h2{margin-top:0}.od-local-finder label{display:block;font-weight:650;margin:12px 0 8px}.od-local-finder form>div{display:flex;gap:10px}.od-local-finder input{min-width:0;flex:1;padding:13px;border:1px solid #9eafa0;border-radius:8px;font:inherit;background:#fff}.od-local-finder button{border:0;cursor:pointer;font:inherit}
+[data-verified-directory] .subject-local-grid a{gap:7px;padding:15px;text-align:left;min-height:112px;align-items:flex-start;justify-content:center}
+[data-verified-directory] .subject-local-grid small{line-height:1.7;font-size:13px}[data-verified-directory] .rg-directory-grade{font-weight:650;color:#1d5c43}
+.hub-grade-field{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0}.hub-grade-field select{padding:10px 14px;min-height:44px;border:1px solid #9eafa0;border-radius:8px;font:inherit;background:#fff}
+[data-verified-directory] [hidden]{display:none!important}
+@media(max-width:640px){.rg-stage-grid{grid-template-columns:1fr}.rg-memo{padding:16px}.od-local-finder{padding:20px}.od-local-finder form>div{flex-wrap:wrap}.od-local-finder input{flex-basis:100%;box-sizing:border-box}.od-local-finder button{width:100%;min-height:48px}.rg-grade-table-wrap{font-size:14px}.rg-memo .rg-actions .rg-button{flex-basis:100%}.od-operator-note{font-size:13px}}

@@ -1,0 +1,19 @@
+/* Home search, original worked examples and user-created consultation notes. */
+.od-home-hero .od-lead{margin-bottom:12px}.od-hero-purpose{font-size:15px;line-height:1.85;color:#52644f}
+.od-home-search{padding:20px;background:#f3f7ef;border:1px solid #cbd8cf;border-radius:14px;margin:22px 0}
+.od-home-search h2{font-size:18px;margin:0 0 14px}.od-home-search label{display:block;font-weight:650;font-size:14px;margin:0 0 7px}
+.od-home-search-fields{display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:12px}
+.od-home-search input,.od-home-search select,.od-builder-fields input,.od-builder-fields select{width:100%;box-sizing:border-box;min-width:0;min-height:46px;padding:11px 12px;border:1px solid #95a78d;border-radius:8px;background:#fff;color:#243d2d;font:inherit;font-size:15px}
+.od-home-search button{width:100%;border:0;cursor:pointer;font:inherit;margin-top:14px;min-height:48px}
+.od-home-search-note{font-size:13px;line-height:1.7;margin:10px 0 0;color:#52644f}
+.od-shortcuts{margin:28px 0 36px}.od-shortcuts h2{font-size:23px}.od-shortcut-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.od-shortcut-card{display:flex;flex-direction:column;gap:8px;padding:22px;border:1px solid #d5dfd0;border-radius:14px;background:#fbfcf8;text-decoration:none!important}.od-shortcut-card strong{font-size:17px}.od-shortcut-card span{font-size:14px;line-height:1.8;color:#52644f}
+.od-builder-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.od-builder-fields .od-builder-wide{grid-column:1/-1}.od-builder-fields label{margin:0 0 7px}.od-builder-fields p{margin:6px 0 0;font-size:13px}
+.od-builder-apply{font:inherit;border:1px solid #95a78d;background:#fff;color:#243d2d;border-radius:8px;padding:12px 16px;min-height:46px;cursor:pointer;margin:16px 0 8px}
+.rg-memo .rg-actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}.rg-memo .rg-button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 18px;border:1px solid #506a44;border-radius:8px;background:#506a44;color:#fff;text-decoration:none;font:inherit;cursor:pointer}.rg-memo .rg-note{font-size:14px;line-height:1.85}
+.od-worked-examples{max-width:920px}.od-worked-examples .od-answer{padding:20px;background:#f3f7ef;border-left:4px solid #506a44;line-height:1.85}
+.od-worked-example{padding:22px 0;border-top:1px solid #d5dfd0}.od-worked-example h3{font-size:21px}.od-example-equation{font-size:20px;font-weight:650;letter-spacing:.02em;overflow-wrap:anywhere}.od-worked-example ol{padding-left:24px;line-height:1.9}.od-example-question{padding:14px 18px;border:1px solid #d5dfd0;border-radius:10px;background:#fbfcf8}
+.od-example-note{font-size:14px;line-height:1.85;color:#52644f}.od-guide-link{padding:18px 22px;background:#f3f7ef;border-radius:12px;margin:20px 0;line-height:1.85}
+[data-memo-builder] [hidden]{display:none!important}
+@media(max-width:760px){.od-shortcut-grid{grid-template-columns:1fr}.od-shortcut-card{padding:18px}.od-home-hero figure{margin-top:12px}}
+@media(max-width:480px){.od-home-search{padding:16px}.od-home-search-fields{grid-template-columns:minmax(0,1fr) 94px;gap:9px}.od-builder-fields{grid-template-columns:1fr}.od-builder-fields .od-builder-wide{grid-column:auto}.od-home-search input,.od-home-search select{font-size:14px}.od-worked-example h3{font-size:19px}.od-example-equation{font-size:18px}.od-home-hero h1{font-size:clamp(29px,8.2vw,39px)}}
