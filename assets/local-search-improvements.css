@@ -15,3 +15,15 @@
 .hub-grade-field{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0}.hub-grade-field select{padding:10px 14px;min-height:44px;border:1px solid #9eafa0;border-radius:8px;font:inherit;background:#fff}
 [data-verified-directory] [hidden]{display:none!important}
 @media(max-width:640px){.rg-stage-grid{grid-template-columns:1fr}.rg-memo{padding:16px}.od-local-finder{padding:20px}.od-local-finder form>div{flex-wrap:wrap}.od-local-finder input{flex-basis:100%;box-sizing:border-box}.od-local-finder button{width:100%;min-height:48px}.rg-grade-table-wrap{font-size:14px}.rg-memo .rg-actions .rg-button{flex-basis:100%}.od-operator-note{font-size:13px}}
+
+/* Source conditions appear once, outside the subject's grade table. */
+.rg-condition-list{display:grid;gap:12px;list-style:none;padding:0!important;margin:18px 0}.rg-condition-list li{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:start;gap:16px;border:1px solid #d5dfd0;background:#fbfcf8;border-radius:10px;padding:17px 19px}.rg-main .rg-condition-list p{margin:0;line-height:1.85}.rg-condition-tag{display:inline-block;font-size:14px;font-weight:650;color:#1d5c43;line-height:1.65}.rg-condition-provider+.rg-condition-provider{margin-top:24px}.rg-condition-source{font-size:14px;line-height:1.9;color:#52644f}.rg-main .rg-condition-links{padding:14px 18px;background:#f3f7ef;border-radius:8px;line-height:1.85;margin-top:18px}
+@media(max-width:640px){.rg-condition-list li{grid-template-columns:1fr;gap:7px;padding:15px 16px}.rg-condition-tag{font-size:13px}.rg-main .rg-condition-list p{font-size:15px}}
+
+/* Keep the empty-result action usable at narrow viewport widths. */
+.hub-directory-search .hub-search-recovery{margin-top:12px;max-width:100%;min-height:44px;white-space:normal;text-align:left}
+.hub-directory-search .hub-search-recovery[hidden]{display:none!important}
+
+/* Evidence and intent links use the existing regional layout. */
+.rg-source-note{padding:16px 20px;margin:24px 0;border:1px solid #d5dfd0;border-radius:10px;background:#f7f9f3;line-height:1.85;font-size:14px;overflow-wrap:anywhere}.rg-source-note p{margin:8px 0}.rg-evidence-list{display:grid;gap:14px;margin:22px 0}.rg-evidence-list>div{border-bottom:1px solid #d5dfd0;padding:0 0 14px}.rg-evidence-list dt{font-weight:650;margin-bottom:5px}.rg-evidence-list dd{margin:0;line-height:1.85}.rg-source-date{font-size:14px;color:#52644f}.rg-intent-guide a,.rg-source-note a{font-weight:650}.rg-source-note a:focus-visible,.rg-intent-guide a:focus-visible{outline:3px solid #b8751a;outline-offset:3px}
+@media(max-width:640px){.rg-source-note{padding:14px 16px}.rg-evidence-list dd{font-size:15px}}

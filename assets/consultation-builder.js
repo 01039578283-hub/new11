@@ -8,6 +8,12 @@
     const status = root.querySelector('[role="status"]');
     if (!controls || !textarea || !sms || !status) continue;
     controls.hidden = false;
+    const requestedCenter = new URLSearchParams(location.search).get('center');
+    if (requestedCenter) {
+      const region = controls.querySelector('[data-memo-field="region"]');
+      region.value = requestedCenter.replace(/[\u0000-\u001f\u007f]/g, '').trim().slice(0, 120);
+      status.textContent = '링크의 희망 지점을 입력했습니다. 학년·과목을 확인하고 메모 만들기를 눌러 주세요.';
+    }
     const field = name => controls.querySelector(`[data-memo-field="${name}"]`).value.trim();
     controls.querySelector('[data-memo-apply]').addEventListener('click', () => {
       textarea.value = [
