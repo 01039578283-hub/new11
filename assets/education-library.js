@@ -40,7 +40,7 @@
       const terms = normalize(query.value).trim().split(/\s+/).filter(Boolean);
       let visible = 0;
       cards.forEach(c => {
-        const match = (!category.value || c.dataset.category === category.value) && (!type.value || c.dataset.type === type.value) && terms.every(t => normalize(c.dataset.search).includes(t));
+        const match = (!category.value || c.dataset.category === category.value) && (!type.value || (type.value === 'latest' ? c.dataset.batch === '20261006' : c.dataset.type === type.value)) && terms.every(t => normalize(c.dataset.search).includes(t));
         c.hidden = !match;
         if (match) visible++;
       });
