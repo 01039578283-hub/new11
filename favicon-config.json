@@ -1,0 +1,9 @@
+{
+  "domain": "온담학습.com",
+  "outputDirectory": ".public-release",
+  "previousBuildCommand": "node release-public-build.mjs && node wawa-analytics-build.mjs wawa-12 .public-release && node seo-descriptions.mjs --root=.public-release && node image-order-build.mjs && node readable-media-build.mjs",
+  "assets": {
+    "assets/site-favicon.png": "c4d923003eac9d6c2998aa68f4fe2c8c91dc21f55d4c03318cc53ef10ea04675",
+    "assets/site-apple-touch-icon.png": "5b550d6d84d33704678d581a8778e745d7d037a69ead6dcce8c357365b22fb27"
+  }
+}
