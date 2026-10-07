@@ -5107,24 +5107,33 @@
   },
   "lossless": {
     "/assets/education/reading-107.png": {
-      "src": "/assets/readable-media/d27d928f5ba2859db752-lossless.webp",
+      "src": "/assets/readable-media/5a19d553144062b91666-lossless.webp",
       "width": 3100,
       "height": 4100,
-      "bytes": 7501400,
+      "bytes": 7509496,
+      "rgbaExact": true,
       "originalBytes": 13051645,
       "pixelExact": true,
+      "pixelChannels": "RGBA",
+      "originalMode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
       "variants": [
         {
-          "src": "/assets/readable-media/7fc7d3b82641a833933d-1240w.webp",
+          "src": "/assets/readable-media/1bc7b7be6c89bc1a0d2c-1240w.webp",
           "width": 1240,
           "height": 1640,
-          "bytes": 1592094
+          "bytes": 1602776,
+          "rgbaExact": true
         },
         {
-          "src": "/assets/readable-media/0e188ff811270bdd2c77-2480w.webp",
+          "src": "/assets/readable-media/7f7eb2276fd4d7a687e7-2480w.webp",
           "width": 2480,
           "height": 3280,
-          "bytes": 5874658
+          "bytes": 5883672,
+          "rgbaExact": true
         }
       ]
     }
