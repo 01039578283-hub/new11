@@ -1,0 +1,5132 @@
+{
+  "images": {
+    "/assets/generated/site3-hero.webp": {
+      "width": 1672,
+      "height": 941
+    },
+    "/assets/education/reading-121.jpg": {
+      "width": 1008,
+      "height": 679
+    },
+    "/assets/education/reading-130.jpg": {
+      "width": 3840,
+      "height": 2561
+    },
+    "/assets/education/reading-169.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/brand-reference/planner-plan.png": {
+      "width": 83,
+      "height": 84
+    },
+    "/assets/brand-reference/coaching-class.png": {
+      "width": 626,
+      "height": 417
+    },
+    "/assets/brand-reference/student-explanation.png": {
+      "width": 125,
+      "height": 110
+    },
+    "/assets/hub-guide/classroom-desks.webp": {
+      "width": 500,
+      "height": 300
+    },
+    "/assets/hub-guide/classroom-study.webp": {
+      "width": 800,
+      "height": 600
+    },
+    "/assets/generated/site3-consult.webp": {
+      "width": 1448,
+      "height": 1086
+    },
+    "/assets/representative/rep-204.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/centers/common/local6839.webp": {
+      "width": 918,
+      "height": 16116
+    },
+    "/assets/ondam/map/627d1ef3e7532cf8c558.jpg": {
+      "width": 661,
+      "height": 1475
+    },
+    "/assets/representative/rep-294.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/8ab47cd0cf341e538ab3.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-307.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/42a3e5c7e285dfc7d2e9.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/ea4f4ca9ace7f4f37f0f.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/eb177493020fedbcfb1e.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-104.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/a40fb1c40db02525a91d.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/photos/902b70248d5b07873ce0.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/e4ee7a1afc92e1f5aed1.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/representative/rep-077.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/centers/common/seoul6839.webp": {
+      "width": 918,
+      "height": 16116
+    },
+    "/assets/ondam/map/26f40f57de703b9096c8.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/37f9c6013519c0cc2e72.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/dd8961e884f5a49c743a.webp": {
+      "width": 960,
+      "height": 737
+    },
+    "/assets/ondam/representative/e89c94f8463bfc674f93.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/5cfd53debd55f71f976e.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/3b7f03df0a2066bdcf7a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/c2d349be74cc42aec482.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-015.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/b416fbdb21c930c3439c.jpg": {
+      "width": 585,
+      "height": 691
+    },
+    "/assets/ondam/representative/02212b8961ccacedac78.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/map/5a87e08633a2fcc73721.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/357684ac354844e8443e.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/f476ffdfa45e2928d24a.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/representative/3abbeee89d2998d370c2.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/4f036399cf5cc8aae5b8.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/17a7e66efdb6d7adf4c1.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/a2ac69cd67a090fbdade.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-252.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/b005bde199d6cdc59ee2.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/63739ac99fb99dd84a01.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/9bb75fcd71b2873d2541.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/f8ac6e425c83108a52c5.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/37881fa22e889fe0922a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-347.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/map/cce382bf4f644d0bbba4.jpg": {
+      "width": 648,
+      "height": 1446
+    },
+    "/assets/ondam/photos/e7fa24839b6c26707f0f.webp": {
+      "width": 1200,
+      "height": 1200
+    },
+    "/assets/ondam/photos/ced42dfabbefc9e29dd7.webp": {
+      "width": 1200,
+      "height": 1200
+    },
+    "/assets/ondam/map/9468793d3009abfb7e28.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/1a61070a4319a13a67e0.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/e2df0ef9aeee9ea029cf.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/representative/a82b649abc2daa313bcb.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/456008e6a7f9c0b5ae0d.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/6039727dcbbcf2ebe82a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/7e938b8c20a2afc6f9bb.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-350.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/map/42944d1d36575991e9bb.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-238.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/4a6ead90d4e8a2e46af6.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/6fed7ac111ca8f10686c.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/6cfe1257550cc97fe5bb.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/12b1816b3c50aca81ae3.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/4a883fa5056a0b9a8c90.webp": {
+      "width": 792,
+      "height": 1200
+    },
+    "/assets/ondam/representative/01e391b16a9baa702849.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/93803e90f94b12c5075a.jpg": {
+      "width": 661,
+      "height": 1495
+    },
+    "/assets/ondam/representative/12f03d63e4a2aa900434.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/984d399018e129bb541b.jpg": {
+      "width": 590,
+      "height": 701
+    },
+    "/assets/ondam/photos/ac756c7abc73c3cdaf24.webp": {
+      "width": 1200,
+      "height": 942
+    },
+    "/assets/representative/rep-314.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/d8ae52ab79b0d7b7afe5.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/f639f2d25a933fb95485.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/c9d6ece31c7e96b07e40.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-006.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/63b19e4120a3723bcae6.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-190.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/52b91920e5646adc802c.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-280.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/8a2faf9c7accdf27344c.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/5931a3d97a0420eb11d4.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/201437e38d8f2309d90f.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/representative/rep-288.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/421dff9ca4f077f498c8.jpg": {
+      "width": 648,
+      "height": 2142
+    },
+    "/assets/ondam/photos/f72291901347ced86cdc.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/ad5f3accf2c8ca18b70e.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-168.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/a3157873116671e4493e.jpg": {
+      "width": 595,
+      "height": 689
+    },
+    "/assets/representative/rep-241.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/3c80bce16b15d31b2fd4.jpg": {
+      "width": 566,
+      "height": 2500
+    },
+    "/assets/ondam/photos/727fe7029a34bd3e18a4.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/ca31a383191563ac60d5.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-109.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c8593f5c5c3d7357f6f2.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/92c1ad2900ea833b7f3f.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/1f483a04c639ef2fb5de.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/representative/rep-206.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/279488b632679c296674.jpg": {
+      "width": 661,
+      "height": 716
+    },
+    "/assets/ondam/photos/b032558b918fcf267a75.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/8bd4d38c69a7eeabbd95.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/representative/rep-210.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/5fe6ddb1dedd36a53916.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-222.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/4c00085cd6107cd40bb4.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/c0ce96d5f95d1d5b0b48.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-365.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-098.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-357.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/3efb1125562b98a78c7b.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/e3e310fc4a6531ba20ad.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/2becdbcda069d7912c43.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/0928091811dc59dd0fb0.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/7411749bac0cbdb681e9.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/representative/rep-361.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/0cc660d6792aa814fa77.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/photos/28eca98a0342093f3e16.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/85b91372c4bef5a3cf2b.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/representative/rep-029.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c62195f22169cf5efd25.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/1cfde963a30964399983.webp": {
+      "width": 1200,
+      "height": 1053
+    },
+    "/assets/ondam/photos/14cbbc18f8183cceba55.webp": {
+      "width": 859,
+      "height": 1200
+    },
+    "/assets/representative/rep-267.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/map/61b028533f555840a9a9.jpg": {
+      "width": 661,
+      "height": 716
+    },
+    "/assets/ondam/representative/618fb56317c409a98417.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/03b5c1f8c91085fd8f67.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/019d5c671dceffe1d005.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/a0883edca0c1518fddb1.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/representative/3fcd84eaf43d048a3e31.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/875923e70a240a43f4be.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-261.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/1b5eee50031a1f21f32f.jpg": {
+      "width": 590,
+      "height": 701
+    },
+    "/assets/ondam/photos/6e6568e72dcefb024edb.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/cd64047ce7c56963cab0.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-027.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-153.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/beb44147c13c36038b51.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/750d64b9b2beab45efc9.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/c79f7bfe6ca8441f0be4.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-063.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/134a521b82830fac20a5.jpg": {
+      "width": 585,
+      "height": 691
+    },
+    "/assets/representative/rep-229.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/29ff89d1c6197e744258.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/e6e43cfc9a363af9651d.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/07879a65514c83f15eb1.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-362.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/4f993c8f96a05d368e05.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/47f3eeaef153ac427c5a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/cf4394370f153ff09ba8.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-284.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/efca8b1e5dab79012190.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-217.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/d1ec68527dbbc7f980b2.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-166.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/7ed3a9982911c4badc3b.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/492e548bf378f134c509.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/addb53aad3c5809f96fe.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/representative/rep-265.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/d8eba158bcea3d8da9b5.gif": {
+      "width": 648,
+      "height": 696
+    },
+    "/assets/ondam/photos/4784df7baf18e639e1e6.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/6897e25a4dcdddf8db9b.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-054.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/map/63e12bf7f3a99c3cce60.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-277.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/6a0320c878ed94402268.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/map/10895c1ca7a7bfdff0b6.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/39a0c7388601e660441a.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/ced2fe0081d6d9bae06c.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/31d9e18949532d21f137.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-334.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-199.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/b4f24b6b114f2e0b962e.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/map/87acbf47426ae69aeb39.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/ea30de389b59241c327b.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/de327d4174619c86421d.webp": {
+      "width": 941,
+      "height": 1200
+    },
+    "/assets/representative/rep-066.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/8f35f64794151e91b378.jpg": {
+      "width": 661,
+      "height": 710
+    },
+    "/assets/ondam/representative/0270e1cd879b4c700415.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/96f944a9cdc91640ce9f.png": {
+      "width": 595,
+      "height": 684
+    },
+    "/assets/ondam/photos/e7e7da705970a51380c3.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/4a21815ab563b43bdccc.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/representative/3686934926d6f09b4c9d.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-152.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/06ea15d507342c77768c.jpg": {
+      "width": 595,
+      "height": 689
+    },
+    "/assets/representative/rep-020.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/de3e986e3b35b16649c5.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-255.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/44ea7f5b92f94937efc5.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/6051ec63936997438ca0.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/ce305f1f8aac0b1a21b8.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-250.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-155.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/1ff6ada2e33830212511.jpg": {
+      "width": 648,
+      "height": 2162
+    },
+    "/assets/ondam/photos/ec0be2c55ee2817c1bec.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/f99c9f1079b3685e4974.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/representative/566bc490d0243982c4b2.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-348.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-200.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/d92ea3e6fb6e54507a78.jpg": {
+      "width": 648,
+      "height": 2094
+    },
+    "/assets/ondam/photos/32bcccd8a0a180905026.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/1da8f8d79ce4a3733633.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/map/5f0d9d22b3fdc58b8154.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/f90b47fb6fdb307537cb.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/a5f863cff69e3a51aead.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-149.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/df70c2bffef59ef00ec3.jpg": {
+      "width": 661,
+      "height": 716
+    },
+    "/assets/representative/rep-322.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-189.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/5078233e8727ad76de2e.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/photos/56e1dbd3da66a94c6185.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/f4c0ea7f8485000c2aff.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/representative/rep-067.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-227.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c54f5ee40154c15077a8.jpg": {
+      "width": 648,
+      "height": 1446
+    },
+    "/assets/representative/rep-245.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/map/48fb0e903f9b242c8132.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/ec0fdd6b279941350d4d.webp": {
+      "width": 1200,
+      "height": 560
+    },
+    "/assets/ondam/photos/a2a84a722f6ac3fab38d.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/representative/rep-124.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/102913560e4d28362bee.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/representative/rep-290.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-239.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/40da4f1495886e1a05b4.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/e25a71a3ce833adf5f29.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/44f8392ca3cbe29635f0.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/representative/e5298bba75d8e14fd42a.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/14c6e125a92bf5ad7eb3.jpg": {
+      "width": 590,
+      "height": 701
+    },
+    "/assets/ondam/photos/7ad05c1119a2d7b7dd0f.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/e9b78eabffd8d07a40e3.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/representative/rep-279.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c19a4024fbac767013e6.jpg": {
+      "width": 661,
+      "height": 1426
+    },
+    "/assets/ondam/photos/f42919002623a19ef5c9.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/53383017265127960f20.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/map/e1ef8abc011d3fb57601.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-040.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/d409be0adfff95713666.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/38fe47dcec332998f6e9.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/6deb395f9c17792586d9.webp": {
+      "width": 1200,
+      "height": 1200
+    },
+    "/assets/ondam/representative/3ddf36eb0e4baedaffec.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/03fd5b8f1ca8baf5be98.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/1ea17782172631eb23b8.webp": {
+      "width": 984,
+      "height": 1200
+    },
+    "/assets/ondam/photos/14fdef72d906fcbf5791.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/representative/a18782edbff9f05f54a3.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c71c40d450363d786681.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/46a22c2273a3cb899e9a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/06946d625f784bf84ab1.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/representative/417156b8534174293c71.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/d4f77fd3c6c55160db63.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/3c1d4246ddfac2ca2550.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/841d8433d184175f0b96.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-018.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/f8935e6a115a9368a0a3.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/f5ca061298a2d8095ac1.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/a8a6330f231898db179b.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-111.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/d7c4f5fdf4788a659265.jpg": {
+      "width": 661,
+      "height": 710
+    },
+    "/assets/representative/rep-044.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/d19f5119b4ec7c469303.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-069.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/b9355f5b215f0112b3de.jpg": {
+      "width": 648,
+      "height": 2162
+    },
+    "/assets/ondam/photos/9f09ce4b0154d2f67a4d.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/36cfa4f11f30c4cb5111.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-287.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/a69ad19823ea556d8ae1.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-136.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-220.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/249ec54af3b7528ceba9.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-308.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/b2794c055bae7ecf11cc.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/e44ef3056d36276451ac.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/965976dafd08bdcdd7b0.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/representative/rep-086.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/87dab7b23a7c49b2930d.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-135.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/32e0a240eb223e8a2209.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/10851828ed11256e63dc.webp": {
+      "width": 826,
+      "height": 1200
+    },
+    "/assets/ondam/photos/bcbc86e48567f8735840.webp": {
+      "width": 828,
+      "height": 1200
+    },
+    "/assets/representative/rep-031.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-339.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/f0a394058b72d41631b8.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/photos/fbecab972994eef4325a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/0dffb978a18057ee6102.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/map/8461e479d6cfc47e377b.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/9ef9d9cbc3bd63eea354.webp": {
+      "width": 1200,
+      "height": 1189
+    },
+    "/assets/ondam/photos/001b6060e616a3fa6d07.webp": {
+      "width": 1200,
+      "height": 708
+    },
+    "/assets/ondam/representative/adb81391d8018c973d1a.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/921f05543cd0d0fbe825.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-100.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/430828315164b76cf54f.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/a9ab6705f9d7fae7380b.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c7524e4a846a7ab84752.jpg": {
+      "width": 552,
+      "height": 2500
+    },
+    "/assets/ondam/photos/f718bf4c50efd17a7fdc.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/d8bb5070d004fee7cba8.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/representative/89f5125120442e580b0d.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/4dc88e3a32d797cb8f84.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/representative/rep-154.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/736ed4de3ccdb6711747.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-304.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/62acab2bd5535f5cc314.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/0e8445254f4b77cf368f.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/4e1f24ec9b8de19f39ac.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/representative/4e6686d74978cb96796f.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-259.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/7d2fda9edeed911e3eba.jpg": {
+      "width": 585,
+      "height": 691
+    },
+    "/assets/representative/rep-330.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-051.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-269.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-305.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/2beeafd6bedea3305f0b.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/map/49822015270a9892f6ea.jpg": {
+      "width": 648,
+      "height": 2235
+    },
+    "/assets/ondam/photos/e79a794eb69e73c7a9b8.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/31b34fbcba0e088877b5.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/representative/rep-001.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/2b5819250b908a46303b.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/6709cf9a5c9e781a0736.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/706fb2a835d5b155077f.jpg": {
+      "width": 661,
+      "height": 2280
+    },
+    "/assets/ondam/photos/43c486696fd1a5b28226.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/5788a874692b0b3a7d57.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-144.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-002.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/0d2deec77ea7c4ad2fe9.jpg": {
+      "width": 648,
+      "height": 1466
+    },
+    "/assets/ondam/representative/c4118dd3f29c9ab6bdb2.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-062.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/7e940d946b85b356b7b1.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/04e1291ed507e3de5ddf.webp": {
+      "width": 1200,
+      "height": 676
+    },
+    "/assets/ondam/photos/31c9ba64af7d878fe686.webp": {
+      "width": 1200,
+      "height": 676
+    },
+    "/assets/ondam/representative/b698f727bfaa93ff7e76.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-197.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/06f99e12b8b8e60b787d.jpg": {
+      "width": 578,
+      "height": 687
+    },
+    "/assets/representative/rep-228.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/65d3efeea0ea47c24d98.jpg": {
+      "width": 585,
+      "height": 691
+    },
+    "/assets/representative/rep-169.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/42e98717d07ce1d5734f.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/233f4fd636ab30f74e33.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c2fefbbd66ca9ed39abe.jpg": {
+      "width": 595,
+      "height": 689
+    },
+    "/assets/representative/rep-297.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/a2b07fb05ab0cbd82f8f.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/10b96bbea876a1c28e7b.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/4e3cfb4d23e2641654b7.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/representative/f6e7b089252463201ea1.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/385e49b5c6c73b81b3e5.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/2d24c63d7460bd8137e3.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/photos/53470e6f4af3db9b0395.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/698813300645b66a03f7.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/representative/d42207e9a43f5d0d7b24.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/a64fd3642683d2972dea.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/67457391623731e46688.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/5d651ab7fe61a35dfccf.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/626b62f8a20618c1f377.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/b9a42ffff4126a8295bb.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/representative/rep-352.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-281.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/3fb5512b19b2792b12af.jpg": {
+      "width": 552,
+      "height": 2500
+    },
+    "/assets/representative/rep-046.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-110.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-026.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/e35e41d20b33a5ea212c.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/f9ea24d006f0ad57a0a4.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/81cc75ae5edd22685147.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-115.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/7e5031d5de60fb815bd1.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-356.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-266.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-191.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-042.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/0df39aa52ad37dc0672f.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/b3221e3feac8e80da4d7.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/25cd5e101bde0d890c9e.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/representative/b040f843122c086d5631.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/a9aa4f7257156d96bda7.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-184.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/5e4aaade4ac969d8ae3c.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/c2742031a5f4f32a7686.webp": {
+      "width": 1200,
+      "height": 1200
+    },
+    "/assets/ondam/photos/33d4ceedc12363ea60c2.webp": {
+      "width": 1200,
+      "height": 1200
+    },
+    "/assets/ondam/representative/d41b1afdc4d4bf1856b1.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/representative/8ff84e6a12363d2b1f60.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-203.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/85bfce80515ecf2d71fb.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/2af3fd51cae19e0186e5.webp": {
+      "width": 1200,
+      "height": 901
+    },
+    "/assets/ondam/photos/9d853ecaae2a9453bb17.webp": {
+      "width": 1200,
+      "height": 901
+    },
+    "/assets/representative/rep-019.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c292891eac9c61cd2c5f.jpg": {
+      "width": 648,
+      "height": 1466
+    },
+    "/assets/ondam/photos/a0aa07cfc2f22d3faaa0.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/6ecc6d9b22b8f04c1bf6.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-112.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-004.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/2ca67e010ce0a05b3572.jpg": {
+      "width": 648,
+      "height": 696
+    },
+    "/assets/ondam/photos/8edb6b944d1cfd156c70.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/f9852a2c1b81645b1904.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-208.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/2b1ab1d2c469020ae8dd.jpg": {
+      "width": 661,
+      "height": 716
+    },
+    "/assets/representative/rep-346.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/bd069d6460b1dec0e922.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/photos/b42b6b94ac1eb4a09d5b.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/a31903f1b75d10492ca2.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/representative/b89e430b032dc99c7a4f.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/29533cd0e264ace8aaaa.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c2b8d600a5f1c027129d.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/5b961232e57587122837.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/efd1329cd5d6fed904c5.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/representative/b36602e9e180d3f8e78c.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/bfb68ca32051a1337c03.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/map/2c1e919cd2c22e0c666f.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/781fdc1f7c06e64582dc.webp": {
+      "width": 800,
+      "height": 1200
+    },
+    "/assets/ondam/photos/52e5770b17fae51f74aa.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/map/7eae5bf9de72efc3abe5.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/bc94811ac5c2e554279e.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/27a163b0f65f035f0085.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-008.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/1472caedaf36db0a73b1.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/895dc7cdd867a1d63edf.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/6725132d17f62bee61d9.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/representative/66e5a2fa2ebf330bf1ff.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/7bfb85a0b5f7cf5a1394.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/map/9d986fb8d1b567c59cf5.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/0d15158da9e1d326d6b0.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/dbc22e18a94e395bfe2e.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-041.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-292.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/727fcd9149e592d3aaae.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/representative/6921e2dc7ab06eade282.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/20ea34d4bea51b316fdf.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/b67020eee44a90728795.jpg": {
+      "width": 578,
+      "height": 687
+    },
+    "/assets/representative/rep-364.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-173.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-263.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/cf7c58f9cf52c6a6ca47.jpg": {
+      "width": 595,
+      "height": 689
+    },
+    "/assets/ondam/photos/2a55aa06868b46be4f64.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/57eed81d90e920276384.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/representative/47378e4e130c14483982.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/cca7b5b9d0c13ab224a9.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-162.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/cade0cd66cfa0863a506.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-329.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-061.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-048.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/04aa7c64a316392f2484.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/14d63ad74bc2a12556e4.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-187.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/bce13de9480b979cf79b.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/photos/86650c3429ab5e89387f.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/a59a42ab37e2ae381d27.webp": {
+      "width": 1183,
+      "height": 1200
+    },
+    "/assets/representative/rep-072.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/b898bdebad1fe7648249.jpg": {
+      "width": 661,
+      "height": 716
+    },
+    "/assets/representative/rep-299.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/948f7231338be168da60.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/1623a93d3c56ef4a342c.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-036.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/0683e10aad1bdca87b11.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/8083476ff645f32c1268.jpg": {
+      "width": 578,
+      "height": 687
+    },
+    "/assets/ondam/map/4b4c5ba665c3cdbfb4da.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/representative/298a55631f4a34d8eb61.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/4586ed1704299ccbdf9a.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/74945e4244d66fbd4c8e.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-363.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-131.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/8d5deb25b267adffde04.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/1f69046beb3553015a60.webp": {
+      "width": 1200,
+      "height": 1063
+    },
+    "/assets/ondam/photos/0bb182dc05ca88a5c79a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-138.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/efbec12ad5e6443b030c.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/9fc27660139282adb065.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-320.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-312.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-009.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/f6b5672ff0a63d13a994.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-032.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-045.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/2f99b8443020daf76e44.jpg": {
+      "width": 661,
+      "height": 716
+    },
+    "/assets/ondam/map/3c08a9c002390e4f2f97.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-366.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-127.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/representative/7133589a82dfc0325eef.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/a68c532560b5bb5cb8d4.jpg": {
+      "width": 648,
+      "height": 1466
+    },
+    "/assets/ondam/photos/b6bc5b929295ee9a0621.webp": {
+      "width": 939,
+      "height": 1200
+    },
+    "/assets/ondam/photos/cf59ca9ea5bd7f564568.webp": {
+      "width": 881,
+      "height": 1200
+    },
+    "/assets/ondam/representative/ab9d3eb84e334be83e37.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-316.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/representative/a75ea4f8555e9ca85610.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/3aeae0aa0d692d12cb3c.jpg": {
+      "width": 648,
+      "height": 1471
+    },
+    "/assets/representative/rep-358.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/fae24460fadeff96cb8c.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/representative/rep-188.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-326.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/310b0d5a95e966692af7.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-005.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/e68ef8ca6ac7a0e6771e.jpg": {
+      "width": 648,
+      "height": 2162
+    },
+    "/assets/ondam/photos/f8a1f19cf4ca4a33bb1b.webp": {
+      "width": 960,
+      "height": 721
+    },
+    "/assets/ondam/photos/17d0db2820c5b52e931b.webp": {
+      "width": 960,
+      "height": 723
+    },
+    "/assets/representative/rep-253.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c545880c1eab02ec9ef4.jpg": {
+      "width": 661,
+      "height": 716
+    },
+    "/assets/ondam/photos/4255d5b2058312397d90.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/1613e89d0eeafdcbf33c.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/representative/rep-178.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-013.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/map/1b46cba4768a41c1c4ff.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-236.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-097.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-034.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-260.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-175.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/0241a33026f951fc8dab.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/ab140969fdfa137a89d3.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/01cf3ebc45069e25150a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/59e976a856a0040ddd8a.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/map/763d4a9472feef4300c3.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-094.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c5e7f2d6a326fc2d29cb.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-225.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/80f6af5bdeadf589852b.jpg": {
+      "width": 661,
+      "height": 716
+    },
+    "/assets/representative/rep-172.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/0aeceef20d348ff1d5fd.jpg": {
+      "width": 648,
+      "height": 2142
+    },
+    "/assets/ondam/photos/328dd684ff3470c5f938.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/1cbaa66dc1a75fbf0fb8.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-102.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/caa4fcc580ab2299e251.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-039.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/969d9d737f7b4d3a73df.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/38ad5ce5e133da9413b2.webp": {
+      "width": 1200,
+      "height": 871
+    },
+    "/assets/ondam/photos/73094dd4a79f4c46e93c.webp": {
+      "width": 1158,
+      "height": 1200
+    },
+    "/assets/representative/rep-180.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/4a132bc05abe7d2bf702.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/fd73533eaed047dc07c6.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/representative/b2f7190aebeba2bed4d3.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/30c2dc8de00d66f00a31.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/39b62c39b3262002991e.jpg": {
+      "width": 661,
+      "height": 716
+    },
+    "/assets/ondam/photos/c5832437a3ae1ad2b6e1.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/2118fb386e639d63d60b.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-014.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-159.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/photos/217b7c2424b7f61d9cbb.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/1380dd267c7d715e7e74.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/representative/69ccf046069eb1dc7708.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/07d39df98bfcdef442ad.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/7ec945663e211b5bd7b5.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/6c6ab1e73ed16c6857fc.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-291.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-268.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/6865e5759457f7287a9f.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/8a8d085eb2844000f118.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/24278cc0dcf2a1c7b5b2.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-231.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-295.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-209.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/c49219b1c81e4302af3d.jpg": {
+      "width": 648,
+      "height": 2162
+    },
+    "/assets/representative/rep-234.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/b6a098829a69df8a81d3.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/129e03c32deed776eabd.jpg": {
+      "width": 661,
+      "height": 716
+    },
+    "/assets/ondam/photos/83b3168407717ee16ad2.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/2d18ca0859f0f5ca5f7c.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-053.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-117.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-257.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-343.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/map/02018ad2bbc23810ed06.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/representative/af604aaf8ba23d92a0a4.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/466ee83e06cb737680ff.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/79db21aedc99c7255304.webp": {
+      "width": 1200,
+      "height": 1127
+    },
+    "/assets/ondam/photos/a41b4abcc8faeeb39602.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/representative/rep-060.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/representative/f3dcf8296e104c4fb3b1.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-148.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-081.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/05deb16c5235cf6840bd.jpg": {
+      "width": 590,
+      "height": 701
+    },
+    "/assets/ondam/photos/563ddded31f5c1f9b492.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/0257ff3b527370dcd3e5.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/representative/rep-088.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-024.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/de8bad8f101661d860f5.jpg": {
+      "width": 585,
+      "height": 691
+    },
+    "/assets/representative/rep-369.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/008b99c79130ed8f9660.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/58f3e9d2ee5cd06e4a73.jpg": {
+      "width": 595,
+      "height": 689
+    },
+    "/assets/ondam/photos/a1fa5105c265c31f01f9.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/3b8cd421dd0552b02af4.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-068.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/adb6901f9ea55c95a2d3.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-243.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/ac617cf628617af3d891.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/3510ef55f4a73795cd64.webp": {
+      "width": 960,
+      "height": 720
+    },
+    "/assets/ondam/photos/b3b86da301fe9987dda5.webp": {
+      "width": 960,
+      "height": 720
+    },
+    "/assets/representative/rep-033.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-258.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-221.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/5e9f3a541682893deecb.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-101.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-212.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/1fc88847ca77dd4bbc6a.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/f7a0a46040bac25020a1.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/2fd1fca7a01f7e01664f.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/representative/rep-093.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/886600eafdaeea043c35.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/031db9a049445073df1b.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-211.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-134.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-160.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-219.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-328.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/87096fa729d622b4d118.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/e16d1d064df87d99aed7.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/970da9be4a006a8de004.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/representative/rep-186.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/6102c78cdcdf64582b08.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-107.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/ffc71bca8482efdc4a9f.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/map/9bfbc0bb6205a47007f1.jpg": {
+      "width": 595,
+      "height": 689
+    },
+    "/assets/representative/rep-125.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/8e5a5b4a4da03cafd52f.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-075.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/88ff4e6b67d212e52572.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/1d96f818701cf058d20a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/b174fdb935c709acf523.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/map/92a59e9c86baeb68f4ff.jpg": {
+      "width": 585,
+      "height": 691
+    },
+    "/assets/ondam/map/02a2f04c831e3a352984.jpg": {
+      "width": 648,
+      "height": 1471
+    },
+    "/assets/representative/rep-113.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/aaeaf4d51f3908e55900.jpg": {
+      "width": 590,
+      "height": 701
+    },
+    "/assets/ondam/photos/1bd7d574cc5d97dbe293.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/9da476118567be4a81d5.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-240.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/a8e29a44a29e4b7452a2.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/photos/b9747a87fb0bbd4fe16c.webp": {
+      "width": 1200,
+      "height": 1200
+    },
+    "/assets/ondam/photos/899f42f663246558631c.webp": {
+      "width": 1200,
+      "height": 1200
+    },
+    "/assets/representative/rep-126.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-143.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-344.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-056.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-351.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/6ff94361ac307c17965a.jpg": {
+      "width": 648,
+      "height": 1471
+    },
+    "/assets/ondam/photos/2f8b49f59a059b7919e0.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/79a1d474a221e88f9f9b.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/representative/rep-177.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/bb3dcdfb82944281267f.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-202.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/2076047177e85f64e11e.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-123.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/13ff4f2009bbad4bba92.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/representative/a306e49773f750f61ada.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/374c3a238e9c5b0eeed0.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/representative/rep-338.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-256.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-262.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/225f9d6b8938d064c224.jpg": {
+      "width": 590,
+      "height": 696
+    },
+    "/assets/ondam/representative/996a7fe7b4db71ac7ae2.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/map/f0aec34852d38445d3d4.jpg": {
+      "width": 648,
+      "height": 1398
+    },
+    "/assets/ondam/representative/66c26b3861aee50873e6.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-235.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/0ac6f2efad7cd9c72797.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/c0753aadf84ebc605874.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/a5770f1cde2b5facda15.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-298.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-371.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-336.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-030.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/976257596f621444a90c.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-150.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/398abe460b69e1e5ccde.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/1f1486864c6e4c44d070.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/48a005f4ab3042f4c886.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-325.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/representative/7002a5a65f5f78350c57.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-176.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/670d18842d66fca8f9dd.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-244.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/63260c9eec999c3ad9f9.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/83b54e067bc594dbf30e.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/a9af75f6f5c38b7adf09.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/9ff38e7d23c9faf883a5.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-003.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-216.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/ea1305fd1c0266cf5d88.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-080.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/bdcc7106137bb59495e3.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-106.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-205.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-195.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-276.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-318.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-223.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-145.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/643818703df9e4fb892b.jpg": {
+      "width": 648,
+      "height": 2094
+    },
+    "/assets/representative/rep-118.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/c04c870ba0b6727cbc00.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-130.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/de6f43786232eeef11ec.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-355.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-247.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-201.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-246.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-074.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/52454adfc885d7b8f7ce.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-089.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-368.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-309.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-285.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-092.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-359.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-052.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-133.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-331.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-010.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-171.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-182.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-163.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-122.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-129.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/a6f2fc49bc81d1bfcda4.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-119.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/c729fc9f7aaa09bfe926.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-345.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-207.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/86c5e4074ab501102ff0.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-327.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/43ecf821bde1d18a5ab5.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-249.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-090.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-084.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-141.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-058.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-078.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/b65d2c2fab42a52ab00b.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-310.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-324.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-264.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-340.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/69f006d41745f1036bc7.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-076.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/b288086d353da1a3853a.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/ee0ab5621a8227ca3053.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-230.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-354.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/9b2665af032efae076e8.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-025.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-064.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-161.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-137.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-248.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-317.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-242.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-028.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-035.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-079.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-367.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-311.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-272.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-335.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/5c690bef7222c50cef95.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/b1eee77b2e474a7a0f4f.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/9ff2ca809547b40becd5.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-158.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-218.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/9b2042065da89fb4614d.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-353.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-273.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-087.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-105.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-226.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-128.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-333.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-224.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/map/38712068657418f30d16.jpg": {
+      "width": 648,
+      "height": 702
+    },
+    "/assets/ondam/photos/0b806c2c00cc09d1acd5.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/c93c25d57acccf98d4ef.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/representative/0bc062c98c49a55ff00f.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-103.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-099.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/cf9468a3b8640892996b.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-057.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-023.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-059.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-037.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-315.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-303.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-174.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-108.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-120.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-301.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-055.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-165.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-313.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/ed2da2f42dabab9ed1dd.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-349.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-139.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-337.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-360.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-275.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-096.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-254.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-083.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-142.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-073.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/67f02fc5b7362d4273ef.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-319.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/30b00869f62bc6518f92.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-012.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-016.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-047.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/7ae333d4c35dbd8a0189.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/f6afe02c0667f231a3f7.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-233.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/7a0e7167f1fc6e9b1a9a.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/25a830ea7b7a15136de3.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-140.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-306.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-232.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-215.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-196.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/d69d0cb503cee7e880fe.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/representative/2112f328317c8c200c8c.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-049.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-082.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-194.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-114.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/08700915f30d6aa632e7.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/fd2532bd271e0ba7ba9c.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-007.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/b1cd79cb3b65171e8692.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/c7ed3ce7eaa30b6e82a2.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-296.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-156.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-302.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-286.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-282.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-183.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-021.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/0caf7a7c2635199ac53f.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-167.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/08146da54ed621bd448b.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/fac17ffef22fc403e977.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-170.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-011.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-283.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-147.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-342.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-192.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/fc46d62adea28f6f27cc.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-323.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/d9ff3d14dd31590cf3c5.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-132.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-146.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-164.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-038.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-300.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-251.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/23763c3291b7be77d593.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-278.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/representative/01262893b5de94a8637f.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-198.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-271.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/d0f384b509a8b70499fb.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-274.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-185.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-181.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-270.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-289.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-213.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-332.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-293.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/437328d670be92ca3762.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-157.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/ef91eab2afa05008c674.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-237.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/5658a3dfcb5c83a4bd02.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/7e3561b4c8e3b77210a9.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-071.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/a346098dbbfff34658db.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-050.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-091.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-193.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/97b20877e7d802325d54.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-022.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-116.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-370.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-017.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/a2a8e0fe12c6ae9e7f09.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/de8d6b4e5097a6c51a61.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-341.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/ad6b1a9750681492fcfc.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/ondam/representative/923af0c267e8d14440c1.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/ef32c83f184e46d04f30.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-070.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-179.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/e30414164bdf0a94da05.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-095.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-085.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-065.jpg": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/representative/rep-043.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-214.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/645a51bbddd43c4df924.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-151.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/6d555876e8c36faf2ef4.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-121.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/representative/rep-321.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/representative/24a971863fd3a6042c1a.gif": {
+      "width": 511,
+      "height": 511
+    },
+    "/assets/ondam/official/system_05.png": {
+      "width": 620,
+      "height": 423
+    },
+    "/assets/ondam/official/ais_eng_img02.png": {
+      "width": 365,
+      "height": 215
+    },
+    "/assets/ondam/official/ais_math_content02.png": {
+      "width": 589,
+      "height": 418
+    },
+    "/assets/ondam/body/34d4703f529e6700fdda.webp": {
+      "width": 918,
+      "height": 16116
+    },
+    "/assets/ondam/photos/46625b85e046d283b950.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/0a85700ee861ba241541.webp": {
+      "width": 669,
+      "height": 960
+    },
+    "/assets/ondam/photos/5b465fd641b132f11841.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/d4ee8431660d5aea9c8e.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/9ec3dc98cd2af22cf89c.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/29977edac1d0928688d1.webp": {
+      "width": 1200,
+      "height": 847
+    },
+    "/assets/ondam/photos/aaf373ffc693e2d9f203.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/70adf8ed3d2b8230f145.webp": {
+      "width": 1200,
+      "height": 583
+    },
+    "/assets/ondam/photos/535bc6baa7b2b30ed31a.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/ad7830245519ad735553.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/9d072d16ad7e5da2b6e5.webp": {
+      "width": 909,
+      "height": 1200
+    },
+    "/assets/ondam/photos/4be651849991b46ad1b9.webp": {
+      "width": 889,
+      "height": 1200
+    },
+    "/assets/ondam/photos/58cc9230244951e23183.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/859ca5bee346af434449.webp": {
+      "width": 1200,
+      "height": 829
+    },
+    "/assets/ondam/photos/6fe39917201b048f808d.webp": {
+      "width": 1200,
+      "height": 572
+    },
+    "/assets/ondam/photos/abca6ba06a995bdb496d.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/map/aa6d84de95cda876b3ce.jpg": {
+      "width": 590,
+      "height": 696
+    },
+    "/assets/ondam/photos/ad5797c5a53f80dae30b.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/2ea029c7353c493772f4.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/286fb713ea50966327b7.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/055658d3afa0a7e58c21.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/26683a6b439b29148989.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/9cc836f8f7322fc7ec98.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/9a94429f27c802a6d68b.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/e3243ce67458803098dc.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/3b5bf0e8e3767c42fbcc.webp": {
+      "width": 1130,
+      "height": 887
+    },
+    "/assets/ondam/photos/d44d98f3891509f3c35d.webp": {
+      "width": 960,
+      "height": 720
+    },
+    "/assets/ondam/photos/d2a42f9d0df90e5f323c.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/3d2fdae4e3013f410851.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/ef77df578b9ac51d4e48.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/cb6a3179cf608b7862ed.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/96a601ae29643722029f.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/d334f42d21d019a326c7.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/body/b8f10c493c1986db0ee2.webp": {
+      "width": 918,
+      "height": 16116
+    },
+    "/assets/ondam/photos/5a3de5e1d6b7f44ccc82.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/2acc06e1631629b7db3f.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/bcd6093407a8cf358615.webp": {
+      "width": 1200,
+      "height": 676
+    },
+    "/assets/ondam/photos/9df5455e3a4a4dc7ff7b.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/e3493d0ff799c1d2d414.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/511345147526eac03c43.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/95d71265c72ba6603d96.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/2db3d93385e481ced343.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/bd4045d7613afe24b4a6.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/29d944faa62621b3cdb3.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/8bf57cc76ed9ab24b711.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/00056d7d90703b79bf31.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/92f6e420f732d13417b4.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/6ff7d160c138c79c4f92.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/cc3bc7d6ff09160467ef.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/c2a062770f4428d801e5.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/ad6896a90371eacb0819.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/17eee9d322598b180179.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/5f0dd0c52797da036c6c.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/142d314c056441ac5a06.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/dec715ee700256b3cd65.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/3ca18e47b7f8d28638ad.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/102046b55f73b046c8ba.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/c64a26ff27f2cfe47adf.webp": {
+      "width": 1200,
+      "height": 676
+    },
+    "/assets/ondam/photos/c25a28c4961f2587f7a1.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/1f7fc44d841c54acbcef.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/c52472548d5b3f7065bc.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/8d04a603ca777e9101b0.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/7baf7bbf184c9f0c0dc8.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/66959a7469702d17125b.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/a722ca795dfbfecc98f2.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/9e53b8c704989bab2ca3.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/map/5ddde558fa03d7e51cec.jpg": {
+      "width": 590,
+      "height": 696
+    },
+    "/assets/ondam/photos/fd67fc3df174ad6ca841.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/fe583674ff5145fc9c0f.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/0560e62371c05b58cba2.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/fda7f22b93f6be083e2e.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/d89e925a8b3375e7d998.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/87bc6fc5c04c7bc72df7.webp": {
+      "width": 1200,
+      "height": 554
+    },
+    "/assets/ondam/photos/9c4ebea524be1bfbc942.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/739c8dd7b5fe043fdab4.webp": {
+      "width": 1200,
+      "height": 561
+    },
+    "/assets/ondam/photos/9fb7d8edbae7c16c6df5.webp": {
+      "width": 1200,
+      "height": 676
+    },
+    "/assets/ondam/photos/1ae21da604d305ba28e7.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/c7f83e91885188d9bbb8.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/7815f6a6860171a681ab.webp": {
+      "width": 1200,
+      "height": 560
+    },
+    "/assets/ondam/photos/fb782a41ffddbb8309b5.webp": {
+      "width": 1200,
+      "height": 568
+    },
+    "/assets/ondam/photos/d59ccd88d8ad58ea65b4.webp": {
+      "width": 1200,
+      "height": 568
+    },
+    "/assets/ondam/photos/054e3c88937067993a3c.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/d111a44e9c9cbf24ec80.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/3d8e0ecc4164f2036a9c.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/2ea3578e90a6eb8aed55.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/0ca403807cdddb268936.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/7445be661c1af33426db.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/266771f358b76ea7a10a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/51bba25e6a356fa96da3.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/6a2e07af1f0d319e9651.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/33c7cbb7edd355a602f5.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/a39fabc5bda124542cc5.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/0a13d310f1465cf17751.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/f0c11ac51b6cc1604fea.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/d214ffa23595b0bbf4a5.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/3ddb10586b4f1d17c648.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/681421b90bc344b152ee.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/b77a2b8ca36c32436931.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/41bbd4ef4a23460492c6.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/map/7812e097997421528d46.png": {
+      "width": 595,
+      "height": 684
+    },
+    "/assets/ondam/photos/9d6ce6c8cbdd0ec6a354.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/192e230fb7fa0fbf2d0a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/cc045d37b2ed0fe191d5.webp": {
+      "width": 1200,
+      "height": 676
+    },
+    "/assets/ondam/photos/a4c75b459529bfbed294.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/edcf0971361766f847af.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/8204a62d804c1f9ff3ff.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/f5776e9ec3983701017a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/2b9167b41914c13c22ae.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/f95f2ed5c17f6dc89e1d.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/1a7ff1d5fb9aa35e3dfc.webp": {
+      "width": 899,
+      "height": 1200
+    },
+    "/assets/ondam/photos/f14723ee1934d2f175aa.webp": {
+      "width": 960,
+      "height": 721
+    },
+    "/assets/ondam/photos/f493164fd1a9220245e3.webp": {
+      "width": 899,
+      "height": 1200
+    },
+    "/assets/ondam/photos/c7d78b7373553f085637.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/80f0a8fc8cb65647bd89.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/map/36fe41ed20a636861b85.jpg": {
+      "width": 661,
+      "height": 710
+    },
+    "/assets/ondam/photos/9c7e6a355c27a6a37bac.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/318bf01b9e6015439076.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/e4c063bf4cb5a1cd4475.webp": {
+      "width": 1200,
+      "height": 901
+    },
+    "/assets/ondam/photos/c11662bcc1bfd01ce219.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/e1053c695ed9ba55ca09.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/85e88619a66dfce788cb.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/bec7b5c5b92212dc48e4.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/23dee7bd37893d768185.webp": {
+      "width": 1200,
+      "height": 910
+    },
+    "/assets/ondam/photos/503ee13793816694468f.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/ae1b42900146d27741bc.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/54f19ff65155bd599514.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/4802c32e6c4ada858d84.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/830cb4e2e5abbd514351.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/acabb1e6b655cefa5e49.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/b5791e983bdceb950bbd.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/14ba67bad9d5963b6186.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/e2fa00e3985ec0db266a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/240b1e79bfd386e79c6b.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/d0214d67a8aa4132c682.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/bb0bffbef91b4ba9c3a3.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/354add515bcc9c0c807c.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/c1916919cce934fa6790.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/72891d1696ee0cb6f252.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/927e0420c02f973a752b.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/2ad78029322983912963.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/6f70b79973fc5f08cddd.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/871ecf1a86a7ca1df6ae.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/55329b3802a09620d9dc.webp": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/ondam/photos/5ff3b81100019e75ef59.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/41f700c74b573aaf2ba8.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/cad7a813fe04404fd073.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/3309037b8145fdee0f68.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/9c5784ae01349eca085c.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/082247759047acdaf635.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/856d98bf780ffd146793.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/a105926e1814a430c3b5.webp": {
+      "width": 792,
+      "height": 520
+    },
+    "/assets/ondam/photos/ecf4d81824cdb02e82fe.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/54ed1c07d2d937f6cfdb.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/c7dfe93a79a20d851b5c.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/2745a6b3698f09a9a988.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/c8a3b1b6464a6781c6d1.webp": {
+      "width": 631,
+      "height": 474
+    },
+    "/assets/ondam/photos/c44c504d08d3258d39c6.webp": {
+      "width": 960,
+      "height": 720
+    },
+    "/assets/ondam/photos/4fdbd6bc784dd1d8582c.webp": {
+      "width": 960,
+      "height": 720
+    },
+    "/assets/ondam/photos/9e95a4170d0a768b7919.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/15c1c191678273aeb29a.webp": {
+      "width": 1200,
+      "height": 848
+    },
+    "/assets/ondam/photos/45b4eaaf1f171c1bb07f.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/33068577c3d6cd574be5.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/4a338bcc07d47f6e7839.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/8fb7a92b7bf9a29372e4.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/39aae624d252c925877f.webp": {
+      "width": 1200,
+      "height": 901
+    },
+    "/assets/ondam/photos/bbf88e9fea34492d2d13.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/ab6b74c5c9bd0615f8a7.webp": {
+      "width": 844,
+      "height": 1125
+    },
+    "/assets/ondam/photos/677ec6e4343f8957ca79.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/51b3e44a5becbed38404.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/3d351ec1d38897e2a91e.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/f77c83e632317b5666d5.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/71f81b3aa3942ab7d0de.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/f84ff42dcc352231f52c.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/7f16646583ea3ded8b40.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/a25989fc5d2f1df7ab5f.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/14a24567554515bee66f.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/2856e57dd2aec885a5a6.webp": {
+      "width": 1200,
+      "height": 675
+    },
+    "/assets/ondam/photos/8a442d91f136b996066e.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/233a86ca74055e97e4c7.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/9954030cfae5a18aee0a.webp": {
+      "width": 1200,
+      "height": 863
+    },
+    "/assets/ondam/photos/f51874601070dfa2b7dd.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/09fccdd91a7a6c68c11a.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/b0fac43ca5e0f13c178e.webp": {
+      "width": 1200,
+      "height": 1200
+    },
+    "/assets/ondam/photos/8cb3baecd79703a97403.webp": {
+      "width": 1200,
+      "height": 1200
+    },
+    "/assets/ondam/photos/aee1b820a007ffd19559.webp": {
+      "width": 1200,
+      "height": 561
+    },
+    "/assets/ondam/photos/c71d996c2e535f41fbae.webp": {
+      "width": 1200,
+      "height": 561
+    },
+    "/assets/ondam/photos/614453c8acf8566140be.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/19a28e12fc575c53db7e.webp": {
+      "width": 900,
+      "height": 1200
+    },
+    "/assets/ondam/photos/d947c13b20e37b1fdba4.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/79d453bd5b065f3f1afa.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/c0164a5141b21896d08e.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/ondam/photos/233d8c792387148d2aec.webp": {
+      "width": 1200,
+      "height": 900
+    },
+    "/assets/teachers/portrait-11.png": {
+      "width": 170,
+      "height": 279
+    },
+    "/assets/teachers/portrait-12.png": {
+      "width": 171,
+      "height": 279
+    },
+    "/assets/teachers/portrait-05.png": {
+      "width": 170,
+      "height": 280
+    },
+    "/assets/teachers/portrait-07.png": {
+      "width": 171,
+      "height": 279
+    },
+    "/assets/teachers/portrait-08.png": {
+      "width": 170,
+      "height": 279
+    },
+    "/assets/teachers/portrait-10.png": {
+      "width": 171,
+      "height": 279
+    },
+    "/assets/teachers/portrait-02.png": {
+      "width": 170,
+      "height": 280
+    },
+    "/assets/teachers/portrait-03.png": {
+      "width": 171,
+      "height": 280
+    },
+    "/assets/teachers/portrait-04.png": {
+      "width": 171,
+      "height": 280
+    },
+    "/assets/teachers/portrait-01.png": {
+      "width": 171,
+      "height": 280
+    },
+    "/assets/education/reading-139.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-094.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-097.jpg": {
+      "width": 1006,
+      "height": 679
+    },
+    "/assets/education/reading-100.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-103.jpg": {
+      "width": 1006,
+      "height": 675
+    },
+    "/assets/education/reading-106.jpg": {
+      "width": 3840,
+      "height": 2563
+    },
+    "/assets/education/reading-109.jpg": {
+      "width": 1879,
+      "height": 1255
+    },
+    "/assets/education/reading-112.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-115.jpg": {
+      "width": 3840,
+      "height": 2565
+    },
+    "/assets/education/reading-118.jpg": {
+      "width": 3840,
+      "height": 2563
+    },
+    "/assets/education/reading-124.jpg": {
+      "width": 3840,
+      "height": 2557
+    },
+    "/assets/education/reading-127.jpg": {
+      "width": 3840,
+      "height": 2561
+    },
+    "/assets/education/reading-133.jpg": {
+      "width": 1208,
+      "height": 808
+    },
+    "/assets/education/reading-136.jpg": {
+      "width": 996,
+      "height": 665
+    },
+    "/assets/education/reading-091.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-142.jpg": {
+      "width": 3840,
+      "height": 2560
+    },
+    "/assets/education/reading-145.jpg": {
+      "width": 3750,
+      "height": 2500
+    },
+    "/assets/education/reading-148.jpg": {
+      "width": 3840,
+      "height": 2563
+    },
+    "/assets/education/reading-151.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-154.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-157.jpg": {
+      "width": 3464,
+      "height": 2312
+    },
+    "/assets/education/reading-160.jpg": {
+      "width": 832,
+      "height": 1232
+    },
+    "/assets/education/reading-163.jpg": {
+      "width": 1030,
+      "height": 745
+    },
+    "/assets/education/reading-166.jpg": {
+      "width": 3840,
+      "height": 2563
+    },
+    "/assets/education/reading-172.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-175.jpg": {
+      "width": 1008,
+      "height": 674
+    },
+    "/assets/education/reading-178.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-001.jpg": {
+      "width": 1008,
+      "height": 631
+    },
+    "/assets/education/reading-002.jpg": {
+      "width": 841,
+      "height": 579
+    },
+    "/assets/education/reading-003.jpg": {
+      "width": 3840,
+      "height": 2581
+    },
+    "/assets/education/reading-004.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-005.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-006.jpg": {
+      "width": 3840,
+      "height": 2563
+    },
+    "/assets/education/reading-007.jpg": {
+      "width": 1000,
+      "height": 662
+    },
+    "/assets/education/reading-008.jpg": {
+      "width": 1001,
+      "height": 674
+    },
+    "/assets/education/reading-009.jpg": {
+      "width": 3840,
+      "height": 2560
+    },
+    "/assets/education/reading-010.jpg": {
+      "width": 1878,
+      "height": 1255
+    },
+    "/assets/education/reading-011.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-012.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-013.jpg": {
+      "width": 999,
+      "height": 669
+    },
+    "/assets/education/reading-014.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-015.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-016.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-017.jpg": {
+      "width": 3840,
+      "height": 2560
+    },
+    "/assets/education/reading-018.png": {
+      "width": 752,
+      "height": 499
+    },
+    "/assets/education/reading-019.jpg": {
+      "width": 1026,
+      "height": 692
+    },
+    "/assets/education/reading-020.jpg": {
+      "width": 1208,
+      "height": 808
+    },
+    "/assets/education/reading-021.jpg": {
+      "width": 850,
+      "height": 568
+    },
+    "/assets/education/reading-022.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-023.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-024.jpg": {
+      "width": 3840,
+      "height": 2666
+    },
+    "/assets/education/reading-025.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-026.jpg": {
+      "width": 850,
+      "height": 569
+    },
+    "/assets/education/reading-027.jpg": {
+      "width": 1000,
+      "height": 726
+    },
+    "/assets/education/reading-028.jpg": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/education/reading-029.jpg": {
+      "width": 837,
+      "height": 561
+    },
+    "/assets/education/reading-030.jpg": {
+      "width": 1006,
+      "height": 658
+    },
+    "/assets/education/reading-031.jpg": {
+      "width": 1039,
+      "height": 1040
+    },
+    "/assets/education/reading-061.jpg": {
+      "width": 3840,
+      "height": 2561
+    },
+    "/assets/education/reading-032.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-062.jpg": {
+      "width": 1208,
+      "height": 808
+    },
+    "/assets/education/reading-033.jpg": {
+      "width": 842,
+      "height": 557
+    },
+    "/assets/education/reading-063.jpg": {
+      "width": 1010,
+      "height": 677
+    },
+    "/assets/education/reading-034.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-064.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-035.jpg": {
+      "width": 850,
+      "height": 567
+    },
+    "/assets/education/reading-065.jpg": {
+      "width": 1232,
+      "height": 832
+    },
+    "/assets/education/reading-036.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-066.jpg": {
+      "width": 834,
+      "height": 585
+    },
+    "/assets/education/reading-037.jpg": {
+      "width": 1452,
+      "height": 1255
+    },
+    "/assets/education/reading-067.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-038.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-068.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-039.jpg": {
+      "width": 1010,
+      "height": 677
+    },
+    "/assets/education/reading-069.jpg": {
+      "width": 1879,
+      "height": 1255
+    },
+    "/assets/education/reading-040.jpg": {
+      "width": 1883,
+      "height": 1255
+    },
+    "/assets/education/reading-070.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-041.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-071.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-042.jpg": {
+      "width": 1010,
+      "height": 677
+    },
+    "/assets/education/reading-072.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-043.jpg": {
+      "width": 400,
+      "height": 396
+    },
+    "/assets/education/reading-073.jpg": {
+      "width": 1232,
+      "height": 832
+    },
+    "/assets/education/reading-044.jpg": {
+      "width": 1232,
+      "height": 832
+    },
+    "/assets/education/reading-074.jpg": {
+      "width": 1879,
+      "height": 1255
+    },
+    "/assets/education/reading-045.jpg": {
+      "width": 1232,
+      "height": 809
+    },
+    "/assets/education/reading-075.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-046.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-076.jpg": {
+      "width": 3840,
+      "height": 2563
+    },
+    "/assets/education/reading-047.jpg": {
+      "width": 1232,
+      "height": 828
+    },
+    "/assets/education/reading-077.jpg": {
+      "width": 1232,
+      "height": 832
+    },
+    "/assets/education/reading-048.jpg": {
+      "width": 3840,
+      "height": 2495
+    },
+    "/assets/education/reading-078.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-049.jpg": {
+      "width": 1208,
+      "height": 808
+    },
+    "/assets/education/reading-079.png": {
+      "width": 700,
+      "height": 700
+    },
+    "/assets/education/reading-050.jpg": {
+      "width": 842,
+      "height": 556
+    },
+    "/assets/education/reading-080.jpg": {
+      "width": 1754,
+      "height": 1255
+    },
+    "/assets/education/reading-051.jpg": {
+      "width": 1232,
+      "height": 832
+    },
+    "/assets/education/reading-081.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-052.jpg": {
+      "width": 850,
+      "height": 569
+    },
+    "/assets/education/reading-082.jpg": {
+      "width": 1878,
+      "height": 1255
+    },
+    "/assets/education/reading-053.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-083.jpg": {
+      "width": 1026,
+      "height": 669
+    },
+    "/assets/education/reading-054.jpg": {
+      "width": 1208,
+      "height": 808
+    },
+    "/assets/education/reading-084.jpg": {
+      "width": 3840,
+      "height": 2529
+    },
+    "/assets/education/reading-055.jpg": {
+      "width": 3840,
+      "height": 2563
+    },
+    "/assets/education/reading-085.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-056.jpg": {
+      "width": 850,
+      "height": 569
+    },
+    "/assets/education/reading-086.jpg": {
+      "width": 3840,
+      "height": 2561
+    },
+    "/assets/education/reading-057.jpg": {
+      "width": 998,
+      "height": 672
+    },
+    "/assets/education/reading-087.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-058.jpg": {
+      "width": 837,
+      "height": 1263
+    },
+    "/assets/education/reading-088.jpg": {
+      "width": 1232,
+      "height": 832
+    },
+    "/assets/education/reading-059.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-089.jpg": {
+      "width": 1878,
+      "height": 1255
+    },
+    "/assets/education/reading-060.jpg": {
+      "width": 1002,
+      "height": 662
+    },
+    "/assets/education/reading-090.jpg": {
+      "width": 1232,
+      "height": 832
+    },
+    "/assets/education/reading-092.jpg": {
+      "width": 3840,
+      "height": 2561
+    },
+    "/assets/education/reading-093.jpg": {
+      "width": 837,
+      "height": 563
+    },
+    "/assets/education/reading-095.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-096.jpg": {
+      "width": 1232,
+      "height": 832
+    },
+    "/assets/education/reading-098.jpg": {
+      "width": 1208,
+      "height": 808
+    },
+    "/assets/education/reading-099.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-101.jpg": {
+      "width": 1000,
+      "height": 750
+    },
+    "/assets/education/reading-102.jpg": {
+      "width": 3840,
+      "height": 2655
+    },
+    "/assets/education/reading-104.jpg": {
+      "width": 3840,
+      "height": 2641
+    },
+    "/assets/education/reading-105.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-107.png": {
+      "width": 3100,
+      "height": 4100
+    },
+    "/assets/education/reading-108.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-110.jpg": {
+      "width": 841,
+      "height": 560
+    },
+    "/assets/education/reading-111.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-113.jpg": {
+      "width": 1208,
+      "height": 808
+    },
+    "/assets/education/reading-114.jpg": {
+      "width": 996,
+      "height": 667
+    },
+    "/assets/education/reading-116.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-117.jpg": {
+      "width": 1000,
+      "height": 665
+    },
+    "/assets/education/reading-119.jpg": {
+      "width": 1001,
+      "height": 665
+    },
+    "/assets/education/reading-120.jpg": {
+      "width": 833,
+      "height": 558
+    },
+    "/assets/education/reading-122.jpg": {
+      "width": 1030,
+      "height": 745
+    },
+    "/assets/education/reading-123.jpg": {
+      "width": 1879,
+      "height": 1255
+    },
+    "/assets/education/reading-125.jpg": {
+      "width": 1232,
+      "height": 832
+    },
+    "/assets/education/reading-126.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-128.jpg": {
+      "width": 1879,
+      "height": 1255
+    },
+    "/assets/education/reading-129.jpg": {
+      "width": 3840,
+      "height": 2563
+    },
+    "/assets/education/reading-131.jpg": {
+      "width": 3840,
+      "height": 2547
+    },
+    "/assets/education/reading-132.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-134.jpg": {
+      "width": 1004,
+      "height": 665
+    },
+    "/assets/education/reading-135.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-137.jpg": {
+      "width": 1000,
+      "height": 666
+    },
+    "/assets/education/reading-138.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-140.jpg": {
+      "width": 3840,
+      "height": 2562
+    },
+    "/assets/education/reading-141.jpg": {
+      "width": 3840,
+      "height": 2560
+    },
+    "/assets/education/reading-143.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-144.jpg": {
+      "width": 1878,
+      "height": 1255
+    },
+    "/assets/education/reading-146.jpg": {
+      "width": 3840,
+      "height": 2744
+    },
+    "/assets/education/reading-147.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-149.jpg": {
+      "width": 841,
+      "height": 562
+    },
+    "/assets/education/reading-150.jpg": {
+      "width": 1232,
+      "height": 832
+    },
+    "/assets/education/reading-152.jpg": {
+      "width": 842,
+      "height": 602
+    },
+    "/assets/education/reading-153.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-155.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-156.jpg": {
+      "width": 3840,
+      "height": 2742
+    },
+    "/assets/education/reading-158.jpg": {
+      "width": 999,
+      "height": 668
+    },
+    "/assets/education/reading-159.jpg": {
+      "width": 1008,
+      "height": 695
+    },
+    "/assets/education/reading-161.jpg": {
+      "width": 3840,
+      "height": 2561
+    },
+    "/assets/education/reading-162.jpg": {
+      "width": 1028,
+      "height": 695
+    },
+    "/assets/education/reading-164.jpg": {
+      "width": 1003,
+      "height": 559
+    },
+    "/assets/education/reading-165.jpg": {
+      "width": 1200,
+      "height": 830
+    },
+    "/assets/education/reading-167.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-168.jpg": {
+      "width": 1008,
+      "height": 675
+    },
+    "/assets/education/reading-170.jpg": {
+      "width": 1200,
+      "height": 800
+    },
+    "/assets/education/reading-171.jpg": {
+      "width": 1210,
+      "height": 840
+    },
+    "/assets/education/reading-173.jpg": {
+      "width": 3840,
+      "height": 2560
+    },
+    "/assets/education/reading-174.jpg": {
+      "width": 3840,
+      "height": 2565
+    },
+    "/assets/education/reading-176.jpg": {
+      "width": 3840,
+      "height": 2561
+    },
+    "/assets/education/reading-177.jpg": {
+      "width": 1400,
+      "height": 1050
+    },
+    "/assets/education/reading-179.jpg": {
+      "width": 1000,
+      "height": 667
+    },
+    "/assets/education/reading-180.jpg": {
+      "width": 3840,
+      "height": 2152
+    }
+  },
+  "lossless": {
+    "/assets/education/reading-107.png": {
+      "src": "/assets/readable-media/d27d928f5ba2859db752-lossless.webp",
+      "width": 3100,
+      "height": 4100,
+      "bytes": 7501400,
+      "originalBytes": 13051645,
+      "pixelExact": true,
+      "variants": [
+        {
+          "src": "/assets/readable-media/7fc7d3b82641a833933d-1240w.webp",
+          "width": 1240,
+          "height": 1640,
+          "bytes": 1592094
+        },
+        {
+          "src": "/assets/readable-media/0e188ff811270bdd2c77-2480w.webp",
+          "width": 2480,
+          "height": 3280,
+          "bytes": 5874658
+        }
+      ]
+    }
+  }
+}
