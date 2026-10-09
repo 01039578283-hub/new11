@@ -13,7 +13,8 @@ const attribute=(tag,key,value)=>{
  const re=new RegExp('\\s'+key+'(?:\\s*=\\s*(?:"[^"]*"|\'[^\']*\'|[^\\s>]+))?','i');
  return re.test(tag)?tag.replace(re,' '+key+'="'+esc(value)+'"'):tag.replace(/\s*\/?>$/,' '+key+'="'+esc(value)+'">');
 };
-export function applyBranchThumbnail(source,name){
+export function applyBranchThumbnail(source,name,settings=config){
+ const config=settings;
  const row=config.entries[name];if(!row)return {html:source,removedHidden:0,changed:false};
  const nodes=parseHTML(source),main=nodes.find(n=>n.tag==='main'),head=nodes.find(n=>n.tag==='head');
  if(!main||!head)throw Error('Missing document structure '+name);

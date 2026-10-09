@@ -13,7 +13,7 @@
       "permanent": true
     }
   ],
-  "buildCommand": "node branch-thumbnail-build.mjs",
+  "buildCommand": "node shared-thumbnail-build.mjs",
   "outputDirectory": ".public-release",
   "headers": [
     {
