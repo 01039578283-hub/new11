@@ -93,7 +93,7 @@
       "permanent": true
     }
   ],
-  "buildCommand": "node kakao-directions-build.mjs",
+  "buildCommand": "node answer-quality-build.mjs",
   "outputDirectory": ".public-release",
   "headers": [
     {
