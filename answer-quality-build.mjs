@@ -22,9 +22,21 @@ export function applyAnswerQuality(source,name){const row=config.pages[name];if(
  for(const n of nodes.filter(n=>n.tag==='time'&&dateParents.includes(n.parent))){const after='<time datetime="'+config.date+'">'+config.date+'</time>';if(source.slice(n.start,n.end)!==after)edits.push({start:n.start,end:n.end,value:after});}
  edits.sort((a,b)=>b.start-a.start);let html=source,last=source.length;for(const e of edits){if(e.end>last)throw Error('Overlapping answer targets '+name);html=html.slice(0,e.start)+e.value+html.slice(e.end);last=e.start;}return html;
 }
+export async function syncRss(file=path.join(output,'rss.xml')){
+ const before=await fs.promises.readFile(file,'utf8'),matches=[...before.matchAll(/<item\b[^>]*>[\s\S]*?<\/item>/g)];if(matches.length!==config.rssRevision.items)throw Error('Unreviewed RSS item count');let after=before;
+ const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+ for(const match of [...matches].reverse()){
+  const link=match[0].match(/<link>([^<]+)<\/link>/)?.[1];if(!link)throw Error('RSS link missing');const url=new URL(link.replaceAll('&amp;','&'));if(url.origin!=='https://xn--jk1bu21awrcryv.com')throw Error('RSS foreign origin');const pathname=decodeURIComponent(url.pathname),name=pathname==='/'?'index.html':pathname.slice(1)+'index.html';if(!config.rssRevision.paths.includes(pathname))throw Error('Unreviewed RSS page '+pathname);
+  const source=await fs.promises.readFile(path.join(output,name),'utf8'),nodes=parseHTML(source).filter(n=>n.tag==='main');if(nodes.length!==1)throw Error('RSS main missing '+name);let body=source.slice(nodes[0].start,nodes[0].end);
+  body=body.replace(/(\s)(href|src|poster)=(["'])(.*?)\3/g,(full,space,key,q,value)=>value.startsWith('#')||(value.startsWith('/')&&!value.startsWith('//'))?space+key+'='+q+new URL(value,url).href+q:full);
+  const descriptions=[...match[0].matchAll(/<description>[\s\S]*?<\/description>/g)];if(descriptions.length!==1)throw Error('RSS description missing');const block=match[0].replace(descriptions[0][0],'<description>'+escape(body)+'</description>');after=after.slice(0,match.index)+block+after.slice(match.index+match[0].length);
+ }
+ const tag='<lastBuildDate>'+config.rssRevision.updatedAt+'</lastBuildDate>';if(/<lastBuildDate>[^<]*<\/lastBuildDate>/.test(after))after=after.replace(/<lastBuildDate>[^<]*<\/lastBuildDate>/,tag);else after=after.replace('</language>','</language>\n    '+tag);
+ if(Buffer.byteLength(after)>10_000_000)throw Error('RSS exceeds Naver size limit');if(after!==before)await fs.promises.writeFile(file,after);return{items:matches.length,changed:after!==before,bytes:Buffer.byteLength(after)};
+}
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  if(!process.argv.includes('--apply-only')){if(config.previousBuildCommand!=='node kakao-directions-build.mjs')throw Error('Unexpected previous pipeline');const p=spawnSync(process.execPath,['kakao-directions-build.mjs'],{cwd:root,stdio:'inherit'});if(p.error)throw p.error;if(p.status!==0)process.exit(p.status??1);}
  let cursor=0,changed=0;const names=Object.keys(config.pages);await Promise.all(Array.from({length:12},async()=>{while(cursor<names.length){const name=names[cursor++],file=path.join(output,name),before=await fs.promises.readFile(file,'utf8'),after=applyAnswerQuality(before,name);if(before!==after){await fs.promises.writeFile(file,after);changed++;}}}));
  const sitemap=path.join(output,'sitemap.xml'),before=await fs.promises.readFile(sitemap,'utf8'),selected=new Set(Object.values(config.pages).map(r=>r.path));let matched=0;const after=before.replace(/<url>[\s\S]*?<\/url>/g,block=>{const u=block.match(/<loc>(.*?)<\/loc>/)?.[1];if(u&&selected.has(decodeURIComponent(new URL(u).pathname))){matched++;return block.replace(/<lastmod>[^<]*<\/lastmod>/,'<lastmod>'+config.date+'</lastmod>');}return block;});if(matched!==names.length)throw Error('Sitemap answer coverage');if(after!==before)await fs.promises.writeFile(sitemap,after);
- console.log(JSON.stringify({answerQualityPages:names.length,changed,sourceGradesPreserved:true,originalImagesAndUrlsPreserved:true}));
+ const rss=await syncRss();console.log(JSON.stringify({answerQualityPages:names.length,changed,rss,sourceGradesPreserved:true,originalImagesAndUrlsPreserved:true}));
 }
