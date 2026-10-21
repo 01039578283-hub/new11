@@ -131,6 +131,15 @@
           "value": "noindex, follow"
         }
       ]
+    },
+    {
+      "source": "/assets/answer-quality-ae494ba604cd.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }
